@@ -28,33 +28,40 @@ void    integer_handler(int nb)
     ft_putstr(ft_itoa(nb));
 }
 
+void    string_handler(char *str)
+{
+    printf("%s\n", str);
+    ft_putstr(str);
+}
+
 int ft_printf(const char *format, ...)
 {
-    int i;
-    char letter;
     const char *ptr;
-
 
     ptr = format;
     va_list args;
     va_start (args, format);
-
-    i = 0;
+    //printf("%s", va_arg(args, char*));
     while (*ptr != '\0')
     {
-        //letter = format[i];
         if (*ptr != '%')
         {
             ft_putchar(*ptr);
             ptr++;
-            //i++;
             continue;
         }
         //dispatch_tabe(*++ptr);
-        if (*++ptr == 'd')
+        //if (*++ptr == 'd')
+        if (*ptr + 1 == 'd')
         {
             integer_handler(va_arg(args, int));
         }
+        else if (*ptr + 1 == 's')
+        {
+            printf("here");
+            printf("%s", va_arg(args, char*));
+        }
+            //string_handler(va_arg(args, char*));
         ptr++;
     }
     return (0);

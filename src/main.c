@@ -35,10 +35,18 @@ int	main(void)
 	//printf("|%+5d|\n", 42);
 	//printf("|%+5d|\n", -42);
 
-	int nb = 42;
-	printf("|Hello world %d|\n", nb);
-	ft_printf("|Hello world %d|\n", nb);
+	/* %d */
+	//int nb = 42;
+	//printf("|Hello world %d|\n", nb);
+	//ft_printf("|Hello world %d|\n", nb);
+//
+	//printf("|Hello world %d, this is test!|\n", nb);
+	//ft_printf("|Hello world %d, this is test!|\n", nb);
 
+	/* %s */
+	char *str = "This is a String!";
+	ft_printf("|Hive %s|\n", str);
+	//printf("|Hive %s|\n", str);
 	/* PANIC */
 	//printf("%02147483646d", 1);
 
