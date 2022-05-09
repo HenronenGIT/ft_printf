@@ -12,7 +12,11 @@
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+<<<<<<< HEAD
 # define BUFF_SIZE 1000
+=======
+# define BUFF_SIZE 4
+>>>>>>> 82fae2b8fda9093dbedad3f2ca2a95ec3d90337c
 # define MAX_FD 4096
 # define FD_DONT_EXIST -1
 # define L_FOUND 1
