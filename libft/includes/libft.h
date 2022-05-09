@@ -12,17 +12,11 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-<<<<<<< HEAD
 
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "get_next_line.h"
-=======
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
->>>>>>> 82fae2b8fda9093dbedad3f2ca2a95ec3d90337c
 
 typedef struct s_list
 {
