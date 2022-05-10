@@ -19,6 +19,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+typedef struct s_flags
+{
+    int space;
+
+} t_flags;
+
 int     ft_printf(const char *format, ...);
 
 

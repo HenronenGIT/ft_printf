@@ -30,8 +30,20 @@ void    integer_handler(int nb)
 
 void    string_handler(char *str)
 {
-    printf("%s\n", str);
     ft_putstr(str);
+}
+
+void    pointer_handler(void *ptr)
+{
+    
+    printf("%p\n",  ptr);
+}
+
+void    check_flag(const char **str)
+{
+    // Go trough string until no flag anymore.
+    while (*str )
+    printf("%s\n", *str);
 }
 
 int ft_printf(const char *format, ...)
@@ -41,7 +53,6 @@ int ft_printf(const char *format, ...)
     ptr = format;
     va_list args;
     va_start (args, format);
-    //printf("%s", va_arg(args, char*));
     while (*ptr != '\0')
     {
         if (*ptr != '%')
@@ -51,17 +62,24 @@ int ft_printf(const char *format, ...)
             continue;
         }
         //dispatch_tabe(*++ptr);
-        //if (*++ptr == 'd')
-        if (*ptr + 1 == 'd')
+        ptr++; /* Might need error checking what comes after % */
+        if (*ptr == 'd')
         {
             integer_handler(va_arg(args, int));
         }
-        else if (*ptr + 1 == 's')
+        else if (*ptr == 's')
         {
-            printf("here");
-            printf("%s", va_arg(args, char*));
+            string_handler(va_arg(args, char*));
         }
-            //string_handler(va_arg(args, char*));
+        else if (*ptr == 'p')
+        {
+            pointer_handler(va_arg(args, void*));
+        }
+        else /* If after % is flag */
+        {
+            check_flag(&ptr);
+
+        }
         ptr++;
     }
     return (0);
