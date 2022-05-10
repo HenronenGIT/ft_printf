@@ -12,47 +12,60 @@
 
 #include "ft_printf.h"
 
-//void    read_specifiers(char ch)
-//{
-//    if ()
-
-//void    dispatch_table(char ch)
-//{
-//    void (*handler[]()) = {decimal, string};
-//    
-//
-//}
-
-void    integer_handler(int nb)
+t_flags    *count_format_width(const char *str, t_flags *tab)
 {
-    ft_putstr(ft_itoa(nb));
+    printf("in count width:%s\n", str);
+    return (tab);
 }
 
-void    string_handler(char *str)
+/* Check which flags exists */
+t_flags    *check_format(const char *str, t_flags *tab)
 {
-    ft_putstr(str);
+    //printf("check format func:%s\n", str);
+    // Could make function is_conversion to make cleaner.
+        //|| *str != 'i' || *str != 'o' || *str != 'u' || *str != 'x'
+        //|| *str != 'X')
+    while (*str != 'c')// || *str != 's' || *str != 'p' || *str != 'd'
+    {
+        if (*str == '0')
+        {
+            tab->zero = 1;
+            break;
+        }
+        str++;
+    }
+    if (*str == 'c')
+    {
+        c_handler(tab);
+    }
+    //printf("str:%c\n", *str);
+    //str++;
+    //count_format_width(str, tab);
+    return (tab);
 }
 
-void    pointer_handler(void *ptr)
+t_flags *init_tab(t_flags *tab)
 {
-    
-    printf("%p\n",  ptr);
-}
+    tab->zero = 0;
+    tab->hash = 0;
+    tab->width = 0;
 
-void    check_flag(const char **str)
-{
-    // Go trough string until no flag anymore.
-    while (*str )
-    printf("%s\n", *str);
+    return (tab);
 }
 
 int ft_printf(const char *format, ...)
 {
     const char *ptr;
+    t_flags *tab;
+    //va_list args;
+    //va_start (args, format);
 
+    tab = (t_flags *)malloc(sizeof(t_flags));
+    if (!tab)
+        return (-1);
+    init_tab(tab);
+    va_start(tab->args, format);
     ptr = format;
-    va_list args;
-    va_start (args, format);
     while (*ptr != '\0')
     {
         if (*ptr != '%')
@@ -61,25 +74,26 @@ int ft_printf(const char *format, ...)
             ptr++;
             continue;
         }
-        //dispatch_tabe(*++ptr);
-        ptr++; /* Might need error checking what comes after % */
-        if (*ptr == 'd')
+        else
         {
-            integer_handler(va_arg(args, int));
+            ptr++;
+            check_format(ptr, tab);
         }
-        else if (*ptr == 's')
-        {
-            string_handler(va_arg(args, char*));
-        }
-        else if (*ptr == 'p')
-        {
-            pointer_handler(va_arg(args, void*));
-        }
-        else /* If after % is flag */
-        {
-            check_flag(&ptr);
+    //    //dispatch_tabe(*++ptr);
+    //    ptr++; /* Might need error checking what comes after % */
+    //    if (*ptr == 'd')
+    //        d_handler(va_arg(args, int));
+    //   // else if (*ptr == ' i')
+    //   //     i_handler(va_arg(args, ));
+    //    else if (*ptr == 's')
+    //        string_handler(va_arg(args, char*));
+    //    else if (*ptr == 'p')
+    //        pointer_handler(va_arg(args, void*));
+    //    else /* If after % is flag */
+    //    {
+    //        check_flag(&ptr, tab);
+    //    }
 
-        }
         ptr++;
     }
     return (0);

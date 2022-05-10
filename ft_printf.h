@@ -18,14 +18,24 @@
 #include <libft.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
+
+//typedef void handler_function(void *arg);
 
 typedef struct s_flags
 {
-    int space;
+    va_list args;
+    int width;
+    int zero;
+    int hash;
 
 } t_flags;
 
 int     ft_printf(const char *format, ...);
+void    c_handler(t_flags *tab);
+void    d_handler(int nb);
+void    pointer_handler(void *ptr);
+void    string_handler(char *str);
 
 
 #endif

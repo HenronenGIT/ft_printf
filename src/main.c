@@ -22,7 +22,21 @@ int	main(void)
 
 	/* Empty spaces leftside */
 	//printf("|%42d|\n", 21);
-	ft_printf("|%42d|\n", 21); 
+	//ft_printf("|%42d|\n", 21); 
+
+	/* 0 flag */
+	//printf("%02147483d\n", 42);
+	//printf("%021d\n", 42);
+	//ft_printf("%021d\n", 42);
+
+
+
+	//printf("|%  042d|\n", 42);
+		//printf("%i");
+		//printf("%o");
+		//printf("%x");
+		//printf("%X");
+
 	//printf("|%      42d|\n", 21); 
 	//printf("|%5i|\n", 21);
 	//printf("|%5o|\n", 21); /* Octal ? */
@@ -34,8 +48,9 @@ int	main(void)
 	//printf("|%-5d|\n", 42);
 	
 	/* ' ' */
-	printf("% d\n", 42);
-	printf("% d\n", -42);
+	//printf("% d\n", 42);
+	//printf("% d\n", -42);
+
 	/* Pad with zeroes */
 	//printf("|%05d|\n", 42);
 
@@ -43,13 +58,21 @@ int	main(void)
 	//printf("|%+5d|\n", 42);
 	//printf("|%+5d|\n", -42);
 
-	/* Diff formats */
+	/* Diff conversions */
+
+	/* %c */
+	printf("%c\n", 'h');
+	ft_printf("%c\n", 'h');
 
 	/* %d */
 	//jint nb = 42;
 	//printf("|Hello world %d|\n", nb);
 	//ft_printf("|Hello world %d|\n", nb);
-//
+
+	/* %i */
+	//printf("%i\n", 42);
+	//ft_printf("%i\n", 42);
+
 	//printf("|Hello world %d, this is test!|\n", nb);
 	//ft_printf("|Hello world %d, this is test!|\n", nb);
 //
