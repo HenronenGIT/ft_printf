@@ -17,7 +17,6 @@
 
 int	main(void)
 {
-	
 	/* Different flags */
 
 	/* Empty spaces leftside */
@@ -29,13 +28,11 @@ int	main(void)
 	//printf("%021d\n", 42);
 	//ft_printf("%021d\n", 42);
 
-
-
 	//printf("|%  042d|\n", 42);
-		//printf("%i");
-		//printf("%o");
-		//printf("%x");
-		//printf("%X");
+	//printf("%i");
+	//printf("%o");
+	//printf("%x");
+	//printf("%X");
 
 	//printf("|%      42d|\n", 21); 
 	//printf("|%5i|\n", 21);
@@ -61,11 +58,37 @@ int	main(void)
 	/* Diff conversions */
 
 	/* %c */
-	printf("%c\n", 'h');
-	ft_printf("%c\n", 'h');
+	//printf("%c\n", 'h');
+	//ft_printf("%c\n", 'h');
+
+	/* %s */
+	//char *str = "This is a String!";
+	//ft_printf("|Hive %s|\n", str);
+	//printf("|Hive %s|\n", str);
+	
+	/* %x */
+	printf("printf:%x\n", 10);
+	ft_printf("ft_printf:%x\n", 10);
+//
+	//printf("printf:%x\n", 9);
+	//ft_printf("ft_printf:%x\n", 9);
+//
+	//printf("printf:%x\n", 17);
+	//ft_printf("ft_printf:%x\n", 17);
+//
+	//printf("printf:%x\n", 100);
+	//ft_printf("ft_printf:%x\n", 100);
+//
+	//printf("printf:%x\n", 123);
+	//ft_printf("ft_printf:%x\n", 123);
+
+	/* %p */
+	//char *str = "This is a String!";
+	//printf("|%p|\n", str);
+	//ft_printf("|%p|\n", str);
 
 	/* %d */
-	//jint nb = 42;
+	//int nb = 42;
 	//printf("|Hello world %d|\n", nb);
 	//ft_printf("|Hello world %d|\n", nb);
 
@@ -76,14 +99,7 @@ int	main(void)
 	//printf("|Hello world %d, this is test!|\n", nb);
 	//ft_printf("|Hello world %d, this is test!|\n", nb);
 //
-	///* %s */
-	//char *str = "This is a String!";
-	//ft_printf("|Hive %s|\n", str);
-	//printf("|Hive %s|\n", str);
 //
-	///* %p */
-	//printf("|%p|\n", str);
-	//ft_printf("|%p|\n", str);
 
 	/* PANIC */
 	//printf("%02147483646d", 1);

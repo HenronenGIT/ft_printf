@@ -12,25 +12,29 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include "libft.h"
 
-int foo (int num_args, ...)
+char    *ft_strrev(char *str)
 {
-    va_list args;
-    va_start(args, num_args);
-    
-    for (int i = 0; i < num_args; i++)
-    {
-        printf("%d\n", va_arg(args, int));
+    char    *rev_str;
+    int     i;
+    int     j;
 
-    }
-    va_end(args);
-    return (0);
-
+    i = 0;
+    j = 0;
+    while (str[i])
+        i++;
+    rev_str = ft_strnew(i);
+    while (i >= 0)
+        rev_str[j++] = str[--i];
+    return(rev_str);
 }
 
 int main (void)
 {
+    int test;
+    char *str = "Hello";
 
-    foo(4, 21, 42, 12, 16);
+    printf("%s\n", ft_strrev(str));
     return (0);
 }

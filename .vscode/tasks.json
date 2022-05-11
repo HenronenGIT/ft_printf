@@ -2,7 +2,7 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: get_next_line default",
+            "label": "C/C++: ft_printf",
             "command": "/usr/bin/gcc",
             "args": [
                 //"-fdiagnostics-color=always",
@@ -16,7 +16,7 @@
 				"-I./libft/includes",
 				"-I./",
                 "${workspaceFolder}/src/*.c",
-				//"${workspaceFolder}/libft/*.c", // For debugging lib functions
+			    "${workspaceFolder}/libft/*.c", // For debugging lib functions
                 "-o",
                 "${workspaceFolder}/ft_printf",
             ],

@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmaronen <hmaronen@student.Hive.fi>        +#+  +:+       +#+        */
+/*   By: hmaronen <hmaronen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 14:02:51 by hmaronen          #+#    #+#             */
-/*   Updated: 2022/02/16 14:02:51 by hmaronen         ###   ########.fr       */
+/*   Created: 2022/05/11 16:15:34 by hmaronen          #+#    #+#             */
+/*   Updated: 2022/05/11 16:15:41 by hmaronen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include
 
-int	main(void)
+char	*ft_strrev(char *str)
 {
-	
+	char	*rev_str;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (str[i])
+		i++;
+	rev_str = ft_strnew(i);
+	while (--i >= 0)
+		rev_str[j++] = str[i];
+	return (rev_str);
 }

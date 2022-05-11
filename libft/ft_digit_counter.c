@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_digit_counter(int n)
+int	ft_digit_counter(int n, int base)
 {
 	int	temp;
 	int	i;
@@ -20,6 +20,7 @@ int	ft_digit_counter(int n)
 	i = 0;
 	temp = n;
 	while (temp != 0 && i++ != -1)
-		temp = temp / 10;
+		temp = temp / base;
+		//temp = temp / 10;
 	return (i);
 }

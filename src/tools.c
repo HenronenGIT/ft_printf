@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers.c                                         :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmaronen <hmaronen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 16:57:51 by hmaronen          #+#    #+#             */
-/*   Updated: 2022/05/10 16:57:53 by hmaronen         ###   ########.fr       */
+/*   Created: 2022/05/11 14:26:28 by hmaronen          #+#    #+#             */
+/*   Updated: 2022/05/11 14:26:39 by hmaronen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	c_handler(t_flags *tab)
+// ADD TO LIBFT
+char	*ft_itoa_base(int dec, int base)
 {
-	ft_putchar(va_arg(tab->args, int));
-}
+	char	*hexa;
+	int		remain;
+	int		i;
 
-void	s_handler(t_flags *tab)
-{
-	ft_putstr(va_arg(tab->args, char*));
-}
-
-void	x_handler(t_flags *tab)
-{
-	ft_putstr(ft_itoa_base(va_arg(tab->args, int), 16));
-}
-
-void	d_handler(t_flags *tab)
-{
-	ft_putstr(ft_itoa(va_arg(tab->args, int)));
-}
-void	p_handler(t_flags *tab)
-{
-	printf("%p\n", va_arg(tab->args, void*));
-}
-
-void	i_handler()
-{
-
+	hexa = ft_strnew(ft_digit_counter(dec, base));
+	i = 0;
+	remain = 0;
+	while (dec != 0)
+	{
+		remain = dec % base;
+		if (remain < 10)
+			hexa[i] = remain + 48;
+		else
+			hexa[i] = remain + 87;
+		dec = dec / base;
+		i++;
+	}
+	hexa = ft_strrev(hexa);
+	return (hexa);
 }

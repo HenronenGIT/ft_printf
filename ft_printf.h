@@ -20,22 +20,27 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-//typedef void handler_function(void *arg);
+//typedef void handler_func(t_flags *);
+
 
 typedef struct s_flags
 {
-    va_list args;
-    int width;
-    int zero;
-    int hash;
+	va_list args;
+	int width;
+	int zero;
+	int hash;
 
 } t_flags;
 
 int     ft_printf(const char *format, ...);
-void    c_handler(t_flags *tab);
-void    d_handler(int nb);
-void    pointer_handler(void *ptr);
-void    string_handler(char *str);
+
+void	c_handler(t_flags *tab);
+void	s_handler(t_flags *tab);
+void	p_handler(t_flags *tab);
+void	x_handler(t_flags *tab);
+void	d_handler(t_flags *tab);
+
+char    *ft_itoa_base(int dec, int base);
 
 
 #endif

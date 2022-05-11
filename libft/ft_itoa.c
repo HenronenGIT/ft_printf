@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 	char		*str;
 	int			i;
 
-	i = ft_digit_counter(n);
+	i = ft_digit_counter(n, 10);
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (n < 0)
