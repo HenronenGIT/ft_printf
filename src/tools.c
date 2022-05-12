@@ -35,3 +35,19 @@ char	*ft_itoa_base(int dec, int base)
 	hexa = ft_strrev(hexa);
 	return (hexa);
 }
+
+void	put_ptr(uintptr_t addr)
+{
+	if (addr >= 16)
+	{
+		put_ptr(addr / 16);
+		put_ptr(addr % 16);
+	}
+	else
+	{
+		if (addr < 10)
+			ft_putchar(addr + 48);
+		else
+			ft_putchar(addr + 87);
+	}
+}

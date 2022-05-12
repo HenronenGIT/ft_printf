@@ -1,2 +1,5 @@
 DS_Store
 libft/*.o
+libftprintf.a
+ft_printf
+newc

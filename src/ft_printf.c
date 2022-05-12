@@ -19,16 +19,21 @@ t_flags    *count_format_width(const char *str, t_flags *tab)
 }
 
 /* Check which flags exists */
-t_flags    *check_format(const char *str, t_flags *tab)
+t_flags	*check_format(const char *str, t_flags *tab)
 {
+	int i;
+
+	i = 0;
 	/* Fill jump table func. */
-	//handler_func    *arr[4];
-	//arr[0] = c_handler;
-	//arr[1] = s_handler;
-	//arr[2] = p_handler;
-	//arr[3] = x_handler;
+	handler_func	*format_arr[4] = {
+		c_handler,
+		s_handler,
+		p_handler,
+		x_handler
+	};
 
 	// Could make function is_conversion to make cleaner.
+	// Add while loop to own function for norm
 	while (*str != 'c' && *str != 's' && *str != 'p' && *str != 'x' && *str != 'd')
 	{
 		if (*str == '0')
@@ -39,18 +44,27 @@ t_flags    *check_format(const char *str, t_flags *tab)
 		str++;
 	}
 	/* JUMP TABLE */
-	if (*str == 'c')
-		c_handler(tab);
-	else if (*str == 's')
-		s_handler(tab);
-	else if (*str == 'p')
-		p_handler(tab);
-	else if (*str == 'x')
-		x_handler(tab);
-	//else if (*str == 'X')
-	//	x_handler(tab);
-	else if (*str == 'd')
-		d_handler(tab);
+	while (FORMATS[i])
+	{
+		if (FORMATS[i] == *str)
+			format_arr[i](tab);
+		i++;
+	}
+
+	/* Old style */
+	// if (*str == 'c')
+	// 	c_handler(tab);
+	// else if (*str == 's')
+	// 	s_handler(tab);
+	// else if (*str == 'p')
+	// 	p_handler(tab);
+	// else if (*str == 'x')
+	// 	x_handler(tab);
+	// //else if (*str == 'X')
+	// //	x_handler(tab);
+	// else if (*str == 'd')
+	// 	d_handler(tab);
+	/* Old style */
 
 	//else /* If after % is flag */
 	//    {

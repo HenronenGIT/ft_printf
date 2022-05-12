@@ -12,9 +12,6 @@
 
 #include "ft_printf.h"
 
-//#include <limits.h>
-//#include <float.h>
-
 int	main(void)
 {
 	/* Different flags */
@@ -84,8 +81,14 @@ int	main(void)
 
 	/* %p */
 	char *str = "This is a String!";
+	char *ch = "c";
+	int	tab[5] = {0, 1 ,2};
+
 	printf("|%p|\n", str);
-	ft_printf("|%p|\n", str);
+	ft_printf("|%p|\n\n", str);
+
+	printf("|%p|\n", tab);
+	ft_printf("|%p|\n\n", tab);
 
 	/* %d */
 	//int nb = 42;
