@@ -67,8 +67,8 @@ int	main(void)
 	//printf("|Hive %s|\n", str);
 	
 	/* %x */
-	printf("printf:%x\n", 10);
-	ft_printf("ft_printf:%x\n", 10);
+	//printf("printf:%x\n", 10);
+	//ft_printf("ft_printf:%x\n", 10);
 //
 	//printf("printf:%x\n", 9);
 	//ft_printf("ft_printf:%x\n", 9);
@@ -83,9 +83,9 @@ int	main(void)
 	//ft_printf("ft_printf:%x\n", 123);
 
 	/* %p */
-	//char *str = "This is a String!";
-	//printf("|%p|\n", str);
-	//ft_printf("|%p|\n", str);
+	char *str = "This is a String!";
+	printf("|%p|\n", str);
+	ft_printf("|%p|\n", str);
 
 	/* %d */
 	//int nb = 42;

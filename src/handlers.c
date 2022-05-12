@@ -33,7 +33,11 @@ void	d_handler(t_flags *tab)
 }
 void	p_handler(t_flags *tab)
 {
-	printf("%p\n", va_arg(tab->args, void*));
+	//printf("%p\n", va_arg(tab->args, void*));
+	//ft_putstr(ft_itoa(va_arg(tab->args, char*)));
+	ft_putstr("0x");
+	printf("%s\n", ft_itoa_base(va_arg(tab->args, int), 16));
+
 }
 
 void	i_handler()

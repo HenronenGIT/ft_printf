@@ -47,7 +47,7 @@ t_flags    *check_format(const char *str, t_flags *tab)
 		p_handler(tab);
 	else if (*str == 'x')
 		x_handler(tab);
-	//qelse if (*str == 'X')
+	//else if (*str == 'X')
 	//	x_handler(tab);
 	else if (*str == 'd')
 		d_handler(tab);
