@@ -21,6 +21,5 @@ int	ft_digit_counter(int n, int base)
 	temp = n;
 	while (temp != 0 && i++ != -1)
 		temp = temp / base;
-		//temp = temp / 10;
 	return (i);
 }
