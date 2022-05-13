@@ -21,22 +21,18 @@ int	main(void)
 	//ft_printf("|%42d|\n", 21); 
 
 	/* 0 flag */
-	//printf("%02147483d\n", 42);
-	//printf("%021d\n", 42);
-	//ft_printf("%021d\n", 42);
+		printf("%010.12d\n", 42);
+		//printf("%010.12d\n", 42);
+		printf("%0.12d\n", 42);
+		ft_printf("%010d\n", 42);
 
-	//printf("|%  042d|\n", 42);
-	//printf("%i");
-	//printf("%o");
-	//printf("%x");
-	//printf("%X");
+		//printf("|%  042d|\n", 42);
 
-	//printf("|%      42d|\n", 21); 
-	//printf("|%5i|\n", 21);
-	//printf("|%5o|\n", 21); /* Octal ? */
-	//printf("|%5u|\n", 21);
-	//printf("|%5x|\n", 21); /* Hexa ? */
-	//printf("|%5x|\n", 11); /* Hexa ? */
+		//printf("%010i\n", 42);
+		//printf("%010o\n", 42);
+		//printf("%010x\n", 42);
+		//printf("%010X\n", 42);
+
 
 	/* - */
 	//printf("|%-5d|\n", 42);
@@ -80,24 +76,24 @@ int	main(void)
 	//ft_printf("ft_printf:%x\n", 123);
 
 	/* %p */
-	char *str = "This is a String!";
-	char *ch = "c";
-	int	tab[5] = {0, 1 ,2};
-
-	printf("|%p|\n", str);
-	ft_printf("|%p|\n\n", str);
-
-	printf("|%p|\n", tab);
-	ft_printf("|%p|\n\n", tab);
+	//char *str = "This is a String!";
+	//char *ch = "c";
+	//int	tab[5] = {0, 1 ,2};
+//
+	//printf("|%p|\n", str);
+	//ft_printf("|%p|\n\n", str);
+//
+	//printf("|%p|\n", tab);
+	//ft_printf("|%p|\n\n", tab);
 
 	/* %d */
-	//int nb = 42;
-	//printf("|Hello world %d|\n", nb);
-	//ft_printf("|Hello world %d|\n", nb);
+		//int nb = 42;
+		//printf("|Hello world %d|\n", nb);
+		//ft_printf("|Hello world %d|\n", nb);
 
 	/* %i */
-	//printf("%i\n", 42);
-	//ft_printf("%i\n", 42);
+		//printf("%i\n", 42);
+		//ft_printf("%i\n", 42);
 
 	//printf("|Hello world %d, this is test!|\n", nb);
 	//ft_printf("|Hello world %d, this is test!|\n", nb);

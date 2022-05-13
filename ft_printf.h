@@ -20,7 +20,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define FORMATS "cspx"
+#define FORMATS "cspxi"
 
 typedef struct s_flags
 {
@@ -34,13 +34,14 @@ typedef struct s_flags
 typedef void handler_func(t_flags *tab);
 
 int		ft_printf(const char *format, ...);
+char	check_flags(t_flags *tab, const char *str);
 
 void	c_handler(t_flags *tab);
 void	s_handler(t_flags *tab);
 void	p_handler(t_flags *tab);
 void	x_handler(t_flags *tab);
 void	d_handler(t_flags *tab);
-
+void	i_handler(t_flags *tab);
 
 char	*ft_itoa_base(int dec, int base);
 void	put_ptr(uintptr_t addr);

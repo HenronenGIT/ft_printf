@@ -31,6 +31,12 @@ void	d_handler(t_flags *tab)
 {
 	ft_putstr(ft_itoa(va_arg(tab->args, int)));
 }
+
+void	i_handler(t_flags *tab)
+{
+	ft_putstr(ft_itoa(va_arg(tab->args, int)));
+}
+
 void	p_handler(t_flags *tab)
 {
 	ft_putstr("0x");
@@ -48,9 +54,4 @@ void	p_handler(t_flags *tab)
 	//void_ptr = va_arg(tab->args, void *);
 	//(uintptr_t)void_ptr;
 	//ft_putstr(ft_itoa_base(void_ptr, 16));
-}
-
-void	i_handler()
-{
-
 }
