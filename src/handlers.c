@@ -14,12 +14,27 @@
 
 void	c_handler(t_flags *tab)
 {
-	ft_putchar(va_arg(tab->args, int));
+	char ch;
+
+	ch = va_arg(tab->args, int);
+	if (tab->width && !tab->minus)
+		putpadding((tab->width - 1), ' ');
+	ft_putchar(ch);
+	if (tab->width && tab->minus)
+		putpadding((tab->width - 1), ' ');
 }
 
 void	s_handler(t_flags *tab)
 {
-	ft_putstr(va_arg(tab->args, char*));
+	char *str;
+	str = va_arg(tab->args, char*);
+
+	if (tab->width)
+	{
+		putpadding(tab->width, ' ');
+	}
+	ft_putstr(str);
+	//ft_putstr(va_arg(tab->args, char*));
 }
 
 void	x_handler(t_flags *tab)
@@ -41,17 +56,9 @@ void	p_handler(t_flags *tab)
 {
 	ft_putstr("0x");
 	put_ptr(va_arg(tab->args, unsigned long long));
-	/* 1 */
-	//ft_putstr(ft_itoa_base(va_arg(tab->args, int), 16));
+}
 
-	/* 2 */
-	//void *void_ptr;
-	//void_ptr = va_arg(tab->args, void *);
-	//ft_putstr(ft_itoa_base(void_ptr, 16));
-
-	/* 3 */
-	//void *void_ptr;
-	//void_ptr = va_arg(tab->args, void *);
-	//(uintptr_t)void_ptr;
-	//ft_putstr(ft_itoa_base(void_ptr, 16));
+void	o_handler(t_flags *tab)
+{
+	ft_putstr(ft_itoa_base(va_arg(tab->args, int), 8));
 }

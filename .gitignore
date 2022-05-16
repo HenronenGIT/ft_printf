@@ -3,3 +3,7 @@ libft/*.o
 libftprintf.a
 ft_printf
 newc
+ft_printf.dSYM/
+libftprintf.a
+ft_printf
+

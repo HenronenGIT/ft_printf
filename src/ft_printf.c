@@ -12,86 +12,120 @@
 
 #include "ft_printf.h"
 
-t_flags    *count_format_width(const char *str, t_flags *tab)
+void	count_width(t_flags *tab, int pos, const char *str)
 {
-	printf("in count width:%s\n", str);
-	return (tab);
+	printf("%s\n", str);
 }
 
-char	check_flags(t_flags *tab, const char *str)
+int		is_format(char ch)
 {
-	while (*str != 'c' && *str != 's' && *str != 'p' && *str != 'x' && *str != 'd'
-			&& *str != 'i')
+	if (ch == 'c' || ch == 's' || ch == 'p' || ch == 'x' || ch == 'd' || ch == 'i')
+		return (1);
+	return (0);
+}
+
+//int	is_flag(char ch)
+//{
+//	if (ch == '0' || )
+//}
+
+//void	check_flags(t_flags *tab, const char *str)
+	/* mayby not need to return anything */
+char	check_flags(t_flags *tab, const char *str, char format)
+{
+	int i;
+
+	i = 0;
+	//printf("check_flags string:%s\n", str);
+	while (str[i] != format)
 	{
-		if (*str == '0')
-			tab->zero = 1;
-		
-		str++;
+		if (str[i] == '-')
+			tab->minus = 1;
+		if (ft_isdigit(str[i]))
+		{
+			tab->width = (10 * tab->width) + str[i] - 48;
+		}
+		i++;
 	}
+	//printf("tab->width:%d\n", tab->width);
 	return (*str);
 }
 
+
+t_flags *init_tab(t_flags *tab)
+{
+	/* mayby not need to return anything */
+	tab->width = 0;
+	tab->zero = 0;
+	tab->plus = 0;
+	tab->minus = 0;
+	tab->hash = 0;
+	return (tab);
+}
+
 /* Check which flags exists */
-t_flags	*check_format(const char *str, t_flags *tab)
+const char	*check_format(const char *str, t_flags *tab)
 {
 	int i;
 	char conversion;
+	char format;
+	const char *ptr;
 
-	i = 0;
 	/* Fill jump table func. */
-	handler_func	*conv_arr[5] = {
+	handler_func	*conv_arr[7] = {
 		c_handler,
 		s_handler,
 		p_handler,
 		x_handler,
-		i_handler
+		d_handler,
+		i_handler,
+		o_handler
 	};
+	ptr = str;
+	i = 0;
+	while (!is_format(*str))
+		str++;
+	format = *str;
 
-	conversion = check_flags(tab, str);
+	check_flags(tab, ptr, format);
 	/* JUMP TABLE */
 	while (FORMATS[i])
 	{
-		if (FORMATS[i] == conversion)
+		if (FORMATS[i] == format)
+		{
 			conv_arr[i](tab);
+			break;
+		}
 		i++;
 	}
-	return (tab);
-}
-
-t_flags *init_tab(t_flags *tab)
-{
-	tab->zero = 0;
-	tab->hash = 0;
-	tab->width = 0;
-
-	return (tab);
+	return (str);
 }
 
 int ft_printf(const char *format, ...)
 {
-	const char *ptr;
-	t_flags *tab;
-	//va_list args;
-	//va_start (args, format);
+	const char	*ptr;
+	t_flags		*tab;
+	int			i;
 
+	i = 0;
 	tab = (t_flags *)malloc(sizeof(t_flags));
 	if (!tab)
 		return (-1);
-	init_tab(tab);
-	va_start(tab->args, format);
 	ptr = format;
+	va_start(tab->args, format); // Could cause issues, when multiple %.
+	// Finding % loop
 	while (*ptr != '\0')
 	{
 		if (*ptr != '%')
-		{
-			ft_putchar(*ptr);
-			ptr++;
-			continue;
-		}
-		else
+			ft_putchar(*ptr); // Could done better, count len and THEN print all in once
+		else // When % founded
 		{
 			ptr++;
-			check_format(ptr, tab);
+			//va_start(tab->args, format); // Could cause issues, when multiple %.
+			init_tab(tab);
+				/* If sending address of pointer mayby does neeed to
+				make new variable in check_format func */
+			ptr = check_format(ptr, tab);
 		}
 		ptr++;
 	}

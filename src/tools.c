@@ -51,3 +51,15 @@ void	put_ptr(uintptr_t addr)
 			ft_putchar(addr + 87);
 	}
 }
+
+void	putpadding(int width, char ch)
+{
+	int i;
+
+	i = 0;
+	while (i < width)
+	{
+		ft_putchar(ch);
+		i++;
+	}
+}
