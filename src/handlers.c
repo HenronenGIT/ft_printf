@@ -54,11 +54,13 @@ void	x_handler(t_flags *tab)
 	/* "count_padding_len" */
 	str_len = ft_strlen(str);
 	tab->width -= str_len;
+	/*
 	if (tab->hash)
 	{
 		ft_putstr("0x");
 		tab->width -= 2;
 	}
+	*/
 	if (tab->zero && !tab->minus)
 		putpadding(tab->width, '0');
 	ft_putstr(str);
