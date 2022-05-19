@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Mon May 16 14:16:59 2022
+# Make data base, printed on Thu May 19 11:03:32 2022
 
 # Variables
 
@@ -42,11 +42,11 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n0000l4m0004s5/T/vscode-ipc-c3f473a2-3005-4fc9-a0f5-ea1568706f3e.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n0000l4m0004s5/T/vscode-ipc-39d3dd8f-3054-40eb-a74e-5834e95b4ceb.sock
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.hrooncfJEx/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.Gig5NOsLSM/Render
 # environment
 PATH = /Users/hmaronen/.brew/bin:/Users/hmaronen/.brew/bin:/Users/hmaronen/.brew/bin:/Users/hmaronen/.brew/bin:/Users/hmaronen/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
@@ -62,7 +62,7 @@ LIB = -L ./libft -lft
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.yD6h0zigFM/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.WTehvMy0SP/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -142,7 +142,7 @@ MFLAGS = -Rrqp
 # environment
 MAIL = hmaronen@student.hive.fi
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -174,9 +174,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1711
+VSCODE_PID = 78438
 # variable set hash-table stats:
-# Load=82/1024=8%, Rehash=0, Collisions=2/121=2%
+# Load=82/1024=8%, Rehash=0, Collisions=2/109=2%
 
 # Pattern-specific Variable Values
 
@@ -200,14 +200,14 @@ all: libftprintf.a
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/12=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 src/handlers.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-16 13:13:42
+#  Last modified 2022-05-18 15:59:23
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -245,7 +245,7 @@ debug:
 # Not a target:
 src/tools.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-16 13:12:41
+#  Last modified 2022-05-18 15:24:20
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -264,7 +264,7 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-16 13:19:28
+#  Last modified 2022-05-18 16:00:11
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -295,7 +295,7 @@ clean:
 # Not a target:
 src/ft_printf.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-16 12:58:19
+#  Last modified 2022-05-18 15:28:21
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -303,36 +303,19 @@ src/ft_printf.c:
 
 libftprintf.a: src/main.c src/ft_printf.c src/handlers.c src/tools.c
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  Last modified 2022-05-16 13:16:12
+#  Last modified 2022-05-18 16:00:15
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := libftprintf.a
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
- 
-# + := src/main.c src/ft_printf.c src/handlers.c src/tools.c
-# automatic
-# | := 
-# automatic
-# < := src/main.c
-# automatic
-# ^ := src/main.c src/ft_printf.c src/handlers.c src/tools.c
-# automatic
-# ? := src/main.c
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/20=15%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 42):
+ 
 	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
 	@@$(CC) $(FLAGS) $(HEADERS) $(SRC) -o $(NAME) $(LIB)
 	
 
 # files hash-table stats:
-# Load=14/1024=1%, Rehash=0, Collisions=0/40=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/39=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -344,6 +327,6 @@ libftprintf.a: src/main.c src/ft_printf.c src/handlers.c src/tools.c
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon May 16 14:16:59 2022
+# Finished Make data base on Thu May 19 11:03:32 2022
 
  

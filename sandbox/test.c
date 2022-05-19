@@ -47,17 +47,25 @@ void	ft_putmany(char ch, int count)
 	write(1, &ch, count);
 }
 
-void	ft_putstr(char const *str)
-{
-	if (!str)
-		return ;
-	write(1, str, ft_strlen(str));
-}
-
 int main (void)
 {
-	char str[100] = "This is a string";
-	ft_putstr(str);
-	//ft_putmany('0', 5);
+	unsigned int unb;
+	int nb;
+
+	nb = 0;
+	unb = 0;
+	printf("sizeof() int = %lu\n", sizeof(nb));
+	printf("sizeof () unsigned int = %lu\n", sizeof(unb));
+
+	printf("nb = %d\n", nb);
+	printf("unb = %d\n", unb);
+	
+	nb--;
+	unb--;
+
+	printf("nb = %d\n", nb);
+	printf("unb = %u\n", unb);
+	unb++;
+	printf("unb = %u\n", unb);
 	return (0);
 }

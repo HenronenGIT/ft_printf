@@ -12,22 +12,13 @@
 
 #include "ft_printf.h"
 
-void	count_width(t_flags *tab, int pos, const char *str)
-{
-	printf("%s\n", str);
-}
-
 int		is_format(char ch)
 {
-	if (ch == 'c' || ch == 's' || ch == 'p' || ch == 'x' || ch == 'd' || ch == 'i')
+	if (ch == 'c' || ch == 's' || ch == 'p' || ch == 'x' || ch == 'X'
+		|| ch == 'd' || ch == 'i' || ch == 'u')
 		return (1);
 	return (0);
 }
-
-//int	is_flag(char ch)
-//{
-//	if (ch == '0' || )
-//}
 
 //void	check_flags(t_flags *tab, const char *str)
 	/* mayby not need to return anything */
@@ -35,19 +26,20 @@ char	check_flags(t_flags *tab, const char *str, char format)
 {
 	int i;
 
-	i = 0;
-	//printf("check_flags string:%s\n", str);
-	while (str[i] != format)
+	i = -1;
+	while (str[++i] != format)
 	{
+		if (str[i] == '#')
+			tab->hash = 1;
+		if (str[i] == '0' && !tab->width)
+			tab->zero = 1;
 		if (str[i] == '-')
 			tab->minus = 1;
+		if (str[i] == '+')
+			tab->plus = 1;
 		if (ft_isdigit(str[i]))
-		{
-			tab->width = (10 * tab->width) + str[i] - 48;
-		}
-		i++;
+			tab->width = ((10 * tab->width) + str[i] - 48);
 	}
-	//printf("tab->width:%d\n", tab->width);
 	return (*str);
 }
 
@@ -72,14 +64,16 @@ const char	*check_format(const char *str, t_flags *tab)
 	const char *ptr;
 
 	/* Fill jump table func. */
-	handler_func	*conv_arr[7] = {
+	handler_func	*conv_arr[9] = {
 		c_handler,
 		s_handler,
 		p_handler,
-		x_handler,
 		d_handler,
 		i_handler,
-		o_handler
+		o_handler,
+		u_handler,
+		x_handler,
+		X_handler
 	};
 	ptr = str;
 	i = 0;
@@ -103,16 +97,16 @@ const char	*check_format(const char *str, t_flags *tab)
 
 int ft_printf(const char *format, ...)
 {
+	int			i;
 	const char	*ptr;
 	t_flags		*tab;
-	int			i;
 
 	i = 0;
 	tab = (t_flags *)malloc(sizeof(t_flags));
 	if (!tab)
 		return (-1);
 	ptr = format;
-	va_start(tab->args, format); // Could cause issues, when multiple %.
+	va_start(tab->args, format); // Can cause issues, when multiple %.
 	// Finding % loop
 	while (*ptr != '\0')
 	{

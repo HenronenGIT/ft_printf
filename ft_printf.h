@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -20,7 +19,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define FORMATS "cspxdio"
+#define FORMATS "cspdiouxX"
 
 typedef struct s_flags
 {
@@ -30,6 +29,7 @@ typedef struct s_flags
 	int plus;
 	int minus;
 	int hash;
+	//int is_neg;
 
 } t_flags;
 
@@ -41,12 +41,15 @@ char	check_flags(t_flags *tab, const char *str, char format);
 void	c_handler(t_flags *tab);
 void	s_handler(t_flags *tab);
 void	p_handler(t_flags *tab);
-void	x_handler(t_flags *tab);
-void	o_handler(t_flags *tab);
 void	d_handler(t_flags *tab);
 void	i_handler(t_flags *tab);
+void	o_handler(t_flags *tab);
+void	u_handler(t_flags *tab);
+void	x_handler(t_flags *tab);
+void	X_handler(t_flags *tab);
 
-char	*ft_itoa_base(int dec, int base);
+//char	*ft_itoa_base(int dec, int base);
+char	*ft_itoa_base(unsigned int dec, int base);
 void	put_ptr(uintptr_t addr);
 void	putpadding(int width, char ch);
 

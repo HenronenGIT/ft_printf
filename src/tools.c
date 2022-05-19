@@ -13,12 +13,16 @@
 #include "ft_printf.h"
 
 // ADD TO LIBFT
-char	*ft_itoa_base(int dec, int base)
+//char	*ft_itoa_base(int dec, int base)
+char	*ft_itoa_base(unsigned int dec, int base)
 {
 	char	*hexa;
 	int		remain;
 	int		i;
+	int		offset;
 
+	if (dec == 0)
+		return ("0");
 	hexa = ft_strnew(ft_digit_counter(dec, base));
 	i = 0;
 	remain = 0;
