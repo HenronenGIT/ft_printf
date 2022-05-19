@@ -56,7 +56,7 @@ void	put_ptr(uintptr_t addr)
 	}
 }
 
-void	putpadding(int width, char ch)
+int	putpadding(int width, char ch)
 {
 	int i;
 
@@ -66,10 +66,5 @@ void	putpadding(int width, char ch)
 		ft_putchar(ch);
 		i++;
 	}
-}
-
-int	ft_putmany(char *str, int len)
-{
-	write(1, &str, len);
-	return (0);
+	return (i);
 }

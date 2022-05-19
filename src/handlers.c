@@ -18,26 +18,28 @@ void	c_handler(t_flags *tab)
 	char ch;
 
 	ch = va_arg(tab->args, int);
+	tab->ret_len += 1;
 	if (tab->width && !tab->minus)
-		putpadding((tab->width - 1), ' ');
+		tab->ret_len += putpadding((tab->width - 1), ' ');
 	ft_putchar(ch);
 	if (tab->width && tab->minus)
-		putpadding((tab->width - 1), ' ');
+		tab->ret_len += putpadding((tab->width - 1), ' ');
 }
 
 void	s_handler(t_flags *tab)
 {
 	char *str;
-	str = va_arg(tab->args, char*);
 
+	str = va_arg(tab->args, char*);
+	tab->ret_len += ft_strlen(str);
 	if (tab->width && !tab->minus)
 	{
-		putpadding((tab->width - ft_strlen(str)), ' ');
+		tab->ret_len += putpadding((tab->width - ft_strlen(str)), ' ');
 	}
 	ft_putstr(str);
 	if (tab->width && tab->minus)
 	{
-		putpadding((tab->width - ft_strlen(str)), ' ');
+		tab->ret_len += putpadding((tab->width - ft_strlen(str)), ' ');
 	}
 }
 
@@ -92,8 +94,12 @@ void	d_handler(t_flags *tab)
 	int		is_neg;
 
 	is_neg = 0;
+	//if (tab->ll)
+	//	str = ft_itoa(va_arg(tab->args, int));
+
 	str = ft_itoa(va_arg(tab->args, int));
 	str_len = ft_strlen(str);
+	tab->ret_len += str_len;
 	/* Negtive number check */
 	if (str[0] == '-')
 	{
@@ -105,23 +111,27 @@ void	d_handler(t_flags *tab)
 
 	if (tab->plus && !is_neg)
 	{
-		write(1, "+", 1);
+		tab->ret_len += write(1, "+", 1);
 		str_len += 1;
 	}
 	if (tab->width && !tab->zero)
 	{
-		putpadding((tab->width - str_len), ' ');
+		tab->ret_len += putpadding((tab->width - str_len), ' ');
 	}
 	if (tab->zero)
 	{
-		putpadding((tab->width - str_len), '0');
+		tab->ret_len += putpadding((tab->width - str_len), '0');
 	}
 	ft_putstr(str);
 }
 
 void	i_handler(t_flags *tab)
 {
-	ft_putstr(ft_itoa(va_arg(tab->args, int)));
+	char *str;
+
+	str = ft_itoa(va_arg(tab->args, int));
+	tab->ret_len += ft_strlen(str);
+	ft_putstr(str);
 }
 
 void	p_handler(t_flags *tab)
@@ -148,6 +158,7 @@ void	u_handler(t_flags *tab)
 	nb = va_arg(tab->args, unsigned int);
 	str = ft_itoa_base(nb, 10);
 	str_len = ft_strlen(str);
+	tab->ret_len += str_len;
 
 	if (tab->plus && !is_neg)
 	{
@@ -156,12 +167,11 @@ void	u_handler(t_flags *tab)
 	}
 	if (tab->width && !tab->zero)
 	{
-		putpadding((tab->width - str_len), ' ');
+		tab->ret_len += putpadding((tab->width - str_len), ' ');
 	}
 	if (tab->zero)
 	{
-		putpadding((tab->width - str_len), '0');
+		tab->ret_len += putpadding((tab->width - str_len), '0');
 	}
-
 	ft_putstr(str);
 }
