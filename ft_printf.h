@@ -30,6 +30,7 @@ typedef struct s_flags
 	int minus;
 	int hash;
 	int	ll;
+	int	ret_len;
 	//int is_neg;
 
 } t_flags;
@@ -52,6 +53,6 @@ void	X_handler(t_flags *tab);
 //char	*ft_itoa_base(int dec, int base);
 char	*ft_itoa_base(unsigned int dec, int base);
 void	put_ptr(uintptr_t addr);
-void	putpadding(int width, char ch);
+int		putpadding(int width, char ch);
 
 #endif

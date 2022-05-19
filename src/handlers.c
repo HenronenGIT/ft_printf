@@ -18,10 +18,10 @@ void	c_handler(t_flags *tab)
 
 	ch = va_arg(tab->args, int);
 	if (tab->width && !tab->minus)
-		putpadding((tab->width - 1), ' ');
+		tab->ret_len = putpadding((tab->width - 1), ' ');
 	ft_putchar(ch);
 	if (tab->width && tab->minus)
-		putpadding((tab->width - 1), ' ');
+		tab->ret_len = putpadding((tab->width - 1), ' ');
 }
 
 void	s_handler(t_flags *tab)

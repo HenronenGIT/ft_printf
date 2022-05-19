@@ -52,6 +52,7 @@ t_flags *init_tab(t_flags *tab)
 	tab->plus = 0;
 	tab->minus = 0;
 	tab->hash = 0;
+	tab->ret_len = 0;
 	tab->ll = 0;
 
 	return (tab);
@@ -113,7 +114,10 @@ int ft_printf(const char *format, ...)
 	while (*ptr != '\0')
 	{
 		if (*ptr != '%')
+		{
 			ft_putchar(*ptr); // Could done better, count len and THEN print all in once
+			tab->ret_len += 1;
+		}
 		else // When % founded
 		{
 			ptr++;
@@ -125,5 +129,5 @@ int ft_printf(const char *format, ...)
 		}
 		ptr++;
 	}
-	return (0);
+	return (tab->ret_len);
 }

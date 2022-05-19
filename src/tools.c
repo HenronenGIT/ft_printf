@@ -56,7 +56,7 @@ void	put_ptr(uintptr_t addr)
 	}
 }
 
-void	putpadding(int width, char ch)
+int	putpadding(int width, char ch)
 {
 	int i;
 
@@ -66,4 +66,5 @@ void	putpadding(int width, char ch)
 		ft_putchar(ch);
 		i++;
 	}
+	return (i);
 }
