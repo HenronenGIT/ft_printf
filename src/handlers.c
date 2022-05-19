@@ -91,7 +91,11 @@ void	d_handler(t_flags *tab)
 	int		is_neg;
 
 	is_neg = 0;
+	if (tab->ll)
+		str = ft_itoa(va_arg(tab->args, int));
+
 	str = ft_itoa(va_arg(tab->args, int));
+
 	str_len = ft_strlen(str);
 	/* Negtive number check */
 	if (str[0] == '-')

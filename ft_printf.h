@@ -29,6 +29,7 @@ typedef struct s_flags
 	int plus;
 	int minus;
 	int hash;
+	int	ll;
 	//int is_neg;
 
 } t_flags;

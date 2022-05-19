@@ -52,6 +52,8 @@ t_flags *init_tab(t_flags *tab)
 	tab->plus = 0;
 	tab->minus = 0;
 	tab->hash = 0;
+	tab->ll = 0;
+
 	return (tab);
 }
 
