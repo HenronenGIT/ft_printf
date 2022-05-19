@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+// Flags could be added to own functions and own file
 void	c_handler(t_flags *tab)
 {
 	char ch;

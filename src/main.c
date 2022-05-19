@@ -18,77 +18,16 @@ void ft_printheader(char c)
 	printf("##### %c #####\n", c);
 }
 
-int	main(void)
+void test_d()
 {
-	/* Different flags */
+	int	nb;
+	int	neg_nb;
+	short	s_nb;
 
-		//printf("%-010.12d\n", 42);
-		//printf("%010.12d\n", 42);
-		//printf("%0.12d\n", 42);
-		//ft_printf("%010d Hello World!\n", 42);
-
-	/* Different formats */
-	
-	char *str = "This is a String!";
-
-	/* %c */
-		ft_printheader('c');
-		
-		printf("|%10c|\n", 'h');
- 	 	ft_printf("|%10c|\n\n", 'h');
-
-		printf("|%123c|\n", 'h');
-		ft_printf("|%123c|\n\n", 'h');
-
-		printf("|%10c%10c|\n", 'h', 'e');
-		ft_printf("|%10c%10c|\n", 'h', 'e');
-
-		printf("|%-10c|\n", 'h');
-		ft_printf("|%-10c|\n\n", 'h');
-
-		printf("|%1c|\n", 'h');
-		ft_printf("|%1c|\n\n", 'h');
-
-		printf("|%c|\n", 'h');
-		ft_printf("|%c|\n", 'h');
-		/* Undefined */
-			//printf("|%010c|\n", 'h');
-
-			//printf("|%+c|\n", 'h');
-
-			//printf("|% c|\n", 'h');
-
-			//printf("|%0c\n", 'h');
-
-	/* %s */
-		ft_printheader('s');
-
-		printf("|Hive %s|\n", str);
-		ft_printf("|Hive %s|\n\n", str);
-
-		printf("|Hive %20s|\n", str);
-		ft_printf("|Hive %20s|\n\n", str);
-
-		printf("|Hive %-20s|\n", str);
-		ft_printf("|Hive %-20s|\n\n", str);
-
-		printf("|Hive %-5s %s|\n", str, str);
-		ft_printf("|Hive %-5s %s|\n\n", str, str);
-
-		printf("|Hive %-20s %30s|\n", str, str);
-		ft_printf("|Hive %-20s %30s|\n\n", str, str);
-
-		/* Undefined behavior */
-			//ft_printf("|Hive %010s|\n", str);
-			//printf("|Hive %010s|\n", str);
-
-	/* %d */
-		ft_printheader('d');
-		int nb = 42;
-		int neg_nb = -42;
-
-		printf("|Hello world %d|\n", nb);
-		ft_printf("|Hello world %d|\n\n", nb);
+	s_nb = 42;
+	neg_nb = -42;
+	nb = 42;
+	ft_printheader('d');
 
 		/* Space flag */
 		printf("|Hello world % 10d|\n", nb);
@@ -113,10 +52,86 @@ int	main(void)
 		printf("|Hello world %010d|\n", nb);
 		ft_printf("|Hello world %010d|\n\n", nb);
 
+		printf("|Hello world %hd|\n", s_nb);
+		ft_printf("|Hello world %hd|\n\n", s_nb);
+
 			/* Undefined behavior */
 			//printf("|Hello world %#d|\n", nb);
 			//ft_printf("|Hello world %#d|\n\n", nb);
 
+}
+int	main(void)
+{
+	int nb = 42;
+	int neg_nb = -42;
+
+	/* Different flags */
+
+		//printf("%-010.12d\n", 42);
+		//printf("%010.12d\n", 42);
+		//printf("%0.12d\n", 42);
+		//ft_printf("%010d Hello World!\n", 42);
+
+	/* Different formats */
+
+	char *str = "This is a String!";
+
+	/* %c */
+		ft_printheader('c');
+		
+		// C RETURN VALUE UNDER WORK
+		printf("%d\n", printf("|%10c|\n", 'h'));
+		ft_printf("%d\n", printf("|%10c|\n", 'h'));
+
+		printf("|%123c|\n", 'h');
+		ft_printf("|%123c|\n\n", 'h');
+
+		printf("|%10c%10c|\n", 'h', 'e');
+		ft_printf("|%10c%10c|\n", 'h', 'e');
+
+		printf("|%-10c|\n", 'h');
+		ft_printf("|%-10c|\n\n", 'h');
+
+		printf("|%1c|\n", 'h');
+		ft_printf("|%1c|\n\n", 'h');
+
+		printf("|%c|\n", 'h');
+		ft_printf("|%c|\n", 'h');
+
+		/* Undefined */
+			// printf("|%010c|\n", 'h');
+
+			// printf("|%#c|\n", 'h');
+
+			// printf("|%+c|\n", 'h');
+
+			// printf("|% c|\n", 'h');
+
+			// printf("|%0c\n", 'h');
+
+	/* %s */
+		ft_printheader('s');
+
+		printf("|Hive %s|\n", str);
+		ft_printf("|Hive %s|\n\n", str);
+
+		printf("|Hive %20s|\n", str);
+		ft_printf("|Hive %20s|\n\n", str);
+
+		printf("|Hive %-20s|\n", str);
+		ft_printf("|Hive %-20s|\n\n", str);
+
+		printf("|Hive %-5s %s|\n", str, str);
+		ft_printf("|Hive %-5s %s|\n\n", str, str);
+
+		printf("|Hive %-20s %30s|\n", str, str);
+		ft_printf("|Hive %-20s %30s|\n\n", str, str);
+
+		/* Undefined behavior */
+			//ft_printf("|Hive %010s|\n", str);
+			//printf("|Hive %010s|\n", str);
+
+	
 	/* %u */
 		printf("##### u #####\n");
 
@@ -263,7 +278,8 @@ int	main(void)
 				//ft_printf("|%+15x|\n\n", 9321124);
 				
 		 		//printf("|%+#015x|\n", 9321124);
-
+	/* %d */
+	test_d();
 	/* PANIC */
 		//printf("%02147483646d", nbb);
 

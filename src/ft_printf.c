@@ -37,12 +37,13 @@ char	check_flags(t_flags *tab, const char *str, char format)
 			tab->minus = 1;
 		if (str[i] == '+')
 			tab->plus = 1;
+		if (str[i] == 'l')
+			tab->l = 1;
 		if (ft_isdigit(str[i]))
 			tab->width = ((10 * tab->width) + str[i] - 48);
 	}
 	return (*str);
 }
-
 
 t_flags *init_tab(t_flags *tab)
 {
@@ -52,6 +53,8 @@ t_flags *init_tab(t_flags *tab)
 	tab->plus = 0;
 	tab->minus = 0;
 	tab->hash = 0;
+	tab->ret_len = 0;
+	tab->l = 0;
 	return (tab);
 }
 
@@ -97,11 +100,9 @@ const char	*check_format(const char *str, t_flags *tab)
 
 int ft_printf(const char *format, ...)
 {
-	int			i;
 	const char	*ptr;
 	t_flags		*tab;
 
-	i = 0;
 	tab = (t_flags *)malloc(sizeof(t_flags));
 	if (!tab)
 		return (-1);
@@ -111,7 +112,11 @@ int ft_printf(const char *format, ...)
 	while (*ptr != '\0')
 	{
 		if (*ptr != '%')
+		{
+			/* putchar style */
 			ft_putchar(*ptr); // Could done better, count len and THEN print all in once
+			tab->ret_len += 1;
+		}
 		else // When % founded
 		{
 			ptr++;

@@ -67,3 +67,9 @@ void	putpadding(int width, char ch)
 		i++;
 	}
 }
+
+int	ft_putmany(char *str, int len)
+{
+	write(1, &str, len);
+	return (0);
+}
