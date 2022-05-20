@@ -202,7 +202,6 @@ void	test_i()
 	printf("%d\n\n", ft_printf("|Hello world %d, this is test!|", nb));
 }
 
-
 void test_o()
 {
 	/* %o */
@@ -217,6 +216,7 @@ void test_o()
 
 void	test_p()
 {
+	char *str = "Pointer tests";
 	/* %p */
 	ft_printheader('c');
 	 	char *ch = "c";
@@ -321,11 +321,11 @@ void	test_x()
 
 int	main(void)
 {
-	//test_c();
+	test_c();
 	//test_d();
 	//test_s();
 	//test_u();
-	test_i();
+	//test_i();
 	//test_o();
 	//test_p();
 	//test_X();
