@@ -29,14 +29,11 @@ void	test_d()
 	nb = 42;
 	ft_printheader('d');
 
-		printf("|Hello world %d|\n", nb);
-		ft_printf("|Hello world %d|\n\n", nb);
-
-
+		printf("%d\n", printf("|Hello world %d|", nb));
+		printf("%d\n\n", ft_printf("|Hello world %d|", nb));
 		/* Space flag */
 		printf("%d\n", printf("|Hello world % 10d|", nb));
 		printf("%d\n\n", ft_printf("|Hello world % 10d|", nb));
-
 		/* 0 flag */
 		printf("%d\n", printf("|Hello world %010d|", neg_nb));
 		printf("%d\n\n", ft_printf("|Hello world %010d|", neg_nb));
@@ -76,16 +73,38 @@ void	test_d()
 		 printf("%d\n\n", ft_printf("|Decimal test%+-10d|", neg_nb));
 		 
 		 /* Precision */
+		// printf("%d\n", printf("|%.5d|", nb));
+		// printf("%d\n\n", ft_printf("|%.5d|", nb));
 
-		 printf("%d\n", printf("|%.5d|", nb));
-		 printf("%d\n\n", ft_printf("|%.5d|", nb));
+		// printf("%d\n", printf("|%-.5d|", nb));
+		// printf("%d\n\n", ft_printf("|%-.5d|", nb));
 
-		 printf("%d\n", printf("|%+.5d|", nb));
-		 printf("%d\n\n", ft_printf("|%+.5d|", nb));
+		// printf("%d\n", printf("|%+.5d|", nb));
+		// printf("%d\n\n", ft_printf("|%+.5d|", nb));
 
-		 printf("%d\n", printf("|%-.5d|", nb));
-		 printf("%d\n\n", ft_printf("|%-.5d|", nb));
+		// printf("%d\n", printf("|%.d|", nb));
+		// printf("%d\n\n", ft_printf("|%.d|", nb));
+		// 	// Not sure
+		// 	// printf("%d\n", printf("|%.-5d|", nb));
+		// 	// printf("%d\n\n", ft_printf("|%.-5d|", nb));
+		// printf("%d\n", printf("|%5.d|", nb));
+		// printf("%d\n\n", ft_printf("|%5.d|", nb));
+		// //
+		// printf("%d\n", printf("|%5.5d|", nb));
+		// printf("%d\n\n", ft_printf("|%5.5d|", nb));
 
+		// printf("%d\n", printf("|%1.5d|", nb));
+		// printf("%d\n\n", ft_printf("|%1.5d|", nb));
+
+		// printf("%d\n", printf("|%10.5d|", nb));
+		// printf("%d\n\n", ft_printf("|%10.5d|", nb));
+
+		// printf("%d\n", printf("|%-10.5d|", nb));
+		// printf("%d\n\n", ft_printf("|%-10.5d|", nb));
+
+		// printf("%d\n", printf("|%010.5d|", nb));
+		// printf("%d\n\n", ft_printf("|%010.5d|", nb));
+		
 			/* Undefined behavior */
 			//printf("|Hello world %#d|\n", nb);
 			//ft_printf("|Hello world %#d|\n\n", nb);
@@ -123,6 +142,7 @@ void	test_c()
 
 		printf("%d\n", printf("|%c|", 'h'));
 		printf("%d\n\n", ft_printf("|%c|", 'h'));
+		/* hh flag */
 
 		/* Undefined */
 			// printf("%d\n", printf("|%.5c|", 'h'));
@@ -144,19 +164,23 @@ void	test_s()
 		ft_printheader('s');
 
 		printf("%d\n", printf("|Hive %s|", str));
-		printf("%d\n", ft_printf("|Hive %s|", str));
-		printf("\n");
+		printf("%d\n\n", ft_printf("|Hive %s|", str));
+
+		/* WIDTH */
 		printf("%d\n", printf("|Hive %20s|", str));
-		printf("%d\n", ft_printf("|Hive %20s|", str));
-	printf("\n");
+		printf("%d\n\n", ft_printf("|Hive %20s|", str));
+		/* MINUS */
 		printf("%d\n", printf("|Hive %-20s|", str));
-		printf("%d\n", ft_printf("|Hive %-20s|", str));
-		printf("\n");
+		printf("%d\n\n", ft_printf("|Hive %-20s|", str));
+
 		printf("%d\n", printf("|Hive %-5s %s|", str, str));
-		printf("%d\n", ft_printf("|Hive %-5s %s|", str, str));
-		printf("\n");
+		printf("%d\n\n", ft_printf("|Hive %-5s %s|", str, str));
+
 		printf("%d\n", printf("|Hive %-20s %30s|", str, str));
-		printf("%d\n", ft_printf("|Hive %-20s %30s|", str, str));
+		printf("%d\n\n", ft_printf("|Hive %-20s %30s|", str, str));
+		/* PRECISION */
+		printf("%d\n", printf("|Hive %.s|", str));
+		printf("%d\n", ft_printf("|Hive %.s|", str));
 
 	// 	/* Undefined behavior */
 	// 		//ft_printf("|Hive %010s|\n", str);
@@ -352,6 +376,4 @@ int	main(void)
 	//test_p();
 	//test_X();
 	//test_x();
-
-	printf("INT TESTS AND");
 }

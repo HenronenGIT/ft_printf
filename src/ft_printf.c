@@ -29,8 +29,15 @@ char	check_flags(t_flags *tab, const char *str, char format)
 	i = -1;
 	while (str[++i] != format)
 	{
-		if (str[i] == '.')
-			tab->precision = 1;
+		/* Mayby need move to own while loop for norm */
+		/* For datatype flags can use "find sub string func" */
+		if (str[i] == 'h' && tab->h)
+		{
+			tab->hh = 1;
+			tab->h = 0;
+		}
+		if (str[i] == 'h' && !tab->hh)
+			tab->h = 1;
 		if (str[i] == '#')
 			tab->hash = 1;
 		if (str[i] == '0' && !tab->width)
@@ -39,10 +46,12 @@ char	check_flags(t_flags *tab, const char *str, char format)
 			tab->minus = 1;
 		if (str[i] == '+')
 			tab->plus = 1;
-		if (str[i] == 'l')
-			tab->l = 1;
-		if (ft_isdigit(str[i]))
+		if (str[i] == '.')
+			tab->precision = 1;
+		if (ft_isdigit(str[i]) && !tab->precision)
 			tab->width = ((10 * tab->width) + str[i] - 48);
+		else if (ft_isdigit(str[i]))
+			tab->prec_len = ((10 * tab->prec_len) + str[i] - 48);
 	}
 	return (*str);
 }
@@ -56,8 +65,10 @@ t_flags *init_tab(t_flags *tab)
 	tab->minus = 0;
 	tab->hash = 0;
 	tab->precision = 0;
+	tab->prec_len = 0;
 	//tab->ret_len = 0;
-	tab->l = 0;
+	tab->h = 0;
+	tab->hh = 0;
 	return (tab);
 }
 

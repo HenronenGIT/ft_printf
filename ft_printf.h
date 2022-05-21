@@ -30,7 +30,9 @@ typedef struct s_flags
 	int minus;
 	int hash;
 	int precision;
-	int	l;
+	int prec_len;
+	int	h;
+	int	hh;
 	int	ret_len;
 	//int is_neg;
 
