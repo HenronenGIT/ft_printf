@@ -22,11 +22,11 @@ void	test_d()
 {
 	int		nb;
 	int		neg_nb;
-	short	s_nb;
+	char	ch;
 
-	s_nb = 42;
-	neg_nb = -42;
 	nb = 42;
+	neg_nb = -42;
+	ch = 'a';
 	ft_printheader('d');
 
 		printf("%d\n", printf("|Hello world %d|", nb));
@@ -104,6 +104,13 @@ void	test_d()
 
 		// printf("%d\n", printf("|%010.5d|", nb));
 		// printf("%d\n\n", ft_printf("|%010.5d|", nb));
+		/* hh flag */
+		printf("%d\n", printf("|%hhd|", ch));
+		printf("%d\n\n", ft_printf("|%hhd|", ch));
+		// ?
+		printf("%d\n", printf("|% hhd|", ch));
+		printf("%d\n\n", ft_printf("| %hhd|", ch));
+
 		
 			/* Undefined behavior */
 			//printf("|Hello world %#d|\n", nb);

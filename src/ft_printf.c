@@ -31,6 +31,7 @@ char	check_flags(t_flags *tab, const char *str, char format)
 	{
 		/* Mayby need move to own while loop for norm */
 		/* For datatype flags can use "find sub string func" */
+		/* Seperate 1 char flags and 2 or more char flags to diff while loops */
 		if (str[i] == 'h' && tab->h)
 		{
 			tab->hh = 1;
