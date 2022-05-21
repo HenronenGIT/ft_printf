@@ -29,6 +29,8 @@ char	check_flags(t_flags *tab, const char *str, char format)
 	i = -1;
 	while (str[++i] != format)
 	{
+		if (str[i] == '.')
+			tab->precision = 1;
 		if (str[i] == '#')
 			tab->hash = 1;
 		if (str[i] == '0' && !tab->width)
@@ -53,6 +55,7 @@ t_flags *init_tab(t_flags *tab)
 	tab->plus = 0;
 	tab->minus = 0;
 	tab->hash = 0;
+	tab->precision = 0;
 	//tab->ret_len = 0;
 	tab->l = 0;
 	return (tab);

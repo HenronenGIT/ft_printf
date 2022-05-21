@@ -53,11 +53,38 @@ void	test_d()
 		printf("%d\n", printf("|Hello world %+010d|", neg_nb));
 		printf("%d\n\n", ft_printf("|Hello world %+010d|", neg_nb));
 
-		printf("%d\n", printf("|Hello world %010d|", nb));
-		printf("%d\n\n", ft_printf("|Hello world %010d|", nb));
+		printf("%d\n", printf("|%010d|", nb));
+		printf("%d\n\n", ft_printf("|%010d|", nb));
 
-		printf("%d\n", printf("|Hello world %hd|", s_nb));
-		printf("%d\n\n", ft_printf("|Hello world %hd|", s_nb));
+		/* - flag */
+		printf("%d\n", printf("|Hello world %-10d|", nb));
+		printf("%d\n\n", ft_printf("|Hello world %-10d|", nb));
+
+		printf("%d\n", printf("|Hello world %-10d|", neg_nb));
+		printf("%d\n\n", ft_printf("|Hello world %-10d|", neg_nb));
+
+		printf("%d\n", printf("|Hello world %-+10d|", nb));
+		printf("%d\n\n", printf("|Hello world %-+10d|", nb));
+
+		printf("%d\n", printf("|Hello world %-+10d|", neg_nb));
+		printf("%d\n\n", printf("|Hello world %-+10d|", neg_nb));
+
+		 printf("%d\n", printf("|Decimal test%+-10d|", nb));
+		 printf("%d\n\n", ft_printf("|Decimal test%+-10d|", nb));
+
+		 printf("%d\n", printf("|Decimal test%+-10d|", neg_nb));
+		 printf("%d\n\n", ft_printf("|Decimal test%+-10d|", neg_nb));
+		 
+		 /* Precision */
+
+		 printf("%d\n", printf("|%.5d|", nb));
+		 printf("%d\n\n", ft_printf("|%.5d|", nb));
+
+		 printf("%d\n", printf("|%+.5d|", nb));
+		 printf("%d\n\n", ft_printf("|%+.5d|", nb));
+
+		 printf("%d\n", printf("|%-.5d|", nb));
+		 printf("%d\n\n", ft_printf("|%-.5d|", nb));
 
 			/* Undefined behavior */
 			//printf("|Hello world %#d|\n", nb);
@@ -98,18 +125,13 @@ void	test_c()
 		printf("%d\n\n", ft_printf("|%c|", 'h'));
 
 		/* Undefined */
+			// printf("%d\n", printf("|%.5c|", 'h'));
 			// printf("|%010c|\n", 'h');
-
 			//printf("|%#c|\n", 'h');
-
 			//printf("|%.0c|\n", 'h');
-
 			//printf("|%010c|\n", 'h');
-
 			// printf("|%+c|\n", 'h');
-
 			// printf("|% c|\n", 'h');
-
 			// printf("|%0c\n", 'h');
 
 }
@@ -321,8 +343,8 @@ void	test_x()
 
 int	main(void)
 {
-	test_c();
-	//test_d();
+	// test_c();
+	test_d();
 	//test_s();
 	//test_u();
 	//test_i();
