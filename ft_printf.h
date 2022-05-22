@@ -58,4 +58,6 @@ char	*ft_itoa_base(unsigned int dec, int base);
 void	put_ptr(uintptr_t addr);
 int		putpadding(int width, char ch);
 
+void	precision_flag(t_flags *tab, int arg_len);
+
 #endif

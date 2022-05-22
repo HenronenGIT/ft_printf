@@ -73,43 +73,43 @@ void	test_d()
 		 printf("%d\n\n", ft_printf("|Decimal test%+-10d|", neg_nb));
 		 
 		 /* Precision */
-		// printf("%d\n", printf("|%.5d|", nb));
-		// printf("%d\n\n", ft_printf("|%.5d|", nb));
+		printf("%d\n", printf("|%.5d|", nb));
+		printf("%d\n\n", ft_printf("|%.5d|", nb));
 
-		// printf("%d\n", printf("|%-.5d|", nb));
-		// printf("%d\n\n", ft_printf("|%-.5d|", nb));
+		printf("%d\n", printf("|%-.5d|", nb));
+		printf("%d\n\n", ft_printf("|%-.5d|", nb));
 
-		// printf("%d\n", printf("|%+.5d|", nb));
-		// printf("%d\n\n", ft_printf("|%+.5d|", nb));
+		printf("%d\n", printf("|%+.5d|", nb));
+		printf("%d\n\n", ft_printf("|%+.5d|", nb));
 
-		// printf("%d\n", printf("|%.d|", nb));
-		// printf("%d\n\n", ft_printf("|%.d|", nb));
-		// 	// Not sure
-		// 	// printf("%d\n", printf("|%.-5d|", nb));
-		// 	// printf("%d\n\n", ft_printf("|%.-5d|", nb));
-		// printf("%d\n", printf("|%5.d|", nb));
-		// printf("%d\n\n", ft_printf("|%5.d|", nb));
-		// //
-		// printf("%d\n", printf("|%5.5d|", nb));
-		// printf("%d\n\n", ft_printf("|%5.5d|", nb));
+		printf("%d\n", printf("|%.d|", nb));
+		printf("%d\n\n", ft_printf("|%.d|", nb));
+			// Not sure
+			// printf("%d\n", printf("|%.-5d|", nb));
+			// printf("%d\n\n", ft_printf("|%.-5d|", nb));
+		printf("%d\n", printf("|%5.d|", nb));
+		printf("%d\n\n", ft_printf("|%5.d|", nb));
+		//
+		printf("%d\n", printf("|%5.5d|", nb));
+		printf("%d\n\n", ft_printf("|%5.5d|", nb));
 
-		// printf("%d\n", printf("|%1.5d|", nb));
-		// printf("%d\n\n", ft_printf("|%1.5d|", nb));
+		printf("%d\n", printf("|%1.5d|", nb));
+		printf("%d\n\n", ft_printf("|%1.5d|", nb));
 
-		// printf("%d\n", printf("|%10.5d|", nb));
-		// printf("%d\n\n", ft_printf("|%10.5d|", nb));
+		printf("%d\n", printf("|%10.5d|", nb));
+		printf("%d\n\n", ft_printf("|%10.5d|", nb));
 
-		// printf("%d\n", printf("|%-10.5d|", nb));
-		// printf("%d\n\n", ft_printf("|%-10.5d|", nb));
+		printf("%d\n", printf("|%-10.5d|", nb));
+		printf("%d\n\n", ft_printf("|%-10.5d|", nb));
 
-		// printf("%d\n", printf("|%010.5d|", nb));
-		// printf("%d\n\n", ft_printf("|%010.5d|", nb));
+		printf("%d\n", printf("|%010.5d|", nb));
+		printf("%d\n\n", ft_printf("|%010.5d|", nb));
 		/* hh flag */
-		printf("%d\n", printf("|%hhd|", ch));
-		printf("%d\n\n", ft_printf("|%hhd|", ch));
-		// ?
-		printf("%d\n", printf("|% hhd|", ch));
-		printf("%d\n\n", ft_printf("| %hhd|", ch));
+		// printf("%d\n", printf("|%hhd|", ch));
+		// printf("%d\n\n", ft_printf("|%hhd|", ch));
+		// // ?
+		// printf("%d\n", printf("|% hhd|", ch));
+		// printf("%d\n\n", ft_printf("| %hhd|", ch));
 
 		
 			/* Undefined behavior */
