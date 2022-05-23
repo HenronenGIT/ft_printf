@@ -116,10 +116,9 @@ void	d_handler(t_flags *tab)
 		tab->width -= 1;
 	}
 	/* Precision padding */
+	/* Width padding */
 	if (tab->precision)
 		precision_flag(tab, arg_len);
-	//tab->ret_len += putpadding((tab->prec_len - arg_len), '0');
-	/* Width padding */
 	if (tab->width && !tab->zero && !tab->minus && !tab->precision)
 			tab->ret_len += putpadding((tab->width - arg_len), ' ');
 	/* Zero padding */
