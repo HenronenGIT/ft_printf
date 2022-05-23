@@ -2,5 +2,6 @@ make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/hmaronen/workspace/github/ft_printf'
 make -C ./libft/ -I ./libft/includes fclean && make -C ./libft/ -I ./libft/includes
 gcc  -I ./libft/includes -I ./ ./src/main.c ./src/ft_printf.c ./src/handlers.c ./src/tools.c ./src/flags.c -o libftprintf.a -L ./libft -lft
+ 
 make: Leaving directory `/Users/hmaronen/workspace/github/ft_printf'
  
