@@ -34,7 +34,7 @@ void	s_handler(t_flags *tab)
 	tab->ret_len += ft_strlen(str);
 	if (tab->precision)
 	{
-		
+		str = ft_strsub(str, 0, tab->prec_len);
 	}
 	if (tab->width && !tab->minus)
 	{
@@ -110,7 +110,7 @@ void	d_handler(t_flags *tab)
 	arg_len = ft_strlen(str);
 	tab->ret_len += arg_len;
 	prec_padding = 0;
-	if (tab->precision)
+	if (tab->prec_len)
 		prec_padding = tab->prec_len - arg_len;
 	/* Width padding */
 	if ((tab->space || tab->width) && !tab->zero && !tab->minus)
@@ -127,10 +127,10 @@ void	d_handler(t_flags *tab)
 	/* Precision */
 	if (tab->precision)
 		tab->ret_len += putpadding(prec_padding, '0');
-		// precision_flag(tab, str, arg_len);
 	/* Zero padding */
 	if (tab->zero && !tab->precision && !tab->space)
 		tab->ret_len += putpadding((tab->width - arg_len - prec_padding), '0');
+	/* Print argument */
 	ft_putstr(str);
 	/* With padding right side */
 	if (tab->minus)

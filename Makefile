@@ -18,8 +18,8 @@ FLAGS = #-Wall -Wextra -Werror
 DB_FLAG = -g $(FLAGS)
 
 #Source files
-SRC = ./src/main.c ./src/ft_printf.c ./src/handlers.c ./src/tools.c \
-./src/flags.c
+SRC = ./src/ft_printf.c ./src/handlers.c ./src/tools.c \
+./src/flags.c ./eval_tests/main.c 
 	
 OBJ = $(SRC:.c=.o)
 

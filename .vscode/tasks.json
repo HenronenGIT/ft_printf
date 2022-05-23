@@ -16,6 +16,7 @@
 				"-I./libft/includes",
 				"-I./",
                 "${workspaceFolder}/src/*.c",
+                "${workspaceFolder}/eval_tests/*.c",
 			    //"${workspaceFolder}/libft/*.c", // For debugging lib functions
                 "-o",
                 "${workspaceFolder}/ft_printf",

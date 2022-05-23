@@ -57,8 +57,8 @@ char	check_flags(t_flags *tab, const char *str, char format)
 			tab->prec_len = ((10 * tab->prec_len) + str[i] - 48);
 	}
 	// Might cause problems - fix  for d format //
-	if (!tab->prec_len)
-		tab->precision = 0;
+	// if (!tab->prec_len)
+		// tab->precision = 0;
 	return (*str);
 }
 

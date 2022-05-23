@@ -47,25 +47,20 @@ void	ft_putmany(char ch, int count)
 	write(1, &ch, count);
 }
 
-int main (void)
+int main(void)
 {
-	unsigned int unb;
-	int nb;
+  FILE *fp;
 
-	nb = 0;
-	unb = 0;
-	printf("sizeof() int = %lu\n", sizeof(nb));
-	printf("sizeof () unsigned int = %lu\n", sizeof(unb));
+  printf("This will display on the screen.\n");
 
-	printf("nb = %d\n", nb);
-	printf("unb = %d\n", unb);
-	
-	nb--;
-	unb--;
+  if((fp=freopen("OUT", "w" ,stdout))==NULL) {
+    printf("Cannot open file.\n");
+    exit(1);
+  }
 
-	printf("nb = %d\n", nb);
-	printf("unb = %u\n", unb);
-	unb++;
-	printf("unb = %u\n", unb);
-	return (0);
+  printf("This will be written to the file OUT.");
+
+  fclose(fp);
+
+  return 0;
 }
