@@ -97,37 +97,36 @@ void	d_handler(t_flags *tab)
 {
 	char	*str;
 	int		arg_len;
-	int		is_neg;
+	int		prec_padding;
 
-	is_neg = 0;
 	str = ft_itoa(va_arg(tab->args, int));
 	arg_len = ft_strlen(str);
 	tab->ret_len += arg_len;
-	/* Negtive number check */
-	if (str[0] == '-')
-	{
-		is_neg = 1;
-		write(1, "-", 1);
-		str++;
-	}
-	if (tab->plus && !is_neg)
+	prec_padding = tab->prec_len - arg_len; 
+	if (tab->plus && str[0] != '-')
 	{
 		tab->ret_len += write(1, "+", 1);
 		tab->width -= 1;
 	}
-	/* Precision padding */
 	/* Width padding */
-	if (tab->precision)
-		precision_flag(tab, arg_len);
 	if (tab->width && !tab->zero && !tab->minus && !tab->precision)
 			tab->ret_len += putpadding((tab->width - arg_len), ' ');
+	/* Width padding with precision */
+	else if (tab->width && tab->precision && !tab->minus)
+			tab->ret_len += putpadding((tab->width - arg_len - prec_padding), ' ');
+	/* Precision */
+	if (tab->precision)
+		tab->ret_len += putpadding(tab->prec_len - arg_len,'0');
 	/* Zero padding */
-	if (tab->zero)
-		tab->ret_len += putpadding((tab->width - arg_len), '0');
+	if (tab->zero && !tab->precision)
+		str = zero_flag(tab, str, arg_len);
 	ft_putstr(str);
 	/* With padding right side */
 	if (tab->minus && !tab->precision)
 		tab->ret_len += putpadding((tab->width - arg_len), ' ');
+	else if(tab->minus && tab->precision)
+		tab->ret_len += putpadding((tab->width - arg_len - prec_padding), ' ');
+	
 }
 
 void	i_handler(t_flags *tab)

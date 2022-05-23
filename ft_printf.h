@@ -59,5 +59,6 @@ void	put_ptr(uintptr_t addr);
 int		putpadding(int width, char ch);
 
 void	precision_flag(t_flags *tab, int arg_len);
+char	*zero_flag(t_flags *tab, char *str, int arg_len);
 
 #endif
