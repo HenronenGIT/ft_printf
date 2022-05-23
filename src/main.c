@@ -32,8 +32,6 @@ void	test_d()
 	printf("%d\n", printf("|Hello world %d|", nb));
 	printf("%d\n\n", ft_printf("|Hello world %d|", nb));
 
-
-
 	printf("%d\n", printf("|Hello world %d|", neg_nb));
 	printf("%d\n\n", ft_printf("|Hello world %d|", neg_nb));
 	/* Space flag */

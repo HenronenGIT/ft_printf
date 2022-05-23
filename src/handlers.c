@@ -116,8 +116,10 @@ void	d_handler(t_flags *tab)
 
 	/* Width padding */
 	if (tab->width && !tab->zero && !tab->minus)
-			tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
-	
+		tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
+	if (tab->space && tab->zero)
+		tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
+
 	if (tab->plus || tab->is_neg || tab->space)
 		plus_flag(tab);
 	/* Width padding with precision */
