@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Mon May 23 09:15:11 2022
+# Make data base, printed on Mon May 23 13:40:13 2022
 
 # Variables
 
@@ -15,10 +15,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 23)
+# makefile (from `Makefile', line 24)
 OBJ = $(SRC:.c=.o)
 # makefile (from `Makefile', line 21)
-SRC = ./src/main.c ./src/ft_printf.c ./src/handlers.c ./src/tools.c
+SRC = ./src/main.c ./src/ft_printf.c ./src/handlers.c ./src/tools.c ./src/flags.c
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -31,7 +31,7 @@ VSCODE_LOG_NATIVE = false
 CURDIR := /Users/hmaronen/workspace/github/ft_printf
 # makefile
 SHELL = /bin/sh
-# makefile (from `Makefile', line 37)
+# makefile (from `Makefile', line 38)
 RM = /bin/rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
@@ -42,27 +42,27 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n0000l4m0004s5/T/vscode-ipc-152ae80d-8b23-4820-9684-abdfed5877cf.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n0000l4m0004s5/T/vscode-ipc-388cbf18-ed36-40dc-b19a-f1fb2efa2a9f.sock
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.v3QNhVyDUc/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.QyzkFcF48y/Render
 # environment
 PATH = /Users/hmaronen/.brew/bin:/Users/hmaronen/.brew/bin:/Users/hmaronen/.brew/bin:/Users/hmaronen/.brew/bin:/Users/hmaronen/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
-# makefile (from `Makefile', line 26)
+# makefile (from `Makefile', line 27)
 LIBFT_H = -I ./libft/includes
 # environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
-# makefile (from `Makefile', line 34)
+# makefile (from `Makefile', line 35)
 LIB = -L ./libft -lft
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.yN1EYDSimz/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.95vw77ecki/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -85,7 +85,7 @@ VSCODE_CODE_CACHE_PATH = /Users/hmaronen/Library/Application Support/Code/Cached
 LOGNAME = hmaronen
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from `Makefile', line 28)
+# makefile (from `Makefile', line 29)
 HEADERS = $(LIBFT_H) $(PRINTF_H)
 # environment
 ZSH = /Users/hmaronen/.oh-my-zsh
@@ -107,7 +107,7 @@ HOMEBREW_CACHE = /tmp/hmaronen/Homebrew/Caches
 SHLVL = 1
 # makefile (from `Makefile', line 16)
 CC = gcc
-# makefile (from `Makefile', line 27)
+# makefile (from `Makefile', line 28)
 PRINTF_H = -I ./
 # default
 MAKE_VERSION := 3.81
@@ -131,7 +131,7 @@ TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n0000l4m0004s5/T/
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /Users/hmaronen/Library/Application Support/Code/1.67.1-main.sock
-# makefile (from `Makefile', line 31)
+# makefile (from `Makefile', line 32)
 FILE_PATH = ./eval_tests/
 # makefile
 MAKEFLAGS = Rrqp
@@ -142,15 +142,13 @@ MFLAGS = -Rrqp
 # environment
 MAIL = hmaronen@student.hive.fi
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.6368
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x1325:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
@@ -174,9 +172,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 85083
+VSCODE_PID = 11205
 # variable set hash-table stats:
-# Load=82/1024=8%, Rehash=0, Collisions=2/121=2%
+# Load=81/1024=8%, Rehash=0, Collisions=2/120=2%
 
 # Pattern-specific Variable Values
 
@@ -207,7 +205,7 @@ all: libftprintf.a
 # Not a target:
 src/handlers.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 19:15:27
+#  Last modified 2022-05-23 13:38:47
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -227,7 +225,7 @@ src/handlers.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-11 14:37:41
+#  Last modified 2022-05-23 09:19:24
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -237,7 +235,7 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 46):
+#  commands to execute (from `Makefile', line 47):
 	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
 	@@$(CC) $(DB_FLAG) $(HEADERS) $(SRC) -o $(NAME) $(LIB)
 	
@@ -256,7 +254,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 54):
+#  commands to execute (from `Makefile', line 55):
 	@@/bin/rm -f $(NAME)
 	@@make fclean -C ./libft/
 	
@@ -264,7 +262,7 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 19:19:52
+#  Last modified 2022-05-23 13:35:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -287,7 +285,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 50):
+#  commands to execute (from `Makefile', line 51):
 	@@$(RM) $(OBJ)
 	@@make clean -C ./libft/
 	
@@ -295,16 +293,16 @@ clean:
 # Not a target:
 src/ft_printf.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 19:16:26
+#  Last modified 2022-05-23 09:38:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-libftprintf.a: src/main.c src/ft_printf.c src/handlers.c src/tools.c
+libftprintf.a: src/main.c src/ft_printf.c src/handlers.c src/tools.c src/flags.c
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `'
-#  Last modified 2022-05-19 19:16:35
+#  Last modified 2022-05-23 13:39:24
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -314,25 +312,34 @@ libftprintf.a: src/main.c src/ft_printf.c src/handlers.c src/tools.c
 # automatic
 # * := 
 # automatic
+# + := src/main.c src/ft_printf.c src/handlers.c src/tools.c src/flags.c
  
-# + := src/main.c src/ft_printf.c src/handlers.c src/tools.c
 # automatic
 # | := 
 # automatic
 # < := src/main.c
 # automatic
-# ^ := src/main.c src/ft_printf.c src/handlers.c src/tools.c
+# ^ := src/main.c src/ft_printf.c src/handlers.c src/tools.c src/flags.c
 # automatic
-# ? := src/main.c
+# ? := src/flags.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=3/20=15%
-#  commands to execute (from `Makefile', line 42):
+#  commands to execute (from `Makefile', line 43):
 	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
 	@@$(CC) $(FLAGS) $(HEADERS) $(SRC) -o $(NAME) $(LIB)
 	
 
+# Not a target:
+src/flags.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-23 13:40:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
 # files hash-table stats:
-# Load=14/1024=1%, Rehash=0, Collisions=0/40=0%
+# Load=15/1024=1%, Rehash=0, Collisions=0/42=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -344,6 +351,6 @@ libftprintf.a: src/main.c src/ft_printf.c src/handlers.c src/tools.c
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon May 23 09:15:11 2022
+# Finished Make data base on Mon May 23 13:40:13 2022
 
  

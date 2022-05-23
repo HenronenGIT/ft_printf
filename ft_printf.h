@@ -24,7 +24,9 @@
 typedef struct s_flags
 {
 	va_list args;
+	// long value;
 	int width;
+	int space;
 	int zero;
 	int plus;
 	int minus;
@@ -34,7 +36,7 @@ typedef struct s_flags
 	int	h;
 	int	hh;
 	int	ret_len;
-	//int is_neg;
+	int is_neg;
 
 } t_flags;
 
@@ -58,7 +60,9 @@ char	*ft_itoa_base(unsigned int dec, int base);
 void	put_ptr(uintptr_t addr);
 int		putpadding(int width, char ch);
 
-void	precision_flag(t_flags *tab, int arg_len);
+// void	precision_flag(t_flags *tab, int arg_len);
+void	plus_flag(t_flags *tab);
+void	precision_flag(t_flags *tab, char *str, int arg_len);
 char	*zero_flag(t_flags *tab, char *str, int arg_len);
 
 #endif

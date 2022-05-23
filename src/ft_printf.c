@@ -49,9 +49,11 @@ char	check_flags(t_flags *tab, const char *str, char format)
 			tab->plus = 1;
 		if (str[i] == '.')
 			tab->precision = 1;
+		if (str[i] == ' ')
+			tab->space = 1;
 		if (ft_isdigit(str[i]) && !tab->precision)
 			tab->width = ((10 * tab->width) + str[i] - 48);
-		else if (ft_isdigit(str[i]))
+ 		else if (ft_isdigit(str[i]))
 			tab->prec_len = ((10 * tab->prec_len) + str[i] - 48);
 	}
 	// Might cause problems - fix  for d format //
@@ -64,6 +66,7 @@ t_flags *init_tab(t_flags *tab)
 {
 	/* mayby not need to return anything */
 	tab->width = 0;
+	tab->space = 0;
 	tab->zero = 0;
 	tab->plus = 0;
 	tab->minus = 0;
@@ -71,6 +74,7 @@ t_flags *init_tab(t_flags *tab)
 	tab->precision = 0;
 	tab->prec_len = 0;
 	//tab->ret_len = 0;
+	tab->is_neg = 0;
 	tab->h = 0;
 	tab->hh = 0;
 	return (tab);
