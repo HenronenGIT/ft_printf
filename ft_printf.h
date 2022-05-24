@@ -62,7 +62,5 @@ int		putpadding(int width, char ch);
 
 // void	precision_flag(t_flags *tab, int arg_len);
 void	plus_flag(t_flags *tab);
-void	precision_flag(t_flags *tab, char *str, int arg_len);
-char	*zero_flag(t_flags *tab, char *str, int arg_len);
 
 #endif

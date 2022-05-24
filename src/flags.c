@@ -23,18 +23,7 @@ void	plus_flag(t_flags *tab)
 	tab->width -= 1;
 }
 
-char	*zero_flag(t_flags *tab, char *str, int arg_len)
+void	nb_padding(t_flags *tab)
 {
-	if (tab->zero && !tab->precision)
-		tab->ret_len += putpadding((tab->width - arg_len), '0');
-	return (str);
-}
-
-void	precision_flag(t_flags *tab, char *str, int arg_len)
-{
-	int prec_padding;
-
-	prec_padding = 0;
-	prec_padding = tab->prec_len - arg_len;
-	tab->ret_len += putpadding(prec_padding, '0');
+	
 }

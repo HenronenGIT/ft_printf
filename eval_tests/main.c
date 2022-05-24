@@ -218,7 +218,7 @@ void	test_s()
 	char *str = "String!";
 
 	/* %s */
-		ft_printheader('s');
+	ft_printheader('s');
 
 	printf("%d\n", printf("|Hive %s|", str));
 	printf("%d\n\n", ft_printf("|Hive %s|", str));
@@ -226,6 +226,7 @@ void	test_s()
 	/* WIDTH */
 	printf("%d\n", printf("|Hive %20s|", str));
 	printf("%d\n\n", ft_printf("|Hive %20s|", str));
+
 	/* MINUS */
 	printf("%d\n", printf("|Hive %-20s|", str));
 	printf("%d\n\n", ft_printf("|Hive %-20s|", str));
@@ -236,17 +237,19 @@ void	test_s()
 	/* PRECISION */
 	printf("%d\n", printf("|Hive %.s|", str));
 	printf("%d\n\n", ft_printf("|Hive %.s|", str));
-		/* with Width */
-		printf("%d\n", printf("|Hive %10.s|", str));
-		printf("%d\n\n", ft_printf("|Hive %10.s|", str));
+	/* with Width */
+	printf("%d\n", printf("|Hive %10.s|", str));
+	printf("%d\n\n", ft_printf("|Hive %10.s|", str));
 
-		printf("%d\n", printf("|Hive %10.5s|", str));
-		printf("%d\n\n", ft_printf("|Hive %10.5s|", str));
-
+	printf("%d\n", printf("|Hive %10.5s|", str));
+	printf("%d\n\n", ft_printf("|Hive %10.5s|", str));
 
 	// 	/* Undefined behavior */
-	//	printf("%d\n", printf("|Hive % 10s|", str));
-	// 	printf("|Hive %010s|\n", str);
+	//printf("%d\n", printf("|Hive %hhs|", str));
+	// printf("%d\n", printf("|Hive %hs|", str));
+	//printf("%d\n", printf("|Hive %lls|", str));
+	//printf("%d\n", printf("|Hive % 10s|", str));
+	//printf("|Hive %010s|\n", str);
 
 }
 
@@ -310,7 +313,7 @@ void	test_i()
 	printf("%d\n\n", ft_printf("|Hello world %d, this is test!|", nb));
 }
 
-void test_o()
+void	test_o()
 {
 	/* %o */
 	//ft_printheader('o');
@@ -430,8 +433,8 @@ void	test_x()
 int	main(void)
 {
 	// test_c();
-	// test_d();
-	test_s();
+	test_d();
+	// test_s();
 	//test_u();
 	//test_i();
 	//test_o();

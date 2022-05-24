@@ -28,12 +28,16 @@ void	c_handler(t_flags *tab)
 
 void	s_handler(t_flags *tab)
 {
-	char *str;
+	char	*str;
+	int		arg_len;
 
 	str = va_arg(tab->args, char*);
-	tab->ret_len += ft_strlen(str);
+
+	arg_len = ft_strlen(str);
+	tab->ret_len += arg_len;
 	if (tab->precision)
-	{
+	{	tab->ret_len -= (arg_len - tab->prec_len);
+		/* Mayby malloc not needed - any other function */
 		str = ft_strsub(str, 0, tab->prec_len);
 	}
 	if (tab->width && !tab->minus)
