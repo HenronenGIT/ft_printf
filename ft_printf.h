@@ -24,7 +24,6 @@
 typedef struct s_flags
 {
 	va_list args;
-	// long value;
 	int width;
 	int space;
 	int zero;
@@ -33,11 +32,11 @@ typedef struct s_flags
 	int hash;
 	int precision;
 	int prec_len;
+	int	arg_len;
 	int	h;
 	int	hh;
 	int	ret_len;
 	int is_neg;
-
 } t_flags;
 
 typedef void handler_func(t_flags *tab);
@@ -62,5 +61,7 @@ int		putpadding(int width, char ch);
 
 // void	precision_flag(t_flags *tab, int arg_len);
 void	plus_flag(t_flags *tab);
+void	nb_padding(t_flags *tab, char *argument);
+
 
 #endif

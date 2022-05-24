@@ -100,8 +100,8 @@ void	X_handler(t_flags *tab)
 void	d_handler(t_flags *tab)
 {
 	char	*str;
-	int		arg_len;
-	int		prec_padding;
+	// int		arg_len;
+	// int		prec_padding;
 	int		nb;
 
 	nb = va_arg(tab->args, int);
@@ -111,34 +111,35 @@ void	d_handler(t_flags *tab)
 		tab->is_neg = 1;
 	}
 	str = ft_itoa(nb);
-	arg_len = ft_strlen(str);
-	tab->ret_len += arg_len;
-	prec_padding = 0;
-	if (tab->prec_len)
-		prec_padding = tab->prec_len - arg_len;
-	/* Width padding */
-	if ((tab->space || tab->width) && !tab->zero && !tab->minus)
-		tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
-	/* Precision and Zero flag on */
-	if (tab->zero && tab->precision)
-		tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
-	/* Sign */
-	if (tab->plus || tab->is_neg || tab->space)
-		plus_flag(tab);
-	/* Space and Zero flag */
-	if (tab->space && tab->zero && !tab->precision)
-		tab->ret_len += putpadding((tab->width - arg_len - prec_padding), '0');
-	/* Precision */
-	if (tab->precision)
-		tab->ret_len += putpadding(prec_padding, '0');
-	/* Zero padding */
-	if (tab->zero && !tab->precision && !tab->space)
-		tab->ret_len += putpadding((tab->width - arg_len - prec_padding), '0');
-	/* Print argument */
-	ft_putstr(str);
-	/* With padding right side */
-	if (tab->minus)
-		tab->ret_len += putpadding((tab->width - arg_len - prec_padding), ' ');
+	tab->arg_len = ft_strlen(str);
+	nb_padding(tab, str);
+	// tab->ret_len += arg_len;
+	// prec_padding = 0;
+	// if (tab->prec_len)
+	// 	prec_padding = tab->prec_len - arg_len;
+	// /* Width padding */
+	// if ((tab->space || tab->width) && !tab->zero && !tab->minus)
+	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
+	// /* Precision and Zero flag on */
+	// if (tab->zero && tab->precision)
+	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
+	// /* Sign */
+	// if (tab->plus || tab->is_neg || tab->space)
+	// 	plus_flag(tab);
+	// /* Space and Zero flag */
+	// if (tab->space && tab->zero && !tab->precision)
+	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding), '0');
+	// /* Precision */
+	// if (tab->precision)
+	// 	tab->ret_len += putpadding(prec_padding, '0');
+	// /* Zero padding */
+	// if (tab->zero && !tab->precision && !tab->space)
+	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding), '0');
+	// /* Print argument */
+	// ft_putstr(str);
+	// /* With padding right side */
+	// if (tab->minus)
+	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding), ' ');
 }
 
 void	i_handler(t_flags *tab)

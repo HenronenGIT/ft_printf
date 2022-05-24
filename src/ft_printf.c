@@ -73,6 +73,7 @@ t_flags *init_tab(t_flags *tab)
 	tab->hash = 0;
 	tab->precision = 0;
 	tab->prec_len = 0;
+	tab->arg_len = 0;
 	//tab->ret_len = 0;
 	tab->is_neg = 0;
 	tab->h = 0;
