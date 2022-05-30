@@ -20,12 +20,12 @@ void ft_printheader(char c)
 
 void	test_d()
 {
-		int		nb;
+	unsigned int	uint_min;
+	unsigned int	uint_max;
+	int		nb;
 	int		neg_nb;
 	int		int_max;
 	int		int_min;
-	unsigned int	uint_min;
-	unsigned int	uint_max;
 	long	max_long;
 	long	min_long;
 	short	short_min;
@@ -162,26 +162,37 @@ void	test_d()
 	printf("%d\n", printf("|%010.5d|", nb));
 	printf("%d\n\n", ft_printf("|%010.5d|", nb));
 
-		printf("%d\n", printf("|%010.5d|", neg_nb));
-		printf("%d\n\n", ft_printf("|%010.5d|", neg_nb));
+	printf("%d\n", printf("|%010.5d|", neg_nb));
+	printf("%d\n\n", ft_printf("|%010.5d|", neg_nb));
 
-		printf("%d\n", printf("|%+010.5d|", nb));
-		printf("%d\n\n", ft_printf("|%+010.5d|", nb));
+	printf("%d\n", printf("|%+010.5d|", nb));
+	printf("%d\n\n", ft_printf("|%+010.5d|", nb));
 
-		printf("%d\n", printf("|%+010.5d|", neg_nb));
-		printf("%d\n\n", ft_printf("|%+010.5d|", neg_nb));
+	printf("%d\n", printf("|%+010.5d|", neg_nb));
+	printf("%d\n\n", ft_printf("|%+010.5d|", neg_nb));
 
-		printf("%d\n", printf("|% 010.5d|", nb));
-		printf("%d\n\n", ft_printf("|% 010.5d|", nb));
+	printf("%d\n", printf("|% 010.5d|", nb));
+	printf("%d\n\n", ft_printf("|% 010.5d|", nb));
+	/* Length modifiers */
+	/* hh flag */
+	printf("%d\n", printf("|%hhd|", ch));
+	printf("%d\n\n", ft_printf("|%hhd|", ch));
 
-		/* hh flag */
-		// printf("%d\n", printf("|%hhd|", ch));
-		// printf("%d\n\n", ft_printf("|%hhd|", ch));
-		// // ?
-		// printf("%d\n", printf("|% hhd|", ch));
-		// printf("%d\n\n", ft_printf("| %hhd|", ch));
+	printf("%d\n", printf("|%hhd|", char_min));
+	printf("%d\n\n", ft_printf("|%hhd|", char_min));
 
-		
+	printf("%d\n", printf("|%hhd|", char_max));
+	printf("%d\n\n", ft_printf("|%hhd|", char_max));
+	/* h flag */
+	printf("%d\n", printf("|%hd|", short_min));
+	printf("%d\n\n", ft_printf("|%hd|", short_min));
+
+	printf("%d\n", printf("|%hd|", short_max));
+	printf("%d\n\n", ft_printf("|%hd|", short_max));
+
+	printf("%d\n", printf("|%hd|", short_min));
+	printf("%d\n\n", ft_printf("|%hd|", short_min));
+
 			/* Undefined behavior */
 			//printf("|Hello world %#d|\n", nb);
 			//ft_printf("|Hello world %#d|\n\n", nb);
@@ -190,36 +201,35 @@ void	test_d()
 
 void	test_c()
 {
-	/* %c */
-		ft_printheader('c');
+	ft_printheader('c');
 
-		printf("%d\n", printf("|%c|", 'h'));
-		printf("%d\n\n", ft_printf("|%c|", 'h'));
+	printf("%d\n", printf("|%c|", 'h'));
+	printf("%d\n\n", ft_printf("|%c|", 'h'));
 		
-		printf("%d\n", printf("|%10c|", 'h'));
-		printf("%d\n\n", ft_printf("|%10c|", 'h'));
+	printf("%d\n", printf("|%10c|", 'h'));
+	printf("%d\n\n", ft_printf("|%10c|", 'h'));
 
-		printf("%d\n", printf("|%10c|", 'h'));
-		printf("%d\n\n", ft_printf("|%10c|", 'h'));
+	printf("%d\n", printf("|%10c|", 'h'));
+	printf("%d\n\n", ft_printf("|%10c|", 'h'));
 
-		printf("%d\n", printf("|%123c|", 'h'));
-		printf("%d\n\n", ft_printf("|%123c|", 'h'));
+	printf("%d\n", printf("|%123c|", 'h'));
+	printf("%d\n\n", ft_printf("|%123c|", 'h'));
 
-		printf("%d\n", printf("|%10c%10c|", 'h', 'e'));
-		printf("%d\n\n", ft_printf("|%10c%10c|", 'h', 'e'));
+	printf("%d\n", printf("|%10c%10c|", 'h', 'e'));
+	printf("%d\n\n", ft_printf("|%10c%10c|", 'h', 'e'));
 
-		printf("%d\n", printf("|%-10c|", 'h'));
-		printf("%d\n\n", ft_printf("|%-10c|", 'h'));
+	printf("%d\n", printf("|%-10c|", 'h'));
+	printf("%d\n\n", ft_printf("|%-10c|", 'h'));
 
-		printf("%d\n", printf("|%1c|", 'h'));
-		printf("%d\n\n", ft_printf("|%1c|", 'h'));
+	printf("%d\n", printf("|%1c|", 'h'));
+	printf("%d\n\n", ft_printf("|%1c|", 'h'));
 
-		printf("%d\n", printf("|%c|", 'h'));
-		printf("%d\n\n", ft_printf("|%c|", 'h'));
+	printf("%d\n", printf("|%c|", 'h'));
+	printf("%d\n\n", ft_printf("|%c|", 'h'));
 
-		printf("%d\n", printf("|%c|", 'h'));
-		printf("%d\n\n", ft_printf("|%c|", 'h'));
-		/* hh flag */
+	printf("%d\n", printf("|%c|", 'h'));
+	printf("%d\n\n", ft_printf("|%c|", 'h'));
+	/* hh flag */
 
 		/* Undefined */
 			// printf("%d\n", printf("|%.5c|", 'h'));
@@ -633,8 +643,8 @@ void	test_x()
 
 int	main(void)
 {
-	// test_c();
-	test_d();
+	test_c();
+	// test_d();
 	// test_s();
 	//test_u();
 	// test_i();
