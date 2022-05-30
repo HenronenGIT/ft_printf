@@ -15,7 +15,7 @@
 int		is_format(char ch)
 {
 	if (ch == 'c' || ch == 's' || ch == 'p' || ch == 'x' || ch == 'X'
-		|| ch == 'd' || ch == 'i' || ch == 'u')
+		|| ch == 'd' || ch == 'i' || ch == 'u' || ch == 'o')
 		return (1);
 	return (0);
 }
