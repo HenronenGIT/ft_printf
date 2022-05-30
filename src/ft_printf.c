@@ -34,13 +34,16 @@ char	check_flags(t_flags *tab, const char *str, char format)
 		/* Seperate 1 char flags and 2 or more char flags to diff while loops */
 		if (str[i] == 'h' && tab->h)
 		{
-			tab->hh = 1;
 			tab->h = 0;
+			tab->hh = 1;
 		}
 		if (str[i] == 'h' && !tab->hh)
 			tab->h = 1;
-		if (str[i] == 'l')
-			tab->l = 1;
+		if (str[i] == 'l' && tab->l)
+		{
+			tab->l = 0;
+			tab->ll = 1;
+		}
 		if (str[i] == '#')
 			tab->hash = 1;
 		if (str[i] == '0' && !tab->width)
@@ -77,6 +80,7 @@ t_flags *init_tab(t_flags *tab)
 	tab->is_neg = 0;
 	tab->hh = 0;
 	tab->h = 0;
+	tab->l = 0;
 	tab->l = 0;
 	return (tab);
 }

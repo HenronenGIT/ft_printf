@@ -37,6 +37,7 @@ typedef struct s_flags
 	int	hh;
 	int	h;
 	int l;
+	int ll;
 	int	ret_len;
 	int is_neg;
 } t_flags;

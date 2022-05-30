@@ -98,8 +98,6 @@ void	X_handler(t_flags *tab)
 
 void	d_handler(t_flags *tab)
 {
-	// int		arg_len;
-	// int		prec_padding;
 	char	*str;
 	int		nb;
 
@@ -174,18 +172,19 @@ void	p_handler(t_flags *tab)
 
 void	o_handler(t_flags *tab)
 {
-	char	*arg;
+	long long	arg;
+	char		*str;
 	int		arg_len;
 
-	arg = ft_itoa_base(va_arg(tab->args, int), 8);
-	arg_len = ft_strlen(arg);
+	arg = va_arg(tab->args, long long);
+	length_modifiers(tab, &arg);
+	str = ft_itoa_base(arg, 8);
+	arg_len = ft_strlen(str);
 	tab->ret_len += arg_len;
-	if (tab->hash && *arg != '0')
-		tab->ret_len += write(1, "0", 1);
-	if (tab->space)
-	if (tab->minus)
-
-	ft_putstr(arg);
+	// if (tab->hash && *arg != '0')
+		// write(1, "0", 1);
+	nb_padding(tab, str);
+	// ft_putstr(arg);
 }
 
 void	u_handler(t_flags *tab)
