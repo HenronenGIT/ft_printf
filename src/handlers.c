@@ -12,7 +12,6 @@
 
 #include "ft_printf.h"
 
-// Flags could be added to own functions and own file
 void	c_handler(t_flags *tab)
 {
 	char ch;
@@ -99,9 +98,9 @@ void	X_handler(t_flags *tab)
 
 void	d_handler(t_flags *tab)
 {
-	char	*str;
 	// int		arg_len;
 	// int		prec_padding;
+	char	*str;
 	int		nb;
 
 	nb = va_arg(tab->args, int);
@@ -144,11 +143,21 @@ void	d_handler(t_flags *tab)
 
 void	i_handler(t_flags *tab)
 {
-	char *str;
+	char		*str;
+	long long	nb;
 
-	str = ft_itoa(va_arg(tab->args, int));
-	tab->ret_len += ft_strlen(str);
-	ft_putstr(str);
+	// Type long long, or int ?
+	nb = va_arg(tab->args, long long);
+	
+	length_modifiers(tab, &nb);
+	if (nb < 0)
+	{
+		nb *= -1;
+		tab->is_neg = 1;
+	}
+	str = ft_anytoa(nb);
+	tab->arg_len = ft_strlen(str);
+	nb_padding(tab, str);
 }
 
 void	p_handler(t_flags *tab)

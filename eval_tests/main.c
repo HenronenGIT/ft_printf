@@ -301,16 +301,157 @@ void	test_u()
 void	test_i()
 {
 	int nb;
+	int neg_nb;
+	long max_long;
+	long min_long;
+	short max_short;
+	short min_short;
 
+	neg_nb = -42;
 	nb = 42;
-	/* %i */
+	max_short = SHRT_MAX;
+	max_long = LONG_MAX;
+	min_long = LONG_MIN;
 	ft_printheader('i');
+	
+	/* Length modifiers */
+	/* hh*/
+	printf("%i\n", printf("Hello world |%hi|", max_short));
+	printf("%i\n\n", ft_printf("Hello world |%hi|", max_short));
 
-	printf("%d\n", printf("|%i|", 42));
-	printf("%d\n\n", ft_printf("|%i|", 42));
+	printf("%i\n", printf("Hello world |%hi|", min_short));
+	printf("%i\n\n", ft_printf("Hello world |%hi|", min_short));
 
-	printf("%d\n", printf("|Hello world %d, this is test!|", nb));
-	printf("%d\n\n", ft_printf("|Hello world %d, this is test!|", nb));
+	printf("%i\n", printf("Hello world |%li|", max_long));
+	printf("%i\n\n", ft_printf("Hello world |%li|", max_long));
+
+	printf("%i\n", printf("Hello world |%li|", min_long));
+	printf("%i\n\n", ft_printf("Hello world |%li|", min_long));
+
+	// printf("%i\n", printf("|Hello world %i|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world %i|", nb));
+
+	// printf("%i\n", printf("|Hello world %i|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Hello world %i|", neg_nb));
+	// /* Space flag */
+	// printf("%i\n", printf("|Hello world %10d|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world %10d|", nb));
+
+	// printf("%i\n", printf("|Hello world %10d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Hello world %10d|", neg_nb));
+
+	// printf("%i\n", printf("|Hello world % 10d|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world % 10d|", nb));
+
+	// printf("%i\n", printf("|Hello world % 10d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Hello world % 10d|", neg_nb));
+	// /* 0 flag */
+	// printf("%i\n", printf("|Hello world %010d|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world %010d|", nb));
+
+	// printf("%i\n", printf("|Hello world %010d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Hello world %010d|", neg_nb));
+
+	// printf("%i\n", printf("|Hello world %0d|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world %0d|", nb));
+
+	// printf("%i\n", printf("|Hello world %+010d|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world %+010d|", nb));
+
+	// printf("%i\n", printf("|Hello world %+010d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Hello world %+010d|", neg_nb));
+	// /* Zero and Space */
+	// printf("%i\n", printf("|Hello world %0 10d|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world %0 10d|", nb));
+
+	// printf("%i\n", printf("|Hello world %0 10d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Hello world %0 10d|", neg_nb));
+
+	// printf("%i\n", printf("|Hello world % 010d|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world % 010d|", nb));
+
+	// printf("%i\n", printf("|Hello world %0 10d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Hello world %0 10d|", neg_nb));
+
+	// /* - flag */
+	// printf("%i\n", printf("|Hello world %-10d|", nb));
+	// printf("%i\n\n", ft_printf("|Hello world %-10d|", nb));
+
+	// printf("%i\n", printf("|Hello world %-10d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Hello world %-10d|", neg_nb));
+
+	// printf("%i\n", printf("|Hello world %-+10d|", nb));
+	// printf("%i\n\n", printf("|Hello world %-+10d|", nb));
+
+	// printf("%i\n", printf("|Hello world %-+10d|", neg_nb));
+	// printf("%i\n\n", printf("|Hello world %-+10d|", neg_nb));
+
+	// printf("%i\n", printf("|Decimal test%+-10d|", nb));
+	// printf("%i\n\n", ft_printf("|Decimal test%+-10d|", nb));
+
+	// printf("%i\n", printf("|Decimal test%+-10d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|Decimal test%+-10d|", neg_nb));
+		 
+	// // /* Precision */
+	// printf("#### Precision ####\n");
+	// printf("%i\n", printf("|%.5d|", nb));
+	// printf("%i\n\n", ft_printf("|%.5d|", nb));
+
+	// printf("%i\n", printf("|%.5d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|%.5d|", neg_nb));
+
+	// printf("%i\n", printf("|%-.5d|", nb));
+	// printf("%i\n\n", ft_printf("|%-.5d|", nb));
+
+	// printf("%i\n", printf("|%-.5d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|%-.5d|", neg_nb));
+
+	// printf("%i\n", printf("|%+.5d|", nb));
+	// printf("%i\n\n", ft_printf("|%+.5d|", nb));
+
+	// printf("%i\n", printf("|%+.5d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|%+.5d|", neg_nb));
+
+	// printf("%i\n", printf("|%.d|", nb));
+	// printf("%i\n\n", ft_printf("|%.d|", nb));
+	// 		// Not sure
+	// 		// printf("%i\n", printf("|%.-5d|", nb));
+	// 		// printf("%i\n\n", ft_printf("|%.-5d|", nb));
+	// printf("%i\n", printf("|%5.d|", nb));
+	// printf("%i\n\n", ft_printf("|%5.d|", nb));
+	// 	//
+	// printf("%i\n", printf("|%5.5d|", nb));
+	// printf("%i\n\n", ft_printf("|%5.5d|", nb));
+
+	// printf("%i\n", printf("|%1.5d|", nb));
+	// printf("%i\n\n", ft_printf("|%1.5d|", nb));
+
+	// printf("%i\n", printf("|%10.5d|", nb));
+	// printf("%i\n\n", ft_printf("|%10.5d|", nb));
+
+	// printf("%i\n", printf("|%-10.5d|", nb));
+	// printf("%i\n\n", ft_printf("|%-10.5d|", nb));
+
+	// printf("%i\n", printf("|%-10.5d|", neg_nb));
+	// printf("%i\n\n", ft_printf("|%-10.5d|", neg_nb));
+
+	// printf("%i\n", printf("|% 10.5d|", nb));
+	// printf("%i\n\n", ft_printf("|% 10.5d|", nb));
+
+	// printf("%i\n", printf("|%010.5d|", nb));
+	// printf("%i\n\n", ft_printf("|%010.5d|", nb));
+
+	// 	printf("%i\n", printf("|%010.5d|", neg_nb));
+	// 	printf("%i\n\n", ft_printf("|%010.5d|", neg_nb));
+
+	// 	printf("%i\n", printf("|%+010.5d|", nb));
+	// 	printf("%i\n\n", ft_printf("|%+010.5d|", nb));
+
+	// 	printf("%i\n", printf("|%+010.5d|", neg_nb));
+	// 	printf("%i\n\n", ft_printf("|%+010.5d|", neg_nb));
+
+	// 	printf("%i\n", printf("|% 010.5d|", nb));
+	// 	printf("%i\n\n", ft_printf("|% 010.5d|", nb));
 }
 
 void	test_o()
@@ -433,10 +574,10 @@ void	test_x()
 int	main(void)
 {
 	// test_c();
-	test_d();
+	// test_d();
 	// test_s();
 	//test_u();
-	//test_i();
+	test_i();
 	//test_o();
 	//test_p();
 	//test_X();

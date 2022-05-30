@@ -23,6 +23,7 @@
 
 typedef struct s_flags
 {
+	/* Could be shorts for less memory? */
 	va_list args;
 	int width;
 	int space;
@@ -33,8 +34,9 @@ typedef struct s_flags
 	int precision;
 	int prec_len;
 	int	arg_len;
-	int	h;
 	int	hh;
+	int	h;
+	int l;
 	int	ret_len;
 	int is_neg;
 } t_flags;
@@ -55,13 +57,16 @@ void	x_handler(t_flags *tab);
 void	X_handler(t_flags *tab);
 
 //char	*ft_itoa_base(int dec, int base);
-char	*ft_itoa_base(unsigned int dec, int base);
+char	*ft_itoa_base(long long dec, int base);
 void	put_ptr(uintptr_t addr);
 int		putpadding(int width, char ch);
 
 // void	precision_flag(t_flags *tab, int arg_len);
 void	plus_flag(t_flags *tab);
 void	nb_padding(t_flags *tab, char *argument);
+void	length_modifiers(t_flags *tab, long long *ptr_nb);
 
+static char	*ft_negative_handler(int i);
+char	*ft_anytoa(long long n);
 
 #endif

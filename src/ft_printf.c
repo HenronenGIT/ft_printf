@@ -39,6 +39,8 @@ char	check_flags(t_flags *tab, const char *str, char format)
 		}
 		if (str[i] == 'h' && !tab->hh)
 			tab->h = 1;
+		if (str[i] == 'l')
+			tab->l = 1;
 		if (str[i] == '#')
 			tab->hash = 1;
 		if (str[i] == '0' && !tab->width)
@@ -56,9 +58,6 @@ char	check_flags(t_flags *tab, const char *str, char format)
  		else if (ft_isdigit(str[i]))
 			tab->prec_len = ((10 * tab->prec_len) + str[i] - 48);
 	}
-	// Might cause problems - fix  for d format //
-	// if (!tab->prec_len)
-		// tab->precision = 0;
 	return (*str);
 }
 
@@ -76,8 +75,9 @@ t_flags *init_tab(t_flags *tab)
 	tab->arg_len = 0;
 	//tab->ret_len = 0;
 	tab->is_neg = 0;
-	tab->h = 0;
 	tab->hh = 0;
+	tab->h = 0;
+	tab->l = 0;
 	return (tab);
 }
 
