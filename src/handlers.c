@@ -144,19 +144,23 @@ void	d_handler(t_flags *tab)
 void	i_handler(t_flags *tab)
 {
 	char		*str;
-	long long	nb;
-
-	// Type long long, or int ?
-	nb = va_arg(tab->args, long long);
+	long long	arg;
 	
-	length_modifiers(tab, &nb);
-	if (nb < 0)
+	// Type long long, or int ?
+	arg = va_arg(tab->args, long long);
+	if (arg < 0)
 	{
-		nb *= -1;
+		arg *= -1;
 		tab->is_neg = 1;
 	}
-	str = ft_anytoa(nb);
+	length_modifiers(tab, &arg);
+	// arg = (int)arg;
+	str = ft_itoa_base(arg, 10);
 	tab->arg_len = ft_strlen(str);
+
+		// For int max, best way?
+	// if (arg == 2147483648)
+		// tab->ret_len += write(1, "-", 1);
 	nb_padding(tab, str);
 }
 

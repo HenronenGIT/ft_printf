@@ -23,6 +23,9 @@ char	*ft_itoa_base(long long dec, int base)
 
 	if (dec == 0)
 		return ("0");
+	// Wrong number??? LONG LONG MAX?
+	// if (dec == -9223372036854775808)
+		// return (ft_strdup("-9223372036854775808"));
 	hexa = ft_strnew(ft_digit_counter(dec, base));
 	i = 0;
 	remain = 0;
@@ -67,54 +70,4 @@ int	putpadding(int width, char ch)
 		i++;
 	}
 	return (i);
-}
-
-static char	*converter(int n, char *str, int i)
-{
-	while (i >= 0 && str[i] != '-')
-	{
-		str[i] = n % 10 + 48;
-		n = n / 10;
-		i--;
-	}
-	return (str);
-}
-
-static char	*ft_negative_handler(int i)
-{
-	char	*str;
-
-	str = ft_strnew(i + 1);
-	if (!str)
-		return (NULL);
-	str[0] = '-';
-	return (str);
-}
-
-char	*ft_anytoa(long long n)
-{
-	char		*str;
-	int			i;
-
-	i = ft_digit_counter(n, 10);
-	if (n == 0)
-		return (ft_strdup("0"));
-	if (n < 0)
-	{
-		// LONG LONG MIN HANDLE //
-		if (n == -2147483648)
-			return (ft_strdup("-2147483648"));
-		str = ft_negative_handler(i);
-		if (!str)
-			return (NULL);
-		n = n * -1;
-	}
-	else
-	{
-		str = ft_strnew(i);
-		if (!str)
-			return (NULL);
-		i = i - 1;
-	}
-	return (converter(n, str, i));
 }

@@ -17,7 +17,8 @@ void	length_modifiers(t_flags *tab, long long *ptr_nb)
 
 	if (tab->h)
 		*ptr_nb = (short)*ptr_nb;
+	if (tab->hh)
+		*ptr_nb = (char)*ptr_nb;
 	if (tab->l)
 		*ptr_nb = (long)*ptr_nb;
-
 }

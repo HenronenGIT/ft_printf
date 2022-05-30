@@ -20,12 +20,32 @@ void ft_printheader(char c)
 
 void	test_d()
 {
-	int		nb;
+		int		nb;
 	int		neg_nb;
+	int		int_max;
+	int		int_min;
+	unsigned int	uint_min;
+	unsigned int	uint_max;
+	long	max_long;
+	long	min_long;
+	short	short_min;
+	short	short_max;
+	char	char_min;
+	char	char_max;
 	char	ch;
 
-	nb = 42;
 	neg_nb = -42;
+	nb = 42;
+	short_max = SHRT_MAX;
+	short_min = SHRT_MIN;
+	max_long = LONG_MAX;
+	min_long = LONG_MIN;
+	int_max = INT_MAX;
+	int_min = INT_MIN;
+	char_min = CHAR_MIN;
+	char_max = CHAR_MAX;
+	uint_min = 0;
+	uint_max = UINT_MAX;
 	ch = 'a';
 	ft_printheader('d');
 	/* Without flags */
@@ -300,33 +320,65 @@ void	test_u()
 
 void	test_i()
 {
-	int nb;
-	int neg_nb;
-	long max_long;
-	long min_long;
-	short max_short;
-	short min_short;
+	int		nb;
+	int		neg_nb;
+	int		int_max;
+	int		int_min;
+	unsigned int	uint_min;
+	unsigned int	uint_max;
+	long	max_long;
+	long	min_long;
+	short	short_min;
+	short	short_max;
+	char	char_min;
+	char	char_max;
 
 	neg_nb = -42;
 	nb = 42;
-	max_short = SHRT_MAX;
+	short_max = SHRT_MAX;
+	short_min = SHRT_MIN;
 	max_long = LONG_MAX;
 	min_long = LONG_MIN;
+	int_max = INT_MAX;
+	int_min = INT_MIN;
+	char_min = CHAR_MIN;
+	char_max = CHAR_MAX;
+	uint_min = 0;
+	uint_max = UINT_MAX;
 	ft_printheader('i');
 	
 	/* Length modifiers */
-	/* hh*/
-	printf("%i\n", printf("Hello world |%hi|", max_short));
-	printf("%i\n\n", ft_printf("Hello world |%hi|", max_short));
+	printf("%i\n", printf("|%i|", uint_min));
+	printf("%i\n\n", ft_printf("|%i|", uint_min));
 
-	printf("%i\n", printf("Hello world |%hi|", min_short));
-	printf("%i\n\n", ft_printf("Hello world |%hi|", min_short));
+	printf("%i\n", printf("|%i|", uint_max));
+	printf("%i\n\n", ft_printf("|%i|", uint_max));
 
-	printf("%i\n", printf("Hello world |%li|", max_long));
-	printf("%i\n\n", ft_printf("Hello world |%li|", max_long));
+	printf("%i\n", printf("|%i|", int_min));
+	printf("%i\n\n", ft_printf("|%i|", int_min));
 
-	printf("%i\n", printf("Hello world |%li|", min_long));
-	printf("%i\n\n", ft_printf("Hello world |%li|", min_long));
+	printf("%i\n", printf("|%i|", int_max));
+	printf("%i\n\n", ft_printf("|%i|", int_max));
+	/* hh */
+	printf("%i\n", printf("|%hhi|", char_min));
+	printf("%i\n\n", ft_printf("|%hhi|", char_min));
+
+	printf("%i\n", printf("|%hhi|", char_max));
+	printf("%i\n\n", ft_printf("|%hhi|", char_max));
+	/* h */
+	printf("%i\n", printf("|%hi|", short_min));
+	printf("%i\n\n", ft_printf("|%hi|", short_max));
+	/* l */
+	printf("%i\n", printf("|%li|", max_long));
+	printf("%i\n\n", ft_printf("|%li|", max_long));
+
+	printf("%i\n", printf("|%li|", min_long));
+	printf("%i\n\n", ft_printf("|%li|", min_long));
+	/* ll */
+	// printf("%i\n", printf("|%lli|", int_max));
+	// printf("%i\n\n", ft_printf("|%lli|", int_max));
+
+
 
 	// printf("%i\n", printf("|Hello world %i|", nb));
 	// printf("%i\n\n", ft_printf("|Hello world %i|", nb));
@@ -582,10 +634,10 @@ void	test_x()
 int	main(void)
 {
 	// test_c();
-	// test_d();
+	test_d();
 	// test_s();
 	//test_u();
-	test_i();
+	// test_i();
 	//test_o();
 	//test_p();
 	//test_X();
