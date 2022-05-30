@@ -315,20 +315,28 @@ void	test_i()
 
 void	test_o()
 {
-	/* %o */
-	//ft_printheader('o');
+	ft_printheader('o');
 
-	//printf("printf:%o\n", 42);
-	//ft_printf("ft_printf:%o\n", 42);
+	printf("%d\n", printf("|%o|", 42));
+	printf("%d\n\n", ft_printf("|%o|", 42));
+	/* Hash flag */
+	printf("%d\n", printf("|%#o|", 42));
+	printf("%d\n\n", ft_printf("|%#o|", 42));
 
-	//printf("%o\n", 1234);
-	//ft_printf("%o\n", 1234);
+	printf("%d\n", printf("|%#o|", 0));
+	printf("%d\n\n", ft_printf("|%#o|", 0));
+	/* Width */
+	printf("%d\n", printf("|%5o|", 0));
+	printf("%d\n\n", ft_printf("|%5o|", 0));
+	/* Minus */
+	printf("%d\n", printf("|%-5o|", 0));
+	printf("%d\n\n", ft_printf("|%-5o|", 0));
 }
 
 void	test_p()
 {
 	char *str = "Pointer tests";
-	/* %p */
+
 	ft_printheader('c');
 	 	char *ch = "c";
 	 	int	tab[5] = {0, 1 ,2};
@@ -433,11 +441,11 @@ void	test_x()
 int	main(void)
 {
 	// test_c();
-	test_d();
+	// test_d();
 	// test_s();
 	//test_u();
 	//test_i();
-	//test_o();
+	test_o();
 	//test_p();
 	//test_X();
 	//test_x();

@@ -161,7 +161,18 @@ void	p_handler(t_flags *tab)
 
 void	o_handler(t_flags *tab)
 {
-	ft_putstr(ft_itoa_base(va_arg(tab->args, int), 8));
+	char	*arg;
+	int		arg_len;
+
+	arg = ft_itoa_base(va_arg(tab->args, int), 8);
+	arg_len = ft_strlen(arg);
+	tab->ret_len += arg_len;
+	if (tab->hash && *arg != '0')
+		tab->ret_len += write(1, "0", 1);
+	if (tab->space)
+	if (tab->minus)
+
+	ft_putstr(arg);
 }
 
 void	u_handler(t_flags *tab)
