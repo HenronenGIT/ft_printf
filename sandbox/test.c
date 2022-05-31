@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdarg.h>
+#include <limits.h>
 #include <stdio.h>
 #include <unistd.h>
 #include "libft.h"
@@ -49,18 +50,11 @@ void	ft_putmany(char ch, int count)
 
 int main(void)
 {
-  FILE *fp;
-
-  printf("This will display on the screen.\n");
-
-  if((fp=freopen("OUT", "w" ,stdout))==NULL) {
-    printf("Cannot open file.\n");
-    exit(1);
-  }
-
-  printf("This will be written to the file OUT.");
-
-  fclose(fp);
+	long long nb;
+	nb = -9223372036854775807;
+	// nb = (int)nb;
+	nb *= -1;
+	printf("%lld\n", nb);
 
   return 0;
 }

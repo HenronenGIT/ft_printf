@@ -177,10 +177,10 @@ void	o_handler(t_flags *tab)
 	int		arg_len;
 
 	arg = va_arg(tab->args, long long);
-	// WONT GO TO POSITIVE
+	// All minus values fix, they go over.
 	if (arg < 0)
 	{
-		arg = arg * -1;
+		arg *= -1;
 		tab->is_neg = 1;
 	}
 	length_modifiers(tab, &arg);
@@ -190,7 +190,6 @@ void	o_handler(t_flags *tab)
 	// if (tab->hash && *arg != '0')
 		// write(1, "0", 1);
 	nb_padding(tab, str);
-	// ft_putstr(arg);
 }
 
 void	u_handler(t_flags *tab)
