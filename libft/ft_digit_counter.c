@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int	ft_digit_counter(int n, int base)
+int	ft_digit_counter(long long n, int base)
 {
-	int	temp;
-	int	i;
+	long long	temp;
+	int			i;
 
 	i = 0;
 	temp = n;

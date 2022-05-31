@@ -16,7 +16,7 @@
 //char	*ft_itoa_base(int dec, int base)
 char	*ft_itoa_base(long long dec, int base)
 {
-	char	*hexa;
+	char	*str;
 	int		remain;
 	int		i;
 	int		offset;
@@ -26,21 +26,21 @@ char	*ft_itoa_base(long long dec, int base)
 	// Wrong number??? LONG LONG MAX?
 	// if (dec == -9223372036854775808)
 		// return (ft_strdup("-9223372036854775808"));
-	hexa = ft_strnew(ft_digit_counter(dec, base));
+	str = ft_strnew(ft_digit_counter(dec, base));
 	i = 0;
 	remain = 0;
 	while (dec != 0)
 	{
 		remain = dec % base;
 		if (remain < 10)
-			hexa[i] = remain + 48;
+			str[i] = remain + 48;
 		else
-			hexa[i] = remain + 87;
+			str[i] = remain + 87;
 		dec = dec / base;
 		i++;
 	}
-	hexa = ft_strrev(hexa);
-	return (hexa);
+	str = ft_strrev(str);
+	return (str);
 }
 
 void	put_ptr(uintptr_t addr)

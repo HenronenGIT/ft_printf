@@ -177,6 +177,12 @@ void	o_handler(t_flags *tab)
 	int		arg_len;
 
 	arg = va_arg(tab->args, long long);
+	// WONT GO TO POSITIVE
+	if (arg < 0)
+	{
+		arg = arg * -1;
+		tab->is_neg = 1;
+	}
 	length_modifiers(tab, &arg);
 	str = ft_itoa_base(arg, 8);
 	arg_len = ft_strlen(str);

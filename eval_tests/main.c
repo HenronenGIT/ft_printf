@@ -393,8 +393,6 @@ void	test_i()
 	// printf("%i\n", printf("|%lli|", int_max));
 	// printf("%i\n\n", ft_printf("|%lli|", int_max));
 
-
-
 	// printf("%i\n", printf("|Hello world %i|", nb));
 	// printf("%i\n\n", ft_printf("|Hello world %i|", nb));
 
@@ -701,13 +699,12 @@ void	test_o()
 	printf("%o\n", printf("|%lo|", long_max));
 	printf("%o\n\n", ft_printf("|%lo|", long_max));
 
-	printf("%o\n", printf("|%llo|", llong_min));
-	printf("%o\n\n", ft_printf("|%llo|", llong_min));
+	printf("%o\n", printf("|%llo|", LLONG_MIN));
+	printf("%o\n\n", ft_printf("|%llo|", LLONG_MIN));
 
-	printf("%o\n", printf("|%llo|", llong_max));
-	printf("%o\n\n", ft_printf("|%llo|", llong_max));
+	printf("%o\n", printf("|%llo|", LLONG_MAX));
+	printf("%o\n\n", ft_printf("|%llo|", LLONG_MAX));
 }
-
 
 void	test_p()
 {

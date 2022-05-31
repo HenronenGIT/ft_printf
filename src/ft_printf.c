@@ -44,6 +44,8 @@ char	check_flags(t_flags *tab, const char *str, char format)
 			tab->l = 0;
 			tab->ll = 1;
 		}
+		if (str[i] == 'l' && !tab->ll)
+			tab->l = 1;
 		if (str[i] == '#')
 			tab->hash = 1;
 		if (str[i] == '0' && !tab->width)
@@ -81,7 +83,7 @@ t_flags *init_tab(t_flags *tab)
 	tab->hh = 0;
 	tab->h = 0;
 	tab->l = 0;
-	tab->l = 0;
+	tab->ll = 0;
 	return (tab);
 }
 
