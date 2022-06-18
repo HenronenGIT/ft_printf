@@ -16,10 +16,12 @@ void	length_modifiers(t_flags *tab, long long *ptr_nb)
 {
 	if (tab->h)
 		*ptr_nb = (short)*ptr_nb;
-	if (tab->hh)
+	else if (tab->hh)
 		*ptr_nb = (char)*ptr_nb;
-	if (tab->l)
+	else if (tab->l)
 		*ptr_nb = (long)*ptr_nb;
-	if (tab->ll)
+	else if (tab->ll)
 		*ptr_nb = (long long)*ptr_nb;
+	else
+		*ptr_nb = (int)*ptr_nb;
 }

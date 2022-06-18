@@ -99,44 +99,19 @@ void	X_handler(t_flags *tab)
 void	d_handler(t_flags *tab)
 {
 	char	*str;
-	int		nb;
+	long long arg;
 
-	nb = va_arg(tab->args, int);
-	if (nb < 0)
+	arg = 0; // Mayby not needed
+	arg = va_arg(tab->args, long long);
+	length_modifiers(tab, &arg);
+	if (arg < 0)
 	{
-		nb *= -1;
+		arg *= -1;
 		tab->is_neg = 1;
 	}
-	str = ft_itoa(nb);
+	str = ft_itoa_base(arg, 10);
 	tab->arg_len = ft_strlen(str);
 	nb_padding(tab, str);
-	// tab->ret_len += arg_len;
-	// prec_padding = 0;
-	// if (tab->prec_len)
-	// 	prec_padding = tab->prec_len - arg_len;
-	// /* Width padding */
-	// if ((tab->space || tab->width) && !tab->zero && !tab->minus)
-	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
-	// /* Precision and Zero flag on */
-	// if (tab->zero && tab->precision)
-	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
-	// /* Sign */
-	// if (tab->plus || tab->is_neg || tab->space)
-	// 	plus_flag(tab);
-	// /* Space and Zero flag */
-	// if (tab->space && tab->zero && !tab->precision)
-	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding), '0');
-	// /* Precision */
-	// if (tab->precision)
-	// 	tab->ret_len += putpadding(prec_padding, '0');
-	// /* Zero padding */
-	// if (tab->zero && !tab->precision && !tab->space)
-	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding), '0');
-	// /* Print argument */
-	// ft_putstr(str);
-	// /* With padding right side */
-	// if (tab->minus)
-	// 	tab->ret_len += putpadding((tab->width - arg_len - prec_padding), ' ');
 }
 
 void	i_handler(t_flags *tab)
@@ -146,19 +121,14 @@ void	i_handler(t_flags *tab)
 	
 	// Type long long, or int ?
 	arg = va_arg(tab->args, long long);
+	length_modifiers(tab, &arg);
 	if (arg < 0)
 	{
 		arg *= -1;
 		tab->is_neg = 1;
 	}
-	length_modifiers(tab, &arg);
-	// arg = (int)arg;
 	str = ft_itoa_base(arg, 10);
 	tab->arg_len = ft_strlen(str);
-
-		// For int max, best way?
-	// if (arg == 2147483648)
-		// tab->ret_len += write(1, "-", 1);
 	nb_padding(tab, str);
 }
 
@@ -176,14 +146,17 @@ void	o_handler(t_flags *tab)
 	char		*str;
 	int		arg_len;
 
+	arg = 0;
+
 	arg = va_arg(tab->args, long long);
+
 	// All minus values fix, they go over.
+	length_modifiers(tab, &arg);
 	if (arg < 0)
 	{
 		arg *= -1;
-		tab->is_neg = 1;
+		// tab->is_neg = 1;
 	}
-	length_modifiers(tab, &arg);
 	str = ft_itoa_base(arg, 8);
 	arg_len = ft_strlen(str);
 	tab->ret_len += arg_len;

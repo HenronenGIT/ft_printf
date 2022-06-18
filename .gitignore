@@ -1,7 +1,5 @@
-DS_Store
 libft/*.o
 libftprintf.a
-ft_printf
 ft_printf.dSYM/
 libftprintf.a
 ft_printf
