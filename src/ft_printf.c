@@ -114,6 +114,7 @@ const char	*check_format(const char *str, t_flags *tab)
 		str++;
 	specifier = *str;
 
+	// libft function could be done
 	check_flags(tab, ptr, specifier);
 	specifierPtr = ft_strchr(FORMATS, specifier);
 	if (specifierPtr)
@@ -139,7 +140,7 @@ int ft_printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{
-			/* putchar style */
+			//putchar style
 			ft_putchar(*ptr); // Could done better, count len and THEN print all in once
 			tab->ret_len += 1;
 		}

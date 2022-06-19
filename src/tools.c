@@ -43,6 +43,32 @@ char	*ft_itoa_base(long long dec, int base)
 	return (str);
 }
 
+char	*ft_unsigned_itoa_base(unsigned long long dec, int base)
+{
+	char	*str;
+	int		remain;
+	int		i;
+	int		offset;
+
+	if (dec == 0)
+		return ("0");
+	str = ft_strnew(ft_digit_counter(dec, base));
+	i = 0;
+	remain = 0;
+	while (dec != 0)
+	{
+		remain = dec % base;
+		if (remain < 10)
+			str[i] = remain + 48;
+		else
+			str[i] = remain + 87;
+		dec = dec / base;
+		i++;
+	}
+	str = ft_strrev(str);
+	return (str);
+}
+
 void	put_ptr(uintptr_t addr)
 {
 	if (addr >= 16)

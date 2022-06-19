@@ -167,31 +167,20 @@ void	o_handler(t_flags *tab)
 
 void	u_handler(t_flags *tab)
 {
-	unsigned int	nb;
-	int		str_len;
-	int		is_neg;
 	char	*str;
+	unsigned long long arg;
 
-	is_neg = 0;
-	nb = va_arg(tab->args, unsigned int);
-	str = ft_itoa_base(nb, 10);
-	str_len = ft_strlen(str);
-	tab->ret_len += str_len;
-
-	if (tab->plus && !is_neg)
+	arg = 0; // Mayby not needed
+	arg = va_arg(tab->args, unsigned long long);
+	unsigned_length_modifiers(tab, &arg);
+	if (arg < 0)
 	{
-		write(1, "+", 1);
-		str_len += 1;
+		arg *= -1;
+		tab->is_neg = 1;
 	}
-	if (tab->width && !tab->zero)
-	{
-		tab->ret_len += putpadding((tab->width - str_len), ' ');
-	}
-	if (tab->zero)
-	{
-		tab->ret_len += putpadding((tab->width - str_len), '0');
-	}
-	ft_putstr(str);
+	str = ft_unsigned_itoa_base(arg, 10);
+	tab->arg_len = ft_strlen(str);
+	nb_padding(tab, str);
 
 }
 

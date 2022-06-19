@@ -3,6 +3,7 @@ libftprintf.a
 ft_printf.dSYM/
 libftprintf.a
 ft_printf
+*.o
 
 .vscode/configurationCache.log
 .vscode/dryrun.log
