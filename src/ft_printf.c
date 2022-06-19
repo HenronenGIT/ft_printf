@@ -20,8 +20,7 @@ int		is_format(char ch)
 	return (0);
 }
 
-//void	check_flags(t_flags *tab, const char *str)
-	/* mayby not need to return anything */
+/* mayby not need to return anything */
 char	check_flags(t_flags *tab, const char *str, char format)
 {
 	int i;

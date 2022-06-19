@@ -34,6 +34,7 @@ void	nb_padding(t_flags *tab, char *argument)
 	/* Width padding */
 	if ((tab->space || tab->width) && !tab->zero && !tab->minus)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
+	
 	/* Precision and Zero flag on */
 	//if (tab->zero && tab->precision)
 	if (tab->zero && tab->precision && prec_padding >= 0)
@@ -50,6 +51,8 @@ void	nb_padding(t_flags *tab, char *argument)
 	/* Zero padding */
 	if (tab->zero && !tab->precision && !tab->space)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');
+	if (tab->hash)
+		ft_putstr("0x");
 	/* Print argument */
 	ft_putstr(argument);
 	/* With padding right side */

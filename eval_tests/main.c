@@ -1019,6 +1019,7 @@ void	test_x()
 	printf("%d\n\n", ft_printf("|%x|", 9321124));
 
 	/* # flag */
+
 	printf("%d\n", printf("|%#x|", 9321124));
 	printf("%d\n\n", ft_printf("|%#x|", 9321124));
 
@@ -1028,12 +1029,18 @@ void	test_x()
 	printf("%d\n", printf("|%#015x|", 9321124));
 	printf("%d\n\n", ft_printf("|%#015x", 9321124));
 
+	printf("%d\n", printf("|%#-15x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#-15x", 9321124));
+
 	/* - flag */
 	printf("%d\n", printf("|%-015x|", 9321124));
 	printf("%d\n\n", ft_printf("|%-015x|", 9321124));
 
 	printf("%d\n", printf("|%-15x|", 9321124));
 	printf("%d\n\n", ft_printf("|%-15x|", 9321124));
+
+	printf("%d\n", printf("|%#15x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#15x|", 9321124));
 
 	/* Undefined behavior */
 		//printf("|%+15x|\n", 9321124);
