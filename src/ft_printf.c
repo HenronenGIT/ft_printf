@@ -15,7 +15,7 @@
 int		is_format(char ch)
 {
 	if (ch == 'c' || ch == 's' || ch == 'p' || ch == 'x' || ch == 'X'
-		|| ch == 'd' || ch == 'i' || ch == 'u' || ch == 'o')
+		|| ch == 'd' || ch == 'i' || ch == 'u' || ch == 'o' || ch == '%')
 		return (1);
 	return (0);
 }
@@ -90,10 +90,11 @@ t_flags *init_tab(t_flags *tab)
 /* Check which flags exists */
 const char	*check_format(const char *str, t_flags *tab)
 {
-	int i;
+	int index;
 	char conversion;
-	char format;
+	char specifier;
 	const char *ptr;
+	char	*specifierPtr;
 
 	/* Fill jump table func. */
 	handler_func	*conv_arr[9] = {
@@ -108,21 +109,17 @@ const char	*check_format(const char *str, t_flags *tab)
 		X_handler
 	};
 	ptr = str;
-	i = 0;
+	index = 0;
 	while (!is_format(*str))
 		str++;
-	format = *str;
+	specifier = *str;
 
-	check_flags(tab, ptr, format);
-	/* JUMP TABLE */
-	while (FORMATS[i])
+	check_flags(tab, ptr, specifier);
+	specifierPtr = ft_strchr(FORMATS, specifier);
+	if (specifierPtr)
 	{
-		if (FORMATS[i] == format)
-		{
-			conv_arr[i](tab);
-			break;
-		}
-		i++;
+		index = (int)(specifierPtr - FORMATS);
+		conv_arr[index](tab);
 	}
 	return (str);
 }

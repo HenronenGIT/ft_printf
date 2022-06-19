@@ -192,4 +192,10 @@ void	u_handler(t_flags *tab)
 		tab->ret_len += putpadding((tab->width - str_len), '0');
 	}
 	ft_putstr(str);
+
+}
+
+void percentage_handler(t_flags *tab)
+{
+	ft_putchar('%');
 }

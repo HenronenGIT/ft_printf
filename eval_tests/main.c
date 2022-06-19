@@ -27,10 +27,13 @@ void ft_printheader(char c);
 
 int	main(void)
 {
+	// printf("%d\n", printf("|a%%a|"));
+	// printf("%d\n", ft_printf("|a%%a|"));
+
 	// test_c();
-	// test_d();
+	test_d();
 	// test_s();
-	test_u();
+	// test_u();
 	// test_i();
 	//test_o();
 	//test_p();
