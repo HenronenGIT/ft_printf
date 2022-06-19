@@ -38,7 +38,7 @@ int	main(void)
 	//test_o();
 	//test_p();
 	//test_X();
-	//test_x();
+	test_x();
 }
 
 void ft_printheader(char c)
@@ -1001,42 +1001,44 @@ void	test_X()
 
 void	test_x()
 {
-	/* %x */
 	ft_printheader('x');
 
-		 	printf("|%x|\n", 0);
-		 	ft_printf("|%x|\n\n", 0);
+	printf("%d\n", printf("|%x|", 42));
+	printf("%d\n\n", ft_printf("|%x|", 42));
 
-		 	printf("|%x|\n", 17);
-		 	ft_printf("|%x|\n\n", 17);
+	printf("%d\n", printf("|%x|", 0));
+	printf("%d\n\n", ft_printf("|%x|", 0));
 
-		 	printf("|%x|\n", 123);
-		 	ft_printf("|%x|\n\n", 123);
+	printf("%d\n", printf("|%x|", 17));
+	printf("%d\n\n", ft_printf("|%x|", 17));
 
-		 	printf("|%x|\n", 9321124);
-		 	ft_printf("|%x|\n\n", 9321124);
+	printf("%d\n", printf("|%x|", 123));
+	printf("%d\n\n", ft_printf("|%x|", 123));
 
-			/* # flag */
-		 	printf("|%#x|\n", 9321124);
-		 	ft_printf("|%#x|\n\n", 9321124);
+	printf("%d\n", printf("|%x|", 9321124));
+	printf("%d\n\n", ft_printf("|%x|", 9321124));
 
-		 	printf("|%#0x|\n", 9321124);
-		 	ft_printf("|%#0x|\n\n", 9321124);
+	/* # flag */
+	printf("%d\n", printf("|%#x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#x|", 9321124));
 
-		 	printf("|%#015x|\n", 9321124);
-		 	ft_printf("|%#015x|\n\n", 9321124);
+	printf("%d\n", printf("|%#0x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#0x|", 9321124));
 
-			/* - flag */
-		 		//printf("|%-015x|\n", 9321124);
-		 		//ft_printf("|%-015x|\n\n", 9321124);
+	printf("%d\n", printf("|%#015x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#015x", 9321124));
 
-		 	printf("|%-15x|\n", 9321124);
-		 	ft_printf("|%-15x|\n\n", 9321124);
+	/* - flag */
+	printf("%d\n", printf("|%-015x|", 9321124));
+	printf("%d\n\n", ft_printf("|%-015x|", 9321124));
 
-			/* Undefined behavior */
-				//printf("|%+15x|\n", 9321124);
-				//ft_printf("|%+15x|\n\n", 9321124);
+	printf("%d\n", printf("|%-15x|", 9321124));
+	printf("%d\n\n", ft_printf("|%-15x|", 9321124));
+
+	/* Undefined behavior */
+		//printf("|%+15x|\n", 9321124);
+		//ft_printf("|%+15x|\n\n", 9321124);
 				
-		 		//printf("|%+#015x|\n", 9321124);
+	//printf("|%+#015x|\n", 9321124);
 }
 

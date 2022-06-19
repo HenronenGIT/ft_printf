@@ -53,26 +53,40 @@ void	s_handler(t_flags *tab)
 /* x and X handler could be merged to same function */
 void	x_handler(t_flags *tab)
 {
-	char	*str;
-	int		str_len;
+	char		*str;
+	long long	arg;
 
-	str = ft_itoa_base(va_arg(tab->args, int), 16);
-	/* Could be made to function, lot of same code in every function */
-	/* "count_padding_len" */
-	str_len = ft_strlen(str);
-	tab->width -= str_len;
-	/*
-	if (tab->hash)
+	arg = 0; // Mayby not needed
+	arg = va_arg(tab->args, long long);
+	length_modifiers(tab, &arg);
+	if (arg < 0)
 	{
-		ft_putstr("0x");
-		tab->width -= 2;
+		arg *= -1;
+		tab->is_neg = 1;
 	}
-	*/
-	if (tab->zero && !tab->minus)
-		putpadding(tab->width, '0');
-	ft_putstr(str);
-	if (tab->minus)
-		putpadding(tab->width, ' ');
+	str = ft_itoa_base(arg, 16);
+	tab->arg_len = ft_strlen(str);
+	nb_padding(tab, str);
+	// char	*str;
+	// int		str_len;
+
+	// str = ft_itoa_base(va_arg(tab->args, int), 16);
+	// /* Could be made to function, lot of same code in every function */
+	// /* "count_padding_len" */
+	// str_len = ft_strlen(str);
+	// tab->width -= str_len;
+	// /*
+	// if (tab->hash)
+	// {
+	// 	ft_putstr("0x");
+	// 	tab->width -= 2;
+	// }
+	// */
+	// if (tab->zero && !tab->minus)
+	// 	putpadding(tab->width, '0');
+	// ft_putstr(str);
+	// if (tab->minus)
+	// 	putpadding(tab->width, ' ');
 }
 
 void	X_handler(t_flags *tab)
