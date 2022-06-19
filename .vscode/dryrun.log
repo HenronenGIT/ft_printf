@@ -1,5 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/hmaronen/workspace/github/ft_printf'
-make: Nothing to be done for `all'.
-make: Leaving directory `/Users/hmaronen/workspace/github/ft_printf'
- 

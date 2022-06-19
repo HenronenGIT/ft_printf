@@ -13,6 +13,7 @@
 #include "ft_printf.h"
 #include <limits.h>
 
+void	test_percent();
 void	test_d();
 void	test_s();
 void	test_c();
@@ -23,12 +24,14 @@ void	test_x();
 void	test_X();
 void	test_o();
 
+
 void ft_printheader(char c);
 
 int	main(void)
 {
+	// test_percent();
 	// test_c();
-	test_d();
+	// test_d();
 	// test_s();
 	// test_u();
 	// test_i();
@@ -43,7 +46,30 @@ void ft_printheader(char c)
 	printf("##### %c #####\n", c);
 }
 
+void	test_percent()
+{
+	printf("%d\n", printf("|%%|"));
+	printf("%d\n\n", ft_printf("|%%|"));
 
+	printf("%d\n", printf("|%5%|"));
+	printf("%d\n\n", ft_printf("|%5%|"));
+
+	printf("%d\n", printf("|%-5%|"));
+	printf("%d\n\n", ft_printf("|%-5%|"));
+
+	printf("%d\n", printf("|%0.5%|"));
+	printf("%d\n\n", ft_printf("|%0.5%|"));
+
+	printf("%d\n", printf("|%.5%|"));
+	printf("%d\n\n", ft_printf("|%.5%|"));
+
+	printf("%d\n", printf("|%.0%|"));
+	printf("%d\n\n", ft_printf("|%.0%|"));
+
+	printf("%d\n", printf("|%    %|", "test"));
+	printf("%d\n", ft_printf("|%    %|", "test"));
+
+}
 void	test_d()
 {
 	unsigned int	uint_min;
@@ -241,6 +267,9 @@ void	test_d()
 void	test_c()
 {
 	ft_printheader('c');
+
+	printf("%d\n", printf("||"));
+	printf("%d\n\n", ft_printf("||"));
 
 	printf("%d\n", printf("|%c|", 'h'));
 	printf("%d\n\n", ft_printf("|%c|", 'h'));

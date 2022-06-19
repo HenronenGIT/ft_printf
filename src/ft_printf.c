@@ -97,7 +97,7 @@ const char	*check_format(const char *str, t_flags *tab)
 	char	*specifierPtr;
 
 	/* Fill jump table func. */
-	handler_func	*conv_arr[9] = {
+	handler_func	*conv_arr[10] = {
 		c_handler,
 		s_handler,
 		p_handler,
@@ -106,7 +106,9 @@ const char	*check_format(const char *str, t_flags *tab)
 		o_handler,
 		u_handler,
 		x_handler,
-		X_handler
+		X_handler,
+		percent_handler
+
 	};
 	ptr = str;
 	index = 0;
@@ -133,7 +135,7 @@ int ft_printf(const char *format, ...)
 	tab = (t_flags *)malloc(sizeof(t_flags));
 	if (!tab)
 		return (-1);
-	ptr = format;
+ 	ptr = format;
 	va_start(tab->args, format); // Can cause issues, when multiple %.
 	// Finding % loop
 	while (*ptr != '\0')
