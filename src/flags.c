@@ -23,7 +23,7 @@ void	plus_flag(t_flags *tab)
 	tab->width -= 1;
 }
 
-void	nb_padding(t_flags *tab, char *argument)
+void	nb_padding(t_flags *tab, char *argument, char *prefix)
 {
 	int	prec_padding;
 
@@ -48,8 +48,8 @@ void	nb_padding(t_flags *tab, char *argument)
 	if (tab->precision && prec_padding >= 0)
 		tab->ret_len += putpadding(prec_padding, '0');
 	/* Zero padding */
-	if (tab->hash)
-		ft_putstr("0x");
+	if (tab->hash && *argument != '0')
+		ft_putstr(prefix);
 	if (tab->zero && !tab->precision && !tab->space)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');
 	/* Print argument */

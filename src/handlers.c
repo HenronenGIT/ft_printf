@@ -61,9 +61,9 @@ void	x_handler(t_flags *tab)
 	unsigned_length_modifiers(tab, &arg);
 	stringArg = ft_unsigned_itoa_base(arg, 16);
 	tab->arg_len = ft_strlen(stringArg);
-	if (tab->hash)
+	if (tab->hash && *stringArg != '0')
 		tab->arg_len += 2;
-	nb_padding(tab, stringArg);
+	nb_padding(tab, stringArg, "0x");
 }
 
 void	X_handler(t_flags *tab)
@@ -81,9 +81,7 @@ void	X_handler(t_flags *tab)
 	if (tab->hash)
 		tab->arg_len += 2;
 	// FIX 0x TO 0X
-	nb_padding(tab, stringArg);
-	// while (stringArg[i])
-		// ft_putchar(ft_toupper(stringArg[i++]));
+	nb_padding(tab, stringArg, "0X");
 }
 
 void	d_handler(t_flags *tab)
@@ -101,7 +99,7 @@ void	d_handler(t_flags *tab)
 	}
 	str = ft_itoa_base(arg, 10);
 	tab->arg_len = ft_strlen(str);
-	nb_padding(tab, str);
+	nb_padding(tab, str, "");
 }
 
 void	i_handler(t_flags *tab)
@@ -119,7 +117,7 @@ void	i_handler(t_flags *tab)
 	}
 	str = ft_itoa_base(arg, 10);
 	tab->arg_len = ft_strlen(str);
-	nb_padding(tab, str);
+	nb_padding(tab, str, "");
 }
 
 void	p_handler(t_flags *tab)
@@ -132,33 +130,23 @@ void	p_handler(t_flags *tab)
 
 void	o_handler(t_flags *tab)
 {
-	long long	arg;
-	char		*str;
-	int		arg_len;
+	unsigned long long	arg;
+	char				*str;
 
 	arg = 0;
-
-	arg = va_arg(tab->args, long long);
-
-	// All minus values fix, they go over.
-	length_modifiers(tab, &arg);
-	if (arg < 0)
-	{
-		arg *= -1;
-		// tab->is_neg = 1;
-	}
-	str = ft_itoa_base(arg, 8);
-	arg_len = ft_strlen(str);
-	tab->ret_len += arg_len;
-	// if (tab->hash && *arg != '0')
-		// write(1, "0", 1);
-	nb_padding(tab, str);
+	arg = va_arg(tab->args, unsigned long long);
+	unsigned_length_modifiers(tab, &arg);
+	str = ft_unsigned_itoa_base(arg, 8);
+	tab->arg_len = ft_strlen(str);
+	if (tab->hash)
+		tab->arg_len += 1;
+	nb_padding(tab, str, "0");
 }
 
 void	u_handler(t_flags *tab)
 {
-	char	*str;
-	unsigned long long arg;
+	unsigned long long	arg;
+	char				*str;
 
 	arg = 0; // Mayby not needed
 	arg = va_arg(tab->args, unsigned long long);
@@ -170,7 +158,7 @@ void	u_handler(t_flags *tab)
 	}
 	str = ft_unsigned_itoa_base(arg, 10);
 	tab->arg_len = ft_strlen(str);
-	nb_padding(tab, str);
+	nb_padding(tab, str, "");
 
 }
 
