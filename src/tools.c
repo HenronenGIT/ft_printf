@@ -89,11 +89,8 @@ int	putpadding(int width, char ch)
 {
 	int i;
 
-	i = 0;
-	while (i < width)
-	{
+	i = -1;
+	while (++i < width)
 		ft_putchar(ch);
-		i++;
-	}
 	return (i);
 }

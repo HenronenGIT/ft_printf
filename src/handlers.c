@@ -53,19 +53,18 @@ void	s_handler(t_flags *tab)
 /* x and X handler could be merged to same function */
 void	x_handler(t_flags *tab)
 {
-	char		*str;
-	long long	arg;
+	unsigned int	arg;
+	char			*str;
 
 	arg = 0; // Mayby not needed
-	arg = va_arg(tab->args, long long);
-	length_modifiers(tab, &arg);
-	if (arg < 0)
-	{
-		arg *= -1;
-		tab->is_neg = 1;
-	}
+	arg = va_arg(tab->args, unsigned int);
+	// length_modifiers(tab, &arg);
+	// if (arg < 0)
+		// arg *= -1;
 	str = ft_itoa_base(arg, 16);
 	tab->arg_len = ft_strlen(str);
+	if (tab->hash)
+		tab->arg_len += 2;
 	nb_padding(tab, str);
 	// char	*str;
 	// int		str_len;

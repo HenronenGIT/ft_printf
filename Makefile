@@ -64,7 +64,7 @@ fclean: clean
 
 re: fclean all
 
-test:
+test: $(SRC)
 	@@$(CC) $(NAME) ./eval_tests/main.c $(PRINTF_H)
 	@@./a.out
 
