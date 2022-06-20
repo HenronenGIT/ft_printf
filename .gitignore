@@ -4,6 +4,7 @@ ft_printf.dSYM/
 libftprintf.a
 ft_printf
 *.o
+./eval_tests/42FileChecker
 
 .vscode/configurationCache.log
 .vscode/dryrun.log

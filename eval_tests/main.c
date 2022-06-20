@@ -37,8 +37,8 @@ int	main(void)
 	// test_i();
 	//test_o();
 	//test_p();
-	//test_X();
-	test_x();
+	test_X();
+	// test_x();
 }
 
 void ft_printheader(char c)
@@ -66,8 +66,8 @@ void	test_percent()
 	printf("%d\n", printf("|%.0%|"));
 	printf("%d\n\n", ft_printf("|%.0%|"));
 
-	printf("%d\n", printf("|%    %|", "test"));
-	printf("%d\n", ft_printf("|%    %|", "test"));
+	// printf("%d\n", printf("|%    %|", "test"));
+	// printf("%d\n", ft_printf("|%    %|", "test"));
 
 }
 void	test_d()
@@ -969,33 +969,110 @@ void	test_p()
 
 void	test_X()
 {
-	/* %X */
+	unsigned int	uint_min;
+	unsigned int	uint_max;
+	char			char_min;
+	char			char_max;
+	int				nb;
+	int				neg_nb;
+	int				int_max;
+	int				int_min;
+	short			short_min;
+	short			short_max;
+	long			long_min;
+	long			long_max;
+	long long		llong_min;
+	long long		llong_max;
+
+	neg_nb = -42;
+	nb = 42;
+	short_max = 32767;
+	short_min = -32768;
+	long_min = -2147483648;
+	long_max = 2147483647;
+	llong_min = -9223372036854775807;
+	llong_max = 9223372036854775807;
+	int_max = INT_MAX;
+	int_min = INT_MIN;
+	char_min = CHAR_MIN;
+	char_max = CHAR_MAX;
+	uint_min = 0;
+	uint_max = UINT_MAX;
+
 	ft_printheader('X');
 
-		printf("|%X|\n", 0);
-		ft_printf("|%X|\n\n", 0);
+	printf("%d\n", printf("|%X|", 0));
+	printf("%d\n\n", ft_printf("|%X|", 0));
 
-		printf("|%X|\n", 17);
-		ft_printf("|%X|\n\n", 17);
+	printf("%d\n", printf("|%X|", 9321124));
+	printf("%d\n\n", ft_printf("|%X|", 9321124));
 
-		printf("|%X|\n", 123);
-		ft_printf("|%X|\n\n", 123);
+	printf("%d\n", printf("|%X|", int_min));
+	printf("%d\n\n", ft_printf("|%X|", int_min));
 
-		printf("|%X|\n", 9321124);
-		ft_printf("|%X|\n\n", 9321124);
+	printf("%d\n", printf("|%X|", int_max));
+	printf("%d\n\n", ft_printf("|%X|", int_max));
 
-		/* # flag */
-		printf("|%#X|\n", 9321124);
-		ft_printf("|%#X|\n\n", 9321124);
+	printf("%d\n", printf("|%X|", uint_min));
+	printf("%d\n\n", ft_printf("|%X|", uint_min));
 
-		printf("|%#X|\n", 9321124);
-		ft_printf("|%#X|\n\n", 9321124);
+	printf("%d\n", printf("|%X|", uint_max));
+	printf("%d\n\n", ft_printf("|%X|", uint_max));
 
-		printf("|%010X|\n", 9321124);
-		ft_printf("|%010X|\n\n", 9321124);
+	/* Length modifiers */
 
-		printf("|%#010X|\n", 9321124);
-		ft_printf("|%#010X|\n\n", 9321124);
+	printf("%d\n", printf("|%hX|", short_min));
+	printf("%d\n\n", ft_printf("|%hX|", short_min));
+
+	printf("%d\n", printf("|%hX|", short_max));
+	printf("%d\n\n", ft_printf("|%hX|", short_max));
+
+	printf("%d\n", printf("|%lX|", long_min));
+	printf("%d\n\n", ft_printf("|%lX|", long_min));
+
+	printf("%d\n", printf("|%lX|", long_max));
+	printf("%d\n\n", ft_printf("|%lX|", long_max));
+
+	printf("%d\n", printf("|%llX|", llong_min));
+	printf("%d\n\n", ft_printf("|%llX|", llong_min));
+
+	printf("%d\n", printf("|%llX|", llong_max));
+	printf("%d\n\n", ft_printf("|%llX|", llong_max));
+
+	printf("%d\n", printf("|%hX|", char_min));
+	printf("%d\n\n", ft_printf("|%hX|", char_min));
+
+	printf("%d\n", printf("|%hX|", char_max));
+	printf("%d\n\n", ft_printf("|%hX|", char_max));
+
+	printf("%d\n", printf("|%hX|", char_max));
+	printf("%d\n\n", ft_printf("|%hX|", char_max));
+
+	printf("%d\n", printf("|%hhX|", char_max));
+	printf("%d\n\n", ft_printf("|%hhX|", char_max));
+
+	/* # flag */
+	printf("%d\n", printf("|%#X|", 9321124));
+	printf("%d\n\n", ft_printf("|%#X|", 9321124));
+ 
+	printf("%d\n", printf("|%#0X|", 9321124));
+	printf("%d\n\n", ft_printf("|%#0X|", 9321124));
+ 
+	printf("%d\n", printf("|%#015X|", 9321124));
+	printf("%d\n\n", ft_printf("|%#015X|", 9321124));
+ 
+	printf("%d\n", printf("|%#-15X|", 9321124));
+	printf("%d\n\n", ft_printf("|%#-15X|", 9321124));
+ 
+	/* - flag */
+	// printf("%d\n", printf("|%-015X|", 9321124));
+	// printf("%d\n", ft_printf("|%-015X|", 9321124));
+ 
+	printf("%d\n", printf("|%-15X|", 9321124));
+	printf("%d\n\n", ft_printf("|%-15X|", 9321124));
+
+	printf("%d\n", printf("|%#15X|", 9321124));
+	printf("%d\n\n", ft_printf("|%#15X|", 9321124));
 
 }
 
@@ -1045,46 +1122,73 @@ void	test_x()
 	printf("%d\n", printf("|%x|", int_max));
 	printf("%d\n\n", ft_printf("|%x|", int_max));
 
-	printf("%d\n", printf("|%x|", short_min));
-	printf("%d\n\n", ft_printf("|%x|", short_min));
+	printf("%d\n", printf("|%x|", uint_min));
+	printf("%d\n\n", ft_printf("|%x|", uint_min));
 
-	printf("%d\n", printf("|%x|", short_max));
-	printf("%d\n\n", ft_printf("|%x|", short_max));
+	printf("%d\n", printf("|%x|", uint_max));
+	printf("%d\n\n", ft_printf("|%x|", uint_max));
 
-	printf("%d\n", printf("|%x|", long_min));
-	printf("%d\n\n", ft_printf("|%x|", long_min));
+	/* Length modifiers */
 
-	printf("%d\n", printf("|%x|", long_max));
-	printf("%d\n\n", ft_printf("|%x|", long_max));
+	printf("%d\n", printf("|%hx|", short_min));
+	printf("%d\n\n", ft_printf("|%hx|", short_min));
+
+	printf("%d\n", printf("|%hx|", short_max));
+	printf("%d\n\n", ft_printf("|%hx|", short_max));
+
+	printf("%d\n", printf("|%lx|", long_min));
+	printf("%d\n\n", ft_printf("|%lx|", long_min));
+
+	printf("%d\n", printf("|%lx|", long_max));
+	printf("%d\n\n", ft_printf("|%lx|", long_max));
+
+	printf("%d\n", printf("|%llx|", llong_min));
+	printf("%d\n\n", ft_printf("|%llx|", llong_min));
+
+	printf("%d\n", printf("|%llx|", llong_max));
+	printf("%d\n\n", ft_printf("|%llx|", llong_max));
+
+	printf("%d\n", printf("|%hx|", char_min));
+	printf("%d\n\n", ft_printf("|%hx|", char_min));
+
+	printf("%d\n", printf("|%hx|", char_max));
+	printf("%d\n\n", ft_printf("|%hx|", char_max));
+
+	printf("%d\n", printf("|%hx|", char_max));
+	printf("%d\n\n", ft_printf("|%hx|", char_max));
+
+	printf("%d\n", printf("|%hhx|", char_max));
+	printf("%d\n\n", ft_printf("|%hhx|", char_max));
 
 	/* # flag */
-// 
-	// printf("%d\n", printf("|%#x|", 9321124));
-	// printf("%d\n\n", ft_printf("|%#x|", 9321124));
-// 
-	// printf("%d\n", printf("|%#0x|", 9321124));
-	// printf("%d\n\n", ft_printf("|%#0x|", 9321124));
-// 
-	// printf("%d\n", printf("|%#015x|", 9321124));
-	// printf("%d\n\n", ft_printf("|%#015x|", 9321124));
-// 
-	// printf("%d\n", printf("|%#-15x|", 9321124));
-	// printf("%d\n\n", ft_printf("|%#-15x|", 9321124));
-// 
+	printf("%d\n", printf("|%#x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#x|", 9321124));
+ 
+	printf("%d\n", printf("|%#0x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#0x|", 9321124));
+ 
+	printf("%d\n", printf("|%#015x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#015x|", 9321124));
+ 
+	printf("%d\n", printf("|%#-15x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#-15x|", 9321124));
+ 
 	/* - flag */
 	// printf("%d\n", printf("|%-015x|", 9321124));
-	// printf("%d\n\n", ft_printf("|%-015x|", 9321124));
-// 
-	// printf("%d\n", printf("|%-15x|", 9321124));
-	// printf("%d\n\n", ft_printf("|%-15x|", 9321124));
-// 
-	// printf("%d\n", printf("|%#15x|", 9321124));
-	// printf("%d\n\n", ft_printf("|%#15x|", 9321124));
+	// printf("%d\n", ft_printf("|%-015x|", 9321124));
+ 
+	printf("%d\n", printf("|%-15x|", 9321124));
+	printf("%d\n\n", ft_printf("|%-15x|", 9321124));
+
+	printf("%d\n", printf("|%#15x|", 9321124));
+	printf("%d\n\n", ft_printf("|%#15x|", 9321124));
+
 
 	/* Undefined behavior */
-		//printf("|%+15x|\n", 9321124);
-		//ft_printf("|%+15x|\n\n", 9321124);
-				
+
+	/* ' ' flag */
+		// printf("%d\n", printf("|% 15x|", 9321124));
+	//printf("|%+15x|\n", 9321124);
 	//printf("|%+#015x|\n", 9321124);
 }
 

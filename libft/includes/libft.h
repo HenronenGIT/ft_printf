@@ -101,4 +101,6 @@ char	**ft_arrnew(size_t str_count, size_t str_len);
 void	ft_free_2d_array(char **array);
 
 char	*ft_strrev(char *str);
+char	*ft_strtoupper(char *string);
+
 #endif

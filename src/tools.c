@@ -23,9 +23,6 @@ char	*ft_itoa_base(long long dec, int base)
 
 	if (dec == 0)
 		return ("0");
-	// Wrong number??? LONG LONG MAX?
-	// if (dec == -9223372036854775808)
-		// return (ft_strdup("-9223372036854775808"));
 	str = ft_strnew(ft_digit_counter(dec, base));
 	i = 0;
 	remain = 0;
