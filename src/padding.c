@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags.c                                            :+:      :+:    :+:   */
+/*   padding.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmaronen <hmaronen@student.Hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -49,13 +49,13 @@ void	nb_padding(t_flags *tab, char *argument, char *prefix)
 	if (tab->precision && prec_padding >= 0)
 		tab->ret_len += putpadding(prec_padding, '0');
 	/* Zero padding */
-	if (tab->hash && *argument != '0')
+	// if (tab->hash && *argument != '0')
+	if ((tab->hash && !argument) || tab->hash)
 		ft_putstr(prefix);
 	if (tab->zero && !tab->precision && !tab->space)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');
 	/* Print argument */
-	// if (argument)
-		ft_putstr(argument);
+	ft_putstr(argument);
 	/* With padding right side */
 	if (tab->minus && prec_padding >= 0)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), ' ');

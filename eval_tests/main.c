@@ -35,10 +35,10 @@ int	main(void)
 	// test_s();
 	// test_u();
 	// test_i();
-	test_o();
+	// test_o();
 	//test_p();
 	// test_X();
-	// test_x();
+	test_x();
 }
 
 void ft_printheader(char c)
@@ -70,6 +70,7 @@ void	test_percent()
 	// printf("%d\n", ft_printf("|%    %|", "test"));
 
 }
+
 void	test_d()
 {
 	unsigned int	uint_min;
@@ -332,7 +333,6 @@ void	test_s()
 {
 	char *str = "String!";
 
-	/* %s */
 	ft_printheader('s');
 
 	printf("%d\n", printf("|Hive %s|", str));
@@ -358,6 +358,29 @@ void	test_s()
 
 	printf("%d\n", printf("|Hive %10.5s|", str));
 	printf("%d\n\n", ft_printf("|Hive %10.5s|", str));
+
+
+	/* 42FileChecker */
+
+	printf("%d\n", printf("|%s %s|", NULL, str));
+	printf("%d\n\n", ft_printf("|%s %s|", NULL, str));
+
+	printf("%d\n", printf("|%s|", NULL));
+	printf("%d\n\n", ft_printf("|%s|", NULL));
+
+	printf("%d\n", printf("|%-5.2s is a string|", ""));
+	printf("%d\n\n", ft_printf("|%-5.2s is a string|", ""));
+
+	printf("%d\n", printf("|%-.2s is a string|", ""));
+	printf("%d\n\n", ft_printf("|%-.2s is a string|", ""));
+
+	printf("%d\n", printf("|%5.2s is a string|", ""));
+	printf("%d\n\n", ft_printf("|%5.2s is a string|", ""));
+
+	printf("%d\n", printf("%.2s is a string", ""));
+	printf("%d\n\n", ft_printf("%.2s is a string", ""));
+
+
 
 	// 	/* Undefined behavior */
 	//printf("%d\n", printf("|Hive %hhs|", str));
@@ -888,34 +911,43 @@ void	test_o()
 	printf("%d\n", printf("|%#o|", nb));
 	printf("%d\n\n", ft_printf("|%#o|", nb));
 
+		printf("%d\n", printf("|%#o %#0o|", 0, 0));
+		printf("%d\n\n", ft_printf("|%#o %#0o|", 0, 0));
+
 	/* Length modifiers */
-	/* hh flag */
-	// printf("%d\n", printf("|%hho|", char_min));
-	// printf("%d\n\n", ft_printf("|%hho|", char_min));
+	/* hh */
+	printf("%d\n", printf("|%hho|", char_min));
+	printf("%d\n\n", ft_printf("|%hho|", char_min));
 
-	// printf("%o\n", printf("|%hho|", char_max));
-	// printf("%o\n\n", ft_printf("|%hho|", char_max));
-	// /* h flag */
-	// printf("%o\n", printf("|%ho|", short_min));
-	// printf("%o\n\n", ft_printf("|%ho|", short_min));
-	// /* h */
-	// printf("%o\n", printf("|%ho|", short_max));
-	// printf("%o\n\n", ft_printf("|%ho|", short_max));
-	// /* h */
-	// printf("%o\n", printf("|%ho|", short_min));
-	// printf("%o\n\n", ft_printf("|%ho|", short_min));
+	printf("%o\n", printf("|%hho|", char_max));
+	printf("%o\n\n", ft_printf("|%hho|", char_max));
+	/* h */
+	printf("%o\n", printf("|%ho|", short_min));
+	printf("%o\n\n", ft_printf("|%ho|", short_min));
+	/* h */
+	printf("%o\n", printf("|%ho|", short_max));
+	printf("%o\n\n", ft_printf("|%ho|", short_max));
+	/* l */
+	printf("%d\n", printf("|%lo|", long_min));
+	printf("%d\n\n", ft_printf("|%lo|", long_min));
 
-	// printf("%d\n", printf("|%lo|", long_min));
-	// printf("%d\n\n", ft_printf("|%lo|", long_min));
+	printf("%d\n", printf("|%lo|", long_max));
+	printf("%d\n\n", ft_printf("|%lo|", long_max));
+	/* ll */
+	printf("%d\n", printf("|%llo|", llong_min));
+	printf("%d\n\n", ft_printf("|%llo|", llong_min));
 
-	// printf("%d\n", printf("|%lo|", long_max));
-	// printf("%d\n\n", ft_printf("|%lo|", long_max));
+	printf("%d\n", printf("|%llo|", llong_max));
+	printf("%d\n\n", ft_printf("|%llo|", llong_max));
 
-	// printf("%d\n", printf("|%llo|", llong_min));
-	// printf("%d\n\n", ft_printf("|%llo|", llong_min));
+	/*42FileChecker */
 
-	// printf("%d\n", printf("|%llo|", llong_max));
-	// printf("%d\n\n", ft_printf("|%llo|", llong_max));
+		printf("%d\n", printf("|@moulitest: %#.o %#.0o|", 0, 0));
+		printf("%d\n\n", ft_printf("|@moulitest: %#.o %#.0o|", 0, 0));
+
+		printf("%d\n", printf("|@moulitest: %.o %.0o|", 0, 0));
+		printf("%d\n\n", ft_printf("|@moulitest: %.o %.0o|", 0, 0));
+
 
 	/* Undefined behavior */
 	//printf("%d\n", printf("|Hello world % 10o|", nb));

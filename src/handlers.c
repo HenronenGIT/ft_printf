@@ -27,27 +27,27 @@ void	c_handler(t_flags *tab)
 
 void	s_handler(t_flags *tab)
 {
+	// Can be cleaned to match other handlers
 	char	*str;
 	int		arg_len;
 
 	str = va_arg(tab->args, char*);
-
+	if (!str)
+		str = ft_strdup("(null)");
 	arg_len = ft_strlen(str);
 	tab->ret_len += arg_len;
-	if (tab->precision)
-	{	tab->ret_len -= (arg_len - tab->prec_len);
+	if (tab->precision )
+	{
+		if (arg_len >= tab->prec_len)
+			tab->ret_len -= (arg_len - tab->prec_len);
 		/* Mayby malloc not needed - any other function */
 		str = ft_strsub(str, 0, tab->prec_len);
 	}
 	if (tab->width && !tab->minus)
-	{
 		tab->ret_len += putpadding((tab->width - ft_strlen(str)), ' ');
-	}
 	ft_putstr(str);
 	if (tab->width && tab->minus)
-	{
 		tab->ret_len += putpadding((tab->width - ft_strlen(str)), ' ');
-	}
 }
 
 /* x and X handler could be merged to same function */
@@ -131,6 +131,7 @@ void	p_handler(t_flags *tab)
 
 void	o_handler(t_flags *tab)
 {
+	// fix # and 0 cases
 	unsigned long long	arg;
 	char				*str;
 
@@ -139,8 +140,11 @@ void	o_handler(t_flags *tab)
 	unsigned_length_modifiers(tab, &arg);
 	str = ft_unsigned_itoa_base(arg, 8);
 	tab->arg_len = ft_strlen(str);
-	if (tab->hash)
+	if (tab->hash && *str != '0')
 		tab->arg_len += 1;
+	if (tab->precision && tab->prec_len == 0 && *str == '0')
+		str = NULL;
+
 	nb_padding(tab, str, "0");
 }
 
