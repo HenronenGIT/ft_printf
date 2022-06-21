@@ -19,7 +19,6 @@ char	*ft_itoa_base(long long dec, int base)
 	char	*str;
 	int		remain;
 	int		i;
-	int		offset;
 
 	if (dec == 0)
 		return ("0");
@@ -45,7 +44,6 @@ char	*ft_unsigned_itoa_base(unsigned long long dec, int base)
 	char	*str;
 	int		remain;
 	int		i;
-	int		offset;
 
 	if (dec == 0)
 		return ("0");

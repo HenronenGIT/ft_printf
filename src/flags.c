@@ -1,60 +1,52 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   flags.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hmaronen <hmaronen@student.Hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 22:11:37 by hmaronen          #+#    #+#             */
-/*   Updated: 2022/05/19 22:11:39 by hmaronen         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
-void	plus_flag(t_flags *tab)
+static void edit_flags(t_flags *tab)
 {
-	if (tab->is_neg)
-		tab->ret_len += write(1, "-", 1);
-	else if (tab->space)
-		tab->ret_len += write(1, " ", 1);
-	else
-		tab->ret_len += write(1, "+", 1);
-	tab->width -= 1;
+	if (tab->space && tab->plus)
+		tab->space = 0;
 }
 
-void	nb_padding(t_flags *tab, char *argument, char *prefix)
+char	check_flags(t_flags *tab, const char *str, char format)
 {
-	int	prec_padding;
+	int i;
 
-	tab->ret_len += tab->arg_len;
-	prec_padding = 0;
-	if (tab->prec_len)
-		prec_padding = tab->prec_len - tab->arg_len;
-	/* Width padding */
-	if ((tab->space || tab->width) && !tab->zero && !tab->minus)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
-	/* Precision and Zero flag on */
-	//if (tab->zero && tab->precision)
-	if (tab->zero && tab->precision && prec_padding >= 0)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
-	/* Sign */
-	if (tab->plus || tab->is_neg || tab->space)
-		plus_flag(tab);
-	/* Space and Zero flag */
-	if (tab->space && tab->zero && !tab->precision)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');
-	/* Precision */
-	if (tab->precision && prec_padding >= 0)
-		tab->ret_len += putpadding(prec_padding, '0');
-	/* Zero padding */
-	if (tab->hash && *argument != '0')
-		ft_putstr(prefix);
-	if (tab->zero && !tab->precision && !tab->space)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');
-	/* Print argument */
-	ft_putstr(argument);
-	/* With padding right side */
-	if (tab->minus && prec_padding >= 0)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), ' ');
+	i = -1;
+	while (str[++i] != format)
+	{
+		/* Mayby need move to own while loop for norm */
+		/* For datatype flags can use "find sub string func" */
+		/* Seperate 1 char flags and 2 or more char flags to diff while loops */
+		if (str[i] == 'h' && tab->h)
+		{
+			tab->h = 0;
+			tab->hh = 1;
+		}
+		if (str[i] == 'h' && !tab->hh)
+			tab->h = 1;
+		if (str[i] == 'l' && tab->l)
+		{
+			tab->l = 0;
+			tab->ll = 1;
+		}
+		if (str[i] == 'l' && !tab->ll)
+			tab->l = 1;
+		if (str[i] == '#')
+			tab->hash = 1;
+		if (str[i] == '0' && !tab->width && !tab->minus)
+			tab->zero = 1;
+		if (str[i] == '-')
+			tab->minus = 1;
+		if (str[i] == '+')
+			tab->plus = 1;
+		if (str[i] == '.')
+			tab->precision = 1;
+		if (str[i] == ' ')
+			tab->space = 1;
+		if (ft_isdigit(str[i]) && !tab->precision)
+			tab->width = ((10 * tab->width) + str[i] - 48);
+ 		else if (ft_isdigit(str[i]))
+			tab->prec_len = ((10 * tab->prec_len) + str[i] - 48);
+	}
+	edit_flags(tab);
+	return (*str);
 }

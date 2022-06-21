@@ -1,0 +1,6 @@
+Special cases
+	printf("%d\n", printf("%lld", -9223372036854775808));
+	printf("%d\n\n", ft_printf("%lld", -9223372036854775808));
+
+	./eval_tests/main.c:275:39: warning: integer literal is too large to be represented in a signed integer type, interpreting as unsigned [-Wimplicitly-unsigned-literal]
+    printf("%d\n\n", ft_printf("%lld", -9223372036854775808));

@@ -19,7 +19,7 @@ DB_FLAG = -g $(FLAGS)
 
 #Source files
 SRC = ./src/ft_printf.c ./src/handlers.c ./src/tools.c ./src/length_modifiers.c \
-./src/flags.c#./eval_tests/main.c 
+./src/flags.c ./src/padding.c#./eval_tests/main.c 
 	
 OBJ = $(SRC:.c=.o)
 
@@ -65,7 +65,7 @@ fclean: clean
 re: fclean all
 
 test: $(SRC)
-	@@$(CC) $(NAME) ./eval_tests/main.c $(PRINTF_H)
+	@@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H)
 	@@./a.out
 
 .PHONY: all clean fclean re

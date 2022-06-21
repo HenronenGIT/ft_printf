@@ -21,49 +21,7 @@ int		is_format(char ch)
 }
 
 /* mayby not need to return anything */
-char	check_flags(t_flags *tab, const char *str, char format)
-{
-	int i;
 
-	i = -1;
-	while (str[++i] != format)
-	{
-		/* Mayby need move to own while loop for norm */
-		/* For datatype flags can use "find sub string func" */
-		/* Seperate 1 char flags and 2 or more char flags to diff while loops */
-		if (str[i] == 'h' && tab->h)
-		{
-			tab->h = 0;
-			tab->hh = 1;
-		}
-		if (str[i] == 'h' && !tab->hh)
-			tab->h = 1;
-		if (str[i] == 'l' && tab->l)
-		{
-			tab->l = 0;
-			tab->ll = 1;
-		}
-		if (str[i] == 'l' && !tab->ll)
-			tab->l = 1;
-		if (str[i] == '#')
-			tab->hash = 1;
-		if (str[i] == '0' && !tab->width)
-			tab->zero = 1;
-		if (str[i] == '-')
-			tab->minus = 1;
-		if (str[i] == '+')
-			tab->plus = 1;
-		if (str[i] == '.')
-			tab->precision = 1;
-		if (str[i] == ' ')
-			tab->space = 1;
-		if (ft_isdigit(str[i]) && !tab->precision)
-			tab->width = ((10 * tab->width) + str[i] - 48);
- 		else if (ft_isdigit(str[i]))
-			tab->prec_len = ((10 * tab->prec_len) + str[i] - 48);
-	}
-	return (*str);
-}
 
 t_flags *init_tab(t_flags *tab)
 {
@@ -115,8 +73,8 @@ const char	*check_format(const char *str, t_flags *tab)
 		str++;
 	specifier = *str;
 
-	// libft function could be done
 	check_flags(tab, ptr, specifier);
+
 	specifierPtr = ft_strchr(FORMATS, specifier);
 	if (specifierPtr)
 	{

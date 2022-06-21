@@ -71,8 +71,6 @@ void	nb_padding(t_flags *tab, char *argument, char *prefix);
 void	length_modifiers(t_flags *tab, long long *ptr_nb);
 void	unsigned_length_modifiers(t_flags *tab, unsigned long long *ptr_nb);
 
-
-static char	*ft_negative_handler(int i);
 char	*ft_anytoa(long long n);
 
 #endif

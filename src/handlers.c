@@ -70,9 +70,7 @@ void	X_handler(t_flags *tab)
 {
 	unsigned long long		arg;
 	char					*stringArg;
-	int						i;
 
-	i = 0;
 	arg = 0;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
@@ -98,7 +96,10 @@ void	d_handler(t_flags *tab)
 		tab->is_neg = 1;
 	}
 	str = ft_itoa_base(arg, 10);
-	tab->arg_len = ft_strlen(str);
+	if (tab->precision && tab->prec_len == 0 && *str == '0')
+		str = NULL;
+	else
+		tab->arg_len = ft_strlen(str);
 	nb_padding(tab, str, "");
 }
 
