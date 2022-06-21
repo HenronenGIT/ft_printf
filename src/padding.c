@@ -25,13 +25,16 @@ void	plus_flag(t_flags *tab)
 
 void	nb_padding(t_flags *tab, char *argument, char *prefix)
 {
-	int i;
 	int	prec_padding;
 
 	prec_padding = 0;
 	tab->ret_len += tab->arg_len;
 	if (tab->prec_len)
+	{
 		prec_padding = tab->prec_len - tab->arg_len;
+		if (prec_padding < 0) // Better style ? Just need to neg variable to zero IF negative. Sub function could be added "is_neg"
+			prec_padding = 0;
+	}
 	/* Width padding */
 	if ((tab->space || tab->width) && !tab->zero && !tab->minus)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
@@ -49,8 +52,8 @@ void	nb_padding(t_flags *tab, char *argument, char *prefix)
 	if (tab->precision && prec_padding >= 0)
 		tab->ret_len += putpadding(prec_padding, '0');
 	/* Zero padding */
-	// if (tab->hash && *argument != '0')
-	if ((tab->hash && !argument) || tab->hash)
+	// if (tab->hash && argument)
+	if (tab->hash)
 		ft_putstr(prefix);
 	if (tab->zero && !tab->precision && !tab->space)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');

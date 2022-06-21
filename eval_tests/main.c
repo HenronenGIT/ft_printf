@@ -35,10 +35,10 @@ int	main(void)
 	// test_s();
 	// test_u();
 	// test_i();
-	// test_o();
+	test_o();
 	//test_p();
 	// test_X();
-	test_x();
+	// test_x();
 }
 
 void ft_printheader(char c)
@@ -75,17 +75,17 @@ void	test_d()
 {
 	unsigned int	uint_min;
 	unsigned int	uint_max;
-	int		nb;
-	int		neg_nb;
-	int		int_max;
-	int		int_min;
-	long	long_min;
-	long	long_max;
-	short	short_min;
-	short	short_max;
-	char	char_min;
-	char	char_max;
-	char	ch;
+	int				nb;
+	int				neg_nb;
+	int				int_max;
+	int				int_min;
+	long			long_min;
+	long			long_max;
+	short			short_min;
+	short			short_max;
+	char			char_min;
+	char			char_max;
+	char			ch;
 	long long		llong_min;
 	long long		llong_max;
 
@@ -268,14 +268,14 @@ void	test_d()
 	printf("%d\n", printf("|%-05d|", -42));
 	printf("%d\n\n", ft_printf("|%-05d|", -42));
 
-	printf("%d\n", printf("|@moulitest: %.d %.0d|", 0, 0));
-	printf("%d\n\n", ft_printf("|@moulitest: %.d %.0d|", 0, 0));
-
 	printf("%d\n", printf("|%++ d|", 42));
 	printf("%d\n\n", ft_printf("|%++ d|", 42));
 
 	printf("%d\n", printf("|% ++d|", 42));
 	printf("%d\n\n", ft_printf("|% ++d|", 42));
+
+	printf("%d\n", printf("|@moulitest: %.d %.0d|", 0, 0));
+	printf("%d\n\n", ft_printf("|@moulitest: %.d %.0d|", 0, 0));
 
 	/* Undefined behavior */
 	//printf("|Hello world %#d|\n", nb);
@@ -1259,7 +1259,22 @@ void	test_x()
 	printf("%d\n", printf("|%#15x|", 9321124));
 	printf("%d\n\n", ft_printf("|%#15x|", 9321124));
 
+	/* 42FileChecker */
 
+	printf("%d\n", printf("|%.x %.0x|", 0, 0));
+	printf("%d\n\n", ft_printf("|%.x %.0x|", 0, 0));
+
+	printf("%d\n", printf("|%#.x %#.0x|", 0, 0));
+	printf("%d\n\n", ft_printf("|%#.x %#.0x|", 0, 0));
+
+	printf("%d\n", printf("|%5.2x|", 5427));
+	printf("%d\n\n", ft_printf("|%5.2x|", 5427));
+
+	printf("%d %%#x\n", printf("|%#x|", 0));
+	printf("%d %%#x\n\n", ft_printf("|%#x|", 0));
+
+
+	
 	/* Undefined behavior */
 
 	/* ' ' flag */

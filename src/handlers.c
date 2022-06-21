@@ -53,21 +53,31 @@ void	s_handler(t_flags *tab)
 /* x and X handler could be merged to same function */
 void	x_handler(t_flags *tab)
 {
+	// # and 0 fixes
 	unsigned long long		arg;
 	char					*stringArg;
+	char					*prefix;
 
+	prefix = NULL;
 	arg = 0;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
 	stringArg = ft_unsigned_itoa_base(arg, 16);
+	if (tab->precision && tab->prec_len == 0)
+		stringArg = NULL;
 	tab->arg_len = ft_strlen(stringArg);
-	if (tab->hash && *stringArg != '0')
+	if (tab->hash && stringArg && *stringArg != '0')
+	{
 		tab->arg_len += 2;
-	nb_padding(tab, stringArg, "0x");
+		prefix = ft_strdup("0x");
+	}
+	nb_padding(tab, stringArg, prefix);
 }
 
 void	X_handler(t_flags *tab)
 {
+	// # and 0 fixes
+
 	unsigned long long		arg;
 	char					*stringArg;
 
@@ -133,19 +143,23 @@ void	o_handler(t_flags *tab)
 {
 	// fix # and 0 cases
 	unsigned long long	arg;
-	char				*str;
+	char				*stringArg;
+	char				*prefix;
 
 	arg = 0;
+	prefix = NULL;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
-	str = ft_unsigned_itoa_base(arg, 8);
-	tab->arg_len = ft_strlen(str);
-	if (tab->hash && *str != '0')
+	stringArg = ft_unsigned_itoa_base(arg, 8);
+	if (tab->precision && tab->prec_len == 0)
+		stringArg = NULL;
+	tab->arg_len = ft_strlen(stringArg);
+	if (tab->hash)
+	{
 		tab->arg_len += 1;
-	if (tab->precision && tab->prec_len == 0 && *str == '0')
-		str = NULL;
-
-	nb_padding(tab, str, "0");
+		prefix = ft_strdup("0");
+	}
+	nb_padding(tab, stringArg, prefix);
 }
 
 void	u_handler(t_flags *tab)
