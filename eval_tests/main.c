@@ -35,9 +35,9 @@ int	main(void)
 	// test_s();
 	// test_u();
 	// test_i();
-	test_o();
+	// test_o();
 	//test_p();
-	// test_X();
+	test_X();
 	// test_x();
 }
 

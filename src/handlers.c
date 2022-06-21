@@ -53,7 +53,6 @@ void	s_handler(t_flags *tab)
 /* x and X handler could be merged to same function */
 void	x_handler(t_flags *tab)
 {
-	// # and 0 fixes
 	unsigned long long		arg;
 	char					*stringArg;
 	char					*prefix;
@@ -76,20 +75,24 @@ void	x_handler(t_flags *tab)
 
 void	X_handler(t_flags *tab)
 {
-	// # and 0 fixes
-
 	unsigned long long		arg;
 	char					*stringArg;
+	char					*prefix;
 
+	prefix = NULL;
 	arg = 0;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
-	stringArg = ft_strtoupper(ft_unsigned_itoa_base(arg, 16));
+	stringArg = ft_unsigned_itoa_base(arg, 16);
+	if (tab->precision && tab->prec_len == 0)
+		stringArg = NULL;
 	tab->arg_len = ft_strlen(stringArg);
-	if (tab->hash)
+	if (tab->hash && stringArg && *stringArg != '0')
+	{
 		tab->arg_len += 2;
-	// FIX 0x TO 0X
-	nb_padding(tab, stringArg, "0X");
+		prefix = ft_strdup("0X");
+	}
+	nb_padding(tab, stringArg, prefix);
 }
 
 void	d_handler(t_flags *tab)
