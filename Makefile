@@ -65,7 +65,7 @@ fclean: clean
 re: fclean all
 
 test: $(SRC)
-	@@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c ./eval_tests/test_s.c ./eval_tests/test_d.c $(PRINTF_H)
+	@@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H)
 	@@./a.out
 
 .PHONY: all clean fclean re

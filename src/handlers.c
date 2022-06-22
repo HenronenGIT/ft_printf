@@ -68,6 +68,7 @@ void	x_handler(t_flags *tab)
 	if (tab->hash && stringArg && *stringArg != '0')
 	{
 		tab->arg_len += 2;
+		// Try to remove malloc
 		prefix = ft_strdup("0x");
 	}
 	nb_padding(tab, stringArg, prefix);
@@ -83,13 +84,14 @@ void	X_handler(t_flags *tab)
 	arg = 0;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
-	stringArg = ft_unsigned_itoa_base(arg, 16);
+	stringArg = ft_strtoupper(ft_unsigned_itoa_base(arg, 16));
 	if (tab->precision && tab->prec_len == 0)
 		stringArg = NULL;
 	tab->arg_len = ft_strlen(stringArg);
 	if (tab->hash && stringArg && *stringArg != '0')
 	{
 		tab->arg_len += 2;
+		// Remove malloc
 		prefix = ft_strdup("0X");
 	}
 	nb_padding(tab, stringArg, prefix);
@@ -100,8 +102,9 @@ void	d_handler(t_flags *tab)
 	char	*str;
 	long long arg;
 
-	arg = 0; // Mayby not needed
+	arg = 0;
 	arg = va_arg(tab->args, long long);
+	printf("%lld\n", arg);
 	length_modifiers(tab, &arg);
 	if (arg < 0)
 	{
