@@ -14,7 +14,7 @@
 
 void	c_handler(t_flags *tab)
 {
-	char ch;
+	char	ch;
 
 	ch = va_arg(tab->args, int);
 	tab->ret_len += 1;
@@ -136,15 +136,18 @@ void	i_handler(t_flags *tab)
 
 void	p_handler(t_flags *tab)
 {
-	// The void * pointer argument is printed in hexadecimal (as
-    // if by %#x or %#lx). -> va arg to void *?
-	ft_putstr("0x");
-	put_ptr(va_arg(tab->args, unsigned long long));
+	unsigned long long	argument;
+	char				*argument_str;
+
+	tab->hash = 1;
+	argument = va_arg(tab->args, unsigned long long);
+	argument_str = ft_unsigned_itoa_base(argument, 16);
+	tab->arg_len += ft_strlen(argument_str) + 2;
+	nb_padding(tab, argument_str, "0x");
 }
 
 void	o_handler(t_flags *tab)
 {
-	// fix # and 0 cases
 	unsigned long long	arg;
 	char				*stringArg;
 	char				*prefix;
@@ -170,7 +173,7 @@ void	u_handler(t_flags *tab)
 	unsigned long long	arg;
 	char				*str;
 
-	arg = 0; // Mayby not needed
+	arg = 0;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
 	if (arg < 0)
@@ -192,11 +195,7 @@ void percent_handler(t_flags *tab)
 
 
 	prec_padding = 0;
-	arg = 0; // Mayby not needed
-	// arg = va_arg(tab->args, long long);
-	//length_modifiers(tab, &arg);
-	// stringArg = ft_itoa_base(arg, 10);
-	// tab->arg_len = ft_strlen(stringArg);
+	arg = 0;
 	tab->arg_len += 1;
 	tab->ret_len += tab->arg_len;
 	if ((tab->space || tab->width) && !tab->zero && !tab->minus)

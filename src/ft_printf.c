@@ -12,20 +12,17 @@
 
 #include "ft_printf.h"
 
-int		is_format(char ch)
+int	is_format(char ch)
 {
 	if (ch == 'c' || ch == 's' || ch == 'p' || ch == 'x' || ch == 'X'
-		|| ch == 'd' || ch == 'i' || ch == 'u' || ch == 'o' || ch == '%')
+		|| ch == 'd' || ch == 'i' || ch == 'u' || ch == 'o' || ch == '%'
+		|| ch == 'f')
 		return (1);
 	return (0);
 }
 
-/* mayby not need to return anything */
-
-
-t_flags *init_tab(t_flags *tab)
+void	init_tab(t_flags *tab)
 {
-	/* mayby not need to return anything */
 	tab->width = 0;
 	tab->space = 0;
 	tab->zero = 0;
@@ -35,26 +32,23 @@ t_flags *init_tab(t_flags *tab)
 	tab->precision = 0;
 	tab->prec_len = 0;
 	tab->arg_len = 0;
-	//tab->ret_len = 0;
 	tab->is_neg = 0;
 	tab->hh = 0;
 	tab->h = 0;
 	tab->l = 0;
 	tab->ll = 0;
-	return (tab);
 }
 
-/* Check which flags exists */
 const char	*check_format(const char *str, t_flags *tab)
 {
-	int index;
-	char conversion;
-	char specifier;
-	const char *ptr;
-	char	*specifierPtr;
+	const char	*ptr;
+	int			index;
+	char		conversion;
+	char		specifier;
+	char		*specifier_ptr;
 
 	/* Fill jump table func. */
-	handler_func	*conv_arr[10] = {
+	handler_func	*conv_arr[11] = {
 		c_handler,
 		s_handler,
 		p_handler,
@@ -64,27 +58,26 @@ const char	*check_format(const char *str, t_flags *tab)
 		u_handler,
 		x_handler,
 		X_handler,
+		f_handler,
 		percent_handler
-
 	};
 	ptr = str;
 	index = 0;
 	while (!is_format(*str))
 		str++;
 	specifier = *str;
-
 	check_flags(tab, ptr, specifier);
-
-	specifierPtr = ft_strchr(FORMATS, specifier);
-	if (specifierPtr)
+	// check_length_modifiers(tab);
+	specifier_ptr = ft_strchr(FORMATS, specifier);
+	if (specifier_ptr)
 	{
-		index = (int)(specifierPtr - FORMATS);
+		index = (int)(specifier_ptr - FORMATS);
 		conv_arr[index](tab);
 	}
 	return (str);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	const char	*ptr;
 	t_flags		*tab;
@@ -92,27 +85,23 @@ int ft_printf(const char *format, ...)
 	tab = (t_flags *)malloc(sizeof(t_flags));
 	if (!tab)
 		return (-1);
- 	ptr = format;
-	va_start(tab->args, format); // Can cause issues, when multiple %.
-	// Finding % loop
+	ptr = format;
+	va_start(tab->args, format);
 	while (*ptr != '\0')
 	{
 		if (*ptr != '%')
 		{
-			//putchar style
-			ft_putchar(*ptr); // Could done better, count len and THEN print all in once
+			ft_putchar(*ptr);
 			tab->ret_len += 1;
 		}
-		else // When % founded
+		else
 		{
 			ptr++;
-			//va_start(tab->args, format); // Could cause issues, when multiple %.
 			init_tab(tab);
-				/* If sending address of pointer mayby does neeed to
-				make new variable in check_format func */
 			ptr = check_format(ptr, tab);
 		}
 		ptr++;
 	}
+	va_end(tab->args);
 	return (tab->ret_len);
 }

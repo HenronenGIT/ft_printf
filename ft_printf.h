@@ -19,7 +19,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define FORMATS "cspdiouxX%%"
+#define FORMATS "cspdiouxXf%%"
 
 typedef struct s_flags
 {
@@ -56,8 +56,8 @@ void	o_handler(t_flags *tab);
 void	u_handler(t_flags *tab);
 void	x_handler(t_flags *tab);
 void	X_handler(t_flags *tab);
+void	f_handler(t_flags *tab);
 void	percent_handler(t_flags *tab);
-
 
 //char	*ft_itoa_base(int dec, int base);
 char	*ft_itoa_base(long long dec, int base);

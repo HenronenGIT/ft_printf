@@ -12,30 +12,40 @@
 
 #include "ft_printf.h"
 
-void	length_modifiers(t_flags *tab, long long *ptr_nb)
+void	length_modifiers(t_flags *tab, long long *number_ptr)
 {
 	if (tab->h)
-		*ptr_nb = (short)*ptr_nb;
+		*number_ptr = (short)*number_ptr;
 	else if (tab->hh)
-		*ptr_nb = (char)*ptr_nb;
+		*number_ptr = (char)*number_ptr;
 	else if (tab->l)
-		*ptr_nb = (long)*ptr_nb;
+		*number_ptr = (long)*number_ptr;
 	else if (tab->ll)
-		*ptr_nb = (long long)*ptr_nb;
+		*number_ptr = (long long)*number_ptr;
 	else
-		*ptr_nb = (int)*ptr_nb;
+		*number_ptr = (int)*number_ptr;
 }
 
-void	unsigned_length_modifiers(t_flags *tab, unsigned long long *ptr_nb)
+void	unsigned_length_modifiers(t_flags *tab, unsigned long long *number_ptr)
 {
 	if (tab->h)
-		*ptr_nb = (unsigned short)*ptr_nb;
+		*number_ptr = (unsigned short)*number_ptr;
 	else if (tab->hh)
-		*ptr_nb = (unsigned char)*ptr_nb;
+		*number_ptr = (unsigned char)*number_ptr;
 	else if (tab->l)
-		*ptr_nb = (unsigned long)*ptr_nb;
+		*number_ptr = (unsigned long)*number_ptr;
 	else if (tab->ll)
-		*ptr_nb = (unsigned long long)*ptr_nb;
+		*number_ptr = (unsigned long long)*number_ptr;
 	else
-		*ptr_nb = (unsigned int)*ptr_nb;
+		*number_ptr = (unsigned int)*number_ptr;
+}
+
+void	double_length_modifiers(t_flags *tab, double *number_ptr)
+{
+	if (tab->l)
+		*number_ptr = (unsigned long)*number_ptr;
+	else if (tab->ll)
+		*number_ptr = (unsigned long long)*number_ptr;
+	else
+		*number_ptr = (unsigned int)*number_ptr;
 }
