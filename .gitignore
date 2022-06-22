@@ -5,6 +5,9 @@ libftprintf.a
 ft_printf
 *.o
 ./eval_tests/42FileChecker
+a.out
+printf.txt
+ft_printf.txt
 
 .vscode/configurationCache.log
 .vscode/dryrun.log
