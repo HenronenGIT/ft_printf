@@ -14,7 +14,10 @@
 
 int	main(void)
 {
-	ft_printf("%d\n", ft_printf("|%#o %#0o|", 0, 0));
-	ft_printf("%d\n", ft_printf("|%o %0o|", 0, 0));
+	printf("%d\n", printf("|%lld|", -9223372036854775808));
+	printf("%d\n\n", ft_printf("|%lld|", -9223372036854775808));
+
+	printf("%d\n", printf("|%llo|", -9223372036854775808));
+	printf("%d\n\n", ft_printf("|%llo|", -9223372036854775808));
 
 }

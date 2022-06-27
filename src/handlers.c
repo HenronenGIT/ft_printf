@@ -78,9 +78,7 @@ void	X_handler(t_flags *tab)
 {
 	unsigned long long		arg;
 	char					*stringArg;
-	char					*prefix;
 
-	prefix = NULL;
 	arg = 0;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
@@ -89,12 +87,8 @@ void	X_handler(t_flags *tab)
 		stringArg = NULL;
 	tab->arg_len = ft_strlen(stringArg);
 	if (tab->hash && stringArg && *stringArg != '0')
-	{
 		tab->arg_len += 2;
-		// Remove malloc
-		prefix = ft_strdup("0X");
-	}
-	nb_padding(tab, stringArg, prefix);
+	nb_padding(tab, stringArg, "0X");
 }
 
 void	d_handler(t_flags *tab)
@@ -106,7 +100,7 @@ void	d_handler(t_flags *tab)
 	arg = va_arg(tab->args, long long);
 	printf("%lld\n", arg);
 	length_modifiers(tab, &arg);
-	if (arg < 0)
+	if (arg < 0 && arg != -9223372036854775808) // Not clean way! Any other styles?
 	{
 		arg *= -1;
 		tab->is_neg = 1;
@@ -127,7 +121,7 @@ void	i_handler(t_flags *tab)
 	// Type long long, or int ?
 	arg = va_arg(tab->args, long long);
 	length_modifiers(tab, &arg);
-	if (arg < 0)
+	if (arg < 0 && arg != -9223372036854775808) // Ugly way, better way to do it? long min handle
 	{
 		arg *= -1;
 		tab->is_neg = 1;
@@ -153,23 +147,18 @@ void	o_handler(t_flags *tab)
 {
 	unsigned long long	arg;
 	char				*argument_str;
-	char				*prefix;
 
 	arg = 0;
-	prefix = NULL;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
 	argument_str = ft_unsigned_itoa_base(arg, 8);
 	if (tab->hash)
-	{
 		tab->arg_len += 1;
-		prefix = ft_strdup("0"); // without malloc possible ?
-	}
 	if ((tab->precision && tab->prec_len == 0) ||
 		(tab->hash && *argument_str == '0'))
 		argument_str = NULL;
 	tab->arg_len += ft_strlen(argument_str);
-	nb_padding(tab, argument_str, prefix);
+	nb_padding(tab, argument_str, "0");
 }
 
 void	u_handler(t_flags *tab)

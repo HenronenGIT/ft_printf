@@ -155,7 +155,7 @@ int	main(void)
 	printf("%d\n", printf("|%++ d|", 42));
 	printf("%d\n", printf("|% ++d|", 42));
 	printf("%d\n", printf("|%.d %.0d|", 0, 0));
-	printf("%d\n", printf("|%lld|", -9223372036854775808));
+	printf("%d\n", printf("|%lld|", long_min));
 	printf("====== u specifier ======\n");
 	/* Without flags */
 	printf("%u\n", printf("|Hello world %u|", nb));
@@ -463,7 +463,7 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%++ d|", 42));
 	ft_printf("%d\n", ft_printf("|% ++d|", 42));	
 	ft_printf("%d\n", ft_printf("|%.d %.0d|", 0, 0));	
-	ft_printf("%d\n", ft_printf("|%lld|", -9223372036854775808));
+	ft_printf("%d\n", ft_printf("|%lld|", long_min));
 	ft_printf("====== u specifier ======\n");
 	/* Without flags */
 	ft_printf("%u\n", ft_printf("|Hello world %u|", nb));	
@@ -675,7 +675,7 @@ int	main(void)
 	/* # flag */
 	ft_printf("%d\n", ft_printf("|%#o|", nb));
 	ft_printf("%d Test: %%#o %%#0o\n", ft_printf("|%#o %#0o|", 0, 0));
-		ft_printf("%d Specifier: %%#.o %%#.0o\n", ft_printf("|%#.o %#.0o|", 0, 0));
+	ft_printf("%d Specifier: %%#.o %%#.0o\n", ft_printf("|%#.o %#.0o|", 0, 0));
 	/* Length modifiers */
 	/* hh */
 	ft_printf("%d\n", ft_printf("|%hho|", char_min));
