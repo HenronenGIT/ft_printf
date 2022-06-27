@@ -54,16 +54,16 @@ int	main(void)
 	int_min = INT_MIN;
 	uint_min = 0;
 	uint_max = UINT_MAX;
-	long_min = 	-9223372036854775808;
+	long_min = 	LONG_MIN;
 	long_max = 9223372036854775807;
-	llong_min = -9223372036854775807;
+	llong_min = LLONG_MIN;
 	llong_max = 9223372036854775807;
 	char_min = CHAR_MIN;
 	char_max = CHAR_MAX;
 	ch = 'a';
 
 	neg_nb = -42;
-	double_nb = 42.42;
+	double_nb = 42.0;
 
 
 	if((printf_file=freopen("printf.txt", "w" ,stdout)) == NULL)
@@ -71,6 +71,16 @@ int	main(void)
 		printf("Cannot open printf.txt.\n");
 		exit(1);
 	}
+	// printf("====== Warning  ======\n");
+	// printf("%d\n", printf("|%-05d|", -42));
+	// printf("%d\n", printf("|%++ d|", 42));
+	// printf("%d\n", printf("|% ++d|", 42));
+	// printf("%d\n", printf("|%s %s|", NULL, str));
+	// printf("%d\n", printf("|%s|", NULL));
+	// printf("%d\n", printf("|%-015X|", 9321124));
+	// printf("%d\n", printf("|%-015x|", 9321124));
+	// printf("%d\n", printf("|%    %|", "test"));
+
 	printf("====== c Specifier ======\n");
 	printf("%d\n", printf("|%c|", 'h'));
 	printf("%d\n", printf("|%10c|", 'h'));
@@ -88,8 +98,6 @@ int	main(void)
 	printf("%d\n", printf("|Hive %10.s|", str));
 	printf("%d\n", printf("|Hive %10.5s|", str));
 	printf("%d\n", printf("|Hive %.s|", str));
-	printf("%d\n", printf("|%s %s|", NULL, str));
-	printf("%d\n", printf("|%s|", NULL));
 	printf("%d\n", printf("|%-5.2s is a string|", ""));
 	printf("%d\n", printf("|%-.2s is a string|", ""));
 	printf("%d\n", printf("|%.2s is a string|", ""));
@@ -151,11 +159,8 @@ int	main(void)
 	printf("%d\n", printf("|%lld|", llong_max));
 	printf("%d\n", printf("|%lld|", llong_min));
 	printf("%d\n", printf("|%.d %.0d|", 42, 43));
-	printf("%d\n", printf("|%-05d|", -42));
-	printf("%d\n", printf("|%++ d|", 42));
-	printf("%d\n", printf("|% ++d|", 42));
 	printf("%d\n", printf("|%.d %.0d|", 0, 0));
-	printf("%d\n", printf("|%lld|", long_min));
+	printf("%d\n", printf("|%ld|", long_min));
 	printf("====== u specifier ======\n");
 	/* Without flags */
 	printf("%u\n", printf("|Hello world %u|", nb));
@@ -283,7 +288,6 @@ int	main(void)
 	printf("%d\n", printf("|%#015x|", 9321124));
 	/* - flag */
 	printf("%d\n", printf("|%-15x|", 9321124));
-	printf("%d\n", printf("|%-015x|", 9321124));
 	printf("%d\n", printf("|%#15x|", 9321124));
 	/* 42FileChecker */	
 	printf("%d\n", printf("|%.x %.0x|", 0, 0));
@@ -312,7 +316,6 @@ int	main(void)
 	printf("%d\n", printf("|%#0X|", 9321124));
 	printf("%d\n", printf("|%#015X|", 9321124));
 	printf("%d\n", printf("|%#-15X|", 9321124));
-	printf("%d\n", printf("|%-015X|", 9321124));
 	printf("%d\n", printf("|%-15X|", 9321124));
 	printf("%d\n", printf("|%#15X|", 9321124));
 	printf("====== %% specifier ======\n");
@@ -322,7 +325,6 @@ int	main(void)
 	printf("%d\n", printf("|%0.5%|"));
 	printf("%d\n", printf("|%.5%|"));
 	printf("%d\n", printf("|%.0%|"));
-	printf("%d\n", printf("|%    %|", "test"));
 	printf("====== o specifier ======\n");
 	printf("%d\n", printf("|Hello world %o|", nb));
 	printf("%d\n", printf("|Hello world %o|", neg_nb));
@@ -342,8 +344,8 @@ int	main(void)
 	printf("%d\n", printf("|%-.5o|", nb));
 	printf("%d\n", printf("|%-.5o|", neg_nb));
 	printf("%d Test: %%.o %%.0o\n", printf("|%.o %.0o|", 0, 0));
-	// printf("%d\n", printf("|%.o|", nb));
-	// printf("%d\n", printf("|%5.o|", nb));
+		printf("%d\n", printf("|%.o|", nb));
+		printf("%d\n", printf("|%5.o|", nb));
 	printf("%d\n", printf("|%5.5o|", nb));
 	printf("%d\n", printf("|%1.5o|", nb));
 	printf("%d\n", printf("|%10.5o|", nb));
@@ -369,7 +371,7 @@ int	main(void)
 	printf("%d\n", printf("|%llo|", llong_min));
 	printf("%d\n", printf("|%llo|", llong_max));;
 	printf("====== f specifier ======\n");
-	//printf("%d\n", printf("|%f|", double_nb));
+	printf("%d\n", printf("|%f|", double_nb));
 	//printf("%d\n", printf("|%f|", neg_double_nb));
 
 	fclose(printf_file);
@@ -379,6 +381,16 @@ int	main(void)
 		printf("Cannot open file.\n");
 		exit(1);
 	}
+	// ft_printf("====== Warning cases ======\n");
+	// ft_printf("%d\n", ft_printf("|%    %|", "test"));
+	// ft_printf("%d\n", ft_printf("|%-15X|", 9321124));	
+	// ft_printf("%d\n", ft_printf("|%-015x|", 9321124));
+	// ft_printf("%d\n", ft_printf("|%++ d|", 42));
+	// ft_printf("%d\n", ft_printf("|% ++d|", 42));	
+	// ft_printf("%d\n", ft_printf("|%s %s|", NULL, str));
+	// ft_printf("%d\n", ft_printf("|%s|", NULL));
+	// ft_printf("%d\n", ft_printf("|%-05d|", -42));
+
 	ft_printf("====== c Specifier ======\n");
 	ft_printf("%d\n", ft_printf("|%c|", 'h'));
 	ft_printf("%d\n", ft_printf("|%10c|", 'h'));
@@ -396,8 +408,6 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|Hive %10.s|", str));
 	ft_printf("%d\n", ft_printf("|Hive %10.5s|", str));
 	ft_printf("%d\n", ft_printf("|Hive %.s|", str));
-	ft_printf("%d\n", ft_printf("|%s %s|", NULL, str));
-	ft_printf("%d\n", ft_printf("|%s|", NULL));
 	ft_printf("%d\n", ft_printf("|%-5.2s is a string|", ""));
 	ft_printf("%d\n", ft_printf("|%-.2s is a string|", ""));
 	ft_printf("%d\n", ft_printf("|%.2s is a string|", ""));
@@ -459,9 +469,6 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%lld|", llong_max));	
 	ft_printf("%d\n", ft_printf("|%lld|", llong_min));	
 	ft_printf("%d\n", ft_printf("|%.d %.0d|", 42, 43));	
-	ft_printf("%d\n", ft_printf("|%-05d|", -42));	
-	ft_printf("%d\n", ft_printf("|%++ d|", 42));
-	ft_printf("%d\n", ft_printf("|% ++d|", 42));	
 	ft_printf("%d\n", ft_printf("|%.d %.0d|", 0, 0));	
 	ft_printf("%d\n", ft_printf("|%lld|", long_min));
 	ft_printf("====== u specifier ======\n");
@@ -529,18 +536,18 @@ int	main(void)
 	ft_printf("%i\n", ft_printf("|Hello world %10d|", neg_nb));
 	ft_printf("%i\n", ft_printf("|Hello world % 10d|", nb));
 	ft_printf("%i\n", ft_printf("|Hello world % 10d|", neg_nb));
-	// /* 0 flag */
+	/* 0 flag */
 	ft_printf("%i\n", ft_printf("|Hello world %010d|", nb));
 	ft_printf("%i\n", ft_printf("|Hello world %010d|", neg_nb));
 	ft_printf("%i\n", ft_printf("|Hello world %0d|", nb));
 	ft_printf("%i\n", ft_printf("|Hello world %+010d|", nb));
 	ft_printf("%i\n", ft_printf("|Hello world %+010d|", neg_nb));
-	// /* Zero and Space */
+	/* Zero and Space */
 	ft_printf("%i\n", ft_printf("|Hello world %0 10d|", nb));
 	ft_printf("%i\n", ft_printf("|Hello world %0 10d|", neg_nb));
 	ft_printf("%i\n", ft_printf("|Hello world % 010d|", nb));
 	ft_printf("%i\n", ft_printf("|Hello world %0 10d|", neg_nb));
-	// /* - flag */
+	/* - flag */
 	ft_printf("%i\n", ft_printf("|Hello world %-10d|", nb));
 	ft_printf("%i\n", ft_printf("|Hello world %-10d|", neg_nb));
 	ft_printf("%i\n", ft_printf("|Hello world %-+10d|", nb));
@@ -594,14 +601,13 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%hx|", char_max));	
 	ft_printf("%d\n", ft_printf("|%hx|", char_max));	
 	ft_printf("%d\n", ft_printf("|%hhx|", char_max));	
-/* # flag */	
+	/* # flag */	
 	ft_printf("%d %%#x 0\n", ft_printf("|%#x|", 0));
 	ft_printf("%d\n", ft_printf("|%#x|", 9321124));
 	ft_printf("%d\n", ft_printf("|%#0x|", 9321124));
 	ft_printf("%d\n", ft_printf("|%#015x|", 9321124));
 	/* - flag */
 	ft_printf("%d\n", ft_printf("|%-15x|", 9321124));
-	ft_printf("%d\n", ft_printf("|%-015x|", 9321124));
 	ft_printf("%d\n", ft_printf("|%#15x|", 9321124));
 	/* 42FileChecker */	
 	ft_printf("%d\n", ft_printf("|%.x %.0x|", 0, 0));	
@@ -634,7 +640,6 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%#-15X|", 9321124));
 	/* - flag */
 	ft_printf("%d\n", ft_printf("|%-015X|", 9321124));
-	ft_printf("%d\n", ft_printf("|%-15X|", 9321124));	
 	ft_printf("%d\n", ft_printf("|%#15X|", 9321124));
 	ft_printf("====== %% specifier ======\n");
 	ft_printf("%d\n", ft_printf("|%%|"));	
@@ -643,7 +648,6 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%0.5%|"));	
 	ft_printf("%d\n", ft_printf("|%.5%|"));	
 	ft_printf("%d\n", ft_printf("|%.0%|"));
-	ft_printf("%d\n", ft_printf("|%    %|", "test"));
 	ft_printf("====== o specifier ======\n");
 	ft_printf("%d\n", ft_printf("|Hello world %o|", nb));	
 	ft_printf("%d\n", ft_printf("|Hello world %o|", neg_nb));
@@ -663,8 +667,10 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%-.5o|", nb));
 	ft_printf("%d\n", ft_printf("|%-.5o|", neg_nb));
 	ft_printf("%d Test: %%.o %%.0o\n", ft_printf("|%.o %.0o|", 0, 0));
-	// ft_printf("%d\n", ft_printf("|%.o|", nb));
-	// ft_printf("%d\n", ft_printf("|%5.o|", nb));
+
+	ft_printf("%d\n", ft_printf("|%.o|", nb));
+	ft_printf("%d\n", ft_printf("|%5.o|", nb));
+	
 	ft_printf("%d\n", ft_printf("|%5.5o|", nb));
 	ft_printf("%d\n", ft_printf("|%1.5o|", nb));	
 	ft_printf("%d\n", ft_printf("|%10.5o|", nb));	
@@ -690,12 +696,8 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%llo|", llong_min));	
 	ft_printf("%d\n", ft_printf("|%llo|", llong_max));
 	ft_printf("====== f specifier ======\n");
-	//ft_printf("%d\n", ft_printf("%f", double_nb));
+	ft_printf("%d\n", ft_printf("|%f|", double_nb));
 	//ft_printf("%d\n", ft_printf("%f", neg_double_nb));
-
-	
-
-	
 
 	fclose(ft_printf_file);
 

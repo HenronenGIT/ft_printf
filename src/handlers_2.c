@@ -15,13 +15,15 @@
 void	f_handler(t_flags *tab)
 {
 	char	*arg_str;
-	double	arg;
+	long double	arg;
+	// double	arg;
 	// long long arg;
 
 	arg_str = NULL;
 	arg = 0;
-	arg = va_arg(tab->args, double);
-	printf("here %f\n", (float)arg);
+	// arg = va_arg(tab->args, double);
+	arg = va_arg(tab->args, long double);
+	// arg = (double)arg;
 	// length_modifiers(tab, &arg);
 	if (arg < 0)
 	{

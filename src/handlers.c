@@ -100,7 +100,7 @@ void	d_handler(t_flags *tab)
 	arg = va_arg(tab->args, long long);
 	printf("%lld\n", arg);
 	length_modifiers(tab, &arg);
-	if (arg < 0 && arg != -9223372036854775808) // Not clean way! Any other styles?
+	if (arg < 0 && arg != LONG_MIN) // Not clean way! Any other styles?
 	{
 		arg *= -1;
 		tab->is_neg = 1;
@@ -121,7 +121,7 @@ void	i_handler(t_flags *tab)
 	// Type long long, or int ?
 	arg = va_arg(tab->args, long long);
 	length_modifiers(tab, &arg);
-	if (arg < 0 && arg != -9223372036854775808) // Ugly way, better way to do it? long min handle
+	if (arg < 0 && arg != LONG_MIN) // Ugly way, better way to do it? long min handle
 	{
 		arg *= -1;
 		tab->is_neg = 1;
