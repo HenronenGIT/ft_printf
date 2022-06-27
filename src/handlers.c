@@ -152,23 +152,27 @@ void	p_handler(t_flags *tab)
 void	o_handler(t_flags *tab)
 {
 	unsigned long long	arg;
-	char				*stringArg;
+	char				*argument_str;
 	char				*prefix;
 
 	arg = 0;
 	prefix = NULL;
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
-	stringArg = ft_unsigned_itoa_base(arg, 8);
+	argument_str = ft_unsigned_itoa_base(arg, 8);
 	if (tab->precision && tab->prec_len == 0)
-		stringArg = NULL;
-	tab->arg_len = ft_strlen(stringArg);
+		argument_str = NULL;
+	tab->arg_len = ft_strlen(argument_str);
+	// if (tab->hash && arg && *argument_str != '0')
+	// if (tab->hash && *argument_str != '0')
 	if (tab->hash)
 	{
+		if (*argument_str == '0')
+			argument_str = NULL;
 		tab->arg_len += 1;
-		prefix = ft_strdup("0");
+		prefix = ft_strdup("0"); // without malloc possible ?
 	}
-	nb_padding(tab, stringArg, prefix);
+	nb_padding(tab, argument_str, prefix);
 }
 
 void	u_handler(t_flags *tab)

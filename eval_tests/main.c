@@ -37,6 +37,8 @@ int	main(void)
 	char			ch;
 	long long		llong_min;
 	long long		llong_max;
+	double			neg_double_nb;
+	double			double_nb;
 
 	/* Pointer variables */
 	char *empty = NULL;
@@ -59,6 +61,10 @@ int	main(void)
 	char_min = CHAR_MIN;
 	char_max = CHAR_MAX;
 	ch = 'a';
+
+	neg_nb = -42;
+	double_nb = 42.42;
+
 
 	if((printf_file=freopen("printf.txt", "w" ,stdout)) == NULL)
 	{
@@ -251,12 +257,8 @@ int	main(void)
 	/* width flag */
 	printf("%d\n",printf("|%10p|", empty));
 	printf("%d\n",printf("|%100p|", empty));
-	/* ' ' flag */
-	printf("%d\n",printf("|% 10p|", empty));
 	/* - flag */
 	printf("%d\n", printf("|%-10p|", tab));
-	printf("%d\n",printf("|%-010p|", empty));
-	printf("%d\n",printf("|%- 010p|", empty));
 	printf("====== x specifier ======\n");
 	printf("%d\n", printf("|%x|", 0));
 	printf("%d\n", printf("|%x|", 9321124));
@@ -339,8 +341,9 @@ int	main(void)
 	printf("%d\n", printf("|%.5o|", neg_nb));
 	printf("%d\n", printf("|%-.5o|", nb));
 	printf("%d\n", printf("|%-.5o|", neg_nb));
-	printf("%d\n", printf("|%.o|", nb));
-	printf("%d\n", printf("|%5.o|", nb));
+	printf("%d\n", printf("|%.o %.0o|", 0, 0));
+	// printf("%d\n", printf("|%.o|", nb));
+	// printf("%d\n", printf("|%5.o|", nb));
 	printf("%d\n", printf("|%5.5o|", nb));
 	printf("%d\n", printf("|%1.5o|", nb));
 	printf("%d\n", printf("|%10.5o|", nb));
@@ -350,7 +353,8 @@ int	main(void)
 	printf("%d\n", printf("|%010.5o|", neg_nb));
 	/* # flag */
 	printf("%d\n", printf("|%#o|", nb));
-	printf("%d\n", printf("|%#o %#0o|", 0, 0));
+	printf("%d Test: %%#o %%#0o\n", printf("|%#o %#0o|", 0, 0));
+	printf("%d Specifier: %%#.o %%#.0o\n", printf("|%#.o %#.0o|", 0, 0));
 	/* Length modifiers */
 	/* hh */
 	printf("%d\n", printf("|%hho|", char_min));
@@ -363,10 +367,10 @@ int	main(void)
 	printf("%d\n", printf("|%lo|", long_max));
 	/* ll */
 	printf("%d\n", printf("|%llo|", llong_min));
-	printf("%d\n", printf("|%llo|", llong_max));
-	printf("%d\n", printf("|@moulitest: %#.o %#.0o|", 0, 0));
-	printf("%d\n", printf("|@moulitest: %.o %.0o|", 0, 0));
-
+	printf("%d\n", printf("|%llo|", llong_max));;
+	printf("====== f specifier ======\n");
+	//printf("%d\n", printf("|%f|", double_nb));
+	//printf("%d\n", printf("|%f|", neg_double_nb));
 
 	fclose(printf_file);
 
@@ -570,12 +574,8 @@ int	main(void)
 	/* width flag */
 	ft_printf("%d\n",ft_printf("|%10p|", empty));	
 	ft_printf("%d\n",ft_printf("|%100p|", empty));
-	/* ' ' flag */
-	ft_printf("%d\n",ft_printf("|% 10p|", empty));
 	/* - flag */
 	ft_printf("%d\n", ft_printf("|%-10p|", tab));	
-	ft_printf("%d\n",ft_printf("|%-010p|", empty));	
-	ft_printf("%d\n",ft_printf("|%- 010p|", empty));
 	ft_printf("====== x specifier ======\n");
 	ft_printf("%d\n", ft_printf("|%x|", 0));	
 	ft_printf("%d\n", ft_printf("|%x|", 9321124));	
@@ -662,8 +662,9 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%.5o|", neg_nb));
 	ft_printf("%d\n", ft_printf("|%-.5o|", nb));
 	ft_printf("%d\n", ft_printf("|%-.5o|", neg_nb));
-	ft_printf("%d\n", ft_printf("|%.o|", nb));
-	ft_printf("%d\n", ft_printf("|%5.o|", nb));
+	ft_printf("%d\n", ft_printf("|%.o %.0o|", 0, 0));
+	// ft_printf("%d\n", ft_printf("|%.o|", nb));
+	// ft_printf("%d\n", ft_printf("|%5.o|", nb));
 	ft_printf("%d\n", ft_printf("|%5.5o|", nb));
 	ft_printf("%d\n", ft_printf("|%1.5o|", nb));	
 	ft_printf("%d\n", ft_printf("|%10.5o|", nb));	
@@ -673,7 +674,8 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%010.5o|", neg_nb));
 	/* # flag */
 	ft_printf("%d\n", ft_printf("|%#o|", nb));
-	ft_printf("%d\n", ft_printf("|%#o %#0o|", 0, 0));
+	ft_printf("%d Test: %%#o %%#0o\n", ft_printf("|%#o %#0o|", 0, 0));
+		ft_printf("%d Specifier: %%#.o %%#.0o\n", ft_printf("|%#.o %#.0o|", 0, 0));
 	/* Length modifiers */
 	/* hh */
 	ft_printf("%d\n", ft_printf("|%hho|", char_min));
@@ -687,48 +689,15 @@ int	main(void)
 	/* ll */
 	ft_printf("%d\n", ft_printf("|%llo|", llong_min));	
 	ft_printf("%d\n", ft_printf("|%llo|", llong_max));
-	ft_printf("%d\n", ft_printf("|@moulitest: %#.o %#.0o|", 0, 0));
-	ft_printf("%d\n", ft_printf("|@moulitest: %.o %.0o|", 0, 0));
+	ft_printf("====== f specifier ======\n");
+	//ft_printf("%d\n", ft_printf("%f", double_nb));
+	//ft_printf("%d\n", ft_printf("%f", neg_double_nb));
 
+	
+
+	
 
 	fclose(ft_printf_file);
 
 	return (0);
-}
-
-void	test_f()
-{
-	unsigned int	uint_min;
-	unsigned int	uint_max;
-	int				nb;
-	int				neg_nb;
-	int				int_max;
-	int				int_min;
-	long			long_min;
-	long			long_max;
-	long long		llong_min;
-	long long		llong_max;
-	double			double_nb;
-	double			neg_double_nb;
-	float			float_nb;
-
-	nb = 42;
-	neg_nb = -42;
-	double_nb = 42.42;
-	neg_double_nb = -42.42;
-	float_nb = 42.42;
-	int_max = INT_MAX;
-	int_min = INT_MIN;
-	uint_min = 0;
-	uint_max = UINT_MAX;
-	long_min = -2147483648;
-	long_max = 2147483647;
-	llong_min = -9223372036854775807;
-	llong_max = 9223372036854775807;
-
-	printf("%d\n", printf("|%f|", double_nb));
-	printf("%d\n\n", ft_printf("%f", double_nb));
-
-	printf("%d\n", printf("|%f|", neg_double_nb));
-	printf("%d\n\n", ft_printf("%f", neg_double_nb));
 }

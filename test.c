@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers_2.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmaronen <hmaronen@student.Hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 09:41:12 by hmaronen          #+#    #+#             */
-/*   Updated: 2022/06/22 09:41:13 by hmaronen         ###   ########.fr       */
+/*   Created: 2022/06/22 20:57:56 by hmaronen          #+#    #+#             */
+/*   Updated: 2022/06/22 20:57:58 by hmaronen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	f_handler(t_flags *tab)
+int	main(void)
 {
-	char	*arg_str;
-	double	arg;
-	// long long arg;
+	ft_printf("%d\n", ft_printf("|%#o %#0o|", 0, 0));
+	ft_printf("%d\n", ft_printf("|%o %0o|", 0, 0));
 
-	arg_str = NULL;
-	arg = 0;
-	arg = va_arg(tab->args, double);
-	printf("here %f\n", (float)arg);
-	// length_modifiers(tab, &arg);
-	if (arg < 0)
-	{
-		arg *= -1;
-		tab->is_neg = 1;
-	}
-	arg_str = ft_itoa_base(arg, 10);
-		tab->arg_len = ft_strlen(arg_str);
-	nb_padding(tab, arg_str, "");
 }

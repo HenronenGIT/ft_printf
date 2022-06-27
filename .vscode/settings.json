@@ -3,6 +3,7 @@
     "files.associations": {
 		"libft.h": "c",
 		"limits.h": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"complex": "c"
 	}
 }
