@@ -12,3 +12,5 @@ ft_printf.txt
 .vscode/configurationCache.log
 .vscode/dryrun.log
 ./vscode/targets.log
+printf.txt
+ft_printf.txt

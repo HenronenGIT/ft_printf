@@ -341,7 +341,7 @@ int	main(void)
 	printf("%d\n", printf("|%.5o|", neg_nb));
 	printf("%d\n", printf("|%-.5o|", nb));
 	printf("%d\n", printf("|%-.5o|", neg_nb));
-	printf("%d\n", printf("|%.o %.0o|", 0, 0));
+	printf("%d Test: %%.o %%.0o\n", printf("|%.o %.0o|", 0, 0));
 	// printf("%d\n", printf("|%.o|", nb));
 	// printf("%d\n", printf("|%5.o|", nb));
 	printf("%d\n", printf("|%5.5o|", nb));
@@ -662,7 +662,7 @@ int	main(void)
 	ft_printf("%d\n", ft_printf("|%.5o|", neg_nb));
 	ft_printf("%d\n", ft_printf("|%-.5o|", nb));
 	ft_printf("%d\n", ft_printf("|%-.5o|", neg_nb));
-	ft_printf("%d\n", ft_printf("|%.o %.0o|", 0, 0));
+	ft_printf("%d Test: %%.o %%.0o\n", ft_printf("|%.o %.0o|", 0, 0));
 	// ft_printf("%d\n", ft_printf("|%.o|", nb));
 	// ft_printf("%d\n", ft_printf("|%5.o|", nb));
 	ft_printf("%d\n", ft_printf("|%5.5o|", nb));

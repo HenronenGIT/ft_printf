@@ -160,18 +160,15 @@ void	o_handler(t_flags *tab)
 	arg = va_arg(tab->args, unsigned long long);
 	unsigned_length_modifiers(tab, &arg);
 	argument_str = ft_unsigned_itoa_base(arg, 8);
-	if (tab->precision && tab->prec_len == 0)
-		argument_str = NULL;
-	tab->arg_len = ft_strlen(argument_str);
-	// if (tab->hash && arg && *argument_str != '0')
-	// if (tab->hash && *argument_str != '0')
 	if (tab->hash)
 	{
-		if (*argument_str == '0')
-			argument_str = NULL;
 		tab->arg_len += 1;
 		prefix = ft_strdup("0"); // without malloc possible ?
 	}
+	if ((tab->precision && tab->prec_len == 0) ||
+		(tab->hash && *argument_str == '0'))
+		argument_str = NULL;
+	tab->arg_len += ft_strlen(argument_str);
 	nb_padding(tab, argument_str, prefix);
 }
 
