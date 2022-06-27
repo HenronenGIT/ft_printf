@@ -54,8 +54,8 @@ int	main(void)
 	int_min = INT_MIN;
 	uint_min = 0;
 	uint_max = UINT_MAX;
-	long_min = -2147483648;
-	long_max = 2147483647;
+	long_min = 	-9223372036854775808;
+	long_max = 9223372036854775807;
 	llong_min = -9223372036854775807;
 	llong_max = 9223372036854775807;
 	char_min = CHAR_MIN;

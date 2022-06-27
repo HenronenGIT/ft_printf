@@ -541,10 +541,12 @@ void	test_o()
 	nb = 42;
 	short_max = SHRT_MAX;
 	short_min = SHRT_MIN;
-	long_min = LONG_MAX;
-	long_max = LONG_MIN;
-	llong_min = LLONG_MIN;
-	llong_max = LLONG_MAX;
+	// long_min = LONG_MIN;
+	// long_max = LONG_MAX;
+	long_min = 	-9223372036854775808;
+	long_max = 9223372036854775807;
+	llong_min = -9223372036854775807;
+	llong_max = 9223372036854775807;
 	int_max = INT_MAX;
 	int_min = INT_MIN;
 	char_min = CHAR_MIN;
@@ -691,20 +693,23 @@ void	test_o()
 	printf("%o\n", printf("|%ho|", short_max));
 	printf("%o\n\n", ft_printf("|%ho|", short_max));
 	/* h */
-		printf("%o\n", printf("|%ho|", short_min));
-		printf("%o\n\n", ft_printf("|%ho|", short_min));
+	printf("%o\n", printf("|%ho|", short_min));
+	printf("%o\n\n", ft_printf("|%ho|", short_min));
+	/* l */
+	printf("%d\n", printf("|%lo|", long_min));	
+	printf("%d\n\n", ft_printf("|%lo|", long_min));	
 
-	printf("%o\n", printf("|%lo|", long_min));
-	printf("%o\n\n", ft_printf("|%lo|", long_min));
+	// printf("%o\n", printf("|%lo|", long_min));
+	// printf("%o\n\n", ft_printf("|%lo|", long_min));
 
-	printf("%o\n", printf("|%lo|", long_max));
-	printf("%o\n\n", ft_printf("|%lo|", long_max));
+	// printf("%o\n", printf("|%lo|", long_max));
+	// printf("%o\n\n", ft_printf("|%lo|", long_max));
 
-	printf("%o\n", printf("|%llo|", LLONG_MIN));
-	printf("%o\n\n", ft_printf("|%llo|", LLONG_MIN));
+	// printf("%o\n", printf("|%llo|", LLONG_MIN));
+	// printf("%o\n\n", ft_printf("|%llo|", LLONG_MIN));
 
-	printf("%o\n", printf("|%llo|", LLONG_MAX));
-	printf("%o\n\n", ft_printf("|%llo|", LLONG_MAX));
+	// printf("%o\n", printf("|%llo|", LLONG_MAX));
+	// printf("%o\n\n", ft_printf("|%llo|", LLONG_MAX));
 }
 
 void	test_p()
@@ -819,7 +824,7 @@ int	main(void)
 	// test_s();
 	//test_u();
 	// test_i();
-	// test_o();
+	test_o();
 	//test_p();
 	//test_X();
 	//test_x();
