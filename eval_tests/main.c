@@ -71,7 +71,7 @@ int	main(void)
 	char_max = CHAR_MAX;
 	ch = 'a';
 	neg_nb = -42;
-	double_nb = 42.42;
+	double_nb = 42.0;
 
 
 	if((printf_file=freopen(PRINTER_STR".txt", "w" ,stdout)) == NULL)

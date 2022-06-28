@@ -33,7 +33,7 @@ O_FILES = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(SRC)
 	@@gcc $(FLAGS) -I $(HEADER) -c $(SRCS)
 	@@ar rc -s $(NAME) $(O_FILES)
 
