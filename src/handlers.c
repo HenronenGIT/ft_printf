@@ -91,16 +91,14 @@ void	X_handler(t_flags *tab)
 	nb_padding(tab, stringArg, "0X");
 }
 
-void	d_handler(t_flags *tab)
+void	di_handler(t_flags *tab)
 {
 	char	*str;
 	long long arg;
 
 	arg = 0;
 	arg = va_arg(tab->args, long long);
-	printf("%lld\n", arg);
 	length_modifiers(tab, &arg);
-	// if (arg < 0 && arg != -9223372036854775808LL) // Not clean way! Any other styles?
 	if (arg < 0 && arg != LONG_MIN) // Not clean way! Any other styles?
 	{
 		arg *= -1;
@@ -114,23 +112,23 @@ void	d_handler(t_flags *tab)
 	nb_padding(tab, str, "");
 }
 
-void	i_handler(t_flags *tab)
-{
-	char		*str;
-	long long	arg;
+// void	i_handler(t_flags *tab)
+// {
+// 	char		*str;
+// 	long long	arg;
 	
-	// Type long long, or int ?
-	arg = va_arg(tab->args, long long);
-	length_modifiers(tab, &arg);
-	if (arg < 0 && arg != LONG_MIN) // Ugly way, better way to do it? long min handle
-	{
-		arg *= -1;
-		tab->is_neg = 1;
-	}
-	str = ft_itoa_base(arg, 10);
-	tab->arg_len = ft_strlen(str);
-	nb_padding(tab, str, "");
-}
+// 	// Type long long, or int ?
+// 	arg = va_arg(tab->args, long long);
+// 	length_modifiers(tab, &arg);
+// 	if (arg < 0 && arg != LONG_MIN) // Ugly way, better way to do it? long min handle
+// 	{
+// 		arg *= -1;
+// 		tab->is_neg = 1;
+// 	}
+// 	str = ft_itoa_base(arg, 10);
+// 	tab->arg_len = ft_strlen(str);
+// 	nb_padding(tab, str, "");
+// }
 
 void	p_handler(t_flags *tab)
 {

@@ -15,7 +15,6 @@
 #include <float.h>
 
 void	test_f();
-void	test_percent();
 void	test_o();
 
 #ifdef ORIGINAL
