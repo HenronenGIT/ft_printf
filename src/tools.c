@@ -22,7 +22,7 @@ char	*ft_itoa_base(long long dec, int base)
 
 	if (dec == 0)
 		return ("0");
-	if (dec == -9223372036854775808)
+	if (dec == LONG_MIN)// Check if right min vaulue
 		return ("-9223372036854775808");
 	str = ft_strnew(ft_digit_counter(dec, base));
 	i = 0;

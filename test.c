@@ -11,13 +11,32 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
+#include <stdio.h>
+
+// gcc test.c libftprintf.a -D "ORIGINAL"
+#ifdef ORIGINAL
+	# define PRINTER printf
+	# define PRINTER_STR "printf"
+#else
+	# define PRINTER ft_printf
+	# define PRINTER_STR "ft_printf"
+#endif
 
 int	main(void)
 {
-	printf("%d\n", printf("|%lld|", -9223372036854775808));
-	printf("%d\n\n", ft_printf("|%lld|", -9223372036854775808));
+	FILE *printf_file;
 
-	printf("%d\n", printf("|%llo|", -9223372036854775808));
-	printf("%d\n\n", ft_printf("|%llo|", -9223372036854775808));
-
+	if((printf_file=freopen(PRINTER_STR".txt", "w" ,stdout)) == NULL)
+	{
+		printf("Cannot open "PRINTER_STR".txt.\n");
+		exit(1);
+	}
+	printf("====== c Specifier ======\n");
+	fflush(stdout);
+	printf("%d\n", PRINTER("|%c|", 'h'));
+	fflush(stdout);
+	printf("%d\n", PRINTER("|%10c|", 'h'));
+	fflush(stdout);
+	fclose(printf_file);
 }
