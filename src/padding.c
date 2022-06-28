@@ -12,6 +12,8 @@
 
 #include "ft_printf.h"
 
+
+
 void	plus_flag(t_flags *tab)
 {
 	if (tab->is_neg)
@@ -52,13 +54,15 @@ void	nb_padding(t_flags *tab, char *argument, char *prefix)
 	if (tab->precision && prec_padding >= 0)
 		tab->ret_len += putpadding(prec_padding, '0');
 	/* Zero padding */
-	// if (tab->hash && argument)
 	if (tab->hash)
 		ft_putstr(prefix);
 	if (tab->zero && !tab->precision && !tab->space)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');
 	/* Print argument */
 	ft_putstr(argument);
+	/* float precision */
+	// if (tab->f)
+		// handle_float(tab);
 	/* With padding right side */
 	if (tab->minus && prec_padding >= 0)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), ' ');

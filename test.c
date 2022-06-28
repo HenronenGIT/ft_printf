@@ -14,29 +14,11 @@
 #include <limits.h>
 #include <stdio.h>
 
-// gcc test.c libftprintf.a -D "ORIGINAL"
-#ifdef ORIGINAL
-	# define PRINTER printf
-	# define PRINTER_STR "printf"
-#else
-	# define PRINTER ft_printf
-	# define PRINTER_STR "ft_printf"
-#endif
+
 
 int	main(void)
 {
-	FILE *printf_file;
+	float	nb;
 
-	if((printf_file=freopen(PRINTER_STR".txt", "w" ,stdout)) == NULL)
-	{
-		printf("Cannot open "PRINTER_STR".txt.\n");
-		exit(1);
-	}
-	printf("====== c Specifier ======\n");
-	fflush(stdout);
-	printf("%d\n", PRINTER("|%c|", 'h'));
-	fflush(stdout);
-	printf("%d\n", PRINTER("|%10c|", 'h'));
-	fflush(stdout);
-	fclose(printf_file);
+	nb = 42.2;
 }

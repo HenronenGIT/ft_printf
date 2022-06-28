@@ -41,6 +41,7 @@ typedef struct s_flags
 	int ll;
 	int	ret_len;
 	int is_neg;
+	int f;
 } t_flags;
 
 typedef void handler_func(t_flags *tab);
@@ -60,17 +61,16 @@ void	X_handler(t_flags *tab);
 void	f_handler(t_flags *tab);
 void	percent_handler(t_flags *tab);
 
-//char	*ft_itoa_base(int dec, int base);
 char	*ft_itoa_base(long long dec, int base);
 char	*ft_unsigned_itoa_base(unsigned long long dec, int base);
 void	put_ptr(uintptr_t addr);
 int		putpadding(int width, char ch);
 
-// void	precision_flag(t_flags *tab, int arg_len);
 void	plus_flag(t_flags *tab);
 void	nb_padding(t_flags *tab, char *argument, char *prefix);
 void	length_modifiers(t_flags *tab, long long *ptr_nb);
 void	unsigned_length_modifiers(t_flags *tab, unsigned long long *ptr_nb);
+void	handle_float(t_flags *tab, char *argument);
 
 char	*ft_anytoa(long long n);
 

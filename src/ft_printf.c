@@ -37,6 +37,7 @@ void	init_tab(t_flags *tab)
 	tab->h = 0;
 	tab->l = 0;
 	tab->ll = 0;
+	tab->f = 0;
 }
 
 const char	*check_format(const char *str, t_flags *tab)

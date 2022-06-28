@@ -100,10 +100,7 @@ void	d_handler(t_flags *tab)
 	arg = va_arg(tab->args, long long);
 	printf("%lld\n", arg);
 	length_modifiers(tab, &arg);
-<<<<<<< HEAD
 	// if (arg < 0 && arg != -9223372036854775808LL) // Not clean way! Any other styles?
-=======
->>>>>>> 5a3fc1146f266cd7d0bff1e1ed0c521aa9f11dbc
 	if (arg < 0 && arg != LONG_MIN) // Not clean way! Any other styles?
 	{
 		arg *= -1;
