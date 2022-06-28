@@ -40,16 +40,9 @@ void	init_tab(t_flags *tab)
 	tab->f = 0;
 }
 
-const char	*check_format(const char *str, t_flags *tab)
+void	jump_table(t_flags *tab, int index)
 {
-	const char	*ptr;
-	int			index;
-	char		conversion;
-	char		specifier;
-	char		*specifier_ptr;
-
-	/* Fill jump table func. */
-	handler_func	*conv_arr[11] = {
+		static handler_func	*jump_table[11] = {
 		c_handler,
 		s_handler,
 		p_handler,
@@ -62,46 +55,52 @@ const char	*check_format(const char *str, t_flags *tab)
 		f_handler,
 		percent_handler
 	};
+	jump_table[index](tab);
+}
+
+const char	*check_format(const char *str, t_flags *tab)
+{
+	const char	*ptr;
+	int			index;
+	char		conversion;
+	char		*specifier_ptr;
+
 	ptr = str;
 	index = 0;
 	while (!is_format(*str))
 		str++;
-	specifier = *str;
-	check_flags(tab, ptr, specifier);
+	check_flags(tab, ptr, *str);
 	// check_length_modifiers(tab);
-	specifier_ptr = ft_strchr(FORMATS, specifier);
+	specifier_ptr = ft_strchr(FORMATS, *str);
 	if (specifier_ptr)
-	{
-		index = (int)(specifier_ptr - FORMATS);
-		conv_arr[index](tab);
-	}
+		jump_table(tab, (int)(specifier_ptr - FORMATS));
 	return (str);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	const char	*ptr;
+	// const char	*ptr;
 	t_flags		*tab;
 
 	tab = (t_flags *)malloc(sizeof(t_flags));
 	if (!tab)
 		return (-1);
-	ptr = format;
+	// ptr = format;
 	va_start(tab->args, format);
-	while (*ptr != '\0')
+	while (*format != '\0')
 	{
-		if (*ptr != '%')
+		if (*format != '%')
 		{
-			ft_putchar(*ptr);
+			ft_putchar(*format);
 			tab->ret_len += 1;
 		}
 		else
 		{
-			ptr++;
+			format++;
 			init_tab(tab);
-			ptr = check_format(ptr, tab);
+			format = check_format(format, tab);
 		}
-		ptr++;
+		format++;
 	}
 	va_end(tab->args);
 	return (tab->ret_len);

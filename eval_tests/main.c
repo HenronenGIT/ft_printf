@@ -94,6 +94,8 @@ int	main(void)
 	// printf("%d\n", PRINTER("|%-015x|", 9321124));fflush(stdout);
 	// printf("%d\n", PRINTER("|%-015X|", 9321124)); fflush(stdout);
 	// printf("%d\n", PRINTER("|%    %|", "test")); fflush(stdout);
+	// printf("%d\n", PRINTER("|%s %s|", NULL, str)); fflush(stdout);
+	// printf("%d\n", PRINTER("|%s|", NULL)); fflush(stdout);
 
 
 	printf("====== c Specifier ======\n"); fflush(stdout);
@@ -114,8 +116,6 @@ int	main(void)
 	printf("%d\n", PRINTER("|Hive %10.s|", str)); fflush(stdout);
 	printf("%d\n", PRINTER("|Hive %10.5s|", str)); fflush(stdout);
 	printf("%d\n", PRINTER("|Hive %.s|", str)); fflush(stdout);
-	printf("%d\n", PRINTER("|%s %s|", NULL, str)); fflush(stdout);
-	printf("%d\n", PRINTER("|%s|", NULL)); fflush(stdout);
 	printf("%d\n", PRINTER("|%-5.2s is a string|", "")); fflush(stdout);
 	printf("%d\n", PRINTER("|%-.2s is a string|", "")); fflush(stdout);
 	printf("%d\n", PRINTER("|%.2s is a string|", "")); fflush(stdout);

@@ -14,11 +14,19 @@
 #include <limits.h>
 #include <stdio.h>
 
-
-
 int	main(void)
 {
-	float	nb;
-
-	nb = 42.2;
+	handler_func	*conv_arr[11] = {
+		c_handler,
+		s_handler,
+		p_handler,
+		d_handler,
+		i_handler,
+		o_handler,
+		u_handler,
+		x_handler,
+		X_handler,
+		f_handler,
+		percent_handler
+	};
 }
