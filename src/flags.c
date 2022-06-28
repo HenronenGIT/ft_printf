@@ -12,59 +12,50 @@
 
 #include "ft_printf.h"
 
-static void edit_flags(t_flags *tab)
-{
-	if (tab->space && tab->plus)
-		tab->space = 0;
-}
-
 void	check_length_modifiers(t_flags *tab, const char *str, char specifier)
 {
-	int i;
-
-	i = -1;
-	while (str[++i] != specifier)
+	while (*str != specifier)
 	{
-		if (str[i] == 'h' && tab->h)
+		if (*str == 'h' && tab->h)
 		{
 			tab->h = 0;
 			tab->hh = 1;
 		}
-		if (str[i] == 'h' && !tab->hh)
+		if (*str == 'h' && !tab->hh)
 			tab->h = 1;
-		if (str[i] == 'l' && tab->l)
+		if (*str == 'l' && tab->l)
 		{
 			tab->l = 0;
 			tab->ll = 1;
 		}
-		if (str[i] == 'l' && !tab->ll)
+		if (*str == 'l' && !tab->ll)
 			tab->l = 1;
+		str++;
 	}
 }
 
 void	check_flags(t_flags *tab, const char *str, char specifier)
 {
-	int i;
-
-	i = -1;
-	while (str[++i] != specifier)
+	while (*str != specifier)
 	{
-		if (str[i] == '#')
+		if (*str == '#')
 			tab->hash = 1;
-		if (str[i] == '0' && !tab->width && !tab->minus)
+		if (*str == '0' && !tab->width && !tab->minus)
 			tab->zero = 1;
-		if (str[i] == '-')
+		if (*str == '-')
 			tab->minus = 1;
-		if (str[i] == '+')
+		if (*str == '+')
 			tab->plus = 1;
-		if (str[i] == '.')
+		if (*str == '.')
 			tab->precision = 1;
-		if (str[i] == ' ')
+		if (*str == ' ')
 			tab->space = 1;
-		if (ft_isdigit(str[i]) && !tab->precision)
-			tab->width = ((10 * tab->width) + str[i] - 48);
- 		else if (ft_isdigit(str[i]))
-			tab->prec_len = ((10 * tab->prec_len) + str[i] - 48);
+		if (ft_isdigit(*str) && !tab->precision)
+			tab->width = ((10 * tab->width) + *str - 48);
+		else if (ft_isdigit(*str))
+			tab->prec_len = ((10 * tab->prec_len) + *str - 48);
+		str++;
 	}
-	edit_flags(tab);
+	if (tab->space && tab->plus)
+		tab->space = 0;
 }

@@ -62,15 +62,14 @@ static void	jump_table(t_flags *tab, int index)
 const char	*check_format(const char *str, t_flags *tab)
 {
 	const char	*ptr;
-	int			index;
 	char		conversion;
 	char		*specifier_ptr;
 
 	ptr = str;
-	index = 0;
 	while (!is_format(*str))
 		str++;
 	check_flags(tab, ptr, *str);
+	check_length_modifiers(tab, ptr, *str);
 	specifier_ptr = ft_strchr(FORMATS, *str);
 	if (specifier_ptr)
 		jump_table(tab, (int)(specifier_ptr - FORMATS));
