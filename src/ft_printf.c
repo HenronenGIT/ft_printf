@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	is_format(char ch)
+static int	is_format(char ch)
 {
 	if (ch == 'c' || ch == 's' || ch == 'p' || ch == 'x' || ch == 'X'
 		|| ch == 'd' || ch == 'i' || ch == 'u' || ch == 'o' || ch == '%'
@@ -21,7 +21,7 @@ int	is_format(char ch)
 	return (0);
 }
 
-void	init_tab(t_flags *tab)
+static void	init_tab(t_flags *tab)
 {
 	tab->width = 0;
 	tab->space = 0;
@@ -40,9 +40,9 @@ void	init_tab(t_flags *tab)
 	tab->f = 0;
 }
 
-void	jump_table(t_flags *tab, int index)
+static void	jump_table(t_flags *tab, int index)
 {
-		static handler_func	*jump_table[11] = {
+	static handler_func	*jump_table[11] = {
 		c_handler,
 		s_handler,
 		p_handler,
@@ -55,6 +55,7 @@ void	jump_table(t_flags *tab, int index)
 		f_handler,
 		percent_handler
 	};
+
 	jump_table[index](tab);
 }
 
@@ -70,7 +71,6 @@ const char	*check_format(const char *str, t_flags *tab)
 	while (!is_format(*str))
 		str++;
 	check_flags(tab, ptr, *str);
-	// check_length_modifiers(tab);
 	specifier_ptr = ft_strchr(FORMATS, *str);
 	if (specifier_ptr)
 		jump_table(tab, (int)(specifier_ptr - FORMATS));
@@ -79,13 +79,11 @@ const char	*check_format(const char *str, t_flags *tab)
 
 int	ft_printf(const char *format, ...)
 {
-	// const char	*ptr;
 	t_flags		*tab;
 
 	tab = (t_flags *)malloc(sizeof(t_flags));
 	if (!tab)
 		return (-1);
-	// ptr = format;
 	va_start(tab->args, format);
 	while (*format != '\0')
 	{

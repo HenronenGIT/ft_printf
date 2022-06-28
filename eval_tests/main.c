@@ -77,9 +77,6 @@ int	main(void)
 	neg_double_nb = -42.0;
 	double_max = DBL_MAX;
 	ldouble_max = LDBL_MAX;
-
-
-
 	if((printf_file=freopen(PRINTER_STR".txt", "w" ,stdout)) == NULL)
 	{
 		printf("Cannot open printf.txt.\n");
@@ -96,7 +93,6 @@ int	main(void)
 	// printf("%d\n", PRINTER("|%    %|", "test")); fflush(stdout);
 	// printf("%d\n", PRINTER("|%s %s|", NULL, str)); fflush(stdout);
 	// printf("%d\n", PRINTER("|%s|", NULL)); fflush(stdout);
-
 
 	printf("====== c Specifier ======\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%c|", 'h')); fflush(stdout);

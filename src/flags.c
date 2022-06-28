@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flags.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmaronen <hmaronen@student.Hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/28 21:35:34 by hmaronen          #+#    #+#             */
+/*   Updated: 2022/06/28 21:35:37 by hmaronen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static void edit_flags(t_flags *tab)
@@ -6,16 +18,13 @@ static void edit_flags(t_flags *tab)
 		tab->space = 0;
 }
 
-char	check_flags(t_flags *tab, const char *str, char format)
+void	check_length_modifiers(t_flags *tab, const char *str, char specifier)
 {
 	int i;
 
 	i = -1;
-	while (str[++i] != format)
+	while (str[++i] != specifier)
 	{
-		/* Mayby need move to own while loop for norm */
-		/* For datatype flags can use "find sub string func" */
-		/* Seperate 1 char flags and 2 or more char flags to diff while loops */
 		if (str[i] == 'h' && tab->h)
 		{
 			tab->h = 0;
@@ -30,6 +39,16 @@ char	check_flags(t_flags *tab, const char *str, char format)
 		}
 		if (str[i] == 'l' && !tab->ll)
 			tab->l = 1;
+	}
+}
+
+void	check_flags(t_flags *tab, const char *str, char specifier)
+{
+	int i;
+
+	i = -1;
+	while (str[++i] != specifier)
+	{
 		if (str[i] == '#')
 			tab->hash = 1;
 		if (str[i] == '0' && !tab->width && !tab->minus)
@@ -48,5 +67,4 @@ char	check_flags(t_flags *tab, const char *str, char format)
 			tab->prec_len = ((10 * tab->prec_len) + str[i] - 48);
 	}
 	edit_flags(tab);
-	return (*str);
 }
