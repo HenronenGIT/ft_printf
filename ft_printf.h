@@ -41,10 +41,14 @@ typedef struct s_flags
 	int ll;
 	int	ret_len;
 	int is_neg;
-	int f;
 } t_flags;
 
 typedef void handler_func(t_flags *tab);
+
+static int	is_format(char ch);
+static void	init_tab(t_flags *tab);
+static void	jump_table(t_flags *tab, int index);
+static const char	*check_format(const char *str, t_flags *tab);
 
 int		ft_printf(const char *format, ...);
 void	check_flags(t_flags *tab, const char *str, char format);
@@ -54,7 +58,6 @@ void	c_handler(t_flags *tab);
 void	s_handler(t_flags *tab);
 void	p_handler(t_flags *tab);
 void	di_handler(t_flags *tab);
-// void	i_handler(t_flags *tab);
 void	o_handler(t_flags *tab);
 void	u_handler(t_flags *tab);
 void	x_handler(t_flags *tab);
@@ -71,7 +74,7 @@ void	plus_flag(t_flags *tab);
 void	nb_padding(t_flags *tab, char *argument, char *prefix);
 void	length_modifiers(t_flags *tab, long long *ptr_nb);
 void	unsigned_length_modifiers(t_flags *tab, unsigned long long *ptr_nb);
-void	handle_float(t_flags *tab, char *argument);
+// char	*handle_float(t_flags *tab, char *arg_str, int argument);
 
 char	*ft_anytoa(long long n);
 

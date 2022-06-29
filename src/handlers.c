@@ -112,24 +112,6 @@ void	di_handler(t_flags *tab)
 	nb_padding(tab, str, "");
 }
 
-// void	i_handler(t_flags *tab)
-// {
-// 	char		*str;
-// 	long long	arg;
-	
-// 	// Type long long, or int ?
-// 	arg = va_arg(tab->args, long long);
-// 	length_modifiers(tab, &arg);
-// 	if (arg < 0 && arg != LONG_MIN) // Ugly way, better way to do it? long min handle
-// 	{
-// 		arg *= -1;
-// 		tab->is_neg = 1;
-// 	}
-// 	str = ft_itoa_base(arg, 10);
-// 	tab->arg_len = ft_strlen(str);
-// 	nb_padding(tab, str, "");
-// }
-
 void	p_handler(t_flags *tab)
 {
 	unsigned long long	argument;
