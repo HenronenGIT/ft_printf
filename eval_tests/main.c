@@ -389,13 +389,15 @@ int	main(void)
 
 	printf("====== f specifier ======\n"); fflush(stdout);
 	printf(">>>>>>>>>> Normal <<<<<<<<<<\n"); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%f|", 42.04202)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%f|", 0.5)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%f|", 42.0420297987)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%f|", 42.0420285987)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%f|", 42.99999999999999)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%f|", double_nb)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%f|", neg_double_nb)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%f|", double_max)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%f|", ldouble_max)); fflush(stdout);
+
 	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 42.421)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 1.5)); fflush(stdout);
@@ -403,27 +405,27 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%.3f|", 2.5685)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 2.5675)); fflush(stdout);
 
-	printf(">Width & Precision<\n"); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%5.1f|", double_nb)); fflush(stdout);
+	// printf(">Width & Precision<\n"); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%5.1f|", double_nb)); fflush(stdout);
 
-	printf(">>>>>>>>>> Width <<<<<<<<<<\n"); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%20f|", double_nb)); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%100f|", double_nb)); fflush(stdout);
+	// printf(">>>>>>>>>> Width <<<<<<<<<<\n"); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%20f|", double_nb)); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%100f|", double_nb)); fflush(stdout);
 
-	printf(">>>>>>>>>> '-' flag <<<<<<<<<<\n"); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%-20f|", double_nb)); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%-100f|", double_nb)); fflush(stdout);
+	// printf(">>>>>>>>>> '-' flag <<<<<<<<<<\n"); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%-20f|", double_nb)); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%-100f|", double_nb)); fflush(stdout);
 
-	printf(">>>>>>>>>> '0' flag <<<<<<<<<<\n"); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%020f|", double_nb)); fflush(stdout);
+	// printf(">>>>>>>>>> '0' flag <<<<<<<<<<\n"); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%020f|", double_nb)); fflush(stdout);
 
-	printf(">>>>>>>>>> '+' && width flag <<<<<<<<<<\n"); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%+20f|", double_nb)); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%+20f|", neg_double_nb)); fflush(stdout);
+	// printf(">>>>>>>>>> '+' && width flag <<<<<<<<<<\n"); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%+20f|", double_nb)); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%+20f|", neg_double_nb)); fflush(stdout);
 
-	printf(">>>>>>>>>> '-' && '.'<<<<<<<<<<\n"); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%-20.6f|", double_nb)); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%-20.8f|", double_nb)); fflush(stdout);
+	// printf(">>>>>>>>>> '-' && '.'<<<<<<<<<<\n"); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%-20.6f|", double_nb)); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%-20.8f|", double_nb)); fflush(stdout);
 
 	// printf("~%d~\n", PRINTER("|%#f|", double_nb)); fflush(stdout);
 	fclose(printf_file);
