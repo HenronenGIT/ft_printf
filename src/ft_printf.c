@@ -47,7 +47,6 @@ static void	jump_table(t_flags *tab, int index)
 		p_handler,
 		di_handler,
 		di_handler,
-		// i_handler,
 		o_handler,
 		u_handler,
 		x_handler,

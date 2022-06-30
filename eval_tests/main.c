@@ -390,13 +390,13 @@ int	main(void)
 	printf("====== f specifier ======\n"); fflush(stdout);
 	printf(">>>>>>>>>> Normal <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%f|", 42.04202)); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%f|", double_nb)); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%f|", double_nb)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%f|", double_max)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%f|", ldouble_max)); fflush(stdout);
 	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 42.421)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 1.5)); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%.0f|", 2.5)); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%.0f|", 2.5)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%.3f|", 2.5685)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%.3f|", 2.5675)); fflush(stdout);
 
