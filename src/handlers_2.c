@@ -16,28 +16,27 @@ char	bankers_rounding(double decimal, t_flags *tab)
 {
 	int	number;
 	int	rounder;
-	int i;
 
 	rounder = 0;
 	number = 0;
 	if (tab->precision && tab->prec_len == 0)
-	{
 		number = (int)decimal;
-		decimal -= number;
-		rounder = decimal * 10;
-	}
 	else
 	{
 		number = decimal * 10;
 		decimal *= 10;
-		decimal -= number;
-		rounder = decimal * 10;
 	}
+	decimal -= number;
+	rounder = decimal * 10;
 	if (rounder == 5 && (number % 2 != 0))
 		number += 1;
 	else if (rounder > 5)
-		number += 1;
-
+	{
+		if (number < 9)
+			number += 1;
+		else
+			number = 0;
+	}
 	return (number + 48);
 }
 
@@ -84,6 +83,7 @@ void	f_handler(t_flags *tab)
 		arg *= -1;
 		tab->is_neg = 1;
 	}
+	
 	arg_str = ft_itoa_base(arg, 10);
 	if (tab->precision && tab->prec_len == 0) // For .0 precision
 	{
