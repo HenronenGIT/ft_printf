@@ -68,8 +68,7 @@ void	x_handler(t_flags *tab)
 	if (tab->hash && stringArg && *stringArg != '0')
 	{
 		tab->arg_len += 2;
-		// Try to remove malloc
-		prefix = ft_strdup("0x");
+		prefix = ft_strdup("0x"); // Try to remove malloc
 	}
 	nb_padding(tab, stringArg, prefix);
 }

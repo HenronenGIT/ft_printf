@@ -18,6 +18,8 @@
 void	test_f();
 void	test_o();
 
+#define TAB (int *)31212412421
+
 #ifdef ORIGINAL
 	# define PRINTER printf
 	# define PRINTER_STR "printf"
@@ -274,15 +276,18 @@ int	main(void)
 	printf("%d\n", PRINTER("|%+010.5i|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%+010.5i|", neg_nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|% 010.5i|", nb)); fflush(stdout);
+
 	printf("====== p specifier ======\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%p|", empty)); fflush(stdout);
-	printf("%d\n", PRINTER("|%p|", str)); fflush(stdout);
-	printf("%d\n", PRINTER("|%p|", tab)); fflush(stdout);
+	printf("%d\n", PRINTER("|%p|", TAB)); fflush(stdout);
+	printf("%d\n", PRINTER("|%p|", TAB)); fflush(stdout);
 	/* width flag */
 	printf("%d\n", PRINTER("|%10p|", empty)); fflush(stdout);
 	printf("%d\n", PRINTER("|%100p|", empty)); fflush(stdout);
 	/* - flag */
-	printf("%d\n", PRINTER("|%-10p|", tab)); fflush(stdout);
+	printf("%d\n", PRINTER("|%-10p|", TAB)); fflush(stdout);
+	/* precision */
+	printf("~%d~\n", PRINTER("|%.p|", NULL)); fflush(stdout);
 
 	printf("====== x specifier ======\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%x|", 0)); fflush(stdout);
@@ -299,6 +304,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%llx|", llong_max)); fflush(stdout);
 	printf("%d\n", PRINTER("|%hhx|", char_max)); fflush(stdout);
 	/* # flag */	
+	printf("%d\n", PRINTER("|%#.8x|", 42)); fflush(stdout);
 	printf("%d\n", PRINTER("|%#2.8x|", 42)); fflush(stdout);
 	printf("%d %%#x 0\n", PRINTER("|%#x|", 0)); fflush(stdout);
 	printf("%d\n", PRINTER("|%#x|", 9321124)); fflush(stdout);
@@ -438,9 +444,11 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%-20.6f|", double_nb)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%-20.8f|", double_nb)); fflush(stdout);
 
-	printf("~%d~\n", PRINTER("|%.2f|", -958.125000)); fflush(stdout);
+	
+		// printf("~%d~\n", PRINTER("|%f|", 1.0 / 0)); fflush(stdout);
+		// printf("~%d~\n", PRINTER("|%|")); fflush(stdout);
 
-	// printf("~%d~\n", PRINTER("|%#f|", double_nb)); fflush(stdout);
+		// printf("~%d~\n", PRINTER("|%#f|", double_nb)); fflush(stdout);
 	fclose(printf_file);
 
 	return (0);

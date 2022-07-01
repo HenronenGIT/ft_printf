@@ -71,6 +71,7 @@ void	put_ptr(uintptr_t addr);
 int		putpadding(int width, char ch);
 
 void	plus_flag(t_flags *tab);
+int	count_padding(t_flags *tab);
 void	nb_padding(t_flags *tab, char *argument, char *prefix);
 void	length_modifiers(t_flags *tab, long long *ptr_nb);
 void	unsigned_length_modifiers(t_flags *tab, unsigned long long *ptr_nb);

@@ -23,41 +23,58 @@ void	plus_flag(t_flags *tab)
 	tab->width -= 1;
 }
 
+int	count_padding(t_flags *tab)
+{
+	int	padding_len;
+
+	padding_len = 0;
+	if (tab->precision && tab->hash)
+		padding_len = tab->prec_len - tab->arg_len + 2;
+	else
+		padding_len = tab->prec_len - tab->arg_len;
+	if (padding_len < 0) // Better style ? Just need to neg variable to zero IF negative. Sub function could be added "is_neg"
+		padding_len = 0;
+	return (padding_len);
+}
+
 void	nb_padding(t_flags *tab, char *argument, char *prefix)
 {
-	int	prec_padding;
+	int	padding_len;
 
-	prec_padding = 0;
 	tab->ret_len += tab->arg_len;
+	padding_len = 0;
 	if (tab->prec_len)
-	{
-		prec_padding = tab->prec_len - tab->arg_len;
-		if (prec_padding < 0) // Better style ? Just need to neg variable to zero IF negative. Sub function could be added "is_neg"
-			prec_padding = 0;
-	}
+		padding_len = count_padding(tab);
+	// tab->ret_len += tab->arg_len;
+	// if (tab->prec_len) // could put to own function "count padding"
+	// {
+	// 	padding_len = tab->prec_len - tab->arg_len;
+	// 	if (padding_len < 0) // Better style ? Just need to neg variable to zero IF negative. Sub function could be added "is_neg"
+	// 		padding_len = 0;
+	// }
 	/* Width padding */
 	if ((tab->space || tab->width) && !tab->zero && !tab->minus)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
+		tab->ret_len += putpadding((tab->width - tab->arg_len - padding_len - (tab->is_neg || tab->plus || tab->space)), ' ');
 	/* Precision and Zero flag on */
-	if (tab->zero && tab->precision && prec_padding >= 0)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
+	if (tab->zero && tab->precision && padding_len >= 0)
+		tab->ret_len += putpadding((tab->width - tab->arg_len - padding_len - (tab->is_neg || tab->plus || tab->space)), ' ');
 	/* Sign */
 	if (tab->plus || tab->is_neg || tab->space)
 		plus_flag(tab);
 	/* Space and Zero flag */
 	if (tab->space && tab->zero && !tab->precision)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');
-	/* Precision */
+		tab->ret_len += putpadding((tab->width - tab->arg_len - padding_len), '0');
 	if (tab->hash)
 		ft_putstr(prefix);
-	if (tab->precision && prec_padding >= 0)
-		tab->ret_len += putpadding(prec_padding, '0');
+	/* Precision */
+	if (tab->precision && padding_len >= 0)
+		tab->ret_len += putpadding(padding_len, '0');
 	/* Zero padding */
 	if (tab->zero && !tab->precision && !tab->space)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), '0');
+		tab->ret_len += putpadding((tab->width - tab->arg_len - padding_len), '0');
 	/* Print argument */
 	ft_putstr(argument);
 	/* With padding right side */
-	if (tab->minus && prec_padding >= 0)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), ' ');
+	if (tab->minus && padding_len >= 0)
+		tab->ret_len += putpadding((tab->width - tab->arg_len - padding_len), ' ');
 }
