@@ -13,7 +13,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdio.h> // temp
+// #include <stdio.h> // temp
 #include "./libft/includes/libft.h"
 #include <stdarg.h>
 #include <unistd.h>
@@ -24,7 +24,6 @@
 
 typedef struct s_flags
 {
-	/* Could be shorts for less memory? */
 	va_list args;
 	int width;
 	int space;
@@ -45,10 +44,11 @@ typedef struct s_flags
 
 typedef void handler_func(t_flags *tab);
 
-static int	is_format(char ch);
-static void	init_tab(t_flags *tab);
-static void	jump_table(t_flags *tab, int index);
-static const char	*check_format(const char *str, t_flags *tab);
+// static int	is_format(char ch);
+// static void	init_tab(t_flags *tab);
+// static void	jump_table(t_flags *tab, int index);
+// const char	*check_format(const char *str, t_flags *tab);
+
 
 int		ft_printf(const char *format, ...);
 void	check_flags(t_flags *tab, const char *str, char format);

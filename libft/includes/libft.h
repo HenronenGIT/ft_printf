@@ -103,5 +103,6 @@ void	ft_free_2d_array(char **array);
 
 char	*ft_strrev(char *str);
 char	*ft_strtoupper(char *string);
+int		ft_isodd(int number);
 
 #endif

@@ -15,3 +15,4 @@ ft_printf.txt
 .vscode/dryrun.log
 ./vscode/targets.log
 
+test_printf/

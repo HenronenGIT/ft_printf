@@ -42,48 +42,48 @@ static char	*add_decimals(t_flags *tab, double argument, char *arg_str)
 double	rounding(double number, t_flags *tab)
 {
 	int		counter;
-	double	temp;
-	int		digit;
+	double	original;
 	double	rounder;
 
-	temp = number;
+	original = number;
 	counter = 0;
 	rounder = 0.5;
-
 	while (++counter <= tab->prec_len)
 		rounder /= 10;
-	counter = 0;
+	counter = -1;
 	while(++counter <= tab->prec_len)
 	{
-		temp *= 10;
-		temp -= (int)temp;
+		number -= (long)number;
+		number *= 10;
 	}
-	temp *= 10;
-	if ((int)temp >= 5)
-		return (number + rounder);
+	// number *= 10;
+	if ((int)number >= 5)
+		return (original + rounder);
 	else
-		return (number);
+		return (original);
+}
 
+double	bankers_rounding(double arg, t_flags *tab)
+{
+	int	rounder;
+	int	roundable;
+	int	original;
 
-	// 	decimal *= 10;
-	// }
-	// decimal -= number;
-	// rounder = decimal * 10;
-	// if (rounder == 5 && (number % 2 != 0))
-	// 	number += 1;
-	// else if (rounder > 5)
-	// {
-	// 	if (number < 9)
-	// 		number += 1;
-	// 	else
-	// 		number = 0;
-	// }
-	return (number + 48);
+	original = arg;
+	roundable = (int)arg;
+	arg -= (int)arg;
+	rounder = arg * 10;
+
+	if (rounder == 5 && !ft_isodd(roundable))
+		return ((int)original);
+	else
+		return ((int)original + 1);
 }
 
 void	f_handler(t_flags *tab)
 {
 	char	*arg_str;
+	// long double	arg;
 	double	arg;
 
 	arg = 0;
@@ -98,12 +98,14 @@ void	f_handler(t_flags *tab)
 		arg *= -1;
 		tab->is_neg = 1;
 	}
-	//	1st bankers rounding
-	//	2st create string
 
-	arg = rounding(arg, tab);
+	if (tab->prec_len == 0)
+		arg = bankers_rounding(arg, tab);
+	else
+		arg = rounding(arg, tab);
 	arg_str = ft_itoa_base(arg, 10);
-	arg_str = add_decimals(tab, (arg - (int)arg), arg_str);
+	if (tab->prec_len != 0)
+		arg_str = add_decimals(tab, (arg - (long)arg), arg_str);
 	tab->arg_len = ft_strlen(arg_str);
 	nb_padding(tab, arg_str, "");
 }
