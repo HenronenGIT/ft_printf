@@ -37,6 +37,7 @@ static void	init_tab(t_flags *tab)
 	tab->h = 0;
 	tab->l = 0;
 	tab->ll = 0;
+	tab->is_float = 0;
 }
 
 static void	jump_table(t_flags *tab, int index)

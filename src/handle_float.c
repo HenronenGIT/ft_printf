@@ -88,18 +88,19 @@ void	f_handler(t_flags *tab)
 
 	arg = 0;
 	arg_str = NULL;
+	tab->is_float = 1;
 	if (!tab->precision)
 		tab->prec_len = 6;
 	// arg = va_arg(tab->args, long double);
 	arg = va_arg(tab->args, double);
 	// length_modifiers(tab, &arg);
-	if (arg < 0)
+	if (arg < 0 || arg == -0)
 	{
 		arg *= -1;
 		tab->is_neg = 1;
 	}
 
-	if (tab->prec_len == 0)
+	if (tab->prec_len == 0 && arg)
 		arg = bankers_rounding(arg, tab);
 	else
 		arg = rounding(arg, tab);
@@ -107,6 +108,7 @@ void	f_handler(t_flags *tab)
 	if (tab->prec_len != 0)
 		arg_str = add_decimals(tab, (arg - (long)arg), arg_str);
 	tab->arg_len = ft_strlen(arg_str);
+	// float_padding(tab, arg_str);
 	nb_padding(tab, arg_str, "");
 }
 
