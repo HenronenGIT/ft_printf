@@ -67,7 +67,7 @@ void	x_handler(t_flags *tab)
 	tab->arg_len = ft_strlen(arg_str);
 	if (tab->hash && arg_str && *arg_str != '0')
 	{
-		// tab->arg_len += 2;
+		tab->ret_len += 2;
 		prefix = ft_strdup("0x"); // Try to remove malloc
 	}
 	nb_padding(tab, arg_str, prefix);

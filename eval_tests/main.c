@@ -317,10 +317,10 @@ int	main(void)
 		printf("%d\n", PRINTER("|%#2.8x|", 42)); fflush(stdout);
 	printf("%d\n", PRINTER("|%#15x|", 9321124));fflush(stdout);
 
-	printf("%d %%#x 0\n", PRINTER("|%#x|", 0)); fflush(stdout);
-	printf("%d\n", PRINTER("|%#x|", 9321124)); fflush(stdout);
-	printf("%d\n", PRINTER("|%#0x|", 9321124)); fflush(stdout);
-	printf("%d\n", PRINTER("|%#015x|", 9321124)); fflush(stdout);
+	printf("%d\n", PRINTER("|%#x|", 0)); fflush(stdout);
+		printf("%d\n", PRINTER("|%#x|", 9321124)); fflush(stdout);
+		printf("%d\n", PRINTER("|%#0x|", 9321124)); fflush(stdout);
+		printf("%d\n", PRINTER("|%#015x|", 9321124)); fflush(stdout);
 	/* - flag */
 	printf("%d\n", PRINTER("|%-15x|", 9321124));fflush(stdout);
 	/* 42FileChecker */	
