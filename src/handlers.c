@@ -157,23 +157,15 @@ void	u_handler(t_flags *tab)
 	str = ft_unsigned_itoa_base(arg, 10);
 	tab->arg_len = ft_strlen(str);
 	nb_padding(tab, str, "");
-
 }
 
 void percent_handler(t_flags *tab)
 {
-	char	*stringArg;
-	long long arg;
-	int	prec_padding;
+	char	arg;
+	int		prec_padding;
 
-
-	prec_padding = 0;
-	arg = 0;
+	tab->precision = 0;
 	tab->arg_len += 1;
-	tab->ret_len += tab->arg_len;
-	if ((tab->space || tab->width) && !tab->zero && !tab->minus)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding - (tab->is_neg || tab->plus || tab->space)), ' ');
-	ft_putchar('%');
-	if (tab->minus && prec_padding >= 0)
-		tab->ret_len += putpadding((tab->width - tab->arg_len - prec_padding), ' ');
+
+	nb_padding(tab, "%", "");
 }

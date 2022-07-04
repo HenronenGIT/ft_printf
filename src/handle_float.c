@@ -52,6 +52,7 @@ long double	rounding(long double original, t_flags *tab)
 	while (++counter <= tab->prec_len)
 		rounder /= 10;
 	decider *= ft_pow(10, tab->prec_len);
+	// while loop to delete 
 	if ((int)decider >= 5)
 		return (original + rounder);
 	else

@@ -361,6 +361,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%0.5%|")); fflush(stdout);
 	printf("%d\n", PRINTER("|%.5%|")); fflush(stdout);
 	printf("%d\n", PRINTER("|%.0%|")); fflush(stdout);
+	printf("%d\n", PRINTER("|%05%|")); fflush(stdout);
 	// printf("%d\n", PRINTER("|%|")); fflush(stdout);
 
 	printf("====== o specifier ======\n"); fflush(stdout);
@@ -433,6 +434,7 @@ int	main(void)
 	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 42.421)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 1.5)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%.0f|", 2.51)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 2.5)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 1.6)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 2.6)); fflush(stdout);
