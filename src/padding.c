@@ -28,10 +28,11 @@ int	count_padding(t_flags *tab)
 	int	padding_len;
 
 	padding_len = 0;
-	//if (tab->precision && tab->hash) // breaks octal
-	//	padding_len = tab->prec_len - tab->arg_len + 2;
-	//else
-		padding_len = tab->prec_len - tab->arg_len;
+
+	// if (tab->hash && tab->precision)
+		// tab->prec_len += 2;
+
+	padding_len = tab->prec_len - tab->arg_len;
 	if (padding_len < 0) 
 		padding_len = 0;
 	return (padding_len);

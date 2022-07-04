@@ -23,12 +23,12 @@ void	check_length_modifiers(t_flags *tab, const char *str, char specifier)
 		}
 		if (*str == 'h' && !tab->hh)
 			tab->h = 1;
-		if (*str == 'l' && tab->l)
+		if ((*str == 'l' && tab->l) || *str == 'L')
 		{
 			tab->l = 0;
 			tab->ll = 1;
 		}
-		if ((*str == 'l' || *str == 'L') && !tab->ll)
+		if ((*str == 'l') && !tab->ll)
 			tab->l = 1;
 		str++;
 	}

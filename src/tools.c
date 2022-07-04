@@ -41,7 +41,7 @@ char	*ft_itoa_base(long long dec, int base)
 	return (str);
 }
 
-char	*ft_unsigned_itoa_base(unsigned long long dec, int base)
+char	*ft_unsigned_itoa_base(unsigned long dec, int base)
 {
 	char	*str;
 	int		remain;

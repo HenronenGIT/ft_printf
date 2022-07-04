@@ -26,7 +26,7 @@ void	length_modifiers(t_flags *tab, long long *number_ptr)
 		*number_ptr = (int)*number_ptr;
 }
 
-void	unsigned_length_modifiers(t_flags *tab, unsigned long long *number_ptr)
+void	unsigned_length_modifiers(t_flags *tab, unsigned long *number_ptr)
 {
 	if (tab->h)
 		*number_ptr = (unsigned short)*number_ptr;
@@ -40,12 +40,12 @@ void	unsigned_length_modifiers(t_flags *tab, unsigned long long *number_ptr)
 		*number_ptr = (unsigned int)*number_ptr;
 }
 
-void	double_length_modifiers(t_flags *tab, double *number_ptr)
+long double	double_length_modifiers(t_flags *tab)
 {
 	if (tab->l)
-		*number_ptr = (unsigned long)*number_ptr;
+		return (va_arg(tab->args, double));
 	else if (tab->ll)
-		*number_ptr = (unsigned long long)*number_ptr;
+		return (va_arg(tab->args, long double));
 	else
-		*number_ptr = (unsigned int)*number_ptr;
+		return (va_arg(tab->args, double));
 }

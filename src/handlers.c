@@ -53,33 +53,33 @@ void	s_handler(t_flags *tab)
 /* x and X handler could be merged to same function */
 void	x_handler(t_flags *tab)
 {
-	unsigned long long		arg;
-	char					*stringArg;
-	char					*prefix;
+	unsigned long	arg;
+	char			*arg_str;
+	char			*prefix;
 
 	prefix = NULL;
 	arg = 0;
-	arg = va_arg(tab->args, unsigned long long);
+	arg = va_arg(tab->args, unsigned long);
 	unsigned_length_modifiers(tab, &arg);
-	stringArg = ft_unsigned_itoa_base(arg, 16);
+	arg_str = ft_unsigned_itoa_base(arg, 16);
 	if (tab->precision && tab->prec_len == 0)
-		stringArg = NULL;
-	tab->arg_len = ft_strlen(stringArg);
-	if (tab->hash && stringArg && *stringArg != '0')
+		arg_str = NULL;
+	tab->arg_len = ft_strlen(arg_str);
+	if (tab->hash && arg_str && *arg_str != '0')
 	{
-		tab->arg_len += 2;
+		// tab->arg_len += 2;
 		prefix = ft_strdup("0x"); // Try to remove malloc
 	}
-	nb_padding(tab, stringArg, prefix);
+	nb_padding(tab, arg_str, prefix);
 }
 
 void	X_handler(t_flags *tab)
 {
-	unsigned long long		arg;
-	char					*stringArg;
+	unsigned long	arg;
+	char			*stringArg;
 
 	arg = 0;
-	arg = va_arg(tab->args, unsigned long long);
+	arg = va_arg(tab->args, unsigned long);
 	unsigned_length_modifiers(tab, &arg);
 	stringArg = ft_strtoupper(ft_unsigned_itoa_base(arg, 16));
 	if (tab->precision && tab->prec_len == 0)
@@ -125,11 +125,11 @@ void	p_handler(t_flags *tab)
 
 void	o_handler(t_flags *tab)
 {
-	unsigned long long	arg;
+	unsigned long	arg;
 	char				*argument_str;
 
 	arg = 0;
-	arg = va_arg(tab->args, unsigned long long);
+	arg = va_arg(tab->args, unsigned long);
 	unsigned_length_modifiers(tab, &arg);
 	argument_str = ft_unsigned_itoa_base(arg, 8);
 	if (tab->hash)
@@ -143,11 +143,11 @@ void	o_handler(t_flags *tab)
 
 void	u_handler(t_flags *tab)
 {
-	unsigned long long	arg;
-	char				*str;
+	unsigned long	arg;
+	char			*str;
 
 	arg = 0;
-	arg = va_arg(tab->args, unsigned long long);
+	arg = va_arg(tab->args, unsigned long);
 	unsigned_length_modifiers(tab, &arg);
 	if (arg < 0)
 	{

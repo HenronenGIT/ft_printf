@@ -40,25 +40,19 @@ static char	*add_decimals(t_flags *tab, double argument, char *arg_str)
 }
 
 // char	bankers_rounding(double decimal, t_flags *tab)
-double	rounding(double number, t_flags *tab)
+long double	rounding(long double original, t_flags *tab)
 {
-	int		counter;
-	double	original;
-	double	rounder;
+	int			counter;
+	long double	decider;
+	long double	rounder;
 
-	original = number;
+	decider = original;
 	counter = 0;
 	rounder = 0.5;
 	while (++counter <= tab->prec_len)
 		rounder /= 10;
-	counter = -1;
-	while(++counter <= tab->prec_len)
-	{
-		number -= (long)number;
-		number *= 10;
-	}
-	// number *= 10;
-	if ((int)number >= 5)
+	decider *= ft_pow(10, tab->prec_len);
+	if ((int)decider >= 5)
 		return (original + rounder);
 	else
 		return (original);
@@ -84,24 +78,19 @@ double	bankers_rounding(double arg, t_flags *tab)
 void	f_handler(t_flags *tab)
 {
 	char	*arg_str;
-	// long double	arg;
-	double	arg;
+	long double	arg;
 
 	arg = 0;
 	arg_str = NULL;
 	tab->is_float = 1;
 	if (!tab->precision)
 		tab->prec_len = 6;
-	// arg = va_arg(tab->args, long double);
-	arg = va_arg(tab->args, double);
-	// length_modifiers(tab, &arg);
-	if (1 / arg < 0) // How to check for -0
+	arg = double_length_modifiers(tab);
+	if (1 / arg < 0)
 	{
 		arg *= -1;
-		if (tab->prec_len != 15 && !tab->l)
-			tab->is_neg = 1;
+		tab->is_neg = 1;
 	}
-
 	if (tab->prec_len == 0 && arg)
 		arg = bankers_rounding(arg, tab);
 	else
@@ -110,6 +99,5 @@ void	f_handler(t_flags *tab)
 	if (tab->prec_len != 0 || tab->hash)
 		arg_str = add_decimals(tab, (arg - (long)arg), arg_str);
 	tab->arg_len = ft_strlen(arg_str);
-	// float_padding(tab, arg_str);
 	nb_padding(tab, arg_str, "");
 }

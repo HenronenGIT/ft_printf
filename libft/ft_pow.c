@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_digit_counter.c                                 :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmaronen <hmaronen@student.Hive.fi>        +#+  +:+       +#+        */
+/*   By: hmaronen <hmaronen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/03 13:27:38 by hmaronen          #+#    #+#             */
-/*   Updated: 2021/12/03 13:31:35 by hmaronen         ###   ########.fr       */
+/*   Created: 2022/07/04 13:23:53 by hmaronen          #+#    #+#             */
+/*   Updated: 2022/07/04 13:23:54 by hmaronen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_digit_counter(unsigned long n, int base)
+int	ft_pow(int base, int exponent)
 {
-	unsigned long	temp;
-	int			i;
+	int	result;
 
-	i = 0;
-	temp = n;
-	while (temp != 0 && i++ != -1)
-		temp = temp / base;
-	return (i);
+	result = base;
+	while (--exponent > 0)
+		result *= base;
+	return (result);
 }

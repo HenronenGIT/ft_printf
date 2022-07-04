@@ -89,7 +89,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 size_t	ft_word_count(const char *s, char c);
 void	ft_print_array(char **arr);
 int		ft_isspace(const char c);
-int		ft_digit_counter(long long n, int base);
+int		ft_digit_counter(unsigned long n, int base);
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lcase(char *s);
 void	ft_print_list(t_list *list);
@@ -104,5 +104,6 @@ void	ft_free_2d_array(char **array);
 char	*ft_strrev(char *str);
 char	*ft_strtoupper(char *string);
 int		ft_isodd(int number);
+int		ft_pow(int base, int exponent);
 
 #endif
