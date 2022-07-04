@@ -98,7 +98,7 @@ void	f_handler(t_flags *tab)
 	if (1 / arg < 0) // How to check for -0
 	{
 		arg *= -1;
-		if (tab->prec_len != 15 && !tab->l)
+		// if (tab->prec_len != 15) // Different behavior??
 			tab->is_neg = 1;
 	}
 
