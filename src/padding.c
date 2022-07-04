@@ -54,6 +54,7 @@ void	nb_padding(t_flags *tab, char *argument, char *prefix)
 	/* Sign */
 	if (tab->plus || tab->is_neg || tab->space)
 		put_sign(tab);
+	/* "0" && "." flag for precision */
 	if (tab->zero && tab->precision && tab->is_float)
 		tab->ret_len += putpadding((tab->width - tab->arg_len - padding_len), '0');
 	/* Space and Zero flag */

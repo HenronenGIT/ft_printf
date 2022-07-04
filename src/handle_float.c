@@ -74,7 +74,7 @@ double	bankers_rounding(double arg, t_flags *tab)
 	arg -= (int)arg;
 	rounder = arg * 10;
 
-	if (rounder == 5 && !ft_isodd(roundable))
+	if ((rounder == 5 && !ft_isodd(roundable)) || original == 0)
 		return ((int)original);
 	else
 		return ((int)original + 1);
@@ -94,7 +94,7 @@ void	f_handler(t_flags *tab)
 	// arg = va_arg(tab->args, long double);
 	arg = va_arg(tab->args, double);
 	// length_modifiers(tab, &arg);
-	if (arg < 0 || arg == -0)
+	if (1 / arg < 0) // How to check for -0
 	{
 		arg *= -1;
 		tab->is_neg = 1;
@@ -105,7 +105,7 @@ void	f_handler(t_flags *tab)
 	else
 		arg = rounding(arg, tab);
 	arg_str = ft_itoa_base(arg, 10);
-	if (tab->prec_len != 0)
+	if (tab->prec_len != 0 || tab->hash)
 		arg_str = add_decimals(tab, (arg - (long)arg), arg_str);
 	tab->arg_len = ft_strlen(arg_str);
 	// float_padding(tab, arg_str);

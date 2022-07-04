@@ -420,6 +420,8 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%f|", 1444565444646.6465424242242)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%f|", double_max)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%f|", ldouble_max)); fflush(stdout);
+	printf(">>>>>>>>>> Hash <<<<<<<<<<\n"); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%#.f|", 0.000000)); fflush(stdout);
 
 	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 42.421)); fflush(stdout);
@@ -437,7 +439,14 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%#010.1f|", -0.0)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%010.1f|", -0.0)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%010.5f|", -0.0)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%10.f|", 0.5)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%.15f|", -0.0)); fflush(stdout);
 
+	printf(">>>>>>>>>> Length modifier <<<<<<<<<<\n"); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%.15f|", 0.000000)); fflush(stdout);
+
+
+	
 	// printf(">Width & Precision<\n"); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%5.1f|", double_nb)); fflush(stdout);
 
