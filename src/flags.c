@@ -28,7 +28,7 @@ void	check_length_modifiers(t_flags *tab, const char *str, char specifier)
 			tab->l = 0;
 			tab->ll = 1;
 		}
-		if (*str == 'l' && !tab->ll)
+		if ((*str == 'l' || *str == 'L') && !tab->ll)
 			tab->l = 1;
 		str++;
 	}

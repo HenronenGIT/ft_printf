@@ -6,6 +6,7 @@ ft_printf.dSYM/
 ft_printf
 *.o
 ./eval_tests/42FileChecker
+./eval_tests/cchen_tests
 a.out
 
 printf.txt
