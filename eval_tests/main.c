@@ -297,7 +297,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%p|", empty)); fflush(stdout);
 	printf("%d\n", PRINTER("|%p|", TAB)); fflush(stdout);
 	printf("%d\n", PRINTER("|%p|", TAB)); fflush(stdout);
-	/* width flag */
+	printf(">>>>>>>>>> width flag <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%10p|", empty)); fflush(stdout);
 	printf("%d\n", PRINTER("|%100p|", empty)); fflush(stdout);
 	/* - flag */
@@ -320,16 +320,16 @@ int	main(void)
 	printf("%d\n", PRINTER("|%llx|", llong_max)); fflush(stdout);
 	printf("%d\n", PRINTER("|%hhx|", char_max)); fflush(stdout);
 	/* # flag */	
-		// printf("%d\n", PRINTER("|%#.8x|", 42)); fflush(stdout);
-		// printf("%d\n", PRINTER("|%#2.8x|", 42)); fflush(stdout);
-		printf("%d\n", PRINTER("|%#7x|", 33)); fflush(stdout);
-		printf("%d\n", PRINTER("|%#15x|", 9321124));fflush(stdout);
-
+	printf(">>>>>>>>>> # flag <<<<<<<<<<\n"); fflush(stdout);
+	printf("%d\n", PRINTER("|%#.8x|", 42)); fflush(stdout);
+	printf("%d\n", PRINTER("|%#2.8x|", 42)); fflush(stdout);
+	printf("%d\n", PRINTER("|%#7x|", 33)); fflush(stdout);
+	printf("%d\n", PRINTER("|%#15x|", 9321124));fflush(stdout);
 	printf("%d\n", PRINTER("|%#x|", 0)); fflush(stdout);
-		printf("%d\n", PRINTER("|%#x|", 9321124)); fflush(stdout);
-		printf("%d\n", PRINTER("|%#0x|", 9321124)); fflush(stdout);
-		printf("%d\n", PRINTER("|%#015x|", 9321124)); fflush(stdout);
-	/* - flag */
+	printf("%d\n", PRINTER("|%#x|", 9321124)); fflush(stdout);
+	printf("%d\n", PRINTER("|%#0x|", 9321124)); fflush(stdout);
+	printf("%d\n", PRINTER("|%#015x|", 9321124)); fflush(stdout);
+	printf(">>>>>>>>>> - flag <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%-15x|", 9321124));fflush(stdout);
 	/* 42FileChecker */	
 	printf("%d\n", PRINTER("|%.x %.0x|", 0, 0)); fflush(stdout);

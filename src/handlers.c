@@ -67,7 +67,9 @@ void	x_handler(t_flags *tab)
 	tab->arg_len = ft_strlen(arg_str);
 	if (tab->hash && arg_str && *arg_str != '0')
 	{
-		tab->ret_len += 2;
+		// tab->ret_len += 2;		
+		// tab->arg_len += 2;		
+
 		prefix = ft_strdup("0x"); // Try to remove malloc
 	}
 	nb_padding(tab, arg_str, prefix);
@@ -118,9 +120,10 @@ void	p_handler(t_flags *tab)
 	char				*argument_str;
 
 	tab->hash = 1;
+	tab->ret_len += 2;
 	argument = va_arg(tab->args, unsigned long long);
 	argument_str = ft_unsigned_itoa_base(argument, 16);
-	tab->arg_len += ft_strlen(argument_str) + 2;
+	tab->arg_len += ft_strlen(argument_str);
 	nb_padding(tab, argument_str, "0x");
 }
 
