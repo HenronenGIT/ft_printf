@@ -443,17 +443,18 @@ int	main(void)
 	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 42.421)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 1.5)); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%.0f|", 2.51)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 2.5)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 1.6)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", 2.6)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 2.5685)); fflush(stdout);
-		printf("~%d~\n", PRINTER("|%.3f|", 2.5675)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 0.5)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.15f|", -0.0)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.15f|", 0.000000)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.0f|", -0.0)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.1f|", 0.150000)); fflush(stdout);
+		printf("~%d~\n", PRINTER("|%.0f|", 2.51)); fflush(stdout);
+		printf("~%d~\n", PRINTER("|%.3f|", 2.5675)); fflush(stdout);
+		printf("~%d~\n", PRINTER("|%.0f|", 7.4)); fflush(stdout);
 
 	printf(">>>>>>>>>> Zero flag <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%010.1f|", -0.0)); fflush(stdout);

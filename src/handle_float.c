@@ -51,24 +51,31 @@ long double	rounding(long double original, t_flags *tab)
 	rounder = 0.5;
 	while (++counter <= tab->prec_len)
 		rounder /= 10;
-	decider *= ft_pow(10, tab->prec_len);
-	// while loop to delete 
+	counter = 0;
+	// while loop to delete
+	// add while loop back
+	while (counter <= tab->prec_len)
+	{
+
+	}
+	// decider *= ft_pow(10, tab->prec_len);
 	if ((int)decider >= 5)
 		return (original + rounder);
 	else
 		return (original);
 }
 
-double	bankers_rounding(double arg, t_flags *tab)
+double	bankers_rounding(double decimals, t_flags *tab)
 {
 	int	rounder;
 	int	roundable;
 	int	original;
 
-	original = arg;
-	roundable = (int)arg;
-	arg -= (int)arg;
-	rounder = arg * 10;
+	original = decimals;
+	roundable = (int)decimals;
+	decimals -= (int)decimals;
+	rounder = decimals * 10;
+	// rounder *= ft_pow(10, 2); // temp
 
 	if ((rounder == 5 && !ft_isodd(roundable)) || original == 0)
 		return ((int)original);
