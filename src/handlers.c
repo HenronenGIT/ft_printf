@@ -67,9 +67,7 @@ void	x_handler(t_flags *tab)
 	tab->arg_len = ft_strlen(arg_str);
 	if (tab->hash && arg_str && *arg_str != '0')
 	{
-		// tab->ret_len += 2;		
-		// tab->arg_len += 2;		
-
+		tab->ret_len += 2;
 		prefix = ft_strdup("0x"); // Try to remove malloc
 	}
 	nb_padding(tab, arg_str, prefix);
@@ -79,18 +77,24 @@ void	x_handler(t_flags *tab)
 void	X_handler(t_flags *tab)
 {
 	unsigned long	arg;
-	char			*stringArg;
+	char			*arg_str;
+	char			*prefix;
 
+	prefix = NULL;
 	arg = 0;
 	arg = va_arg(tab->args, unsigned long);
 	unsigned_length_modifiers(tab, &arg);
-	stringArg = ft_strtoupper(ft_unsigned_itoa_base(arg, 16));
+	arg_str = ft_strtoupper(ft_unsigned_itoa_base(arg, 16));
 	if (tab->precision && tab->prec_len == 0)
-		stringArg = NULL;
-	tab->arg_len = ft_strlen(stringArg);
-	if (tab->hash && stringArg && *stringArg != '0')
-		tab->arg_len += 2;
-	nb_padding(tab, stringArg, "0X");
+		arg_str = NULL;
+	tab->arg_len = ft_strlen(arg_str);
+	if (tab->hash && arg_str && *arg_str != '0')
+	{
+		tab->ret_len += 2;
+		prefix = ft_strdup("0X"); // Try to remove malloc
+	}
+		// tab->arg_len += 2;
+	nb_padding(tab, arg_str, prefix);
 }
 
 void	di_handler(t_flags *tab)
@@ -116,15 +120,17 @@ void	di_handler(t_flags *tab)
 
 void	p_handler(t_flags *tab)
 {
-	unsigned long long	argument;
-	char				*argument_str;
+	unsigned long	argument;
+	char			*arg_str;	
 
 	tab->hash = 1;
 	tab->ret_len += 2;
 	argument = va_arg(tab->args, unsigned long long);
-	argument_str = ft_unsigned_itoa_base(argument, 16);
-	tab->arg_len += ft_strlen(argument_str);
-	nb_padding(tab, argument_str, "0x");
+	arg_str = ft_unsigned_itoa_base(argument, 16);
+	if (tab->precision && tab->prec_len == 0)
+		arg_str = NULL;
+	tab->arg_len += ft_strlen(arg_str);
+	nb_padding(tab, arg_str, "0x");
 }
 
 void	o_handler(t_flags *tab)

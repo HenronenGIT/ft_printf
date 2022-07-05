@@ -157,7 +157,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%+.5d|", neg_nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%.d|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%5.d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|%5.5d|", nb)); fflush(stdout);
+		// printf("%d\n", PRINTER("|%5.5d|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%1.5d|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%10.5d|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%-10.5d|", nb)); fflush(stdout);
@@ -205,7 +205,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%-10u|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%-10u|", neg_nb)); fflush(stdout);
 
-	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
+	// printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%.5u|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%.5u|", neg_nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%-.5u|", nb)); fflush(stdout);
@@ -361,6 +361,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%#-15X|", 9321124)); fflush(stdout);
 	printf("%d\n", PRINTER("|%-15X|", 9321124)); fflush(stdout);
 	printf("%d\n", PRINTER("|%#15X|", 9321124)); fflush(stdout);
+	printf("%d\n", PRINTER("|%#X|", 0)); fflush(stdout);
 
 	printf("====== %% specifier ======\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%%|")); fflush(stdout);
