@@ -122,32 +122,33 @@ int	main(void)
 	printf("%d\n", PRINTER("|%5.2s is a string|", "")); fflush(stdout);
 
 	printf("====== d specifier ======\n"); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%d|", neg_nb)); fflush(stdout);
 	/* Space flag */
-	printf("%d\n", PRINTER("|Hello world %10d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %10d|", neg_nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world % 10d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world % 10d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%10d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%10d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|% 10d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|% 10d|", neg_nb)); fflush(stdout);
 	/* 0 flag */
-	printf("%d\n", PRINTER("|Hello world %010d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %010d|", neg_nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %0d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %+010d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %+010d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%010d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%010d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%0d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%+010d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%+010d|", neg_nb)); fflush(stdout);
 	/* Zero and Space */
-	printf("%d\n", PRINTER("|Hello world %0 10d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %0 10d|", neg_nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world % 010d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %0 10d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%0 10d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%0 10d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|% 010d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%0 10d|", neg_nb)); fflush(stdout);
 	/* - flag */
-	printf("%d\n", PRINTER("|Hello world %-10d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %-10d|", neg_nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %-+10d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Hello world %-+10d|", neg_nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Decimal test%+-10d|", nb)); fflush(stdout);
-	printf("%d\n", PRINTER("|Decimal test%+-10d|", neg_nb)); fflush(stdout);
-	/* Precision */
+	printf("%d\n", PRINTER("|%-10d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%-10d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%-+10d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%-+10d|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%+-10d|", nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%+-10d|", neg_nb)); fflush(stdout);
+
+	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%.5d|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%.5d|", neg_nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%-.5d|", nb)); fflush(stdout);
@@ -168,7 +169,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%+010.5d|", neg_nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|% 010.5d|", nb)); fflush(stdout);
 	
-	/* Length modifiers */
+	printf(">>>>>>>>>> Length modifier <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%hhd|", ch)); fflush(stdout);
 	printf("%d\n", PRINTER("|%hhd|", char_min)); fflush(stdout);
 	printf("%d\n", PRINTER("|%hhd|", char_max)); fflush(stdout);
@@ -182,7 +183,10 @@ int	main(void)
 	printf("%d\n", PRINTER("|%.d %.0d|", 0, 0)); fflush(stdout);
 	printf("%d\n", PRINTER("|%ld|", long_min)); fflush(stdout);
 
+	/* HC */
 	printf("~%d~\n", PRINTER("|%010.1d|", -0)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%0-8.5d|", 32)); fflush(stdout);
+	
 
 
 	printf("====== u specifier ======\n"); fflush(stdout);
@@ -196,10 +200,12 @@ int	main(void)
 	printf("%d\n", PRINTER("|%010u|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%010u|", neg_nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%0u|", nb)); fflush(stdout);
-	/* - flag */
+
+	printf(">>>>>>>>>> '-' flag <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%-10u|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%-10u|", neg_nb)); fflush(stdout);
-	/* Precision */
+
+	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%.5u|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%.5u|", neg_nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%-.5u|", nb)); fflush(stdout);
@@ -213,6 +219,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%-10.5u|", neg_nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%010.5u|", nb)); fflush(stdout);
 	printf("%d\n", PRINTER("|%010.5u|", neg_nb)); fflush(stdout);
+	printf("%d\n", PRINTER("|%.0u|", 0)); fflush(stdout);
 	/* Length modifiers */
 	/* hh flag */
 	printf("%d\n", PRINTER("|%hhu|", ch)); fflush(stdout);
@@ -313,9 +320,10 @@ int	main(void)
 	printf("%d\n", PRINTER("|%llx|", llong_max)); fflush(stdout);
 	printf("%d\n", PRINTER("|%hhx|", char_max)); fflush(stdout);
 	/* # flag */	
-		printf("%d\n", PRINTER("|%#.8x|", 42)); fflush(stdout);
-		printf("%d\n", PRINTER("|%#2.8x|", 42)); fflush(stdout);
-	printf("%d\n", PRINTER("|%#15x|", 9321124));fflush(stdout);
+		// printf("%d\n", PRINTER("|%#.8x|", 42)); fflush(stdout);
+		// printf("%d\n", PRINTER("|%#2.8x|", 42)); fflush(stdout);
+		printf("%d\n", PRINTER("|%#7x|", 33)); fflush(stdout);
+		printf("%d\n", PRINTER("|%#15x|", 9321124));fflush(stdout);
 
 	printf("%d\n", PRINTER("|%#x|", 0)); fflush(stdout);
 		printf("%d\n", PRINTER("|%#x|", 9321124)); fflush(stdout);

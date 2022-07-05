@@ -58,4 +58,6 @@ void	check_flags(t_flags *tab, const char *str, char specifier)
 	}
 	if (tab->space && tab->plus)
 		tab->space = 0;
+	if (tab->zero && tab->minus)
+		tab->zero = 0;
 }
