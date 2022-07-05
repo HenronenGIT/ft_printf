@@ -24,7 +24,6 @@ static char	*add_decimals(t_flags *tab, double argument, char *arg_str)
 
 	while(index <= tab->prec_len)
 	{
-		// if (index != 15)
 			argument *= 10;
 		if ((int)argument == 0)
 			decimals[index] = '0';
@@ -68,16 +67,34 @@ long double	rounding(long double original, t_flags *tab)
 
 double	bankers_rounding(double decimals, t_flags *tab)
 {
-	int	rounder;
+	// int	rounder;
+	double	rounder;
 	int	roundable;
 	int	original;
+
+	int	max_prec;
+	max_prec = 16;
 
 	original = decimals;
 	roundable = (int)decimals;
 	decimals -= (int)decimals;
-	rounder = decimals * 10;
+	// OLD STYLE //
+	// rounder = decimals * 10;
 
-	if ((rounder == 5 && !ft_isodd(roundable)) || original == 0)
+
+	// NEW STYLE //
+	rounder = (decimals - (int)decimals) * 10;
+	// rounder *= 10);
+	while (max_prec--)
+	{
+		rounder = rounder - (int)rounder;
+		rounder *= 10;
+		if (rounder != 0)
+			break;
+	}
+
+	// if ((rounder == 5 && !ft_isodd(roundable)) || original == 0)
+	if ((!ft_isodd(roundable)) || original == 0)
 		return ((int)original);
 	else
 		return ((int)original + 1);
@@ -99,7 +116,7 @@ void	f_handler(t_flags *tab)
 		arg *= -1;
 		tab->is_neg = 1;
 	}
-	if (tab->prec_len == 0 && arg)
+	if (tab->prec_len == 0 && arg && ((arg - (int)arg) * 10) == 5) // Fixed all ???
 		arg = bankers_rounding(arg, tab);
 	else
 		arg = rounding(arg, tab);
