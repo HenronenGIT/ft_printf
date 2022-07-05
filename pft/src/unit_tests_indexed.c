@@ -64,11 +64,11 @@ int pct_5wlj(void){return ft_printf("%-5%");}
 int pct_5wzp(void){return ft_printf("%05%");}
 int pct_5wljzp(void){return ft_printf("%-05%");}
 //Null specifier tests
-int nocrash_notrequired_nullspec_basic(void){return ft_printf("%");}
-int nocrash_notrequired_nullspec_5w(void){return ft_printf("%5");}
-int nocrash_notrequired_nullspec_5wzp(void){return ft_printf("%05");}
-int nocrash_notrequired_nullspec_5wzplj(void){return ft_printf("%-05");}
-int nocrash_notrequired_nullspec_5wlj(void){return ft_printf("%-5");}
+ int nocrash_notrequired_nullspec_basic(void){return ft_printf("%");}
+ int nocrash_notrequired_nullspec_5w(void){return ft_printf("%5");}
+ int nocrash_notrequired_nullspec_5wzp(void){return ft_printf("%05");}
+ int nocrash_notrequired_nullspec_5wzplj(void){return ft_printf("%-05");}
+ int nocrash_notrequired_nullspec_5wlj(void){return ft_printf("%-5");}
 
 
 /* -----------------------------------------------------------------------------
@@ -713,60 +713,60 @@ int X_prec0val0_wlj_impl(void){return ft_printf("%-5.X", 0);}
 ** 					NO CRASH / NO SEGFAULT TESTS (NOT REQUIRED)
 ** ---------------------------------------------------------------------------*/
 //No-crash-no-segfault test
-int nocrash_notrequired_noarg_1(void){return ft_printf("%1$"); }
-int nocrash_notrequired_noarg_2(void){return ft_printf("%0"); }
-int nocrash_notrequired_noarg_3(void){return ft_printf("% "); }
-int nocrash_notrequired_noarg_5(void){return ft_printf("%-"); }
-int nocrash_notrequired_noarg_6(void){return ft_printf("%+"); }
-int nocrash_notrequired_noarg_9(void){return ft_printf("%23"); }
-int nocrash_notrequired_noarg_10(void){return ft_printf("%."); }
-int nocrash_notrequired_noarg_16(void){return ft_printf("%p"); }
-int nocrash_notrequired_noarg_17(void){return ft_printf("%d"); }
-int nocrash_notrequired_noarg_19(void){return ft_printf("%u"); }
-int nocrash_notrequired_noarg_20(void){return ft_printf("%x"); }
-int nocrash_notrequired_noarg_21(void){return ft_printf("%X"); }
-int nocrash_notrequired_noarg_22(void){return ft_printf("%f"); }
-int nocrash_notrequired_noarg_24(void){return ft_printf("%c"); }
-int nocrash_notrequired_noarg_25(void){return ft_printf("%o"); }
-int nocrash_notrequired_nullarg_1(void){return ft_printf("%1$s", NULL); }
-int nocrash_notrequired_nullarg_2(void){return ft_printf("%0s", NULL); }
-int nocrash_notrequired_nullarg_3(void){return ft_printf("% s", NULL); }
-int nocrash_notrequired_nullarg_5(void){return ft_printf("%-s", NULL); }
-int nocrash_notrequired_nullarg_6(void){return ft_printf("%+s", NULL); }
-int nocrash_notrequired_nullarg_9(void){return ft_printf("%23s", NULL); }
-int nocrash_notrequired_nullarg_10(void){return ft_printf("%.s", NULL); }
-int nocrash_notrequired_nullarg_16(void){return ft_printf("%p", NULL); }
-int nocrash_notrequired_nullarg_17(void){return ft_printf("%d", NULL); }
-int nocrash_notrequired_nullarg_18(void){return ft_printf("%b", NULL); }
-int nocrash_notrequired_nullarg_19(void){return ft_printf("%u", NULL); }
-int nocrash_notrequired_nullarg_20(void){return ft_printf("%x", NULL); }
-int nocrash_notrequired_nullarg_21(void){return ft_printf("%X", NULL); }
-int nocrash_notrequired_nullarg_22(void){return ft_printf("%f", NULL); }
-int nocrash_notrequired_nullarg_23(void){return ft_printf("%s", NULL); }
-int nocrash_notrequired_nullarg_24(void){return ft_printf("%c", NULL); }
-int nocrash_notrequired_nullarg_25(void){return ft_printf("%o", NULL); }
+ int nocrash_notrequired_noarg_1(void){return ft_printf("%1$"); }
+ int nocrash_notrequired_noarg_2(void){return ft_printf("%0"); }
+ int nocrash_notrequired_noarg_3(void){return ft_printf("% "); }
+ int nocrash_notrequired_noarg_5(void){return ft_printf("%-"); }
+ int nocrash_notrequired_noarg_6(void){return ft_printf("%+"); }
+ int nocrash_notrequired_noarg_9(void){return ft_printf("%23"); }
+ int nocrash_notrequired_noarg_10(void){return ft_printf("%."); }
+ int nocrash_notrequired_noarg_16(void){return ft_printf("%p"); }
+ int nocrash_notrequired_noarg_17(void){return ft_printf("%d"); }
+ int nocrash_notrequired_noarg_19(void){return ft_printf("%u"); }
+ int nocrash_notrequired_noarg_20(void){return ft_printf("%x"); }
+ int nocrash_notrequired_noarg_21(void){return ft_printf("%X"); }
+ int nocrash_notrequired_noarg_22(void){return ft_printf("%f"); }
+ int nocrash_notrequired_noarg_24(void){return ft_printf("%c"); }
+ int nocrash_notrequired_noarg_25(void){return ft_printf("%o"); }
+ int nocrash_notrequired_nullarg_1(void){return ft_printf("%1$s", NULL); }
+ int nocrash_notrequired_nullarg_2(void){return ft_printf("%0s", NULL); }
+ int nocrash_notrequired_nullarg_3(void){return ft_printf("% s", NULL); }
+ int nocrash_notrequired_nullarg_5(void){return ft_printf("%-s", NULL); }
+ int nocrash_notrequired_nullarg_6(void){return ft_printf("%+s", NULL); }
+ int nocrash_notrequired_nullarg_9(void){return ft_printf("%23s", NULL); }
+ int nocrash_notrequired_nullarg_10(void){return ft_printf("%.s", NULL); }
+ int nocrash_notrequired_nullarg_16(void){return ft_printf("%p", NULL); }
+ int nocrash_notrequired_nullarg_17(void){return ft_printf("%d", NULL); }
+ int nocrash_notrequired_nullarg_18(void){return ft_printf("%b", NULL); }
+ int nocrash_notrequired_nullarg_19(void){return ft_printf("%u", NULL); }
+ int nocrash_notrequired_nullarg_20(void){return ft_printf("%x", NULL); }
+ int nocrash_notrequired_nullarg_21(void){return ft_printf("%X", NULL); }
+ int nocrash_notrequired_nullarg_22(void){return ft_printf("%f", NULL); }
+ int nocrash_notrequired_nullarg_23(void){return ft_printf("%s", NULL); }
+ int nocrash_notrequired_nullarg_24(void){return ft_printf("%c", NULL); }
+ int nocrash_notrequired_nullarg_25(void){return ft_printf("%o", NULL); }
 //nocrash tests adapted from tests contributed by phtruong
-int nocrash_notrequired_dupflag_d_ljljw(void){return ft_printf("%--5d", 42);}
+ int nocrash_notrequired_dupflag_d_ljljw(void){return ft_printf("%--5d", 42);}
 //nocrash tests that came about as part of the minimal specification
-int nocrash_notrequired_c_prec_1(void){return ft_printf("%.4c", 'a');}
-int nocrash_notrequired_c_prec_2(void){return ft_printf("%.c", 'a');}
-int nocrash_notrequired_c_zp_1(void){return ft_printf("%05c", 'a');}
-int nocrash_notrequired_c_zp_2(void){return ft_printf("%0c", 'a');}
-int nocrash_notrequired_c_lj_nowidth(void){return ft_printf("%-c", 'a');}
-int nocrash_notrequired_s_zp_1(void){return ft_printf("%05s", "hello");}
-int nocrash_notrequired_s_zp_2(void){return ft_printf("%0s", "hello");}
-int nocrash_notrequired_s_lj_nowidth(void){return ft_printf("%-s", "hello");}
+ int nocrash_notrequired_c_prec_1(void){return ft_printf("%.4c", 'a');}
+ int nocrash_notrequired_c_prec_2(void){return ft_printf("%.c", 'a');}
+ int nocrash_notrequired_c_zp_1(void){return ft_printf("%05c", 'a');}
+ int nocrash_notrequired_c_zp_2(void){return ft_printf("%0c", 'a');}
+ int nocrash_notrequired_c_lj_nowidth(void){return ft_printf("%-c", 'a');}
+ int nocrash_notrequired_s_zp_1(void){return ft_printf("%05s", "hello");}
+ int nocrash_notrequired_s_zp_2(void){return ft_printf("%0s", "hello");}
+ int nocrash_notrequired_s_lj_nowidth(void){return ft_printf("%-s", "hello");}
 
 static int ncm_p = 5;
-int nocrash_notrequired_p_prec_1(void){return ft_printf("%.4p", &ncm_p);}
-int nocrash_notrequired_p_prec_2(void){return ft_printf("%.p", &ncm_p);}
-int nocrash_notrequired_p_zp_1(void){return ft_printf("%05p", &ncm_p);}
-int nocrash_notrequired_p_zp_2(void){return ft_printf("%0p", &ncm_p);}
-int nocrash_notrequired_p_lj_nowidth(void){return ft_printf("%-p", &ncm_p);}
-int nocrash_notrequired_i_lj_nowidth(void){return ft_printf("%-i", 42);}
-int nocrash_notrequired_u_lj_nowidth(void){return ft_printf("%-u", 42);}
-int nocrash_notrequired_x_lj_nowidth(void){return ft_printf("%-x", 42);}
-int nocrash_notrequired_f_lj_nowidth(void){return ft_printf("%-f", 42.5);}
+ int nocrash_notrequired_p_prec_1(void){return ft_printf("%.4p", &ncm_p);}
+ int nocrash_notrequired_p_prec_2(void){return ft_printf("%.p", &ncm_p);}
+ int nocrash_notrequired_p_zp_1(void){return ft_printf("%05p", &ncm_p);}
+ int nocrash_notrequired_p_zp_2(void){return ft_printf("%0p", &ncm_p);}
+ int nocrash_notrequired_p_lj_nowidth(void){return ft_printf("%-p", &ncm_p);}
+ int nocrash_notrequired_i_lj_nowidth(void){return ft_printf("%-i", 42);}
+ int nocrash_notrequired_u_lj_nowidth(void){return ft_printf("%-u", 42);}
+ int nocrash_notrequired_x_lj_nowidth(void){return ft_printf("%-x", 42);}
+ int nocrash_notrequired_f_lj_nowidth(void){return ft_printf("%-f", 42.5);}
 
 
 /* -----------------------------------------------------------------------------
@@ -1360,16 +1360,16 @@ int bonus_as_i_prec_width_nn_pos_ljaszp_ignoreflag(void){return ft_printf("%0+-3
 int bonus_as_i_prec_width_nn_neg_ljaszp_ignoreflag(void){return ft_printf("%0+-3.3i", -8462);}
 
 //nocrash tests adapted from tests contributed by phtruong
-int nocrash_notrequired_bonus_as_dupflag_d(void){return ft_printf("%++d", 42);}
-int nocrash_notrequired_bonus_as_dupflag_d_ljasljw(void){return ft_printf("%-+-5d", 42);}
-int nocrash_notrequired_bonus_as_c_1(void){return ft_printf("%+c", 'a');}
-int nocrash_notrequired_bonus_as_c_2(void){return ft_printf("%+c", -42);}
-int nocrash_notrequired_bonus_as_s_1(void){return ft_printf("%+s", "hello");}
-int nocrash_notrequired_bonus_as_p_1(void){return ft_printf("%+p", &ncm_p);}
-int nocrash_notrequired_bonus_as_p_2(void){return ft_printf("%+p", &ncm_p);}
-int nocrash_notrequired_bonus_as_u(void){return ft_printf("%+u", 42);}
-int nocrash_notrequired_bonus_as_x(void){return ft_printf("%+x", 42);}
-int nocrash_notrequired_bonus_as_X(void){return ft_printf("%+X", 42);}
+ int nocrash_notrequired_bonus_as_dupflag_d(void){return ft_printf("%++d", 42);}
+ int nocrash_notrequired_bonus_as_dupflag_d_ljasljw(void){return ft_printf("%-+-5d", 42);}
+ int nocrash_notrequired_bonus_as_c_1(void){return ft_printf("%+c", 'a');}
+ int nocrash_notrequired_bonus_as_c_2(void){return ft_printf("%+c", -42);}
+ int nocrash_notrequired_bonus_as_s_1(void){return ft_printf("%+s", "hello");}
+ int nocrash_notrequired_bonus_as_p_1(void){return ft_printf("%+p", &ncm_p);}
+ int nocrash_notrequired_bonus_as_p_2(void){return ft_printf("%+p", &ncm_p);}
+ int nocrash_notrequired_bonus_as_u(void){return ft_printf("%+u", 42);}
+ int nocrash_notrequired_bonus_as_x(void){return ft_printf("%+x", 42);}
+ int nocrash_notrequired_bonus_as_X(void){return ft_printf("%+X", 42);}
 
 
 /* -----------------------------------------------------------------------------
@@ -1542,16 +1542,16 @@ int bonus_sp_i_prec_width_nn_pos_ljzpsp_ignoreflag(void){return ft_printf("% 0-3
 int bonus_sp_i_prec_width_nn_neg_ljzpsp_ignoreflag(void){return ft_printf("% 0-3.3i", -8462);}
 
 //nocrash tests adapted from tests contributed by phtruong
-int nocrash_notrequired_bonus_sp_dupflag_d(void){return ft_printf("%  d", 42);}
+ int nocrash_notrequired_bonus_sp_dupflag_d(void){return ft_printf("%  d", 42);}
 //nocrash tests that came about as part of the minimal specification
-int nocrash_notrequired_bonus_sp_c_1(void){return ft_printf("% c", 'a');}
-int nocrash_notrequired_bonus_sp_c_2(void){return ft_printf("% c", -42);}
-int nocrash_notrequired_bonus_sp_s_1(void){return ft_printf("% s", "hello");}
-int nocrash_notrequired_bonus_sp_p_1(void){return ft_printf("% p", &ncm_p);}
-int nocrash_notrequired_bonus_sp_p_2(void){return ft_printf("% p", &ncm_p);}
-int nocrash_notrequired_bonus_sp_u(void){return ft_printf("% u", 42);}
-int nocrash_notrequired_bonus_sp_x(void){return ft_printf("% x", 42);}
-int nocrash_notrequired_bonus_sp_X(void){return ft_printf("% X", 42);}
+ int nocrash_notrequired_bonus_sp_c_1(void){return ft_printf("% c", 'a');}
+ int nocrash_notrequired_bonus_sp_c_2(void){return ft_printf("% c", -42);}
+ int nocrash_notrequired_bonus_sp_s_1(void){return ft_printf("% s", "hello");}
+ int nocrash_notrequired_bonus_sp_p_1(void){return ft_printf("% p", &ncm_p);}
+ int nocrash_notrequired_bonus_sp_p_2(void){return ft_printf("% p", &ncm_p);}
+ int nocrash_notrequired_bonus_sp_u(void){return ft_printf("% u", 42);}
+ int nocrash_notrequired_bonus_sp_x(void){return ft_printf("% x", 42);}
+ int nocrash_notrequired_bonus_sp_X(void){return ft_printf("% X", 42);}
 
 
 /* -----------------------------------------------------------------------------
@@ -1666,18 +1666,18 @@ int bonus_af_X_prec_width_fn_pos_ljzpaf_ignoreflag(void){return ft_printf("%#0-2
 int bonus_af_X_prec_width_nn_pos_ljzpaf_ignoreflag(void){return ft_printf("%#0-3.3X", 6983);}
 
 //No-crash-no-segfault test
-int nocrash_notrequired_bonus_af_noarg_4(void){return ft_printf("%#"); }
-int nocrash_notrequired_bonus_af_nullarg_4(void){return ft_printf("%#s", NULL); }
+ int nocrash_notrequired_bonus_af_noarg_4(void){return ft_printf("%#"); }
+ int nocrash_notrequired_bonus_af_nullarg_4(void){return ft_printf("%#s", NULL); }
 //nocrash tests adapted from tests contributed by phtruong
-int nocrash_notrequired_bonus_af_dupflag_x(void){return ft_printf("%##x", 42);}
-int nocrash_notrequired_bonus_af_dupflag_xasasljw(void){return ft_printf("%#++#-5x", 42);}
+ int nocrash_notrequired_bonus_af_dupflag_x(void){return ft_printf("%##x", 42);}
+ int nocrash_notrequired_bonus_af_dupflag_xasasljw(void){return ft_printf("%#++#-5x", 42);}
 //nocrash tests that came about as part of the minimal specification
-int nocrash_notrequired_bonus_af_c(void){return ft_printf("%#c", 'a');}
-int nocrash_notrequired_bonus_af_s(void){return ft_printf("%#s", "hello");}
-int nocrash_notrequired_bonus_af_p(void){return ft_printf("%#p", &ncm_p);}
-int nocrash_notrequired_bonus_af_d(void){return ft_printf("%#d", 42);}
-int nocrash_notrequired_bonus_af_i(void){return ft_printf("%#i", 42);}
-int nocrash_notrequired_bonus_af_u(void){return ft_printf("%#u", 42);}
+ int nocrash_notrequired_bonus_af_c(void){return ft_printf("%#c", 'a');}
+ int nocrash_notrequired_bonus_af_s(void){return ft_printf("%#s", "hello");}
+ int nocrash_notrequired_bonus_af_p(void){return ft_printf("%#p", &ncm_p);}
+ int nocrash_notrequired_bonus_af_d(void){return ft_printf("%#d", 42);}
+ int nocrash_notrequired_bonus_af_i(void){return ft_printf("%#i", 42);}
+ int nocrash_notrequired_bonus_af_u(void){return ft_printf("%#u", 42);}
 
 
 /* -----------------------------------------------------------------------------
@@ -1797,7 +1797,7 @@ int bonus_assp_i_prec_width_nn_pos_ljaszpsp_ignoreflag(void){return ft_printf("%
 int bonus_assp_i_prec_width_nn_neg_ljaszpsp_ignoreflag(void){return ft_printf("% 0+-3.3i", -8462);}
 
 //nocrash tests adapted from tests contributed by phtruong
-int nocrash_notrequired_bonus_assp_dupflag_d_spassp(void){return ft_printf("% + d", 42);}
+ int nocrash_notrequired_bonus_assp_dupflag_d_spassp(void){return ft_printf("% + d", 42);}
 
 
 /* -----------------------------------------------------------------------------
@@ -2102,52 +2102,52 @@ int bonus_length_X_n_ll_hh_af(void){return ft_printf("%#x%llu%#hhX", ui_pos_1, u
 int bonus_length_X_ll_n_l_af(void){return ft_printf("%#llx%u%#lX", ull_pos_1, ui_pos_1, ul_pos_1);}
 
 //No-crash-no-segfault test
-int nocrash_notrequired_bonus_length_noarg_11(void){return ft_printf("%hh"); }
-int nocrash_notrequired_bonus_length_noarg_12(void){return ft_printf("%h"); }
-int nocrash_notrequired_bonus_length_noarg_13(void){return ft_printf("%ll"); }
-int nocrash_notrequired_bonus_length_noarg_14(void){return ft_printf("%l"); }
-int nocrash_notrequired_bonus_length_nullarg_11(void){return ft_printf("%hhs", NULL); }
-int nocrash_notrequired_bonus_length_nullarg_12(void){return ft_printf("%hs", NULL); }
-int nocrash_notrequired_bonus_length_nullarg_13(void){return ft_printf("%lls", NULL); }
-int nocrash_notrequired_bonus_length_nullarg_14(void){return ft_printf("%ls", NULL); }
-int nocrash_notrequired_bonus_length_c_hh(void){return ft_printf("%hhc", 'a');}
-int nocrash_notrequired_bonus_length_c_h(void){return ft_printf("%hc", 'a');}
-int nocrash_notrequired_bonus_length_c_l(void){return ft_printf("%lc", 'a');}
-int nocrash_notrequired_bonus_length_c_ll(void){return ft_printf("%llc", 'a');}
-int nocrash_notrequired_bonus_length_s_hh(void){return ft_printf("%hhs", "hello");}
-int nocrash_notrequired_bonus_length_s_h(void){return ft_printf("%hs", "hello");}
-int nocrash_notrequired_bonus_length_s_l(void){return ft_printf("%s", "hello");}
-int nocrash_notrequired_bonus_length_s_ll(void){return ft_printf("%lls", "hello");}
-int nocrash_notrequired_bonus_length_p_hh(void){return ft_printf("%hhp", &ncm_p);}
-int nocrash_notrequired_bonus_length_p_h(void){return ft_printf("%hp", &ncm_p);}
-int nocrash_notrequired_bonus_length_p_l(void){return ft_printf("%lp", &ncm_p);}
-int nocrash_notrequired_bonus_length_p_ll(void){return ft_printf("%llp", &ncm_p);}
-int nocrash_notrequired_bonus_length_d_hhh(void){return ft_printf("%hhhd", 42);}
-int nocrash_notrequired_bonus_length_d_hhhh(void){return ft_printf("%hhhhd", 42);}
-int nocrash_notrequired_bonus_length_d_hhl(void){return ft_printf("%hhld", 42);}
-int nocrash_notrequired_bonus_length_d_hhll(void){return ft_printf("%hhlld", 42);}
-int nocrash_notrequired_bonus_length_d_llh(void){return ft_printf("%llhd", 42);}
-int nocrash_notrequired_bonus_length_d_lll(void){return ft_printf("%llld", 42);}
-int nocrash_notrequired_bonus_length_i_hhh(void){return ft_printf("%hhhi", 42);}
-int nocrash_notrequired_bonus_length_u_hhh(void){return ft_printf("%hhhu", 42);}
-int nocrash_notrequired_bonus_length_u_hhhh(void){return ft_printf("%hhhhu", 42);}
-int nocrash_notrequired_bonus_length_u_hhl(void){return ft_printf("%hhlu", 42);}
-int nocrash_notrequired_bonus_length_u_hhll(void){return ft_printf("%hhllu", 42);}
-int nocrash_notrequired_bonus_length_u_llh(void){return ft_printf("%llhu", 42);}
-int nocrash_notrequired_bonus_length_u_lll(void){return ft_printf("%lllu", 42);}
-int nocrash_notrequired_bonus_length_x_hhh(void){return ft_printf("%hhhx", 42);}
-int nocrash_notrequired_bonus_length_x_hhhh(void){return ft_printf("%hhhhx", 42);}
-int nocrash_notrequired_bonus_length_x_hhl(void){return ft_printf("%hhlx", 42);}
-int nocrash_notrequired_bonus_length_x_hhll(void){return ft_printf("%hhllx", 42);}
-int nocrash_notrequired_bonus_length_x_llh(void){return ft_printf("%llhx", 42);}
-int nocrash_notrequired_bonus_length_x_lll(void){return ft_printf("%lllx", 42);}
-int nocrash_notrequired_bonus_length_X_hhh(void){return ft_printf("%hhhX", 42);}
-int nocrash_notrequired_bonus_length_X_llh(void){return ft_printf("%llhX", 42);}
-int nocrash_notrequired_bonus_length_f_hh(void){return ft_printf("%hhf", 42.5);}
-int nocrash_notrequired_bonus_length_f_h(void){return ft_printf("%hf", 42.5);}
-int nocrash_notrequired_bonus_length_f_ll(void){return ft_printf("%llf", 42.5);}
-int nocrash_notrequired_bonus_length_f_lll(void){return ft_printf("%lllf", 42.5);}
-int nocrash_notrequired_bonus_length_f_llll(void){return ft_printf("%llllf", 42.5);}
+ int nocrash_notrequired_bonus_length_noarg_11(void){return ft_printf("%hh"); }
+ int nocrash_notrequired_bonus_length_noarg_12(void){return ft_printf("%h"); }
+ int nocrash_notrequired_bonus_length_noarg_13(void){return ft_printf("%ll"); }
+ int nocrash_notrequired_bonus_length_noarg_14(void){return ft_printf("%l"); }
+ int nocrash_notrequired_bonus_length_nullarg_11(void){return ft_printf("%hhs", NULL); }
+ int nocrash_notrequired_bonus_length_nullarg_12(void){return ft_printf("%hs", NULL); }
+ int nocrash_notrequired_bonus_length_nullarg_13(void){return ft_printf("%lls", NULL); }
+ int nocrash_notrequired_bonus_length_nullarg_14(void){return ft_printf("%ls", NULL); }
+ int nocrash_notrequired_bonus_length_c_hh(void){return ft_printf("%hhc", 'a');}
+ int nocrash_notrequired_bonus_length_c_h(void){return ft_printf("%hc", 'a');}
+ int nocrash_notrequired_bonus_length_c_l(void){return ft_printf("%lc", 'a');}
+ int nocrash_notrequired_bonus_length_c_ll(void){return ft_printf("%llc", 'a');}
+ int nocrash_notrequired_bonus_length_s_hh(void){return ft_printf("%hhs", "hello");}
+ int nocrash_notrequired_bonus_length_s_h(void){return ft_printf("%hs", "hello");}
+ int nocrash_notrequired_bonus_length_s_l(void){return ft_printf("%s", "hello");}
+ int nocrash_notrequired_bonus_length_s_ll(void){return ft_printf("%lls", "hello");}
+ int nocrash_notrequired_bonus_length_p_hh(void){return ft_printf("%hhp", &ncm_p);}
+ int nocrash_notrequired_bonus_length_p_h(void){return ft_printf("%hp", &ncm_p);}
+ int nocrash_notrequired_bonus_length_p_l(void){return ft_printf("%lp", &ncm_p);}
+ int nocrash_notrequired_bonus_length_p_ll(void){return ft_printf("%llp", &ncm_p);}
+ int nocrash_notrequired_bonus_length_d_hhh(void){return ft_printf("%hhhd", 42);}
+ int nocrash_notrequired_bonus_length_d_hhhh(void){return ft_printf("%hhhhd", 42);}
+ int nocrash_notrequired_bonus_length_d_hhl(void){return ft_printf("%hhld", 42);}
+ int nocrash_notrequired_bonus_length_d_hhll(void){return ft_printf("%hhlld", 42);}
+ int nocrash_notrequired_bonus_length_d_llh(void){return ft_printf("%llhd", 42);}
+ int nocrash_notrequired_bonus_length_d_lll(void){return ft_printf("%llld", 42);}
+ int nocrash_notrequired_bonus_length_i_hhh(void){return ft_printf("%hhhi", 42);}
+ int nocrash_notrequired_bonus_length_u_hhh(void){return ft_printf("%hhhu", 42);}
+ int nocrash_notrequired_bonus_length_u_hhhh(void){return ft_printf("%hhhhu", 42);}
+ int nocrash_notrequired_bonus_length_u_hhl(void){return ft_printf("%hhlu", 42);}
+ int nocrash_notrequired_bonus_length_u_hhll(void){return ft_printf("%hhllu", 42);}
+ int nocrash_notrequired_bonus_length_u_llh(void){return ft_printf("%llhu", 42);}
+ int nocrash_notrequired_bonus_length_u_lll(void){return ft_printf("%lllu", 42);}
+ int nocrash_notrequired_bonus_length_x_hhh(void){return ft_printf("%hhhx", 42);}
+ int nocrash_notrequired_bonus_length_x_hhhh(void){return ft_printf("%hhhhx", 42);}
+ int nocrash_notrequired_bonus_length_x_hhl(void){return ft_printf("%hhlx", 42);}
+ int nocrash_notrequired_bonus_length_x_hhll(void){return ft_printf("%hhllx", 42);}
+ int nocrash_notrequired_bonus_length_x_llh(void){return ft_printf("%llhx", 42);}
+ int nocrash_notrequired_bonus_length_x_lll(void){return ft_printf("%lllx", 42);}
+ int nocrash_notrequired_bonus_length_X_hhh(void){return ft_printf("%hhhX", 42);}
+ int nocrash_notrequired_bonus_length_X_llh(void){return ft_printf("%llhX", 42);}
+ int nocrash_notrequired_bonus_length_f_hh(void){return ft_printf("%hhf", 42.5);}
+ int nocrash_notrequired_bonus_length_f_h(void){return ft_printf("%hf", 42.5);}
+ int nocrash_notrequired_bonus_length_f_ll(void){return ft_printf("%llf", 42.5);}
+ int nocrash_notrequired_bonus_length_f_lll(void){return ft_printf("%lllf", 42.5);}
+ int nocrash_notrequired_bonus_length_f_llll(void){return ft_printf("%llllf", 42.5);}
 
 
 /* -----------------------------------------------------------------------------	
@@ -11383,11 +11383,11 @@ const t_test_entry g_unit_tests[] = {
 	{1, 8, "pct_5wlj", pct_5wlj, pct_5wlj_bench, "{return test(\"%-5%\");}"},
 	{1, 9, "pct_5wzp", pct_5wzp, pct_5wzp_bench, "{return test(\"%05%\");}"},
 	{1, 10, "pct_5wljzp", pct_5wljzp, pct_5wljzp_bench, "{return test(\"%-05%\");}"},
-	{1, 11, "nocrash_notrequired_nullspec_basic", nocrash_notrequired_nullspec_basic, nocrash_notrequired_nullspec_basic_bench, "{return test(\"%\");}"},
-	{1, 12, "nocrash_notrequired_nullspec_5w", nocrash_notrequired_nullspec_5w, nocrash_notrequired_nullspec_5w_bench, "{return test(\"%5\");}"},
-	{1, 13, "nocrash_notrequired_nullspec_5wzp", nocrash_notrequired_nullspec_5wzp, nocrash_notrequired_nullspec_5wzp_bench, "{return test(\"%05\");}"},
-	{1, 14, "nocrash_notrequired_nullspec_5wzplj", nocrash_notrequired_nullspec_5wzplj, nocrash_notrequired_nullspec_5wzplj_bench, "{return test(\"%-05\");}"},
-	{1, 15, "nocrash_notrequired_nullspec_5wlj", nocrash_notrequired_nullspec_5wlj, nocrash_notrequired_nullspec_5wlj_bench, "{return test(\"%-5\");}"},
+	{0, 11, "nocrash_notrequired_nullspec_basic", nocrash_notrequired_nullspec_basic, nocrash_notrequired_nullspec_basic_bench, "{return test(\"%\");}"},
+	{0, 12, "nocrash_notrequired_nullspec_5w", nocrash_notrequired_nullspec_5w, nocrash_notrequired_nullspec_5w_bench, "{return test(\"%5\");}"},
+	{0, 13, "nocrash_notrequired_nullspec_5wzp", nocrash_notrequired_nullspec_5wzp, nocrash_notrequired_nullspec_5wzp_bench, "{return test(\"%05\");}"},
+	{0, 14, "nocrash_notrequired_nullspec_5wzplj", nocrash_notrequired_nullspec_5wzplj, nocrash_notrequired_nullspec_5wzplj_bench, "{return test(\"%-05\");}"},
+	{0, 15, "nocrash_notrequired_nullspec_5wlj", nocrash_notrequired_nullspec_5wlj, nocrash_notrequired_nullspec_5wlj_bench, "{return test(\"%-5\");}"},
 	{1, 16, "c_allprintable_combined", c_allprintable_combined, c_allprintable_combined_bench, "{return test(\"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\",' ','!','\"','#','$','%','&','\'','(',')','*','+',',','-','.','/','0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?','@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','[','\\',']','^','_','`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','{','|','}','~','');}"},
 	{1, 17, "c_1_31_combined", c_1_31_combined, c_1_31_combined_bench, "{return test(\"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\",(char)1,(char)2,(char)3,(char)4,(char)5,(char)6,(char)7,(char)8,(char)9,(char)10,(char)11,(char)12,(char)13,(char)14,(char)15,(char)16,(char)17,(char)18,(char)19,(char)20,(char)21,(char)22,(char)23,(char)24,(char)25,(char)26,(char)27,(char)28,(char)29,(char)30,(char)31);}"},
 	{1, 18, "c_128_255_combined", c_128_255_combined, c_128_255_combined_bench, "{return test(\"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\",(char)128,(char)129,(char)130,(char)131,(char)132,(char)133,(char)134,(char)135,(char)136,(char)137,(char)138,(char)139,(char)140,(char)141,(char)142,(char)143,(char)144,(char)145,(char)146,(char)147,(char)148,(char)149,(char)150,(char)151,(char)152,(char)153,(char)154,(char)155,(char)156,(char)157,(char)158,(char)159,(char)160,(char)161,(char)162,(char)163,(char)164,(char)165,(char)166,(char)167,(char)168,(char)169,(char)170,(char)171,(char)172,(char)173,(char)174,(char)175,(char)176,(char)177,(char)178,(char)179,(char)180,(char)181,(char)182,(char)183,(char)184,(char)185,(char)186,(char)187,(char)188,(char)189,(char)190,(char)191,(char)192,(char)193,(char)194,(char)195,(char)196,(char)197,(char)198,(char)199,(char)200,(char)201,(char)202,(char)203,(char)204,(char)205,(char)206,(char)207,(char)208,(char)209,(char)210,(char)211,(char)212,(char)213,(char)214,(char)215,(char)216,(char)217,(char)218,(char)219,(char)220,(char)221,(char)222,(char)223,(char)224,(char)225,(char)226,(char)227,(char)228,(char)229,(char)230,(char)231,(char)232,(char)233,(char)234,(char)235,(char)236,(char)237,(char)238,(char)239,(char)240,(char)241,(char)242,(char)243,(char)244,(char)245,(char)246,(char)247,(char)248,(char)249,(char)250,(char)251,(char)252,(char)253,(char)254,(char)255);}"},
@@ -11870,56 +11870,56 @@ const t_test_entry g_unit_tests[] = {
 	{0, 495, "new2019_negstar_7", new2019_negstar_7, new2019_negstar_7_bench, "{return test(\"%*i\", -14, 94827);}"},
 	{0, 496, "new2019_negstar_8", new2019_negstar_8, new2019_negstar_8_bench, "{return test(\"%.*i\", -6, -3);}"},
 	{0, 497, "new2019_negstar_9", new2019_negstar_9, new2019_negstar_9_bench, "{return test(\"%0*i\", -7, -54);}"},
-	{1, 498, "nocrash_notrequired_noarg_1", nocrash_notrequired_noarg_1, nocrash_notrequired_noarg_1_bench, "{return test(\"%1$\"); }"},
-	{1, 499, "nocrash_notrequired_noarg_2", nocrash_notrequired_noarg_2, nocrash_notrequired_noarg_2_bench, "{return test(\"%0\"); }"},
-	{1, 500, "nocrash_notrequired_noarg_3", nocrash_notrequired_noarg_3, nocrash_notrequired_noarg_3_bench, "{return test(\"% \"); }"},
-	{1, 501, "nocrash_notrequired_noarg_5", nocrash_notrequired_noarg_5, nocrash_notrequired_noarg_5_bench, "{return test(\"%-\"); }"},
-	{1, 502, "nocrash_notrequired_noarg_6", nocrash_notrequired_noarg_6, nocrash_notrequired_noarg_6_bench, "{return test(\"%+\"); }"},
-	{1, 503, "nocrash_notrequired_noarg_9", nocrash_notrequired_noarg_9, nocrash_notrequired_noarg_9_bench, "{return test(\"%23\"); }"},
-	{1, 504, "nocrash_notrequired_noarg_10", nocrash_notrequired_noarg_10, nocrash_notrequired_noarg_10_bench, "{return test(\"%.\"); }"},
-	{1, 505, "nocrash_notrequired_noarg_16", nocrash_notrequired_noarg_16, nocrash_notrequired_noarg_16_bench, "{return test(\"%p\"); }"},
-	{1, 506, "nocrash_notrequired_noarg_17", nocrash_notrequired_noarg_17, nocrash_notrequired_noarg_17_bench, "{return test(\"%d\"); }"},
-	{1, 507, "nocrash_notrequired_noarg_19", nocrash_notrequired_noarg_19, nocrash_notrequired_noarg_19_bench, "{return test(\"%u\"); }"},
-	{1, 508, "nocrash_notrequired_noarg_20", nocrash_notrequired_noarg_20, nocrash_notrequired_noarg_20_bench, "{return test(\"%x\"); }"},
-	{1, 509, "nocrash_notrequired_noarg_21", nocrash_notrequired_noarg_21, nocrash_notrequired_noarg_21_bench, "{return test(\"%X\"); }"},
-	{1, 510, "nocrash_notrequired_noarg_22", nocrash_notrequired_noarg_22, nocrash_notrequired_noarg_22_bench, "{return test(\"%f\"); }"},
-	{1, 511, "nocrash_notrequired_noarg_24", nocrash_notrequired_noarg_24, nocrash_notrequired_noarg_24_bench, "{return test(\"%c\"); }"},
-	{1, 512, "nocrash_notrequired_noarg_25", nocrash_notrequired_noarg_25, nocrash_notrequired_noarg_25_bench, "{return test(\"%o\"); }"},
-	{1, 513, "nocrash_notrequired_nullarg_1", nocrash_notrequired_nullarg_1, nocrash_notrequired_nullarg_1_bench, "{return test(\"%1$s\", NULL); }"},
-	{1, 514, "nocrash_notrequired_nullarg_2", nocrash_notrequired_nullarg_2, nocrash_notrequired_nullarg_2_bench, "{return test(\"%0s\", NULL); }"},
-	{1, 515, "nocrash_notrequired_nullarg_3", nocrash_notrequired_nullarg_3, nocrash_notrequired_nullarg_3_bench, "{return test(\"% s\", NULL); }"},
-	{1, 516, "nocrash_notrequired_nullarg_5", nocrash_notrequired_nullarg_5, nocrash_notrequired_nullarg_5_bench, "{return test(\"%-s\", NULL); }"},
-	{1, 517, "nocrash_notrequired_nullarg_6", nocrash_notrequired_nullarg_6, nocrash_notrequired_nullarg_6_bench, "{return test(\"%+s\", NULL); }"},
-	{1, 518, "nocrash_notrequired_nullarg_9", nocrash_notrequired_nullarg_9, nocrash_notrequired_nullarg_9_bench, "{return test(\"%23s\", NULL); }"},
-	{1, 519, "nocrash_notrequired_nullarg_10", nocrash_notrequired_nullarg_10, nocrash_notrequired_nullarg_10_bench, "{return test(\"%.s\", NULL); }"},
-	{1, 520, "nocrash_notrequired_nullarg_16", nocrash_notrequired_nullarg_16, nocrash_notrequired_nullarg_16_bench, "{return test(\"%p\", NULL); }"},
-	{1, 521, "nocrash_notrequired_nullarg_17", nocrash_notrequired_nullarg_17, nocrash_notrequired_nullarg_17_bench, "{return test(\"%d\", NULL); }"},
-	{1, 522, "nocrash_notrequired_nullarg_18", nocrash_notrequired_nullarg_18, nocrash_notrequired_nullarg_18_bench, "{return test(\"%b\", NULL); }"},
-	{1, 523, "nocrash_notrequired_nullarg_19", nocrash_notrequired_nullarg_19, nocrash_notrequired_nullarg_19_bench, "{return test(\"%u\", NULL); }"},
-	{1, 524, "nocrash_notrequired_nullarg_20", nocrash_notrequired_nullarg_20, nocrash_notrequired_nullarg_20_bench, "{return test(\"%x\", NULL); }"},
-	{1, 525, "nocrash_notrequired_nullarg_21", nocrash_notrequired_nullarg_21, nocrash_notrequired_nullarg_21_bench, "{return test(\"%X\", NULL); }"},
-	{1, 526, "nocrash_notrequired_nullarg_22", nocrash_notrequired_nullarg_22, nocrash_notrequired_nullarg_22_bench, "{return test(\"%f\", NULL); }"},
-	{1, 527, "nocrash_notrequired_nullarg_23", nocrash_notrequired_nullarg_23, nocrash_notrequired_nullarg_23_bench, "{return test(\"%s\", NULL); }"},
-	{1, 528, "nocrash_notrequired_nullarg_24", nocrash_notrequired_nullarg_24, nocrash_notrequired_nullarg_24_bench, "{return test(\"%c\", NULL); }"},
-	{1, 529, "nocrash_notrequired_nullarg_25", nocrash_notrequired_nullarg_25, nocrash_notrequired_nullarg_25_bench, "{return test(\"%o\", NULL); }"},
-	{1, 530, "nocrash_notrequired_dupflag_d_ljljw", nocrash_notrequired_dupflag_d_ljljw, nocrash_notrequired_dupflag_d_ljljw_bench, "{return test(\"%--5d\", 42);}"},
-	{1, 531, "nocrash_notrequired_c_prec_1", nocrash_notrequired_c_prec_1, nocrash_notrequired_c_prec_1_bench, "{return test(\"%.4c\", 'a');}"},
-	{1, 532, "nocrash_notrequired_c_prec_2", nocrash_notrequired_c_prec_2, nocrash_notrequired_c_prec_2_bench, "{return test(\"%.c\", 'a');}"},
-	{1, 533, "nocrash_notrequired_c_zp_1", nocrash_notrequired_c_zp_1, nocrash_notrequired_c_zp_1_bench, "{return test(\"%05c\", 'a');}"},
-	{1, 534, "nocrash_notrequired_c_zp_2", nocrash_notrequired_c_zp_2, nocrash_notrequired_c_zp_2_bench, "{return test(\"%0c\", 'a');}"},
-	{1, 535, "nocrash_notrequired_c_lj_nowidth", nocrash_notrequired_c_lj_nowidth, nocrash_notrequired_c_lj_nowidth_bench, "{return test(\"%-c\", 'a');}"},
-	{1, 536, "nocrash_notrequired_s_zp_1", nocrash_notrequired_s_zp_1, nocrash_notrequired_s_zp_1_bench, "{return test(\"%05s\", \"hello\");}"},
-	{1, 537, "nocrash_notrequired_s_zp_2", nocrash_notrequired_s_zp_2, nocrash_notrequired_s_zp_2_bench, "{return test(\"%0s\", \"hello\");}"},
-	{1, 538, "nocrash_notrequired_s_lj_nowidth", nocrash_notrequired_s_lj_nowidth, nocrash_notrequired_s_lj_nowidth_bench, "{return test(\"%-s\", \"hello\");}"},
-	{1, 539, "nocrash_notrequired_p_prec_1", nocrash_notrequired_p_prec_1, nocrash_notrequired_p_prec_1_bench, "{return test(\"%.4p\", &ncm_p);}"},
-	{1, 540, "nocrash_notrequired_p_prec_2", nocrash_notrequired_p_prec_2, nocrash_notrequired_p_prec_2_bench, "{return test(\"%.p\", &ncm_p);}"},
-	{1, 541, "nocrash_notrequired_p_zp_1", nocrash_notrequired_p_zp_1, nocrash_notrequired_p_zp_1_bench, "{return test(\"%05p\", &ncm_p);}"},
-	{1, 542, "nocrash_notrequired_p_zp_2", nocrash_notrequired_p_zp_2, nocrash_notrequired_p_zp_2_bench, "{return test(\"%0p\", &ncm_p);}"},
-	{1, 543, "nocrash_notrequired_p_lj_nowidth", nocrash_notrequired_p_lj_nowidth, nocrash_notrequired_p_lj_nowidth_bench, "{return test(\"%-p\", &ncm_p);}"},
-	{1, 544, "nocrash_notrequired_i_lj_nowidth", nocrash_notrequired_i_lj_nowidth, nocrash_notrequired_i_lj_nowidth_bench, "{return test(\"%-i\", 42);}"},
-	{1, 545, "nocrash_notrequired_u_lj_nowidth", nocrash_notrequired_u_lj_nowidth, nocrash_notrequired_u_lj_nowidth_bench, "{return test(\"%-u\", 42);}"},
-	{1, 546, "nocrash_notrequired_x_lj_nowidth", nocrash_notrequired_x_lj_nowidth, nocrash_notrequired_x_lj_nowidth_bench, "{return test(\"%-x\", 42);}"},
-	{1, 547, "nocrash_notrequired_f_lj_nowidth", nocrash_notrequired_f_lj_nowidth, nocrash_notrequired_f_lj_nowidth_bench, "{return test(\"%-f\", 42.5);}"},
+	{0, 498, "nocrash_notrequired_noarg_1", nocrash_notrequired_noarg_1, nocrash_notrequired_noarg_1_bench, "{return test(\"%1$\"); }"},
+	{0, 499, "nocrash_notrequired_noarg_2", nocrash_notrequired_noarg_2, nocrash_notrequired_noarg_2_bench, "{return test(\"%0\"); }"},
+	{0, 500, "nocrash_notrequired_noarg_3", nocrash_notrequired_noarg_3, nocrash_notrequired_noarg_3_bench, "{return test(\"% \"); }"},
+	{0, 501, "nocrash_notrequired_noarg_5", nocrash_notrequired_noarg_5, nocrash_notrequired_noarg_5_bench, "{return test(\"%-\"); }"},
+	{0, 502, "nocrash_notrequired_noarg_6", nocrash_notrequired_noarg_6, nocrash_notrequired_noarg_6_bench, "{return test(\"%+\"); }"},
+	{0, 503, "nocrash_notrequired_noarg_9", nocrash_notrequired_noarg_9, nocrash_notrequired_noarg_9_bench, "{return test(\"%23\"); }"},
+	{0, 504, "nocrash_notrequired_noarg_10", nocrash_notrequired_noarg_10, nocrash_notrequired_noarg_10_bench, "{return test(\"%.\"); }"},
+	{0, 505, "nocrash_notrequired_noarg_16", nocrash_notrequired_noarg_16, nocrash_notrequired_noarg_16_bench, "{return test(\"%p\"); }"},
+	{0, 506, "nocrash_notrequired_noarg_17", nocrash_notrequired_noarg_17, nocrash_notrequired_noarg_17_bench, "{return test(\"%d\"); }"},
+	{0, 507, "nocrash_notrequired_noarg_19", nocrash_notrequired_noarg_19, nocrash_notrequired_noarg_19_bench, "{return test(\"%u\"); }"},
+	{0, 508, "nocrash_notrequired_noarg_20", nocrash_notrequired_noarg_20, nocrash_notrequired_noarg_20_bench, "{return test(\"%x\"); }"},
+	{0, 509, "nocrash_notrequired_noarg_21", nocrash_notrequired_noarg_21, nocrash_notrequired_noarg_21_bench, "{return test(\"%X\"); }"},
+	{0, 510, "nocrash_notrequired_noarg_22", nocrash_notrequired_noarg_22, nocrash_notrequired_noarg_22_bench, "{return test(\"%f\"); }"},
+	{0, 511, "nocrash_notrequired_noarg_24", nocrash_notrequired_noarg_24, nocrash_notrequired_noarg_24_bench, "{return test(\"%c\"); }"},
+	{0, 512, "nocrash_notrequired_noarg_25", nocrash_notrequired_noarg_25, nocrash_notrequired_noarg_25_bench, "{return test(\"%o\"); }"},
+	{0, 513, "nocrash_notrequired_nullarg_1", nocrash_notrequired_nullarg_1, nocrash_notrequired_nullarg_1_bench, "{return test(\"%1$s\", NULL); }"},
+	{0, 514, "nocrash_notrequired_nullarg_2", nocrash_notrequired_nullarg_2, nocrash_notrequired_nullarg_2_bench, "{return test(\"%0s\", NULL); }"},
+	{0, 515, "nocrash_notrequired_nullarg_3", nocrash_notrequired_nullarg_3, nocrash_notrequired_nullarg_3_bench, "{return test(\"% s\", NULL); }"},
+	{0, 516, "nocrash_notrequired_nullarg_5", nocrash_notrequired_nullarg_5, nocrash_notrequired_nullarg_5_bench, "{return test(\"%-s\", NULL); }"},
+	{0, 517, "nocrash_notrequired_nullarg_6", nocrash_notrequired_nullarg_6, nocrash_notrequired_nullarg_6_bench, "{return test(\"%+s\", NULL); }"},
+	{0, 518, "nocrash_notrequired_nullarg_9", nocrash_notrequired_nullarg_9, nocrash_notrequired_nullarg_9_bench, "{return test(\"%23s\", NULL); }"},
+	{0, 519, "nocrash_notrequired_nullarg_10", nocrash_notrequired_nullarg_10, nocrash_notrequired_nullarg_10_bench, "{return test(\"%.s\", NULL); }"},
+	{0, 520, "nocrash_notrequired_nullarg_16", nocrash_notrequired_nullarg_16, nocrash_notrequired_nullarg_16_bench, "{return test(\"%p\", NULL); }"},
+	{0, 521, "nocrash_notrequired_nullarg_17", nocrash_notrequired_nullarg_17, nocrash_notrequired_nullarg_17_bench, "{return test(\"%d\", NULL); }"},
+	{0, 522, "nocrash_notrequired_nullarg_18", nocrash_notrequired_nullarg_18, nocrash_notrequired_nullarg_18_bench, "{return test(\"%b\", NULL); }"},
+	{0, 523, "nocrash_notrequired_nullarg_19", nocrash_notrequired_nullarg_19, nocrash_notrequired_nullarg_19_bench, "{return test(\"%u\", NULL); }"},
+	{0, 524, "nocrash_notrequired_nullarg_20", nocrash_notrequired_nullarg_20, nocrash_notrequired_nullarg_20_bench, "{return test(\"%x\", NULL); }"},
+	{0, 525, "nocrash_notrequired_nullarg_21", nocrash_notrequired_nullarg_21, nocrash_notrequired_nullarg_21_bench, "{return test(\"%X\", NULL); }"},
+	{0, 526, "nocrash_notrequired_nullarg_22", nocrash_notrequired_nullarg_22, nocrash_notrequired_nullarg_22_bench, "{return test(\"%f\", NULL); }"},
+	{0, 527, "nocrash_notrequired_nullarg_23", nocrash_notrequired_nullarg_23, nocrash_notrequired_nullarg_23_bench, "{return test(\"%s\", NULL); }"},
+	{0, 528, "nocrash_notrequired_nullarg_24", nocrash_notrequired_nullarg_24, nocrash_notrequired_nullarg_24_bench, "{return test(\"%c\", NULL); }"},
+	{0, 529, "nocrash_notrequired_nullarg_25", nocrash_notrequired_nullarg_25, nocrash_notrequired_nullarg_25_bench, "{return test(\"%o\", NULL); }"},
+	{0, 530, "nocrash_notrequired_dupflag_d_ljljw", nocrash_notrequired_dupflag_d_ljljw, nocrash_notrequired_dupflag_d_ljljw_bench, "{return test(\"%--5d\", 42);}"},
+	{0, 531, "nocrash_notrequired_c_prec_1", nocrash_notrequired_c_prec_1, nocrash_notrequired_c_prec_1_bench, "{return test(\"%.4c\", 'a');}"},
+	{0, 532, "nocrash_notrequired_c_prec_2", nocrash_notrequired_c_prec_2, nocrash_notrequired_c_prec_2_bench, "{return test(\"%.c\", 'a');}"},
+	{0, 533, "nocrash_notrequired_c_zp_1", nocrash_notrequired_c_zp_1, nocrash_notrequired_c_zp_1_bench, "{return test(\"%05c\", 'a');}"},
+	{0, 534, "nocrash_notrequired_c_zp_2", nocrash_notrequired_c_zp_2, nocrash_notrequired_c_zp_2_bench, "{return test(\"%0c\", 'a');}"},
+	{0, 535, "nocrash_notrequired_c_lj_nowidth", nocrash_notrequired_c_lj_nowidth, nocrash_notrequired_c_lj_nowidth_bench, "{return test(\"%-c\", 'a');}"},
+	{0, 536, "nocrash_notrequired_s_zp_1", nocrash_notrequired_s_zp_1, nocrash_notrequired_s_zp_1_bench, "{return test(\"%05s\", \"hello\");}"},
+	{0, 537, "nocrash_notrequired_s_zp_2", nocrash_notrequired_s_zp_2, nocrash_notrequired_s_zp_2_bench, "{return test(\"%0s\", \"hello\");}"},
+	{0, 538, "nocrash_notrequired_s_lj_nowidth", nocrash_notrequired_s_lj_nowidth, nocrash_notrequired_s_lj_nowidth_bench, "{return test(\"%-s\", \"hello\");}"},
+	{0, 539, "nocrash_notrequired_p_prec_1", nocrash_notrequired_p_prec_1, nocrash_notrequired_p_prec_1_bench, "{return test(\"%.4p\", &ncm_p);}"},
+	{0, 540, "nocrash_notrequired_p_prec_2", nocrash_notrequired_p_prec_2, nocrash_notrequired_p_prec_2_bench, "{return test(\"%.p\", &ncm_p);}"},
+	{0, 541, "nocrash_notrequired_p_zp_1", nocrash_notrequired_p_zp_1, nocrash_notrequired_p_zp_1_bench, "{return test(\"%05p\", &ncm_p);}"},
+	{0, 542, "nocrash_notrequired_p_zp_2", nocrash_notrequired_p_zp_2, nocrash_notrequired_p_zp_2_bench, "{return test(\"%0p\", &ncm_p);}"},
+	{0, 543, "nocrash_notrequired_p_lj_nowidth", nocrash_notrequired_p_lj_nowidth, nocrash_notrequired_p_lj_nowidth_bench, "{return test(\"%-p\", &ncm_p);}"},
+	{0, 544, "nocrash_notrequired_i_lj_nowidth", nocrash_notrequired_i_lj_nowidth, nocrash_notrequired_i_lj_nowidth_bench, "{return test(\"%-i\", 42);}"},
+	{0, 545, "nocrash_notrequired_u_lj_nowidth", nocrash_notrequired_u_lj_nowidth, nocrash_notrequired_u_lj_nowidth_bench, "{return test(\"%-u\", 42);}"},
+	{0, 546, "nocrash_notrequired_x_lj_nowidth", nocrash_notrequired_x_lj_nowidth, nocrash_notrequired_x_lj_nowidth_bench, "{return test(\"%-x\", 42);}"},
+	{0, 547, "nocrash_notrequired_f_lj_nowidth", nocrash_notrequired_f_lj_nowidth, nocrash_notrequired_f_lj_nowidth_bench, "{return test(\"%-f\", 42.5);}"},
 	{1, 548, "moul_c_1", moul_c_1, moul_c_1_bench, "{return test(\"%c\", 42);}"},
 	{1, 549, "moul_c_2", moul_c_2, moul_c_2_bench, "{return test(\"Kashim a %c histoires à raconter\", 1001);}"},
 	{1, 550, "moul_c_3", moul_c_3, moul_c_3_bench, "{return test(\"Il fait au moins %c\n\", -8000);}"},
@@ -12244,16 +12244,16 @@ const t_test_entry g_unit_tests[] = {
 	{1, 869, "bonus_as_i_prec_width_fn_neg_ljaszp_ignoreflag", bonus_as_i_prec_width_fn_neg_ljaszp_ignoreflag, bonus_as_i_prec_width_fn_neg_ljaszp_ignoreflag_bench, "{return test(\"%0+-3.7i\", -2375);}"},
 	{1, 870, "bonus_as_i_prec_width_nn_pos_ljaszp_ignoreflag", bonus_as_i_prec_width_nn_pos_ljaszp_ignoreflag, bonus_as_i_prec_width_nn_pos_ljaszp_ignoreflag_bench, "{return test(\"%0+-3.3i\", 6983);}"},
 	{1, 871, "bonus_as_i_prec_width_nn_neg_ljaszp_ignoreflag", bonus_as_i_prec_width_nn_neg_ljaszp_ignoreflag, bonus_as_i_prec_width_nn_neg_ljaszp_ignoreflag_bench, "{return test(\"%0+-3.3i\", -8462);}"},
-	{1, 872, "nocrash_notrequired_bonus_as_dupflag_d", nocrash_notrequired_bonus_as_dupflag_d, nocrash_notrequired_bonus_as_dupflag_d_bench, "{return test(\"%++d\", 42);}"},
-	{1, 873, "nocrash_notrequired_bonus_as_dupflag_d_ljasljw", nocrash_notrequired_bonus_as_dupflag_d_ljasljw, nocrash_notrequired_bonus_as_dupflag_d_ljasljw_bench, "{return test(\"%-+-5d\", 42);}"},
-	{1, 874, "nocrash_notrequired_bonus_as_c_1", nocrash_notrequired_bonus_as_c_1, nocrash_notrequired_bonus_as_c_1_bench, "{return test(\"%+c\", 'a');}"},
-	{1, 875, "nocrash_notrequired_bonus_as_c_2", nocrash_notrequired_bonus_as_c_2, nocrash_notrequired_bonus_as_c_2_bench, "{return test(\"%+c\", -42);}"},
-	{1, 876, "nocrash_notrequired_bonus_as_s_1", nocrash_notrequired_bonus_as_s_1, nocrash_notrequired_bonus_as_s_1_bench, "{return test(\"%+s\", \"hello\");}"},
-	{1, 877, "nocrash_notrequired_bonus_as_p_1", nocrash_notrequired_bonus_as_p_1, nocrash_notrequired_bonus_as_p_1_bench, "{return test(\"%+p\", &ncm_p);}"},
-	{1, 878, "nocrash_notrequired_bonus_as_p_2", nocrash_notrequired_bonus_as_p_2, nocrash_notrequired_bonus_as_p_2_bench, "{return test(\"%+p\", &ncm_p);}"},
-	{1, 879, "nocrash_notrequired_bonus_as_u", nocrash_notrequired_bonus_as_u, nocrash_notrequired_bonus_as_u_bench, "{return test(\"%+u\", 42);}"},
-	{1, 880, "nocrash_notrequired_bonus_as_x", nocrash_notrequired_bonus_as_x, nocrash_notrequired_bonus_as_x_bench, "{return test(\"%+x\", 42);}"},
-	{1, 881, "nocrash_notrequired_bonus_as_X", nocrash_notrequired_bonus_as_X, nocrash_notrequired_bonus_as_X_bench, "{return test(\"%+X\", 42);}"},
+	{0, 872, "nocrash_notrequired_bonus_as_dupflag_d", nocrash_notrequired_bonus_as_dupflag_d, nocrash_notrequired_bonus_as_dupflag_d_bench, "{return test(\"%++d\", 42);}"},
+	{0, 873, "nocrash_notrequired_bonus_as_dupflag_d_ljasljw", nocrash_notrequired_bonus_as_dupflag_d_ljasljw, nocrash_notrequired_bonus_as_dupflag_d_ljasljw_bench, "{return test(\"%-+-5d\", 42);}"},
+	{0, 874, "nocrash_notrequired_bonus_as_c_1", nocrash_notrequired_bonus_as_c_1, nocrash_notrequired_bonus_as_c_1_bench, "{return test(\"%+c\", 'a');}"},
+	{0, 875, "nocrash_notrequired_bonus_as_c_2", nocrash_notrequired_bonus_as_c_2, nocrash_notrequired_bonus_as_c_2_bench, "{return test(\"%+c\", -42);}"},
+	{0, 876, "nocrash_notrequired_bonus_as_s_1", nocrash_notrequired_bonus_as_s_1, nocrash_notrequired_bonus_as_s_1_bench, "{return test(\"%+s\", \"hello\");}"},
+	{0, 877, "nocrash_notrequired_bonus_as_p_1", nocrash_notrequired_bonus_as_p_1, nocrash_notrequired_bonus_as_p_1_bench, "{return test(\"%+p\", &ncm_p);}"},
+	{0, 878, "nocrash_notrequired_bonus_as_p_2", nocrash_notrequired_bonus_as_p_2, nocrash_notrequired_bonus_as_p_2_bench, "{return test(\"%+p\", &ncm_p);}"},
+	{0, 879, "nocrash_notrequired_bonus_as_u", nocrash_notrequired_bonus_as_u, nocrash_notrequired_bonus_as_u_bench, "{return test(\"%+u\", 42);}"},
+	{0, 880, "nocrash_notrequired_bonus_as_x", nocrash_notrequired_bonus_as_x, nocrash_notrequired_bonus_as_x_bench, "{return test(\"%+x\", 42);}"},
+	{0, 881, "nocrash_notrequired_bonus_as_X", nocrash_notrequired_bonus_as_X, nocrash_notrequired_bonus_as_X_bench, "{return test(\"%+X\", 42);}"},
 	{1, 882, "bonus_sp_d_basic_i_pos", bonus_sp_d_basic_i_pos, bonus_sp_d_basic_i_pos_bench, "{return test(\"this % d number\", 17);}"},
 	{1, 883, "bonus_sp_d_basic_i_neg", bonus_sp_d_basic_i_neg, bonus_sp_d_basic_i_neg_bench, "{return test(\"this % d number\", -267);}"},
 	{1, 884, "bonus_sp_d_basic_i_zero", bonus_sp_d_basic_i_zero, bonus_sp_d_basic_i_zero_bench, "{return test(\"this % d number\", 0);}"},
@@ -12402,15 +12402,15 @@ const t_test_entry g_unit_tests[] = {
 	{1, 1027, "bonus_sp_i_prec_width_fn_neg_ljzpsp_ignoreflag", bonus_sp_i_prec_width_fn_neg_ljzpsp_ignoreflag, bonus_sp_i_prec_width_fn_neg_ljzpsp_ignoreflag_bench, "{return test(\"% 0-3.7i\", -2375);}"},
 	{1, 1028, "bonus_sp_i_prec_width_nn_pos_ljzpsp_ignoreflag", bonus_sp_i_prec_width_nn_pos_ljzpsp_ignoreflag, bonus_sp_i_prec_width_nn_pos_ljzpsp_ignoreflag_bench, "{return test(\"% 0-3.3i\", 6983);}"},
 	{1, 1029, "bonus_sp_i_prec_width_nn_neg_ljzpsp_ignoreflag", bonus_sp_i_prec_width_nn_neg_ljzpsp_ignoreflag, bonus_sp_i_prec_width_nn_neg_ljzpsp_ignoreflag_bench, "{return test(\"% 0-3.3i\", -8462);}"},
-	{1, 1030, "nocrash_notrequired_bonus_sp_dupflag_d", nocrash_notrequired_bonus_sp_dupflag_d, nocrash_notrequired_bonus_sp_dupflag_d_bench, "{return test(\"%  d\", 42);}"},
-	{1, 1031, "nocrash_notrequired_bonus_sp_c_1", nocrash_notrequired_bonus_sp_c_1, nocrash_notrequired_bonus_sp_c_1_bench, "{return test(\"% c\", 'a');}"},
-	{1, 1032, "nocrash_notrequired_bonus_sp_c_2", nocrash_notrequired_bonus_sp_c_2, nocrash_notrequired_bonus_sp_c_2_bench, "{return test(\"% c\", -42);}"},
-	{1, 1033, "nocrash_notrequired_bonus_sp_s_1", nocrash_notrequired_bonus_sp_s_1, nocrash_notrequired_bonus_sp_s_1_bench, "{return test(\"% s\", \"hello\");}"},
-	{1, 1034, "nocrash_notrequired_bonus_sp_p_1", nocrash_notrequired_bonus_sp_p_1, nocrash_notrequired_bonus_sp_p_1_bench, "{return test(\"% p\", &ncm_p);}"},
-	{1, 1035, "nocrash_notrequired_bonus_sp_p_2", nocrash_notrequired_bonus_sp_p_2, nocrash_notrequired_bonus_sp_p_2_bench, "{return test(\"% p\", &ncm_p);}"},
-	{1, 1036, "nocrash_notrequired_bonus_sp_u", nocrash_notrequired_bonus_sp_u, nocrash_notrequired_bonus_sp_u_bench, "{return test(\"% u\", 42);}"},
-	{1, 1037, "nocrash_notrequired_bonus_sp_x", nocrash_notrequired_bonus_sp_x, nocrash_notrequired_bonus_sp_x_bench, "{return test(\"% x\", 42);}"},
-	{1, 1038, "nocrash_notrequired_bonus_sp_X", nocrash_notrequired_bonus_sp_X, nocrash_notrequired_bonus_sp_X_bench, "{return test(\"% X\", 42);}"},
+	{0, 1030, "nocrash_notrequired_bonus_sp_dupflag_d", nocrash_notrequired_bonus_sp_dupflag_d, nocrash_notrequired_bonus_sp_dupflag_d_bench, "{return test(\"%  d\", 42);}"},
+	{0, 1031, "nocrash_notrequired_bonus_sp_c_1", nocrash_notrequired_bonus_sp_c_1, nocrash_notrequired_bonus_sp_c_1_bench, "{return test(\"% c\", 'a');}"},
+	{0, 1032, "nocrash_notrequired_bonus_sp_c_2", nocrash_notrequired_bonus_sp_c_2, nocrash_notrequired_bonus_sp_c_2_bench, "{return test(\"% c\", -42);}"},
+	{0, 1033, "nocrash_notrequired_bonus_sp_s_1", nocrash_notrequired_bonus_sp_s_1, nocrash_notrequired_bonus_sp_s_1_bench, "{return test(\"% s\", \"hello\");}"},
+	{0, 1034, "nocrash_notrequired_bonus_sp_p_1", nocrash_notrequired_bonus_sp_p_1, nocrash_notrequired_bonus_sp_p_1_bench, "{return test(\"% p\", &ncm_p);}"},
+	{0, 1035, "nocrash_notrequired_bonus_sp_p_2", nocrash_notrequired_bonus_sp_p_2, nocrash_notrequired_bonus_sp_p_2_bench, "{return test(\"% p\", &ncm_p);}"},
+	{0, 1036, "nocrash_notrequired_bonus_sp_u", nocrash_notrequired_bonus_sp_u, nocrash_notrequired_bonus_sp_u_bench, "{return test(\"% u\", 42);}"},
+	{0, 1037, "nocrash_notrequired_bonus_sp_x", nocrash_notrequired_bonus_sp_x, nocrash_notrequired_bonus_sp_x_bench, "{return test(\"% x\", 42);}"},
+	{0, 1038, "nocrash_notrequired_bonus_sp_X", nocrash_notrequired_bonus_sp_X, nocrash_notrequired_bonus_sp_X_bench, "{return test(\"% X\", 42);}"},
 	{1, 1039, "bonus_af_x_basic_pos", bonus_af_x_basic_pos, bonus_af_x_basic_pos_bench, "{return test(\"this %#x number\", 17);}"},
 	{1, 1040, "bonus_af_x_basic_zero", bonus_af_x_basic_zero, bonus_af_x_basic_zero_bench, "{return test(\"this %#x number\", 0);}"},
 	{1, 1041, "bonus_af_x_basic_onlypos", bonus_af_x_basic_onlypos, bonus_af_x_basic_onlypos_bench, "{return test(\"%#x\", 3);}"},
@@ -12501,16 +12501,16 @@ const t_test_entry g_unit_tests[] = {
 	{1, 1126, "bonus_af_X_prec_width_nf_pos_ljzpaf_ignoreflag", bonus_af_X_prec_width_nf_pos_ljzpaf_ignoreflag, bonus_af_X_prec_width_nf_pos_ljzpaf_ignoreflag_bench, "{return test(\"%#0-8.3X\", 8375);}"},
 	{1, 1127, "bonus_af_X_prec_width_fn_pos_ljzpaf_ignoreflag", bonus_af_X_prec_width_fn_pos_ljzpaf_ignoreflag, bonus_af_X_prec_width_fn_pos_ljzpaf_ignoreflag_bench, "{return test(\"%#0-2.7X\", 3267);}"},
 	{1, 1128, "bonus_af_X_prec_width_nn_pos_ljzpaf_ignoreflag", bonus_af_X_prec_width_nn_pos_ljzpaf_ignoreflag, bonus_af_X_prec_width_nn_pos_ljzpaf_ignoreflag_bench, "{return test(\"%#0-3.3X\", 6983);}"},
-	{1, 1129, "nocrash_notrequired_bonus_af_noarg_4", nocrash_notrequired_bonus_af_noarg_4, nocrash_notrequired_bonus_af_noarg_4_bench, "{return test(\"%#\"); }"},
-	{1, 1130, "nocrash_notrequired_bonus_af_nullarg_4", nocrash_notrequired_bonus_af_nullarg_4, nocrash_notrequired_bonus_af_nullarg_4_bench, "{return test(\"%#s\", NULL); }"},
-	{1, 1131, "nocrash_notrequired_bonus_af_dupflag_x", nocrash_notrequired_bonus_af_dupflag_x, nocrash_notrequired_bonus_af_dupflag_x_bench, "{return test(\"%##x\", 42);}"},
-	{1, 1132, "nocrash_notrequired_bonus_af_dupflag_xasasljw", nocrash_notrequired_bonus_af_dupflag_xasasljw, nocrash_notrequired_bonus_af_dupflag_xasasljw_bench, "{return test(\"%#++#-5x\", 42);}"},
-	{1, 1133, "nocrash_notrequired_bonus_af_c", nocrash_notrequired_bonus_af_c, nocrash_notrequired_bonus_af_c_bench, "{return test(\"%#c\", 'a');}"},
-	{1, 1134, "nocrash_notrequired_bonus_af_s", nocrash_notrequired_bonus_af_s, nocrash_notrequired_bonus_af_s_bench, "{return test(\"%#s\", \"hello\");}"},
-	{1, 1135, "nocrash_notrequired_bonus_af_p", nocrash_notrequired_bonus_af_p, nocrash_notrequired_bonus_af_p_bench, "{return test(\"%#p\", &ncm_p);}"},
-	{1, 1136, "nocrash_notrequired_bonus_af_d", nocrash_notrequired_bonus_af_d, nocrash_notrequired_bonus_af_d_bench, "{return test(\"%#d\", 42);}"},
-	{1, 1137, "nocrash_notrequired_bonus_af_i", nocrash_notrequired_bonus_af_i, nocrash_notrequired_bonus_af_i_bench, "{return test(\"%#i\", 42);}"},
-	{1, 1138, "nocrash_notrequired_bonus_af_u", nocrash_notrequired_bonus_af_u, nocrash_notrequired_bonus_af_u_bench, "{return test(\"%#u\", 42);}"},
+	{0, 1129, "nocrash_notrequired_bonus_af_noarg_4", nocrash_notrequired_bonus_af_noarg_4, nocrash_notrequired_bonus_af_noarg_4_bench, "{return test(\"%#\"); }"},
+	{0, 1130, "nocrash_notrequired_bonus_af_nullarg_4", nocrash_notrequired_bonus_af_nullarg_4, nocrash_notrequired_bonus_af_nullarg_4_bench, "{return test(\"%#s\", NULL); }"},
+	{0, 1131, "nocrash_notrequired_bonus_af_dupflag_x", nocrash_notrequired_bonus_af_dupflag_x, nocrash_notrequired_bonus_af_dupflag_x_bench, "{return test(\"%##x\", 42);}"},
+	{0, 1132, "nocrash_notrequired_bonus_af_dupflag_xasasljw", nocrash_notrequired_bonus_af_dupflag_xasasljw, nocrash_notrequired_bonus_af_dupflag_xasasljw_bench, "{return test(\"%#++#-5x\", 42);}"},
+	{0, 1133, "nocrash_notrequired_bonus_af_c", nocrash_notrequired_bonus_af_c, nocrash_notrequired_bonus_af_c_bench, "{return test(\"%#c\", 'a');}"},
+	{0, 1134, "nocrash_notrequired_bonus_af_s", nocrash_notrequired_bonus_af_s, nocrash_notrequired_bonus_af_s_bench, "{return test(\"%#s\", \"hello\");}"},
+	{0, 1135, "nocrash_notrequired_bonus_af_p", nocrash_notrequired_bonus_af_p, nocrash_notrequired_bonus_af_p_bench, "{return test(\"%#p\", &ncm_p);}"},
+	{0, 1136, "nocrash_notrequired_bonus_af_d", nocrash_notrequired_bonus_af_d, nocrash_notrequired_bonus_af_d_bench, "{return test(\"%#d\", 42);}"},
+	{0, 1137, "nocrash_notrequired_bonus_af_i", nocrash_notrequired_bonus_af_i, nocrash_notrequired_bonus_af_i_bench, "{return test(\"%#i\", 42);}"},
+	{0, 1138, "nocrash_notrequired_bonus_af_u", nocrash_notrequired_bonus_af_u, nocrash_notrequired_bonus_af_u_bench, "{return test(\"%#u\", 42);}"},
 	{1, 1139, "bonus_assp_d_pos_ignoreflag", bonus_assp_d_pos_ignoreflag, bonus_assp_d_pos_ignoreflag_bench, "{return test(\"% +d\", 5);}"},
 	{1, 1140, "bonus_assp_d_neg_ignoreflag", bonus_assp_d_neg_ignoreflag, bonus_assp_d_neg_ignoreflag_bench, "{return test(\"% +d\", -7);}"},
 	{1, 1141, "bonus_assp_d_intmax_ignoreflag", bonus_assp_d_intmax_ignoreflag, bonus_assp_d_intmax_ignoreflag_bench, "{return test(\"% +d\", 2147483647);}"},
@@ -12609,7 +12609,7 @@ const t_test_entry g_unit_tests[] = {
 	{1, 1234, "bonus_assp_i_prec_width_fn_neg_ljaszpsp_ignoreflag", bonus_assp_i_prec_width_fn_neg_ljaszpsp_ignoreflag, bonus_assp_i_prec_width_fn_neg_ljaszpsp_ignoreflag_bench, "{return test(\"% 0+-3.7i\", -2375);}"},
 	{1, 1235, "bonus_assp_i_prec_width_nn_pos_ljaszpsp_ignoreflag", bonus_assp_i_prec_width_nn_pos_ljaszpsp_ignoreflag, bonus_assp_i_prec_width_nn_pos_ljaszpsp_ignoreflag_bench, "{return test(\"% 0+-3.3i\", 6983);}"},
 	{1, 1236, "bonus_assp_i_prec_width_nn_neg_ljaszpsp_ignoreflag", bonus_assp_i_prec_width_nn_neg_ljaszpsp_ignoreflag, bonus_assp_i_prec_width_nn_neg_ljaszpsp_ignoreflag_bench, "{return test(\"% 0+-3.3i\", -8462);}"},
-	{1, 1237, "nocrash_notrequired_bonus_assp_dupflag_d_spassp", nocrash_notrequired_bonus_assp_dupflag_d_spassp, nocrash_notrequired_bonus_assp_dupflag_d_spassp_bench, "{return test(\"% + d\", 42);}"},
+	{0, 1237, "nocrash_notrequired_bonus_assp_dupflag_d_spassp", nocrash_notrequired_bonus_assp_dupflag_d_spassp, nocrash_notrequired_bonus_assp_dupflag_d_spassp_bench, "{return test(\"% + d\", 42);}"},
 	{1, 1238, "bonus_length_d_hh_pos_casted", bonus_length_d_hh_pos_casted, bonus_length_d_hh_pos_casted_bench, "{return test(\"%hhd\", (char)45);}"},
 	{1, 1239, "bonus_length_d_hh_neg_casted", bonus_length_d_hh_neg_casted, bonus_length_d_hh_neg_casted_bench, "{return test(\"%hhd\", (char)-45);}"},
 	{1, 1240, "bonus_length_d_h_pos_casted", bonus_length_d_h_pos_casted, bonus_length_d_h_pos_casted_bench, "{return test(\"%hd\", (short)385);}"},
@@ -12861,52 +12861,52 @@ const t_test_entry g_unit_tests[] = {
 	{1, 1486, "bonus_length_X_l_hh_h_af", bonus_length_X_l_hh_h_af, bonus_length_X_l_hh_h_af_bench, "{return test(\"%lu%hhu%#hX\", ul_pos_1, uch_pos_1, ush_pos_1);}"},
 	{1, 1487, "bonus_length_X_n_ll_hh_af", bonus_length_X_n_ll_hh_af, bonus_length_X_n_ll_hh_af_bench, "{return test(\"%#x%llu%#hhX\", ui_pos_1, ull_pos_1, uch_pos_1);}"},
 	{1, 1488, "bonus_length_X_ll_n_l_af", bonus_length_X_ll_n_l_af, bonus_length_X_ll_n_l_af_bench, "{return test(\"%#llx%u%#lX\", ull_pos_1, ui_pos_1, ul_pos_1);}"},
-	{1, 1489, "nocrash_notrequired_bonus_length_noarg_11", nocrash_notrequired_bonus_length_noarg_11, nocrash_notrequired_bonus_length_noarg_11_bench, "{return test(\"%hh\"); }"},
-	{1, 1490, "nocrash_notrequired_bonus_length_noarg_12", nocrash_notrequired_bonus_length_noarg_12, nocrash_notrequired_bonus_length_noarg_12_bench, "{return test(\"%h\"); }"},
-	{1, 1491, "nocrash_notrequired_bonus_length_noarg_13", nocrash_notrequired_bonus_length_noarg_13, nocrash_notrequired_bonus_length_noarg_13_bench, "{return test(\"%ll\"); }"},
-	{1, 1492, "nocrash_notrequired_bonus_length_noarg_14", nocrash_notrequired_bonus_length_noarg_14, nocrash_notrequired_bonus_length_noarg_14_bench, "{return test(\"%l\"); }"},
-	{1, 1493, "nocrash_notrequired_bonus_length_nullarg_11", nocrash_notrequired_bonus_length_nullarg_11, nocrash_notrequired_bonus_length_nullarg_11_bench, "{return test(\"%hhs\", NULL); }"},
-	{1, 1494, "nocrash_notrequired_bonus_length_nullarg_12", nocrash_notrequired_bonus_length_nullarg_12, nocrash_notrequired_bonus_length_nullarg_12_bench, "{return test(\"%hs\", NULL); }"},
-	{1, 1495, "nocrash_notrequired_bonus_length_nullarg_13", nocrash_notrequired_bonus_length_nullarg_13, nocrash_notrequired_bonus_length_nullarg_13_bench, "{return test(\"%lls\", NULL); }"},
-	{1, 1496, "nocrash_notrequired_bonus_length_nullarg_14", nocrash_notrequired_bonus_length_nullarg_14, nocrash_notrequired_bonus_length_nullarg_14_bench, "{return test(\"%ls\", NULL); }"},
-	{1, 1497, "nocrash_notrequired_bonus_length_c_hh", nocrash_notrequired_bonus_length_c_hh, nocrash_notrequired_bonus_length_c_hh_bench, "{return test(\"%hhc\", 'a');}"},
-	{1, 1498, "nocrash_notrequired_bonus_length_c_h", nocrash_notrequired_bonus_length_c_h, nocrash_notrequired_bonus_length_c_h_bench, "{return test(\"%hc\", 'a');}"},
-	{1, 1499, "nocrash_notrequired_bonus_length_c_l", nocrash_notrequired_bonus_length_c_l, nocrash_notrequired_bonus_length_c_l_bench, "{return test(\"%lc\", 'a');}"},
-	{1, 1500, "nocrash_notrequired_bonus_length_c_ll", nocrash_notrequired_bonus_length_c_ll, nocrash_notrequired_bonus_length_c_ll_bench, "{return test(\"%llc\", 'a');}"},
-	{1, 1501, "nocrash_notrequired_bonus_length_s_hh", nocrash_notrequired_bonus_length_s_hh, nocrash_notrequired_bonus_length_s_hh_bench, "{return test(\"%hhs\", \"hello\");}"},
-	{1, 1502, "nocrash_notrequired_bonus_length_s_h", nocrash_notrequired_bonus_length_s_h, nocrash_notrequired_bonus_length_s_h_bench, "{return test(\"%hs\", \"hello\");}"},
-	{1, 1503, "nocrash_notrequired_bonus_length_s_l", nocrash_notrequired_bonus_length_s_l, nocrash_notrequired_bonus_length_s_l_bench, "{return test(\"%s\", \"hello\");}"},
-	{1, 1504, "nocrash_notrequired_bonus_length_s_ll", nocrash_notrequired_bonus_length_s_ll, nocrash_notrequired_bonus_length_s_ll_bench, "{return test(\"%lls\", \"hello\");}"},
-	{1, 1505, "nocrash_notrequired_bonus_length_p_hh", nocrash_notrequired_bonus_length_p_hh, nocrash_notrequired_bonus_length_p_hh_bench, "{return test(\"%hhp\", &ncm_p);}"},
-	{1, 1506, "nocrash_notrequired_bonus_length_p_h", nocrash_notrequired_bonus_length_p_h, nocrash_notrequired_bonus_length_p_h_bench, "{return test(\"%hp\", &ncm_p);}"},
-	{1, 1507, "nocrash_notrequired_bonus_length_p_l", nocrash_notrequired_bonus_length_p_l, nocrash_notrequired_bonus_length_p_l_bench, "{return test(\"%lp\", &ncm_p);}"},
-	{1, 1508, "nocrash_notrequired_bonus_length_p_ll", nocrash_notrequired_bonus_length_p_ll, nocrash_notrequired_bonus_length_p_ll_bench, "{return test(\"%llp\", &ncm_p);}"},
-	{1, 1509, "nocrash_notrequired_bonus_length_d_hhh", nocrash_notrequired_bonus_length_d_hhh, nocrash_notrequired_bonus_length_d_hhh_bench, "{return test(\"%hhhd\", 42);}"},
-	{1, 1510, "nocrash_notrequired_bonus_length_d_hhhh", nocrash_notrequired_bonus_length_d_hhhh, nocrash_notrequired_bonus_length_d_hhhh_bench, "{return test(\"%hhhhd\", 42);}"},
-	{1, 1511, "nocrash_notrequired_bonus_length_d_hhl", nocrash_notrequired_bonus_length_d_hhl, nocrash_notrequired_bonus_length_d_hhl_bench, "{return test(\"%hhld\", 42);}"},
-	{1, 1512, "nocrash_notrequired_bonus_length_d_hhll", nocrash_notrequired_bonus_length_d_hhll, nocrash_notrequired_bonus_length_d_hhll_bench, "{return test(\"%hhlld\", 42);}"},
-	{1, 1513, "nocrash_notrequired_bonus_length_d_llh", nocrash_notrequired_bonus_length_d_llh, nocrash_notrequired_bonus_length_d_llh_bench, "{return test(\"%llhd\", 42);}"},
-	{1, 1514, "nocrash_notrequired_bonus_length_d_lll", nocrash_notrequired_bonus_length_d_lll, nocrash_notrequired_bonus_length_d_lll_bench, "{return test(\"%llld\", 42);}"},
-	{1, 1515, "nocrash_notrequired_bonus_length_i_hhh", nocrash_notrequired_bonus_length_i_hhh, nocrash_notrequired_bonus_length_i_hhh_bench, "{return test(\"%hhhi\", 42);}"},
-	{1, 1516, "nocrash_notrequired_bonus_length_u_hhh", nocrash_notrequired_bonus_length_u_hhh, nocrash_notrequired_bonus_length_u_hhh_bench, "{return test(\"%hhhu\", 42);}"},
-	{1, 1517, "nocrash_notrequired_bonus_length_u_hhhh", nocrash_notrequired_bonus_length_u_hhhh, nocrash_notrequired_bonus_length_u_hhhh_bench, "{return test(\"%hhhhu\", 42);}"},
-	{1, 1518, "nocrash_notrequired_bonus_length_u_hhl", nocrash_notrequired_bonus_length_u_hhl, nocrash_notrequired_bonus_length_u_hhl_bench, "{return test(\"%hhlu\", 42);}"},
-	{1, 1519, "nocrash_notrequired_bonus_length_u_hhll", nocrash_notrequired_bonus_length_u_hhll, nocrash_notrequired_bonus_length_u_hhll_bench, "{return test(\"%hhllu\", 42);}"},
-	{1, 1520, "nocrash_notrequired_bonus_length_u_llh", nocrash_notrequired_bonus_length_u_llh, nocrash_notrequired_bonus_length_u_llh_bench, "{return test(\"%llhu\", 42);}"},
-	{1, 1521, "nocrash_notrequired_bonus_length_u_lll", nocrash_notrequired_bonus_length_u_lll, nocrash_notrequired_bonus_length_u_lll_bench, "{return test(\"%lllu\", 42);}"},
-	{1, 1522, "nocrash_notrequired_bonus_length_x_hhh", nocrash_notrequired_bonus_length_x_hhh, nocrash_notrequired_bonus_length_x_hhh_bench, "{return test(\"%hhhx\", 42);}"},
-	{1, 1523, "nocrash_notrequired_bonus_length_x_hhhh", nocrash_notrequired_bonus_length_x_hhhh, nocrash_notrequired_bonus_length_x_hhhh_bench, "{return test(\"%hhhhx\", 42);}"},
-	{1, 1524, "nocrash_notrequired_bonus_length_x_hhl", nocrash_notrequired_bonus_length_x_hhl, nocrash_notrequired_bonus_length_x_hhl_bench, "{return test(\"%hhlx\", 42);}"},
-	{1, 1525, "nocrash_notrequired_bonus_length_x_hhll", nocrash_notrequired_bonus_length_x_hhll, nocrash_notrequired_bonus_length_x_hhll_bench, "{return test(\"%hhllx\", 42);}"},
-	{1, 1526, "nocrash_notrequired_bonus_length_x_llh", nocrash_notrequired_bonus_length_x_llh, nocrash_notrequired_bonus_length_x_llh_bench, "{return test(\"%llhx\", 42);}"},
-	{1, 1527, "nocrash_notrequired_bonus_length_x_lll", nocrash_notrequired_bonus_length_x_lll, nocrash_notrequired_bonus_length_x_lll_bench, "{return test(\"%lllx\", 42);}"},
-	{1, 1528, "nocrash_notrequired_bonus_length_X_hhh", nocrash_notrequired_bonus_length_X_hhh, nocrash_notrequired_bonus_length_X_hhh_bench, "{return test(\"%hhhX\", 42);}"},
-	{1, 1529, "nocrash_notrequired_bonus_length_X_llh", nocrash_notrequired_bonus_length_X_llh, nocrash_notrequired_bonus_length_X_llh_bench, "{return test(\"%llhX\", 42);}"},
-	{1, 1530, "nocrash_notrequired_bonus_length_f_hh", nocrash_notrequired_bonus_length_f_hh, nocrash_notrequired_bonus_length_f_hh_bench, "{return test(\"%hhf\", 42.5);}"},
-	{1, 1531, "nocrash_notrequired_bonus_length_f_h", nocrash_notrequired_bonus_length_f_h, nocrash_notrequired_bonus_length_f_h_bench, "{return test(\"%hf\", 42.5);}"},
-	{1, 1532, "nocrash_notrequired_bonus_length_f_ll", nocrash_notrequired_bonus_length_f_ll, nocrash_notrequired_bonus_length_f_ll_bench, "{return test(\"%llf\", 42.5);}"},
-	{1, 1533, "nocrash_notrequired_bonus_length_f_lll", nocrash_notrequired_bonus_length_f_lll, nocrash_notrequired_bonus_length_f_lll_bench, "{return test(\"%lllf\", 42.5);}"},
-	{1, 1534, "nocrash_notrequired_bonus_length_f_llll", nocrash_notrequired_bonus_length_f_llll, nocrash_notrequired_bonus_length_f_llll_bench, "{return test(\"%llllf\", 42.5);}"},
+	{0, 1489, "nocrash_notrequired_bonus_length_noarg_11", nocrash_notrequired_bonus_length_noarg_11, nocrash_notrequired_bonus_length_noarg_11_bench, "{return test(\"%hh\"); }"},
+	{0, 1490, "nocrash_notrequired_bonus_length_noarg_12", nocrash_notrequired_bonus_length_noarg_12, nocrash_notrequired_bonus_length_noarg_12_bench, "{return test(\"%h\"); }"},
+	{0, 1491, "nocrash_notrequired_bonus_length_noarg_13", nocrash_notrequired_bonus_length_noarg_13, nocrash_notrequired_bonus_length_noarg_13_bench, "{return test(\"%ll\"); }"},
+	{0, 1492, "nocrash_notrequired_bonus_length_noarg_14", nocrash_notrequired_bonus_length_noarg_14, nocrash_notrequired_bonus_length_noarg_14_bench, "{return test(\"%l\"); }"},
+	{0, 1493, "nocrash_notrequired_bonus_length_nullarg_11", nocrash_notrequired_bonus_length_nullarg_11, nocrash_notrequired_bonus_length_nullarg_11_bench, "{return test(\"%hhs\", NULL); }"},
+	{0, 1494, "nocrash_notrequired_bonus_length_nullarg_12", nocrash_notrequired_bonus_length_nullarg_12, nocrash_notrequired_bonus_length_nullarg_12_bench, "{return test(\"%hs\", NULL); }"},
+	{0, 1495, "nocrash_notrequired_bonus_length_nullarg_13", nocrash_notrequired_bonus_length_nullarg_13, nocrash_notrequired_bonus_length_nullarg_13_bench, "{return test(\"%lls\", NULL); }"},
+	{0, 1496, "nocrash_notrequired_bonus_length_nullarg_14", nocrash_notrequired_bonus_length_nullarg_14, nocrash_notrequired_bonus_length_nullarg_14_bench, "{return test(\"%ls\", NULL); }"},
+	{0, 1497, "nocrash_notrequired_bonus_length_c_hh", nocrash_notrequired_bonus_length_c_hh, nocrash_notrequired_bonus_length_c_hh_bench, "{return test(\"%hhc\", 'a');}"},
+	{0, 1498, "nocrash_notrequired_bonus_length_c_h", nocrash_notrequired_bonus_length_c_h, nocrash_notrequired_bonus_length_c_h_bench, "{return test(\"%hc\", 'a');}"},
+	{0, 1499, "nocrash_notrequired_bonus_length_c_l", nocrash_notrequired_bonus_length_c_l, nocrash_notrequired_bonus_length_c_l_bench, "{return test(\"%lc\", 'a');}"},
+	{0, 1500, "nocrash_notrequired_bonus_length_c_ll", nocrash_notrequired_bonus_length_c_ll, nocrash_notrequired_bonus_length_c_ll_bench, "{return test(\"%llc\", 'a');}"},
+	{0, 1501, "nocrash_notrequired_bonus_length_s_hh", nocrash_notrequired_bonus_length_s_hh, nocrash_notrequired_bonus_length_s_hh_bench, "{return test(\"%hhs\", \"hello\");}"},
+	{0, 1502, "nocrash_notrequired_bonus_length_s_h", nocrash_notrequired_bonus_length_s_h, nocrash_notrequired_bonus_length_s_h_bench, "{return test(\"%hs\", \"hello\");}"},
+	{0, 1503, "nocrash_notrequired_bonus_length_s_l", nocrash_notrequired_bonus_length_s_l, nocrash_notrequired_bonus_length_s_l_bench, "{return test(\"%s\", \"hello\");}"},
+	{0, 1504, "nocrash_notrequired_bonus_length_s_ll", nocrash_notrequired_bonus_length_s_ll, nocrash_notrequired_bonus_length_s_ll_bench, "{return test(\"%lls\", \"hello\");}"},
+	{0, 1505, "nocrash_notrequired_bonus_length_p_hh", nocrash_notrequired_bonus_length_p_hh, nocrash_notrequired_bonus_length_p_hh_bench, "{return test(\"%hhp\", &ncm_p);}"},
+	{0, 1506, "nocrash_notrequired_bonus_length_p_h", nocrash_notrequired_bonus_length_p_h, nocrash_notrequired_bonus_length_p_h_bench, "{return test(\"%hp\", &ncm_p);}"},
+	{0, 1507, "nocrash_notrequired_bonus_length_p_l", nocrash_notrequired_bonus_length_p_l, nocrash_notrequired_bonus_length_p_l_bench, "{return test(\"%lp\", &ncm_p);}"},
+	{0, 1508, "nocrash_notrequired_bonus_length_p_ll", nocrash_notrequired_bonus_length_p_ll, nocrash_notrequired_bonus_length_p_ll_bench, "{return test(\"%llp\", &ncm_p);}"},
+	{0, 1509, "nocrash_notrequired_bonus_length_d_hhh", nocrash_notrequired_bonus_length_d_hhh, nocrash_notrequired_bonus_length_d_hhh_bench, "{return test(\"%hhhd\", 42);}"},
+	{0, 1510, "nocrash_notrequired_bonus_length_d_hhhh", nocrash_notrequired_bonus_length_d_hhhh, nocrash_notrequired_bonus_length_d_hhhh_bench, "{return test(\"%hhhhd\", 42);}"},
+	{0, 1511, "nocrash_notrequired_bonus_length_d_hhl", nocrash_notrequired_bonus_length_d_hhl, nocrash_notrequired_bonus_length_d_hhl_bench, "{return test(\"%hhld\", 42);}"},
+	{0, 1512, "nocrash_notrequired_bonus_length_d_hhll", nocrash_notrequired_bonus_length_d_hhll, nocrash_notrequired_bonus_length_d_hhll_bench, "{return test(\"%hhlld\", 42);}"},
+	{0, 1513, "nocrash_notrequired_bonus_length_d_llh", nocrash_notrequired_bonus_length_d_llh, nocrash_notrequired_bonus_length_d_llh_bench, "{return test(\"%llhd\", 42);}"},
+	{0, 1514, "nocrash_notrequired_bonus_length_d_lll", nocrash_notrequired_bonus_length_d_lll, nocrash_notrequired_bonus_length_d_lll_bench, "{return test(\"%llld\", 42);}"},
+	{0, 1515, "nocrash_notrequired_bonus_length_i_hhh", nocrash_notrequired_bonus_length_i_hhh, nocrash_notrequired_bonus_length_i_hhh_bench, "{return test(\"%hhhi\", 42);}"},
+	{0, 1516, "nocrash_notrequired_bonus_length_u_hhh", nocrash_notrequired_bonus_length_u_hhh, nocrash_notrequired_bonus_length_u_hhh_bench, "{return test(\"%hhhu\", 42);}"},
+	{0, 1517, "nocrash_notrequired_bonus_length_u_hhhh", nocrash_notrequired_bonus_length_u_hhhh, nocrash_notrequired_bonus_length_u_hhhh_bench, "{return test(\"%hhhhu\", 42);}"},
+	{0, 1518, "nocrash_notrequired_bonus_length_u_hhl", nocrash_notrequired_bonus_length_u_hhl, nocrash_notrequired_bonus_length_u_hhl_bench, "{return test(\"%hhlu\", 42);}"},
+	{0, 1519, "nocrash_notrequired_bonus_length_u_hhll", nocrash_notrequired_bonus_length_u_hhll, nocrash_notrequired_bonus_length_u_hhll_bench, "{return test(\"%hhllu\", 42);}"},
+	{0, 1520, "nocrash_notrequired_bonus_length_u_llh", nocrash_notrequired_bonus_length_u_llh, nocrash_notrequired_bonus_length_u_llh_bench, "{return test(\"%llhu\", 42);}"},
+	{0, 1521, "nocrash_notrequired_bonus_length_u_lll", nocrash_notrequired_bonus_length_u_lll, nocrash_notrequired_bonus_length_u_lll_bench, "{return test(\"%lllu\", 42);}"},
+	{0, 1522, "nocrash_notrequired_bonus_length_x_hhh", nocrash_notrequired_bonus_length_x_hhh, nocrash_notrequired_bonus_length_x_hhh_bench, "{return test(\"%hhhx\", 42);}"},
+	{0, 1523, "nocrash_notrequired_bonus_length_x_hhhh", nocrash_notrequired_bonus_length_x_hhhh, nocrash_notrequired_bonus_length_x_hhhh_bench, "{return test(\"%hhhhx\", 42);}"},
+	{0, 1524, "nocrash_notrequired_bonus_length_x_hhl", nocrash_notrequired_bonus_length_x_hhl, nocrash_notrequired_bonus_length_x_hhl_bench, "{return test(\"%hhlx\", 42);}"},
+	{0, 1525, "nocrash_notrequired_bonus_length_x_hhll", nocrash_notrequired_bonus_length_x_hhll, nocrash_notrequired_bonus_length_x_hhll_bench, "{return test(\"%hhllx\", 42);}"},
+	{0, 1526, "nocrash_notrequired_bonus_length_x_llh", nocrash_notrequired_bonus_length_x_llh, nocrash_notrequired_bonus_length_x_llh_bench, "{return test(\"%llhx\", 42);}"},
+	{0, 1527, "nocrash_notrequired_bonus_length_x_lll", nocrash_notrequired_bonus_length_x_lll, nocrash_notrequired_bonus_length_x_lll_bench, "{return test(\"%lllx\", 42);}"},
+	{0, 1528, "nocrash_notrequired_bonus_length_X_hhh", nocrash_notrequired_bonus_length_X_hhh, nocrash_notrequired_bonus_length_X_hhh_bench, "{return test(\"%hhhX\", 42);}"},
+	{0, 1529, "nocrash_notrequired_bonus_length_X_llh", nocrash_notrequired_bonus_length_X_llh, nocrash_notrequired_bonus_length_X_llh_bench, "{return test(\"%llhX\", 42);}"},
+	{0, 1530, "nocrash_notrequired_bonus_length_f_hh", nocrash_notrequired_bonus_length_f_hh, nocrash_notrequired_bonus_length_f_hh_bench, "{return test(\"%hhf\", 42.5);}"},
+	{0, 1531, "nocrash_notrequired_bonus_length_f_h", nocrash_notrequired_bonus_length_f_h, nocrash_notrequired_bonus_length_f_h_bench, "{return test(\"%hf\", 42.5);}"},
+	{0, 1532, "nocrash_notrequired_bonus_length_f_ll", nocrash_notrequired_bonus_length_f_ll, nocrash_notrequired_bonus_length_f_ll_bench, "{return test(\"%llf\", 42.5);}"},
+	{0, 1533, "nocrash_notrequired_bonus_length_f_lll", nocrash_notrequired_bonus_length_f_lll, nocrash_notrequired_bonus_length_f_lll_bench, "{return test(\"%lllf\", 42.5);}"},
+	{0, 1534, "nocrash_notrequired_bonus_length_f_llll", nocrash_notrequired_bonus_length_f_llll, nocrash_notrequired_bonus_length_f_llll_bench, "{return test(\"%llllf\", 42.5);}"},
 	{1, 1535, "bonus_f_basic_1", bonus_f_basic_1, bonus_f_basic_1_bench, "{return test(\"this %f float\", 1.5);}"},
 	{1, 1536, "bonus_f_basic_fltonly", bonus_f_basic_fltonly, bonus_f_basic_fltonly_bench, "{return test(\"%f\", 7.5);}"},
 	{1, 1537, "bonus_f_basic_zero", bonus_f_basic_zero, bonus_f_basic_zero_bench, "{return test(\"%f\", 0.0);}"},

@@ -42,9 +42,9 @@ static char	*add_decimals(t_flags *tab, double argument, char *arg_str)
 // char	bankers_rounding(double decimal, t_flags *tab)
 long double	rounding(long double original, t_flags *tab)
 {
-	int			counter;
 	long double	decider;
 	long double	rounder;
+	int			counter;
 
 	decider = original;
 	counter = 0;
@@ -52,13 +52,14 @@ long double	rounding(long double original, t_flags *tab)
 	while (++counter <= tab->prec_len)
 		rounder /= 10;
 	counter = 0;
-	// while loop to delete
-	// add while loop back
+	// Which one better?
+	// decider *= ft_pow(10, tab->prec_len);
 	while (counter <= tab->prec_len)
 	{
-
+		decider -= (int)decider;
+		decider *= 10;
+		counter++;
 	}
-	// decider *= ft_pow(10, tab->prec_len);
 	if ((int)decider >= 5)
 		return (original + rounder);
 	else
@@ -75,7 +76,6 @@ double	bankers_rounding(double decimals, t_flags *tab)
 	roundable = (int)decimals;
 	decimals -= (int)decimals;
 	rounder = decimals * 10;
-	// rounder *= ft_pow(10, 2); // temp
 
 	if ((rounder == 5 && !ft_isodd(roundable)) || original == 0)
 		return ((int)original);
