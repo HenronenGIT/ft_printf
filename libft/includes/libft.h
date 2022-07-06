@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 # include "get_next_line.h"
 
 typedef struct s_list
@@ -105,5 +106,7 @@ char	*ft_strrev(char *str);
 char	*ft_strtoupper(char *string);
 int		ft_isodd(int number);
 int		ft_pow(int base, int exponent);
+char	*ft_itoa_base(long dec, int base);
+char	*ft_unsigned_itoa_base(unsigned long dec, int base);
 
 #endif
