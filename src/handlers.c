@@ -143,9 +143,9 @@ void	o_handler(t_flags *tab)
 	arg = va_arg(tab->args, unsigned long);
 	unsigned_length_modifiers(tab, &arg);
 	arg_str = ft_unsigned_itoa_base(arg, 8);
-	if (tab->hash && !tab->precision
-		|| tab->hash && tab->prec_len == 0 && arg == 0
-		|| tab->hash && tab->prec_len <= ft_strlen(arg_str))
+	if ((tab->hash && !tab->precision)
+		|| (tab->hash && tab->prec_len == 0 && arg == 0)
+		|| (tab->hash && tab->prec_len <= ft_strlen(arg_str)))
 	{
 		tab->ret_len += 1;
 		prefix = ft_strdup("0");

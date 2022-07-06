@@ -69,7 +69,10 @@ const char	*check_format(const char *str, t_flags *tab)
 	while (*str != '\0' && !is_format(*str))
 		str++;
 	if (*str == '\0')
-		return NULL;
+	{
+		tab->ret_len += write(1, &(*ptr), 1);
+		return (ptr);
+	}
 	check_flags(tab, ptr, *str);
 	check_length_modifiers(tab, ptr, *str);
 	specifier_ptr = ft_strchr(FORMATS, *str);
@@ -98,8 +101,8 @@ int	ft_printf(const char *format, ...)
 			format++;
 			init_tab(tab);
 			format = check_format(format, tab);
-			if (!format)
-				break;
+			// if (!format)
+				// break;
 		}
 		format++;
 	}
