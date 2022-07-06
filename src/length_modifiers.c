@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	length_modifiers(t_flags *tab, long long *number_ptr)
+void	length_modifiers(t_flags *tab, long *number_ptr)
 {
 	if (tab->h)
 		*number_ptr = (short)*number_ptr;

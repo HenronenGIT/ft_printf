@@ -13,66 +13,58 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-// #include <stdio.h> // temp
-#include "./libft/includes/libft.h"
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <limits.h>
+# include "./libft/includes/libft.h"
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
 
-#define FORMATS "cspdiouxXf%%"
+# define FORMATS "cspdiouxXf%%"
 
 typedef struct s_flags
 {
-	va_list args;
-	int width;
-	int space;
-	int zero;
-	int plus;
-	int minus;
-	int hash;
-	int precision;
-	int prec_len;
-	int	arg_len;
-	int	hh;
-	int	h;
-	int l;
-	int ll;
-	int	ret_len;
-	int is_neg;
-	int is_float;
-} t_flags;
+	va_list	args;
+	int		width;
+	int		space;
+	int		zero;
+	int		plus;
+	int		minus;
+	int		hash;
+	int		precision;
+	int		prec_len;
+	int		arg_len;
+	int		hh;
+	int		h;
+	int		l;
+	int		ll;
+	int		ret_len;
+	int		is_neg;
+	int		is_float;
+}	t_flags;
 
-typedef void handler_func(t_flags *tab);
+typedef void	t_handler_func(t_flags *flag);
 
-int		ft_printf(const char *format, ...);
-void	check_flags(t_flags *tab, const char *str, char format);
-void	check_length_modifiers(t_flags *tab, const char *str, char specifier);
+int			ft_printf(const char *format, ...);
+void		check_flags(t_flags *flag, const char *str, char format);
+void		check_length_modifiers(t_flags *flag, const char *str, char specif);
 
-void	c_handler(t_flags *tab);
-void	s_handler(t_flags *tab);
-void	p_handler(t_flags *tab);
-void	di_handler(t_flags *tab);
-void	o_handler(t_flags *tab);
-void	u_handler(t_flags *tab);
-void	x_handler(t_flags *tab);
-void	X_handler(t_flags *tab);
-void	f_handler(t_flags *tab);
-void	percent_handler(t_flags *tab);
+void		c_handler(t_flags *flag);
+void		s_handler(t_flags *flag);
+void		p_handler(t_flags *flag);
+void		di_handler(t_flags *flag);
+void		o_handler(t_flags *flag);
+void		u_handler(t_flags *flag);
+void		x_handler(t_flags *flag);
+void		big_x_handler(t_flags *flag);
+void		f_handler(t_flags *flag);
+void		percent_handler(t_flags *flag);
 
-char	*ft_itoa_base(long long dec, int base);
-char	*ft_unsigned_itoa_base(unsigned long dec, int base);
-void	put_ptr(uintptr_t addr);
-int		putpadding(int width, char ch);
+void		put_ptr(uintptr_t addr);
+int			putpadding(int width, char ch);
 
-void		plus_flag(t_flags *tab);
-// int			count_padding(t_flags *tab);
-void		nb_padding(t_flags *tab, char *argument, char *prefix);
-void		length_modifiers(t_flags *tab, long long *ptr_nb);
-void		unsigned_length_modifiers(t_flags *tab, unsigned long *ptr_nb);
-long double	double_length_modifiers(t_flags *tab);
-
-
-char	*ft_anytoa(long long n);
+void		nb_padding(t_flags *flag, char *argument, char *prefix);
+void		length_modifiers(t_flags *flag, long *ptr_nb);
+void		unsigned_length_modifiers(t_flags *flag, unsigned long *ptr_nb);
+long double	double_length_modifiers(t_flags *flag);
 
 #endif

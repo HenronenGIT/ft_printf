@@ -97,7 +97,7 @@ int	main(void)
 	// printf("%d\n", PRINTER("|%s|", NULL)); fflush(stdout);
 	printf("====== c Specifier ======\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%c|", 'h')); fflush(stdout);
-	printf("%d\n", PRINTER("|%c|", 0)); fflush(stdout);
+	// printf("%d\n", PRINTER("|%c|", 0)); fflush(stdout);
 	printf(">>>>>>>>>> Width <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%10c|", 'h')); fflush(stdout);
 	printf("%d\n", PRINTER("|%10c|", 'h')); fflush(stdout);

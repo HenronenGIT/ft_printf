@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-void	check_length_modifiers(t_flags *tab, const char *str, char specifier)
+void	check_length_modifiers(t_flags *tab, const char *str, char specif)
 {
-	while (*str != specifier)
+	while (*str != specif)
 	{
 		if (*str == 'h' && tab->h)
 		{

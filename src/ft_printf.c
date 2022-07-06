@@ -42,7 +42,7 @@ static void	init_tab(t_flags *tab)
 
 static void	jump_table(t_flags *tab, int index)
 {
-	static handler_func	*jump_table[11] = {
+	static t_handler_func	*jump_table[11] = {
 		c_handler,
 		s_handler,
 		p_handler,
@@ -51,7 +51,7 @@ static void	jump_table(t_flags *tab, int index)
 		o_handler,
 		u_handler,
 		x_handler,
-		X_handler,
+		big_x_handler,
 		f_handler,
 		percent_handler
 	};
@@ -101,8 +101,6 @@ int	ft_printf(const char *format, ...)
 			format++;
 			init_tab(tab);
 			format = check_format(format, tab);
-			// if (!format)
-				// break;
 		}
 		format++;
 	}
