@@ -184,7 +184,7 @@ void percent_handler(t_flags *tab)
 	int		prec_padding;
 
 	tab->precision = 0;
+	tab->space = 0;
 	tab->arg_len += 1;
-
 	nb_padding(tab, "%", "");
 }

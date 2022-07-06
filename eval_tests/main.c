@@ -95,6 +95,8 @@ int	main(void)
 	// printf("%d\n", PRINTER("|%    %|", "test")); fflush(stdout);
 	// printf("%d\n", PRINTER("|%s %s|", NULL, str)); fflush(stdout);
 	// printf("%d\n", PRINTER("|%s|", NULL)); fflush(stdout);
+	printf("====== Error handling ======\n"); fflush(stdout);
+	printf("%d\n", PRINTER("|%zj|", 9223372036854775807)); fflush(stdout);
 
 	printf("====== c Specifier ======\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%c|", 'h')); fflush(stdout);
@@ -200,8 +202,6 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%010.1d|", -0)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%0-8.5d|", 32)); fflush(stdout);
 	
-
-
 	printf("====== u specifier ======\n"); fflush(stdout);
 	// /* Without flags */
 	printf("%d\n", PRINTER("|%u|", nb)); fflush(stdout);
@@ -384,6 +384,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%.5%|")); fflush(stdout);
 	printf("%d\n", PRINTER("|%.0%|")); fflush(stdout);
 	printf("%d\n", PRINTER("|%05%|")); fflush(stdout);
+	printf("%d\n", PRINTER("|%    %|")); fflush(stdout);
 	// printf("%d\n", PRINTER("|%|")); fflush(stdout);
 
 	printf("====== o specifier ======\n"); fflush(stdout);
