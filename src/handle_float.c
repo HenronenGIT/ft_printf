@@ -12,19 +12,18 @@
 
 #include "ft_printf.h"
 
-static char	*add_decimals(t_flags *tab, double argument, char *arg_str)
+static char	*add_decimals(t_flags *tab, long double argument, char *arg_str)
 {
 	char	*decimals;
 	int		index;
 
-	index = 0;
 	decimals = NULL;
+	index = 0;
 	decimals = ft_strnew(tab->prec_len + 1);
 	decimals[index++] = '.';
-
 	while(index <= tab->prec_len)
 	{
-			argument *= 10;
+		argument *= 10;
 		if ((int)argument == 0)
 			decimals[index] = '0';
 		else
@@ -38,7 +37,6 @@ static char	*add_decimals(t_flags *tab, double argument, char *arg_str)
 	return (arg_str);
 }
 
-// char	bankers_rounding(double decimal, t_flags *tab)
 long double	rounding(long double original, t_flags *tab)
 {
 	long double	decider;
@@ -51,8 +49,6 @@ long double	rounding(long double original, t_flags *tab)
 	while (++counter <= tab->prec_len)
 		rounder /= 10;
 	counter = 0;
-	// Which one better?
-	// decider *= ft_pow(10, tab->prec_len);
 	while (counter <= tab->prec_len)
 	{
 		decider -= (int)decider;
@@ -67,7 +63,6 @@ long double	rounding(long double original, t_flags *tab)
 
 double	bankers_rounding(double decimals, t_flags *tab)
 {
-	// int	rounder;
 	double	rounder;
 	int	roundable;
 	int	original;
@@ -78,13 +73,7 @@ double	bankers_rounding(double decimals, t_flags *tab)
 	original = decimals;
 	roundable = (int)decimals;
 	decimals -= (int)decimals;
-	// OLD STYLE //
-	// rounder = decimals * 10;
-
-
-	// NEW STYLE //
 	rounder = (decimals - (int)decimals) * 10;
-	// rounder *= 10);
 	while (max_prec--)
 	{
 		rounder = rounder - (int)rounder;
@@ -92,8 +81,6 @@ double	bankers_rounding(double decimals, t_flags *tab)
 		if (rounder != 0)
 			break;
 	}
-
-	// if ((rounder == 5 && !ft_isodd(roundable)) || original == 0)
 	if ((!ft_isodd(roundable)) || original == 0)
 		return ((int)original);
 	else
