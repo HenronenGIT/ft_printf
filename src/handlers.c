@@ -36,13 +36,6 @@ void	s_handler(t_flags *tab)
 		str = ft_strdup("(null)");
 	arg_len = ft_strlen(str);
 	tab->ret_len += arg_len;
-
-	/* NEW */
-	// if (tab->precision)
-
-
-	//
-	/* OLD */
 	if (tab->precision)
 	{
 		if (arg_len >= tab->prec_len)
