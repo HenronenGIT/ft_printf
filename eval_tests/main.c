@@ -31,7 +31,6 @@ void	test_o();
 int	main(void)
 {
 	FILE *printf_file;
-	FILE *ft_printf_file;
 
 	unsigned int		uint_min;
 	unsigned int		uint_max;
@@ -50,12 +49,9 @@ int	main(void)
 	long long			llong_max;
 	double				neg_double_nb;
 	double				double_nb;
-	double				double_max;
-	double				ldouble_max;
 
 	/* Pointer variables */
 	char *empty = NULL;
-	int	tab[5] = {0, 1 ,2};
 
 	char *str = "String!";
 	neg_nb = -42;
@@ -77,8 +73,6 @@ int	main(void)
 	/* Doubles */
 	double_nb = 42.0;
 	neg_double_nb = -42.042;
-	double_max = DBL_MAX;
-	ldouble_max = LDBL_MAX;
 	if((printf_file=freopen(PRINTER_STR".txt", "w" ,stdout)) == NULL)
 	{
 		printf("Cannot open printf.txt.\n");

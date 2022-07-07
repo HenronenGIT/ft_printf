@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 #Compilation and flags
 CC = gcc
-FLAGS = #-Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 DB_FLAG = -g $(FLAGS)
 
 #Source files
@@ -47,10 +47,6 @@ $(NAME): $(SRC)
 	$(info Compiling ft_printf library)
 	@@ar rc -s $(NAME) *.o ./libft/*.o
 
-debug:
-	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
-	@@$(CC) $(DB_FLAG) $(HEADERS) $(SRC) -o $(NAME) $(LIB)
-
 clean:
 	$(info Cleaning object files)
 #	@@$(RM) $(OBJ)
@@ -69,5 +65,10 @@ test: $(SRC)
 	@@./a.out
 	@@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H)
 	@@./a.out
+
+leaks:
+	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
+	@@$(CC) -g $(FLAGS) -I ./ -c $(SRC)
+	@@ar rc -s $(NAME) *.o ./libft/*.o
 
 .PHONY: all clean fclean re

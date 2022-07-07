@@ -61,7 +61,7 @@ long double	rounding(long double original, t_flags *tab)
 		return (original);
 }
 
-double	bankers_rounding(double decimals, t_flags *tab)
+double	bankers_rounding(double decimals)
 {
 	double	rounder;
 	int		roundable;
@@ -86,29 +86,29 @@ double	bankers_rounding(double decimals, t_flags *tab)
 		return ((int)original + 1);
 }
 
-void	f_handler(t_flags *tab)
+void	f_handler(t_flags *flag)
 {
 	long double	arg;
 	char		*arg_str;
 
 	arg = 0;
 	arg_str = NULL;
-	tab->is_float = 1;
-	if (!tab->precision)
-		tab->prec_len = 6;
-	arg = double_length_modifiers(tab);
+	flag->is_float = 1;
+	if (!flag->precision)
+		flag->prec_len = 6;
+	arg = double_length_modifiers(flag);
 	if (1 / arg < 0)
 	{
 		arg *= -1;
-		tab->is_neg = 1;
+		flag->is_neg = 1;
 	}
-	if (tab->prec_len == 0 && arg && ((arg - (int)arg) * 10) == 5)
-		arg = bankers_rounding(arg, tab);
+	if (flag->prec_len == 0 && arg && ((arg - (int)arg) * 10) == 5)
+		arg = bankers_rounding(arg);
 	else
-		arg = rounding(arg, tab);
+		arg = rounding(arg, flag);
 	arg_str = ft_itoa_base(arg, 10);
-	if (tab->prec_len != 0 || tab->hash)
-		arg_str = add_decimals(tab, (arg - (long)arg), arg_str);
-	tab->arg_len = ft_strlen(arg_str);
-	nb_padding(tab, arg_str, "");
+	if (flag->prec_len != 0 || flag->hash)
+		arg_str = add_decimals(flag, (arg - (long)arg), arg_str);
+	flag->arg_len = ft_strlen(arg_str);
+	nb_padding(flag, arg_str, "");
 }

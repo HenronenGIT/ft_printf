@@ -62,7 +62,6 @@ static void	jump_table(t_flags *tab, int index)
 const char	*check_format(const char *str, t_flags *tab)
 {
 	const char	*ptr;
-	char		conversion;
 	char		*specifier_ptr;
 
 	ptr = str;

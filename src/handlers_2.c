@@ -38,9 +38,9 @@ void	o_handler(t_flags *tab)
 	arg = va_arg(tab->args, unsigned long);
 	unsigned_length_modifiers(tab, &arg);
 	arg_str = ft_unsigned_itoa_base(arg, 8);
-	if (tab->hash && !tab->precision
-		|| tab->hash && tab->prec_len == 0 && arg == 0
-		|| tab->hash && tab->prec_len <= ft_strlen(arg_str))
+	if ((tab->hash && !tab->precision)
+		|| (tab->hash && tab->prec_len == 0 && arg == 0)
+		|| (tab->hash && tab->prec_len <= (int)ft_strlen(arg_str)))
 	{
 		tab->ret_len += 1;
 		prefix = ft_strdup("0");
@@ -75,9 +75,6 @@ void	u_handler(t_flags *tab)
 
 void	percent_handler(t_flags *tab)
 {
-	char	arg;
-	int		prec_padding;
-
 	tab->precision = 0;
 	tab->space = 0;
 	tab->arg_len += 1;
