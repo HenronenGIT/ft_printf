@@ -60,7 +60,7 @@ void		f_handler(t_flags *flag);
 void		percent_handler(t_flags *flag);
 
 void		put_ptr(uintptr_t addr);
-int			putpadding(int width, char ch);
+int			put_padding(int width, char ch);
 
 void		nb_padding(t_flags *flag, char *argument, char *prefix);
 void		length_modifiers(t_flags *flag, long *ptr_nb);

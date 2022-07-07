@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 #Compilation and flags
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = #-Wall -Wextra -Werror
 DB_FLAG = -g $(FLAGS)
 
 #Source files
@@ -66,9 +66,13 @@ test: $(SRC)
 	@@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H)
 	@@./a.out
 
-leaks:
-	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
-	@@$(CC) -g $(FLAGS) -I ./ -c $(SRC)
+leaks: fclean
+	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H) leaks
+	@@$(CC) -g -fsanitize=address $(FLAGS) -I ./ -c $(SRC)
 	@@ar rc -s $(NAME) *.o ./libft/*.o
+	@@$(CC) $(FLAGS) -g -fsanitize=address $(NAME) ./eval_tests/main.c $(PRINTF_H) -D "ORIGINAL"
+	@@./a.out
+	@@$(CC) $(FLAGS) -g -fsanitize=address $(NAME) ./eval_tests/main.c $(PRINTF_H)
+	@@./a.out
 
 .PHONY: all clean fclean re

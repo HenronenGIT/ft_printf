@@ -45,4 +45,8 @@ fclean: clean
 
 re: fclean all
 
+leaks:
+	@@gcc $(FLAGS) -g -fsanitize=address -I $(HEADER) -c $(SRCS)
+	@@ar rc -s $(NAME) $(O_FILES)
+
 .PHONY: all clean fclean re

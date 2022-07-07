@@ -49,11 +49,11 @@ int	main(void)
 	long long			llong_max;
 	double				neg_double_nb;
 	double				double_nb;
+	char *empty;
 
-	/* Pointer variables */
-	char *empty = NULL;
 
 	char *str = "String!";
+	empty = NULL;
 	neg_nb = -42;
 	nb = 42;
 	short_max = 32767;
@@ -112,6 +112,7 @@ int	main(void)
 	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|Hive %10.s|", str)); fflush(stdout);
 	printf("%d\n", PRINTER("|Hive %10.5s|", str)); fflush(stdout);
+	printf("%d\n", PRINTER("|Hive %10.5s|", "123")); fflush(stdout);
 	printf("%d\n", PRINTER("|Hive %.s|", str)); fflush(stdout);
 	printf("%d\n", PRINTER("|%.2s is a string|", "")); fflush(stdout);
 	printf(">>>>>>>>>> '-' && Precision <<<<<<<<<<\n"); fflush(stdout);
@@ -192,7 +193,7 @@ int	main(void)
 
 	/* HC */
 	printf("~%d~\n", PRINTER("|%010.1d|", -0)); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%0-8.5d|", 32)); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%0-8.5d|", 32)); fflush(stdout);
 	
 	printf("====== u specifier ======\n"); fflush(stdout);
 	// /* Without flags */
@@ -377,7 +378,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%.0%|")); fflush(stdout);
 	printf("%d\n", PRINTER("|%05%|")); fflush(stdout);
 	printf("%d\n", PRINTER("|%    %|")); fflush(stdout);
-	printf("%d\n", PRINTER("|%|")); fflush(stdout);
+	// printf("%d\n", PRINTER("|%|")); fflush(stdout);
 
 	printf("====== o specifier ======\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|Hello world %o|", nb)); fflush(stdout);
@@ -512,6 +513,6 @@ int	main(void)
 		// printf("~%d~\n", PRINTER("|%|")); fflush(stdout);
 
 	fclose(printf_file);
-
+	system("leaks a.out");
 	return (0);
 }

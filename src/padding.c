@@ -71,22 +71,22 @@ void	nb_padding(t_flags *tab, char *argument, char *prefix)
 	prec_len = count_precision(tab);
 	padding_len = count_padding(tab, prefix, prec_len);
 	if ((tab->space || tab->width) && !tab->zero && !tab->minus)
-		tab->ret_len += putpadding(padding_len, ' ');
+		tab->ret_len += put_padding(padding_len, ' ');
 	if (tab->zero && tab->precision && padding_len >= 0 && !tab->is_float)
-		tab->ret_len += putpadding(padding_len, ' ');
+		tab->ret_len += put_padding(padding_len, ' ');
 	if (tab->plus || tab->is_neg || tab->space)
 		put_sign(tab);
 	if (tab->zero && tab->precision && tab->is_float)
-		tab->ret_len += putpadding(padding_len, '0');
+		tab->ret_len += put_padding(padding_len, '0');
 	if (tab->space && tab->zero && !tab->precision)
-		tab->ret_len += putpadding(padding_len, '0');
+		tab->ret_len += put_padding(padding_len, '0');
 	if (tab->hash)
 		ft_putstr(prefix);
 	if (tab->precision && padding_len >= 0)
-		tab->ret_len += putpadding(prec_len, '0');
+		tab->ret_len += put_padding(prec_len, '0');
 	if (tab->zero && !tab->precision && !tab->space)
-		tab->ret_len += putpadding((padding_len), '0');
+		tab->ret_len += put_padding((padding_len), '0');
 	ft_putstr(argument);
 	if (tab->minus && padding_len >= 0)
-		tab->ret_len += putpadding(padding_len, ' ');
+		tab->ret_len += put_padding(padding_len, ' ');
 }

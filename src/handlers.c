@@ -19,10 +19,10 @@ void	c_handler(t_flags *tab)
 	ch = va_arg(tab->args, int);
 	tab->ret_len += 1;
 	if (tab->width && !tab->minus)
-		tab->ret_len += putpadding((tab->width - 1), ' ');
+		tab->ret_len += put_padding((tab->width - 1), ' ');
 	ft_putchar(ch);
 	if (tab->width && tab->minus)
-		tab->ret_len += putpadding((tab->width - 1), ' ');
+		tab->ret_len += put_padding((tab->width - 1), ' ');
 }
 
 void	s_handler(t_flags *tab)
@@ -30,11 +30,19 @@ void	s_handler(t_flags *tab)
 	char	*str;
 	int		arg_len;
 
+	str = NULL;
 	str = va_arg(tab->args, char *);
 	if (!str)
 		str = ft_strdup("(null)");
 	arg_len = ft_strlen(str);
 	tab->ret_len += arg_len;
+
+	/* NEW */
+	// if (tab->precision)
+
+
+	//
+	/* OLD */
 	if (tab->precision)
 	{
 		if (arg_len >= tab->prec_len)
@@ -42,10 +50,10 @@ void	s_handler(t_flags *tab)
 		str = ft_strsub(str, 0, tab->prec_len);
 	}
 	if (tab->width && !tab->minus)
-		tab->ret_len += putpadding((tab->width - ft_strlen(str)), ' ');
+		tab->ret_len += put_padding((tab->width - ft_strlen(str)), ' ');
 	ft_putstr(str);
 	if (tab->width && tab->minus)
-		tab->ret_len += putpadding((tab->width - ft_strlen(str)), ' ');
+		tab->ret_len += put_padding((tab->width - ft_strlen(str)), ' ');
 }
 
 /* x and X handler could be merged to same function */

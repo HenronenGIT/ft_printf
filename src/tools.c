@@ -28,7 +28,7 @@ void	put_ptr(uintptr_t addr)
 	}
 }
 
-int	putpadding(int width, char ch)
+int	put_padding(int width, char ch)
 {
 	int	i;
 
