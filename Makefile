@@ -18,8 +18,8 @@ FLAGS = #-Wall -Wextra -Werror
 DB_FLAG = -g $(FLAGS)
 
 #Source files
-SRC = ./src/ft_printf.c ./src/handlers.c ./src/handlers_2.c ./src/tools.c \
-./src/length_modifiers.c ./src/flags.c ./src/padding.c ./src/handle_float.c
+SRC = $(addprefix ./src/, ft_printf.c handlers.c handlers_2.c tools.c \
+	length_modifiers.c flags.c padding.c handle_float.c) 
 	
 OBJ = $(SRC:.c=.o)
 
@@ -41,38 +41,38 @@ all: $(NAME)
 
 $(NAME): $(SRC)
 	$(info Compiling libft)
-	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
+	@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
 	$(info Creating object files)
-	@@$(CC) $(FLAGS) -I ./ -c $(SRC)
+	@$(CC) $(FLAGS) -I ./ -c $(SRC)
 	$(info Compiling ft_printf library)
-	@@ar rc -s $(NAME) *.o ./libft/*.o
+	@ar rc -s $(NAME) *.o ./libft/*.o
 
 clean:
 	$(info Cleaning object files)
 #	@@$(RM) $(OBJ)
-	@@$(RM) *.o
-	@@make clean -C ./libft/
+	@$(RM) *.o
+	@make clean -C ./libft/
 
 fclean: clean
 	$(info Cleaning ft_printf library)
-	@@/bin/rm -f $(NAME)
-	@@make fclean -C ./libft/
+	@/bin/rm -f $(NAME)
+	@make fclean -C ./libft/
 
 re: fclean all
 
 test: $(SRC)
-	@@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H) -D "ORIGINAL"
-	@@./a.out
-	@@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H)
-	@@./a.out
+	@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H) -D "ORIGINAL"
+	@./a.out
+	@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H)
+	@./a.out
 
 leaks: fclean
-	@@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H) leaks
-	@@$(CC) -g -fsanitize=address $(FLAGS) -I ./ -c $(SRC)
-	@@ar rc -s $(NAME) *.o ./libft/*.o
-	@@$(CC) $(FLAGS) -g -fsanitize=address $(NAME) ./eval_tests/main.c $(PRINTF_H) -D "ORIGINAL"
-	@@./a.out
-	@@$(CC) $(FLAGS) -g -fsanitize=address $(NAME) ./eval_tests/main.c $(PRINTF_H)
-	@@./a.out
+	@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H) leaks
+	@$(CC) -g -fsanitize=address $(FLAGS) -I ./ -c $(SRC)
+	@ar rc -s $(NAME) *.o ./libft/*.o
+	@$(CC) $(FLAGS) -g -fsanitize=address $(NAME) ./eval_tests/main.c $(PRINTF_H) -D "ORIGINAL"
+	@./a.out
+	@$(CC) $(FLAGS) -g -fsanitize=address $(NAME) ./eval_tests/main.c $(PRINTF_H)
+	@./a.out
 
 .PHONY: all clean fclean re
