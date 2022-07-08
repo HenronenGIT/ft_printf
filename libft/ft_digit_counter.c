@@ -15,7 +15,7 @@
 int	ft_digit_counter(unsigned long n, int base)
 {
 	unsigned long	temp;
-	int			i;
+	int				i;
 
 	i = 0;
 	temp = n;

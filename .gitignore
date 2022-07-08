@@ -5,10 +5,7 @@ libftprintf.a
 ft_printf.dSYM/
 ft_printf
 *.o
-./eval_tests/42FileChecker
-./eval_tests/cchen_tests
 a.out
-
 printf.txt
 ft_printf.txt
 
@@ -16,4 +13,3 @@ ft_printf.txt
 .vscode/dryrun.log
 ./vscode/targets.log
 
-test_printf/

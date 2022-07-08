@@ -17,13 +17,12 @@ char	*ft_itoa_base(long dec, int base)
 	char	*str;
 	int		remain;
 	int		i;
+	char	*temp;
 
 	if (dec == 0)
-		return ("0");
-		// return (ft_strdup("0"));
+		return (ft_strdup("0"));
 	if (dec == LONG_MIN)
-		return ("-9223372036854775808");
-		// return (ft_strdup("-9223372036854775808"));
+		return (ft_strdup("-9223372036854775808"));
 	str = ft_strnew(ft_digit_counter(dec, base));
 	i = 0;
 	remain = 0;
@@ -37,6 +36,7 @@ char	*ft_itoa_base(long dec, int base)
 		dec = dec / base;
 		i++;
 	}
-	str = ft_strrev(str);
-	return (str);
+	temp = ft_strrev(str);
+	free(str);
+	return (temp);
 }
