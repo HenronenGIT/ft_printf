@@ -25,6 +25,7 @@ void	p_handler(t_flags *flag)
 		arg_str = NULL;
 	flag->arg_len += ft_strlen(arg_str);
 	nb_padding(flag, arg_str, "0x");
+	free(arg_str);
 }
 
 void	o_handler(t_flags *flag)
@@ -51,6 +52,7 @@ void	o_handler(t_flags *flag)
 	flag->arg_len += ft_strlen(arg_str);
 	nb_padding(flag, arg_str, prefix);
 	free(arg_str);
+	free(prefix);
 }
 
 void	u_handler(t_flags *flag)

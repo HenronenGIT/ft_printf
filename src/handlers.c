@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -29,25 +30,64 @@ void	s_handler(t_flags *flag)
 {
 	char	*str;
 	int		arg_len;
+	int		malloc;
+	char	*temp;
 
-	str = NULL;
+	malloc = 0;
 	str = va_arg(flag->args, char *);
+	if (!str || flag->precision)
+		malloc = 1;
 	if (!str)
 		str = ft_strdup("(null)");
-	arg_len = ft_strlen(str);
-	flag->ret_len += arg_len;
 	if (flag->precision)
 	{
-		if (arg_len >= flag->prec_len)
-			flag->ret_len -= (arg_len - flag->prec_len);
-		str = ft_strsub(str, 0, flag->prec_len);
+		// if (flag->arg_len >= flag->prec_len)
+			// flag->ret_len -= (flag->arg_len - flag->prec_len);
+		str = ft_strsub(str, 0, flag->prec_len); // LEAK need temp
+		flag->precision = 0;
+		// flag->width += 
 	}
-	if (flag->width && !flag->minus)
-		flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
-	ft_putstr(str);
-	if (flag->width && flag->minus)
-		flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
+	flag->arg_len = ft_strlen(str);
+	nb_padding(flag,  str, "");
+	// if (flag->width && !flag->minus)
+		// flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
+	//ft_putstr(str);
+	//if (flag->width && flag->minus)
+	//	flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
+	if (malloc)
+		free(str);
 }
+// void	s_handler(t_flags *flag)
+// {
+// 	char	*str;
+// 	int		arg_len;
+// 	int		malloc;
+// 	char	*temp;
+
+// 	malloc = 0;
+// 	str = va_arg(flag->args, char *);
+// 	if (!str || flag->precision)
+// 		malloc = 1;
+// 	if (!str)
+// 		str = ft_strdup("(null)");
+// 	arg_len = ft_strlen(str);
+// 	flag->ret_len += arg_len;
+// 	if (flag->precision)
+// 	{
+// 		if (arg_len >= flag->prec_len)
+// 			flag->ret_len -= (arg_len - flag->prec_len);
+// 		temp = str;
+// 		// free(str);
+// 		str = ft_strsub(temp, 0, flag->prec_len); // LEAK need temp
+// 	}
+// 	if (flag->width && !flag->minus)
+// 		flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
+// 	ft_putstr(str);
+// 	if (flag->width && flag->minus)
+// 		flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
+// 	if (malloc)
+// 		free(str);
+// }
 
 /* x and X handler could be merged to same function */
 void	x_handler(t_flags *flag)
