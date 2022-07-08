@@ -11,17 +11,18 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-static char	*add_decimals(t_flags *tab, long double argument, char *arg_str)
+static char	*add_decimals(t_flags *flag, long double argument, char *arg_str)
 {
 	char	*decimals;
 	int		index;
 
 	decimals = NULL;
 	index = 0;
-	decimals = ft_strnew(tab->prec_len + 1);
+	decimals = ft_strnew(flag->prec_len + 1);
 	decimals[index++] = '.';
-	while (index <= tab->prec_len)
+	while (index <= flag->prec_len)
 	{
 		argument *= 10;
 		if ((int)argument == 0)
@@ -37,7 +38,7 @@ static char	*add_decimals(t_flags *tab, long double argument, char *arg_str)
 	return (arg_str);
 }
 
-long double	rounding(long double original, t_flags *tab)
+long double	rounding(long double original, t_flags *flag)
 {
 	long double	decider;
 	long double	rounder;
@@ -46,10 +47,10 @@ long double	rounding(long double original, t_flags *tab)
 	decider = original;
 	counter = 0;
 	rounder = 0.5;
-	while (++counter <= tab->prec_len)
+	while (++counter <= flag->prec_len)
 		rounder /= 10;
 	counter = 0;
-	while (counter <= tab->prec_len)
+	while (counter <= flag->prec_len)
 	{
 		decider -= (int)decider;
 		decider *= 10;
@@ -91,12 +92,15 @@ void	f_handler(t_flags *flag)
 	long double	arg;
 	char		*arg_str;
 
-	arg = 0;
-	arg_str = NULL;
 	flag->is_float = 1;
 	if (!flag->precision)
 		flag->prec_len = 6;
 	arg = double_length_modifiers(flag);
+	if (arg == 1.0 / 0)
+	{
+		flag->ret_len += 3;
+		return (nb_padding(flag, ft_strdup("inf"), ""));
+	}
 	if (1 / arg < 0)
 	{
 		arg *= -1;
@@ -104,8 +108,7 @@ void	f_handler(t_flags *flag)
 	}
 	if (flag->prec_len == 0 && arg && ((arg - (int)arg) * 10) == 5)
 		arg = bankers_rounding(arg);
-	else
-		arg = rounding(arg, flag);
+	arg = rounding(arg, flag);
 	arg_str = ft_itoa_base(arg, 10);
 	if (flag->prec_len != 0 || flag->hash)
 		arg_str = add_decimals(flag, (arg - (long)arg), arg_str);

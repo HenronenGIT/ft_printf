@@ -21,7 +21,9 @@ DB_FLAG = -g $(FLAGS)
 SRC = $(addprefix ./src/, ft_printf.c handlers.c handlers_2.c tools.c \
 	length_modifiers.c flags.c padding.c handle_float.c) 
 	
-OBJ = $(SRC:.c=.o)
+# Binary files
+OBJ = ft_printf.o handlers.o handlers_2.o tools.o length_modifiers.o flags.o \
+	padding.o handle_float.o
 
 #Includes
 LIBFT_H = -I ./libft/includes
@@ -49,8 +51,7 @@ $(NAME): $(SRC)
 
 clean:
 	$(info Cleaning object files)
-#	@@$(RM) $(OBJ)
-	@$(RM) *.o
+	@$(RM) $(OBJ)
 	@make clean -C ./libft/
 
 fclean: clean

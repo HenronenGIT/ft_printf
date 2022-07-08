@@ -12,22 +12,22 @@
 
 #include "ft_printf.h"
 
-void	p_handler(t_flags *tab)
+void	p_handler(t_flags *flag)
 {
 	unsigned long	argument;
 	char			*arg_str;	
 
-	tab->hash = 1;
-	tab->ret_len += 2;
-	argument = va_arg(tab->args, unsigned long long);
+	flag->hash = 1;
+	flag->ret_len += 2;
+	argument = va_arg(flag->args, unsigned long long);
 	arg_str = ft_unsigned_itoa_base(argument, 16);
-	if (tab->precision && tab->prec_len == 0)
+	if (flag->precision && flag->prec_len == 0)
 		arg_str = NULL;
-	tab->arg_len += ft_strlen(arg_str);
-	nb_padding(tab, arg_str, "0x");
+	flag->arg_len += ft_strlen(arg_str);
+	nb_padding(flag, arg_str, "0x");
 }
 
-void	o_handler(t_flags *tab)
+void	o_handler(t_flags *flag)
 {
 	char			*arg_str;
 	char			*prefix;
@@ -35,48 +35,48 @@ void	o_handler(t_flags *tab)
 
 	prefix = NULL;
 	arg = 0;
-	arg = va_arg(tab->args, unsigned long);
-	unsigned_length_modifiers(tab, &arg);
+	arg = va_arg(flag->args, unsigned long);
+	unsigned_length_modifiers(flag, &arg);
 	arg_str = ft_unsigned_itoa_base(arg, 8);
-	if ((tab->hash && !tab->precision)
-		|| (tab->hash && tab->prec_len == 0 && arg == 0)
-		|| (tab->hash && tab->prec_len <= (int)ft_strlen(arg_str)))
+	if ((flag->hash && !flag->precision)
+		|| (flag->hash && flag->prec_len == 0 && arg == 0)
+		|| (flag->hash && flag->prec_len <= (int)ft_strlen(arg_str)))
 	{
-		tab->ret_len += 1;
+		flag->ret_len += 1;
 		prefix = ft_strdup("0");
 	}
-	if ((tab->precision && tab->prec_len == 0 && *arg_str == '0')
-		|| (tab->hash && *arg_str == '0'))
+	if ((flag->precision && flag->prec_len == 0 && *arg_str == '0')
+		|| (flag->hash && *arg_str == '0'))
 		arg_str = NULL;
-	tab->arg_len += ft_strlen(arg_str);
-	nb_padding(tab, arg_str, prefix);
+	flag->arg_len += ft_strlen(arg_str);
+	nb_padding(flag, arg_str, prefix);
 }
 
-void	u_handler(t_flags *tab)
+void	u_handler(t_flags *flag)
 {
 	unsigned long	arg;
 	char			*str;
 
 	arg = 0;
-	arg = va_arg(tab->args, unsigned long);
-	unsigned_length_modifiers(tab, &arg);
+	arg = va_arg(flag->args, unsigned long);
+	unsigned_length_modifiers(flag, &arg);
 	if (arg < 0)
 	{
 		arg *= -1;
-		tab->is_neg = 1;
+		flag->is_neg = 1;
 	}
-	if (tab->precision && tab->prec_len == 0 && arg == 0)
+	if (flag->precision && flag->prec_len == 0 && arg == 0)
 		str = NULL;
 	else
 		str = ft_unsigned_itoa_base(arg, 10);
-	tab->arg_len = ft_strlen(str);
-	nb_padding(tab, str, "");
+	flag->arg_len = ft_strlen(str);
+	nb_padding(flag, str, "");
 }
 
-void	percent_handler(t_flags *tab)
+void	percent_handler(t_flags *flag)
 {
-	tab->precision = 0;
-	tab->space = 0;
-	tab->arg_len += 1;
-	nb_padding(tab, "%", "");
+	flag->precision = 0;
+	flag->space = 0;
+	flag->arg_len += 1;
+	nb_padding(flag, "%", "");
 }

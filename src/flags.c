@@ -12,52 +12,52 @@
 
 #include "ft_printf.h"
 
-void	check_length_modifiers(t_flags *tab, const char *str, char specif)
+void	check_length_modifiers(t_flags *flag, const char *str, char specif)
 {
 	while (*str != specif)
 	{
-		if (*str == 'h' && tab->h)
+		if (*str == 'h' && flag->h)
 		{
-			tab->h = 0;
-			tab->hh = 1;
+			flag->h = 0;
+			flag->hh = 1;
 		}
-		if (*str == 'h' && !tab->hh)
-			tab->h = 1;
-		if ((*str == 'l' && tab->l) || *str == 'L')
+		if (*str == 'h' && !flag->hh)
+			flag->h = 1;
+		if ((*str == 'l' && flag->l) || *str == 'L')
 		{
-			tab->l = 0;
-			tab->ll = 1;
+			flag->l = 0;
+			flag->ll = 1;
 		}
-		if ((*str == 'l') && !tab->ll)
-			tab->l = 1;
+		if ((*str == 'l') && !flag->ll)
+			flag->l = 1;
 		str++;
 	}
 }
 
-void	check_flags(t_flags *tab, const char *str, char specifier)
+void	check_flags(t_flags *flag, const char *str, char specifier)
 {
 	while (*str != specifier)
 	{
 		if (*str == '#')
-			tab->hash = 1;
-		if (*str == '0' && !tab->width && !tab->minus)
-			tab->zero = 1;
+			flag->hash = 1;
+		if (*str == '0' && !flag->width && !flag->minus)
+			flag->zero = 1;
 		if (*str == '-')
-			tab->minus = 1;
+			flag->minus = 1;
 		if (*str == '+')
-			tab->plus = 1;
+			flag->plus = 1;
 		if (*str == '.')
-			tab->precision = 1;
+			flag->precision = 1;
 		if (*str == ' ')
-			tab->space = 1;
-		if (ft_isdigit(*str) && !tab->precision)
-			tab->width = ((10 * tab->width) + *str - 48);
+			flag->space = 1;
+		if (ft_isdigit(*str) && !flag->precision)
+			flag->width = ((10 * flag->width) + *str - 48);
 		else if (ft_isdigit(*str))
-			tab->prec_len = ((10 * tab->prec_len) + *str - 48);
+			flag->prec_len = ((10 * flag->prec_len) + *str - 48);
 		str++;
 	}
-	if (tab->space && tab->plus)
-		tab->space = 0;
-	if (tab->zero && tab->minus)
-		tab->zero = 0;
+	if (flag->space && flag->plus)
+		flag->space = 0;
+	if (flag->zero && flag->minus)
+		flag->zero = 0;
 }

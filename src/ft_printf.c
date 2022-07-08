@@ -21,28 +21,28 @@ static int	is_format(char ch)
 	return (0);
 }
 
-static void	init_tab(t_flags *tab)
+static void	init_flag(t_flags *flag)
 {
-	tab->width = 0;
-	tab->space = 0;
-	tab->zero = 0;
-	tab->plus = 0;
-	tab->minus = 0;
-	tab->hash = 0;
-	tab->precision = 0;
-	tab->prec_len = 0;
-	tab->arg_len = 0;
-	tab->is_neg = 0;
-	tab->hh = 0;
-	tab->h = 0;
-	tab->l = 0;
-	tab->ll = 0;
-	tab->is_float = 0;
+	flag->width = 0;
+	flag->space = 0;
+	flag->zero = 0;
+	flag->plus = 0;
+	flag->minus = 0;
+	flag->hash = 0;
+	flag->precision = 0;
+	flag->prec_len = 0;
+	flag->arg_len = 0;
+	flag->is_neg = 0;
+	flag->hh = 0;
+	flag->h = 0;
+	flag->l = 0;
+	flag->ll = 0;
+	flag->is_float = 0;
 }
 
-static void	jump_table(t_flags *tab, int index)
+static void	jump_flagle(t_flags *flag, int index)
 {
-	static t_handler_func	*jump_table[11] = {
+	static t_handler_func	*jump_flagle[11] = {
 		c_handler,
 		s_handler,
 		p_handler,
@@ -56,10 +56,10 @@ static void	jump_table(t_flags *tab, int index)
 		percent_handler
 	};
 
-	jump_table[index](tab);
+	jump_flagle[index](flag);
 }
 
-const char	*check_format(const char *str, t_flags *tab)
+const char	*check_format(const char *str, t_flags *flag)
 {
 	const char	*ptr;
 	char		*specifier_ptr;
@@ -69,40 +69,40 @@ const char	*check_format(const char *str, t_flags *tab)
 		str++;
 	if (*str == '\0')
 	{
-		tab->ret_len += write(1, &(*ptr), 1);
+		flag->ret_len += write(1, &(*ptr), 1);
 		return (ptr);
 	}
-	check_flags(tab, ptr, *str);
-	check_length_modifiers(tab, ptr, *str);
+	check_flags(flag, ptr, *str);
+	check_length_modifiers(flag, ptr, *str);
 	specifier_ptr = ft_strchr(FORMATS, *str);
 	if (specifier_ptr)
-		jump_table(tab, (int)(specifier_ptr - FORMATS));
+		jump_flagle(flag, (int)(specifier_ptr - FORMATS));
 	return (str);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	t_flags		*tab;
+	t_flags		*flag;
 
-	tab = (t_flags *)malloc(sizeof(t_flags));
-	if (!tab)
+	flag = (t_flags *)malloc(sizeof(t_flags));
+	if (!flag)
 		return (-1);
-	va_start(tab->args, format);
+	va_start(flag->args, format);
 	while (*format != '\0')
 	{
 		if (*format != '%')
 		{
 			ft_putchar(*format);
-			tab->ret_len += 1;
+			flag->ret_len += 1;
 		}
 		else
 		{
 			format++;
-			init_tab(tab);
-			format = check_format(format, tab);
+			init_flag(flag);
+			format = check_format(format, flag);
 		}
 		format++;
 	}
-	va_end(tab->args);
-	return (tab->ret_len);
+	va_end(flag->args);
+	return (flag->ret_len);
 }
