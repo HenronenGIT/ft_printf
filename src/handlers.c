@@ -109,8 +109,12 @@ void	di_handler(t_flags *tab)
 	}
 	str = ft_itoa_base(arg, 10);
 	if (tab->precision && tab->prec_len == 0 && *str == '0')
+	{
+		// free(str);
 		str = NULL;
+	}
 	else
 		tab->arg_len = ft_strlen(str);
 	nb_padding(tab, str, "");
+	// free(str);
 }

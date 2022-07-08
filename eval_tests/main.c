@@ -513,6 +513,6 @@ int	main(void)
 		// printf("~%d~\n", PRINTER("|%|")); fflush(stdout);
 
 	fclose(printf_file);
-	system("leaks a.out");
+	// system("leaks a.out");
 	return (0);
 }

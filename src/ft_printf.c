@@ -103,6 +103,8 @@ int	ft_printf(const char *format, ...)
 		}
 		format++;
 	}
+	// free(tab);
 	va_end(tab->args);
+		// system("leaks a.out");
 	return (tab->ret_len);
 }
