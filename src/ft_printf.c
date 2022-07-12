@@ -32,7 +32,6 @@ static void	init_flag(t_flags *flag)
 	flag->precision = 0;
 	flag->prec_len = 0;
 	flag->arg_len = 0;
-	// flag->ret_len = 0;
 	flag->is_neg = 0;
 	flag->hh = 0;
 	flag->h = 0;
@@ -83,14 +82,13 @@ const char	*check_format(const char *str, t_flags *flag)
 
 int	ft_printf(const char *format, ...)
 {
-	t_flags		*flag;
+	t_flags	*flag;
 
 	flag = (t_flags *)malloc(sizeof(t_flags));
 	if (!flag)
 		return (-1);
-	// va_start(flag.args, format);
 	va_start(flag->args, format);
-	// init_flag(flag);
+	flag->ret_len = 0;
 	while (*format != '\0')
 	{
 		if (*format != '%')
@@ -100,18 +98,13 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			format++;
 			init_flag(flag);
+			format++;
 			format = check_format(format, flag);
-			// format = check_format(format, &flag);
 		}
 		format++;
 	}
-	// flag->ret_len = 0; 
-	// free(flag);
+	free(flag);
 	va_end(flag->args);
-	// va_end(flag.args);
-		// system("leaks a.out");
 	return (flag->ret_len);
-	// return (flag.ret_len);
 }

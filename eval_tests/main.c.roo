@@ -928,6 +928,9 @@ void	strt(void)
 	ft_printf("\t|%8s|\n",  test);
 	printf("%-8s|%8.4s|\n", "%8.4s", test);
 	ft_printf("\t|%8.4s|\n",  test);
+	printf("|%8.4s|", NULL);
+	ft_printf("\t|%8.4s|", NULL);
+
 	//	undefined
 	// printf("%-8s|%#s|\n", "%#s", str);
 	// printf("%-8s|%+s|\n", "%+s", str);
@@ -1054,7 +1057,7 @@ void	floatt(void)
 	printf("%-8s", "% f");
 	printf("|% f|\t|% f|\t|% f|\n", z, fm , f);
 	ft_printf("\t|% f|\t|% f|\t|% f|\n", z, fm , f);
-
+// 
 	printf("%-8s", "%+0f");
 	printf("|%+0f|\t|%+0f|\t|%+0f|\n", z, fm , f);
 	ft_printf("\t|%+0f|\t|%+0f|\t|%+0f|\n", z, fm , f);
@@ -1085,7 +1088,7 @@ void	floatt(void)
 	printf("%-8s", "%+08.0f");
 	printf("|%+08.0f|\t|%+08.0f|\t|%+08.0f|\n", z, fm , f);
 	ft_printf("\t|%+08.0f|\t|%+08.0f|\t|%+08.0f|\n", z, fm , f);
-
+// 
 	printf("%-8s", "%+-f");
 	printf("|%+-f|\t|%+-f|\t|%+-f|\n", z, fm , f);
 	ft_printf("\t|%+-f|\t|%+-f|\t|%+-f|\n", z, fm , f);
@@ -1116,7 +1119,7 @@ void	floatt(void)
 	printf("%-8s", "%+-8.3f");
 	printf("|%+-8.3f|\t|%+-8.3f|\t|%+-8.3f|\n", z, fm , f);
 	ft_printf("\t|%+-8.3f|\t|%+-8.3f|\t|%+-8.3f|\n", z, fm , f);
-
+// 
 	printf("%-8s", "%+.0f");
 	printf("|%+.0f|\t|%+.0f|\t|%+.0f|\n", z, fm , f);
 	ft_printf("\t|%+.0f|\t|%+.0f|\t|%+.0f|\n", z, fm , f);
@@ -1132,7 +1135,7 @@ void	floatt(void)
 	printf("%-8s", "%+3.8f");
 	printf("|%+3.8f|\t|%+3.8f|\t|%+3.8f|\n", z, fm , f);
 	ft_printf("\t|%+3.8f|\t|%+3.8f|\t|%+3.8f|\n", z, fm , f);
-
+// 
 	printf("%-8s", "% 8f");
 	printf("|% 8f|\t|% 8f|\t|% 8f|\n", z, fm , f);
 	ft_printf("\t|% 8f|\t|% 8f|\t|% 8f|\n", z, fm , f);
@@ -1160,7 +1163,7 @@ void	floatt(void)
 	printf("%-8s", "% -3f");
 	printf("|% -3f|\t|% -3f|\t|% -3f|\n", z, fm , f);
 	ft_printf("\t|% -3f|\t|% -3f|\t|% -3f|\n", z, fm , f);
-
+// 
 	printf("%-8s", "%8.0f");
 	printf("|%8.0f|\t|%8.0f|\t|%8.0f|\n", z, fm , f);
 	ft_printf("\t|%8.0f|\t|%8.0f|\t|%8.0f|\n", z, fm , f);
@@ -1227,18 +1230,21 @@ void	floatt(void)
 	ft_printf("\t|%#08.0f|\t|%#08.0f|\t|%#08.0f|\n", z, fm, f);
 
 	printf("%-8s", "%.2f");
+	ft_printf("%-8s", "%.2f");
 	printf("|%.2f|\n", 1.15);
-	ft_printf("\t|%.2f|\n", 1.15);
-	printf("%-8s", "%.2f");
+	ft_printf("|%.2f|\n", 1.15);
 	printf("|%.2f|\n", 1.55);
-	ft_printf("\t|%.2f|\n", 1.55);
-	printf("%-8s", "%.2f");
+	ft_printf("|%.2f|\n", 1.55);
+	printf("\t|%.2f|\n", 1.15);
+	ft_printf("\t|%.2f|\n", 1.15);
 	printf("|%.2f|\n", 1.59);
 	ft_printf("\t|%.2f|\n", 1.59);
 	printf("%-8s", "%.15f");
+	ft_printf("%-8s", "%.15f");
 	printf("|%.15f|\n", 1.15);
 	ft_printf("\t|%.15f|\n", 1.15);
 	printf("%-8s", "%.16f");
+	ft_printf("%-8s", "%.16f");
 	printf("|%.16f|\n", 1.15);
 	ft_printf("\t|%.16f|\n", 1.15);
 	printf("%-8s", "%.17f");
@@ -1313,7 +1319,7 @@ int main(void)
 
 // ---- individual integer flags (included in test_d)
 		// spacet();
-		// widt();
+		// width();
 		// plust();
 		// prect();
 		// zerot();
@@ -1321,13 +1327,13 @@ int main(void)
 // ----
 
 		// adrt();
-	strt();
-	// octals();
-	//hext();
-	//unsigt();
-	//chart();
-	//percent();
-	//floatt();
+		// strt();
+		//octals();
+		//hext();
+		//unsigt();
+		//chart();
+		//percent();
+// floatt();
 
 // 	bonus
 	// printed();	// %n

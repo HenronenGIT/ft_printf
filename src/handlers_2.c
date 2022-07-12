@@ -22,7 +22,7 @@ void	p_handler(t_flags *flag)
 	argument = va_arg(flag->args, unsigned long long);
 	arg_str = ft_unsigned_itoa_base(argument, 16);
 	if (flag->precision && flag->prec_len == 0)
-		arg_str = NULL;
+		ft_strdel(&arg_str);
 	flag->arg_len += ft_strlen(arg_str);
 	nb_padding(flag, arg_str, "0x");
 	free(arg_str);
@@ -48,7 +48,7 @@ void	o_handler(t_flags *flag)
 	}
 	if ((flag->precision && flag->prec_len == 0 && *arg_str == '0')
 		|| (flag->hash && *arg_str == '0'))
-		arg_str = NULL;
+		ft_strdel(&arg_str);
 	flag->arg_len += ft_strlen(arg_str);
 	nb_padding(flag, arg_str, prefix);
 	free(arg_str);
@@ -60,6 +60,7 @@ void	u_handler(t_flags *flag)
 	unsigned long	arg;
 	char			*str;
 
+	str = NULL;
 	arg = 0;
 	arg = va_arg(flag->args, unsigned long);
 	unsigned_length_modifiers(flag, &arg);
@@ -69,12 +70,12 @@ void	u_handler(t_flags *flag)
 		flag->is_neg = 1;
 	}
 	if (flag->precision && flag->prec_len == 0 && arg == 0)
-		str = NULL;
+		ft_strdel(&str);
 	else
 		str = ft_unsigned_itoa_base(arg, 10);
 	flag->arg_len = ft_strlen(str);
 	nb_padding(flag, str, "");
-	free(str);
+	ft_strdel(&str);
 }
 
 void	percent_handler(t_flags *flag)

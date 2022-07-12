@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -28,68 +27,32 @@ void	c_handler(t_flags *flag)
 
 void	s_handler(t_flags *flag)
 {
-	char	*str;
-	int		arg_len;
+	char	*arg_str;
 	int		malloc;
-	char	*temp;
 
 	malloc = 0;
-	str = va_arg(flag->args, char *);
-	if (!str || flag->precision)
-		malloc = 1;
-	if (!str)
-		str = ft_strdup("(null)");
-	if (flag->precision)
+	arg_str = va_arg(flag->args, char *);
+	if (flag->precision || !arg_str)
 	{
-		// if (flag->arg_len >= flag->prec_len)
-			// flag->ret_len -= (flag->arg_len - flag->prec_len);
-		str = ft_strsub(str, 0, flag->prec_len); // LEAK need temp
-		flag->precision = 0;
-		// flag->width += 
+		if (!arg_str)
+		{
+			if (flag->precision)
+				arg_str = ft_strndup("(null)", flag->prec_len - 1);
+			else
+				arg_str = ft_strdup("(null)");
+		}
+		else
+			arg_str = ft_strsub(arg_str, 0, flag->prec_len);
+		malloc = 1;
 	}
-	flag->arg_len = ft_strlen(str);
-	nb_padding(flag,  str, "");
-	// if (flag->width && !flag->minus)
-		// flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
-	//ft_putstr(str);
-	//if (flag->width && flag->minus)
-	//	flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
+	flag->precision = 0;
+	flag->prec_len = 0;
+	flag->arg_len = ft_strlen(arg_str);
+	nb_padding(flag, arg_str, "");
 	if (malloc)
-		free(str);
+		free(arg_str);
 }
-// void	s_handler(t_flags *flag)
-// {
-// 	char	*str;
-// 	int		arg_len;
-// 	int		malloc;
-// 	char	*temp;
 
-// 	malloc = 0;
-// 	str = va_arg(flag->args, char *);
-// 	if (!str || flag->precision)
-// 		malloc = 1;
-// 	if (!str)
-// 		str = ft_strdup("(null)");
-// 	arg_len = ft_strlen(str);
-// 	flag->ret_len += arg_len;
-// 	if (flag->precision)
-// 	{
-// 		if (arg_len >= flag->prec_len)
-// 			flag->ret_len -= (arg_len - flag->prec_len);
-// 		temp = str;
-// 		// free(str);
-// 		str = ft_strsub(temp, 0, flag->prec_len); // LEAK need temp
-// 	}
-// 	if (flag->width && !flag->minus)
-// 		flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
-// 	ft_putstr(str);
-// 	if (flag->width && flag->minus)
-// 		flag->ret_len += put_padding((flag->width - ft_strlen(str)), ' ');
-// 	if (malloc)
-// 		free(str);
-// }
-
-/* x and X handler could be merged to same function */
 void	x_handler(t_flags *flag)
 {
 	unsigned long	arg;
@@ -102,7 +65,7 @@ void	x_handler(t_flags *flag)
 	unsigned_length_modifiers(flag, &arg);
 	arg_str = ft_unsigned_itoa_base(arg, 16);
 	if (flag->precision && flag->prec_len == 0)
-		arg_str = NULL;
+		ft_strdel(&arg_str);
 	flag->arg_len = ft_strlen(arg_str);
 	if (flag->hash && arg_str && *arg_str != '0')
 	{
@@ -110,7 +73,8 @@ void	x_handler(t_flags *flag)
 		prefix = ft_strdup("0x");
 	}
 	nb_padding(flag, arg_str, prefix);
-	// free(arg_str);
+	free(arg_str);
+	free(prefix);
 }
 
 void	big_x_handler(t_flags *flag)
@@ -125,7 +89,7 @@ void	big_x_handler(t_flags *flag)
 	unsigned_length_modifiers(flag, &arg);
 	arg_str = ft_strtoupper(ft_unsigned_itoa_base(arg, 16));
 	if (flag->precision && flag->prec_len == 0)
-		arg_str = NULL;
+		ft_strdel(&arg_str);
 	flag->arg_len = ft_strlen(arg_str);
 	if (flag->hash && arg_str && *arg_str != '0')
 	{
@@ -133,6 +97,8 @@ void	big_x_handler(t_flags *flag)
 		prefix = ft_strdup("0X");
 	}
 	nb_padding(flag, arg_str, prefix);
+	ft_strdel(&arg_str);
+	ft_strdel(&prefix);
 }
 
 void	di_handler(t_flags *flag)

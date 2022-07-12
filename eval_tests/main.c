@@ -15,9 +15,6 @@
 #include <float.h>
 #include <stdio.h>
 
-void	test_f();
-void	test_o();
-
 #define TAB (int *)31212412421
 
 #ifdef ORIGINAL
@@ -78,15 +75,11 @@ int	main(void)
 		printf("Cannot open printf.txt.\n");
 		exit(1);
 	}
-	// printf("%d\n", PRINTER("|%5.hhu %5.0hhu|", 0, 0)); fflush(stdout);
-	// printf("%d\n", PRINTER("|%llu|", 18446744073709551615));; fflush(stdout);
-	// printf("~%d~\n", PRINTER("|%0-8.5d|", 32)); fflush(stdout);
-	// printf("%d\n", PRINTER("|%|")); fflush(stdout);
 
-	printf("====== Warning tests ======\n"); fflush(stdout);
+	// printf("====== Warning tests ======\n"); fflush(stdout);
 
-	//printf("%d\n", PRINTER("|%-05d|", -42)); fflush(stdout);
-	//printf("%d\n", PRINTER("|%++ d|", 42)); fflush(stdout);
+	// printf("%d\n", PRINTER("|%-05d|", -42)); fflush(stdout);
+	// printf("%d\n", PRINTER("|%++ d|", 42)); fflush(stdout);
 	// printf("%d\n", PRINTER("|% ++d|", 42)); fflush(stdout);
 	// printf("%d\n", PRINTER("|%hx|", char_min)); fflush(stdout);
 	// printf("%d\n", PRINTER("|%hx|", char_max)); fflush(stdout);
@@ -94,6 +87,9 @@ int	main(void)
 	// printf("%d\n", PRINTER("|%-015x|", 9321124));fflush(stdout);
 	// printf("%d\n", PRINTER("|%-015X|", 9321124)); fflush(stdout);
 	// printf("%d\n", PRINTER("|%    %|", "test")); fflush(stdout);
+	// printf("~%d~\n", PRINTER("|%0-8.5d|", 32)); fflush(stdout);
+	// printf("%d\n", PRINTER("|%5.hhu %5.0hhu|", 0, 0)); fflush(stdout);
+	// printf("%d\n", PRINTER("|%|")); fflush(stdout);
 
 	printf("====== c Specifier ======\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%c|", 'h')); fflush(stdout);;
@@ -121,14 +117,16 @@ int	main(void)
 
 	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%10.s|", str)); fflush(stdout);
-	printf("%d\n", PRINTER("|%10.5s|", str)); fflush(stdout);
+	printf("%d\n", PRINTER("|%10.5s|", "123456")); fflush(stdout);
+	printf("%d\n", PRINTER("|%10.5s%10.5s|", "123456", NULL)); fflush(stdout);
 	printf("%d\n", PRINTER("|%10.5s|", "123")); fflush(stdout);
 	printf("%d\n", PRINTER("|%.s|", str)); fflush(stdout);
 	printf("%d\n", PRINTER("|%.2s is a string|", "")); fflush(stdout);
+	printf("%d\n", PRINTER("|%8.4s|", NULL)); fflush(stdout);
 
 	printf(">>>>>>>>>> '-' && Precision <<<<<<<<<<\n"); fflush(stdout);
-	printf("%d\n", PRINTER("|%-5.2s is a string|", "")); fflush(stdout);
-	printf("%d\n", PRINTER("|%-.2s is a string|", "")); fflush(stdout);
+	printf("%d\n", PRINTER("|%-5.2sis a string|", "")); fflush(stdout);
+	printf("%d\n", PRINTER("|%-.2sis a string|", "")); fflush(stdout);
 
 	printf(">>>>>>>>>> Width && Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%5.2s is a string|", "")); fflush(stdout);
@@ -205,8 +203,8 @@ int	main(void)
 	printf("%d\n", PRINTER("|%.d %.0d|", 0, 0)); fflush(stdout);
 	printf("%d\n", PRINTER("|%ld|", long_min)); fflush(stdout);
 
-	/* HC */
-	printf("~%d~\n", PRINTER("|%010.1d|", -0)); fflush(stdout);
+	// /* HC */
+	// printf("~%d~\n", PRINTER("|%010.1d|", -0)); fflush(stdout);
 	
 	printf("====== u specifier ======\n"); fflush(stdout);
 	printf(">>>>>>>>>> Normal <<<<<<<<<<\n"); fflush(stdout);

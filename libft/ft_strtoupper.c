@@ -27,5 +27,6 @@ char	*ft_strtoupper(char *string)
 			result[i] = string[i];
 		i++;
 	}
+	ft_strdel(&string);
 	return (result);
 }
