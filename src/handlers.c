@@ -34,14 +34,11 @@ void	s_handler(t_flags *flag)
 	arg_str = va_arg(flag->args, char *);
 	if (flag->precision || !arg_str)
 	{
-		if (!arg_str)
-		{
-			if (flag->precision)
+		if (!arg_str && flag->prec_len)
 				arg_str = ft_strndup("(null)", flag->prec_len - 1);
-			else
-				arg_str = ft_strdup("(null)");
-		}
-		else
+		else if (!arg_str && !flag->precision)
+			arg_str = ft_strdup("(null)");
+		else if (arg_str && flag->precision)
 			arg_str = ft_strsub(arg_str, 0, flag->prec_len);
 		malloc = 1;
 	}
