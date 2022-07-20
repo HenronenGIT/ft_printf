@@ -34,6 +34,18 @@ void	check_length_modifiers(t_flags *flag, const char *str, char specif)
 	}
 }
 
+void	parse_precision(const char **str, t_flags *flag, char specifier)
+{
+	while (**str != specifier)
+	{
+		flag->prec_len = ((10 * flag->prec_len) + **str - 48);
+		if (flag->prec_len < 0)
+			flag->precision = 0;
+		(*str)++;
+	}
+	(*str)--;
+}
+
 void	check_flags(t_flags *flag, const char *str, char specifier)
 {
 	while (*str != specifier)
@@ -53,7 +65,7 @@ void	check_flags(t_flags *flag, const char *str, char specifier)
 		if (ft_isdigit(*str) && !flag->precision)
 			flag->width = ((10 * flag->width) + *str - 48);
 		else if (ft_isdigit(*str))
-			flag->prec_len = ((10 * flag->prec_len) + *str - 48);
+			parse_precision(&str, flag, specifier);
 		str++;
 	}
 	if (flag->space && flag->plus)

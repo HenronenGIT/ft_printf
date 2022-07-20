@@ -82,29 +82,25 @@ const char	*check_format(const char *str, t_flags *flag)
 
 int	ft_printf(const char *format, ...)
 {
-	t_flags	*flag;
-	int		return_len;
+	t_flags	flag;
 
-	flag = (t_flags *)malloc(sizeof(t_flags));
-	va_start(flag->args, format);
-	flag->ret_len = 0;
+	va_start(flag.args, format);
+	flag.ret_len = 0;
 	while (*format != '\0')
 	{
 		if (*format != '%')
 		{
 			ft_putchar(*format);
-			flag->ret_len += 1;
+			flag.ret_len += 1;
 		}
 		else
 		{
-			init_flag(flag);
+			init_flag(&flag);
 			format++;
-			format = check_format(format, flag);
+			format = check_format(format, &flag);
 		}
 		format++;
 	}
-	return_len = flag->ret_len;
-	free(flag);
-	va_end(flag->args);
-	return (return_len);
+	va_end(flag.args);
+	return (flag.ret_len);
 }
