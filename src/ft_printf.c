@@ -83,10 +83,9 @@ const char	*check_format(const char *str, t_flags *flag)
 int	ft_printf(const char *format, ...)
 {
 	t_flags	*flag;
+	int		return_len;
 
 	flag = (t_flags *)malloc(sizeof(t_flags));
-	if (!flag)
-		return (-1);
 	va_start(flag->args, format);
 	flag->ret_len = 0;
 	while (*format != '\0')
@@ -104,7 +103,8 @@ int	ft_printf(const char *format, ...)
 		}
 		format++;
 	}
+	return_len = flag->ret_len;
 	free(flag);
 	va_end(flag->args);
-	return (flag->ret_len);
+	return (return_len);
 }

@@ -528,9 +528,6 @@ int	main(void)
 
 	printf("~%d~\n", PRINTER("|%.10f|", 0.87650894255)); fflush(stdout);
 
-	printf(">>>>>>>>>> Inf <<<<<<<<<<\n"); fflush(stdout);
-	printf("~%d~\n", PRINTER("|%f|", 1.0 / 0)); fflush(stdout);
-
 	fclose(printf_file);
 	// system("leaks a.out");
 	return (0);
