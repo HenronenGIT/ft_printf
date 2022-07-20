@@ -15,12 +15,25 @@ NAME = libftprintf.a
 CC = gcc
 FLAGS = #-Wall -Wextra -Werror
 DB_FLAG = -g $(FLAGS)
+AR = ar rcs
 
-SRC = $(addprefix ./src/, ft_printf.c handlers.c handlers_2.c tools.c \
-	length_modifiers.c flags.c padding.c handle_float.c) 
+SRC = $(addprefix ./src/,	ft_printf.c 		\
+							handlers.c			\
+							handlers_2.c		\
+							tools.c				\
+							length_modifiers.c	\
+							flags.c				\
+							padding.c			\
+							handle_float.c)
 	
-OBJ = ft_printf.o handlers.o handlers_2.o tools.o length_modifiers.o flags.o \
-	padding.o handle_float.o
+OBJ =	ft_printf.o			\
+		handlers.o			\
+		handlers_2.o		\
+		tools.o				\
+		length_modifiers.o	\
+		flags.o				\
+		padding.o			\
+		handle_float.o
 
 LIBFT_H = -I ./libft/includes
 PRINTF_H = -I ./
@@ -37,11 +50,12 @@ all: $(NAME)
 $(NAME): $(SRC)
 	$(info Compiling libft)
 	@make -C ./libft/ $(LIBFT_H) fclean && make -C ./libft/ $(LIBFT_H)
+	@cp libft/libft.a ./
+	@mv libft.a $(NAME)
 	$(info Creating object files)
 	@$(CC) $(FLAGS) -I ./ -c $(SRC)
 	$(info Compiling ft_printf library)
-#	@ar rc -s $(NAME) *.o ./libft/*.o
-	@ar rc -s $(NAME) $(OBJ) ./libft/*.o
+	@$(AR) $(NAME) $(OBJ)
 
 clean:
 	$(info Cleaning object files)

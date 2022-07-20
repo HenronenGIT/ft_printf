@@ -458,7 +458,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%lo|", long_max)); fflush(stdout);
 	/* ll */
 	printf("%d\n", PRINTER("|%llo|", llong_min)); fflush(stdout);
-	printf("%d\n", PRINTER("|%llo|", llong_max));; fflush(stdout);
+	printf("%d\n", PRINTER("|%llo|", llong_max)); fflush(stdout);
 	
 	printf("====== f specifier ======\n"); fflush(stdout);
 	printf(">>>>>>>>>> Normal <<<<<<<<<<\n"); fflush(stdout);

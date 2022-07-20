@@ -42,7 +42,7 @@ static void	init_flag(t_flags *flag)
 
 static void	jump_table(t_flags *flag, int index)
 {
-	static t_handler_func	*jump_flagle[11] = {
+	static t_handler_func	*jump_table[11] = {
 		c_handler,
 		s_handler,
 		p_handler,
@@ -56,7 +56,7 @@ static void	jump_table(t_flags *flag, int index)
 		percent_handler
 	};
 
-	jump_flagle[index](flag);
+	jump_table[index](flag);
 }
 
 const char	*check_format(const char *str, t_flags *flag)
