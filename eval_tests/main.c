@@ -449,7 +449,7 @@ int	main(void)
 	printf("%d\n", PRINTER("|%#.o %#.0o|", 0, 0)); fflush(stdout);
 	printf("%d\n", PRINTER("|%#.5o|", 5263)); fflush(stdout);
 	printf("%d\n", PRINTER("|%#.8o|", nb)); fflush(stdout);
-	
+
 	printf(">>>>>>>>>> Lenghth modifiers <<<<<<<<<<\n"); fflush(stdout);
 	/* hh */
 	printf("%d\n", PRINTER("|%hho|", char_min)); fflush(stdout);
@@ -499,7 +499,7 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%.16f|", 1.025978548534310421634)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 1.2395)); fflush(stdout);
 	printf("~%d~\n", PRINTER("%.98132912421424323423424112482113981423342f", 42.42421412124)); fflush(stdout);
-
+	printf("~%d~\n", PRINTER("|%.10f|", 0.87650894255)); fflush(stdout);
 
 	printf(">>>>>>>>>> Zero flag <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%010.1f|", -0.0)); fflush(stdout);
@@ -532,7 +532,11 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%-20.6f|", double_nb)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%-20.8f|", double_nb)); fflush(stdout);
 
-	printf("~%d~\n", PRINTER("|%.10f|", 0.87650894255)); fflush(stdout);
+	printf(">>>>>>>>>> MAX values <<<<<<<<<<\n"); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%f|", FLT_MAX)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%f|", DBL_MAX)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%Lf|", LDBL_MAX)); fflush(stdout);
+
 
 	// /* Wierd cases */
 	// printf("~%d~\n", PRINTER("|%.98132912421424423f|", 424124.412421142)); fflush(stdout);
