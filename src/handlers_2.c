@@ -85,3 +85,20 @@ void	percent_handler(t_flags *flag)
 	flag->arg_len += 1;
 	nb_padding(flag, "%", "");
 }
+
+void	b_handler(t_flags *flag)
+{
+	unsigned long	arg;
+	char			*str;
+
+	arg = 0;
+	str = NULL;
+	arg = va_arg(flag->args, unsigned long);
+	unsigned_length_modifiers(flag, &arg);
+	if (arg < 0)
+		arg *= -1;
+	str = ft_unsigned_itoa_base(arg, 2);
+	flag->arg_len = ft_strlen(str);
+	nb_padding(flag, str, "0b");
+	return ;
+}
