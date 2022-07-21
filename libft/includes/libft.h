@@ -107,5 +107,6 @@ int		ft_isodd(int number);
 int		ft_pow(int base, int exponent);
 char	*ft_itoa_base(long dec, int base);
 char	*ft_unsigned_itoa_base(unsigned long dec, int base);
+char	*ft_dtob(long number);
 
 #endif
