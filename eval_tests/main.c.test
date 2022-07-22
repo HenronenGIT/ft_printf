@@ -537,7 +537,6 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%f|", DBL_MAX)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%Lf|", LDBL_MAX)); fflush(stdout);
 
-
 	// /* Wierd cases */
 	// printf("~%d~\n", PRINTER("|%.98132912421424423f|", 424124.412421142)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%.981322222f|", 424124.412421142)); fflush(stdout);

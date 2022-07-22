@@ -40,9 +40,14 @@ void	parse_precision(const char **str, t_flags *flag, char specifier)
 	{
 		flag->prec_len = ((10 * flag->prec_len) + **str - 48);
 		if (flag->prec_len < 0)
+		{
 			flag->precision = 0;
+			break ;
+		}
 		(*str)++;
 	}
+	while (**str != specifier)
+		(*str)++;
 	(*str)--;
 }
 

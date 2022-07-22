@@ -36,7 +36,7 @@ OBJ =	ft_printf.o			\
 		handle_float.o
 
 LIBFT_H = -I ./libft/includes
-PRINTF_H = -I ./
+PRINTF_H = -I ./includes/
 HEADERS = $(LIBFT_H) $(PRINTF_H)
 
 FILE_PATH = ./eval_tests/
@@ -53,7 +53,7 @@ $(NAME): $(SRC)
 	@cp libft/libft.a ./
 	@mv libft.a $(NAME)
 	$(info Creating object files)
-	@$(CC) $(FLAGS) -I ./ -c $(SRC)
+	@$(CC) $(FLAGS) $(HEADERS) -c $(SRC)
 	$(info Compiling ft_printf library)
 	@$(AR) $(NAME) $(OBJ)
 
@@ -70,9 +70,9 @@ fclean: clean
 re: fclean all
 
 test: $(SRC)
-	@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H) -D "ORIGINAL"
+	@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(HEADERS) -D "ORIGINAL"
 	@./a.out
-	@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(PRINTF_H)
+	@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(HEADERS)
 	@./a.out
 
 sanitize: fclean
