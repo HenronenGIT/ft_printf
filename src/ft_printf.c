@@ -56,6 +56,7 @@ static void	jump_table(t_flags *flag, int index)
 		b_handler,
 		percent_handler
 	};
+
 	jump_table[index](flag);
 }
 
