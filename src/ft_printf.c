@@ -16,7 +16,7 @@ static int	is_format(char ch)
 {
 	if (ch == 'c' || ch == 's' || ch == 'p' || ch == 'x' || ch == 'X'
 		|| ch == 'd' || ch == 'i' || ch == 'u' || ch == 'o' || ch == '%'
-		|| ch == 'f')
+		|| ch == 'f' || ch == 'b')
 		return (1);
 	return (0);
 }
@@ -42,7 +42,7 @@ static void	init_flag(t_flags *flag)
 
 static void	jump_table(t_flags *flag, int index)
 {
-	static t_handler_func	*jump_table[11] = {
+	static t_handler_func	*jump_table[12] = {
 		c_handler,
 		s_handler,
 		p_handler,
@@ -53,9 +53,9 @@ static void	jump_table(t_flags *flag, int index)
 		x_handler,
 		big_x_handler,
 		f_handler,
+		b_handler,
 		percent_handler
 	};
-
 	jump_table[index](flag);
 }
 

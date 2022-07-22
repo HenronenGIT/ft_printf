@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <limits.h>
 
-# define FORMATS "cspdiouxXf%%"
+# define FORMATS "cspdiouxXfb%%"
 
 typedef struct s_flags
 {
@@ -58,6 +58,7 @@ void		x_handler(t_flags *flag);
 void		big_x_handler(t_flags *flag);
 void		f_handler(t_flags *flag);
 void		percent_handler(t_flags *flag);
+void		b_handler(t_flags *flag);
 
 void		put_ptr(uintptr_t addr);
 int			put_padding(int width, char ch);

@@ -78,6 +78,13 @@ int	main(void)
 
 	// printf("====== Warning tests ======\n"); fflush(stdout);
 
+	// printf("%d\n", PRINTER("|%s|", NULL)); fflush(stdout);
+	//printf("%d\n", PRINTER("|%3.s|", NULL)); fflush(stdout);
+	//printf("%d\n", PRINTER("|%8.4s|", NULL)); fflush(stdout);
+	// printf("%d\n", PRINTER("|%10.5s%10.5s|", "123456", NULL)); fflush(stdout);
+	// printf("%d\n", PRINTER("|%s %s|", NULL, str)); fflush(stdout);
+
+
 	// printf("%d\n", PRINTER("|%-05d|", -42)); fflush(stdout);
 	// printf("%d\n", PRINTER("|%++ d|", 42)); fflush(stdout);
 	// printf("%d\n", PRINTER("|% ++d|", 42)); fflush(stdout);
@@ -105,8 +112,6 @@ int	main(void)
 	printf("====== s specifier ======\n"); fflush(stdout);
 	printf(">>>>>>>>>> Normal <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%s|", str)); fflush(stdout);
-	printf("%d\n", PRINTER("|%s|", NULL)); fflush(stdout);
-	printf("%d\n", PRINTER("|%s %s|", NULL, str)); fflush(stdout);
 
 	printf(">>>>>>>>>> Width <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|Hive %20s|", str)); fflush(stdout);
@@ -118,12 +123,9 @@ int	main(void)
 	printf(">>>>>>>>>> Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("%d\n", PRINTER("|%10.s|", str)); fflush(stdout);
 	printf("%d\n", PRINTER("|%10.5s|", "123456")); fflush(stdout);
-	printf("%d\n", PRINTER("|%10.5s%10.5s|", "123456", NULL)); fflush(stdout);
 	printf("%d\n", PRINTER("|%10.5s|", "123")); fflush(stdout);
 	printf("%d\n", PRINTER("|%.s|", str)); fflush(stdout);
 	printf("%d\n", PRINTER("|%.2s is a string|", "")); fflush(stdout);
-	printf("%d\n", PRINTER("|%8.4s|", NULL)); fflush(stdout);
-	printf("%d\n", PRINTER("|%3.s|", NULL)); fflush(stdout);
 	printf("%d\n", PRINTER("|%.2147483647s|", "hello world")); fflush(stdout);
 	printf("%d\n", PRINTER("|%.2147483648s|", "hello world")); fflush(stdout);
 	printf("%d\n", PRINTER("|%.98132912421424323423424112482113981423342s|", "hello world")); fflush(stdout);
@@ -537,6 +539,24 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%f|", DBL_MAX)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%Lf|", LDBL_MAX)); fflush(stdout);
 
+	printf("====== BONUS ======\n"); fflush(stdout);
+	printf("====== Binary ======\n"); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%b|", 42)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%b|", 0)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%b|", -42)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%.b|", 42)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%.b|", LONG_MAX)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%b|", NULL)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%llb|", 42)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%lb|", 0)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%hb|", -42)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%.hhb|", 42)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|% b|", 0)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%-10b|", -42)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%+b|", 42)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%.b|", LONG_MAX)); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%b|", NULL)); fflush(stdout);
+	
 	// /* Wierd cases */
 	// printf("~%d~\n", PRINTER("|%.98132912421424423f|", 424124.412421142)); fflush(stdout);
 	// printf("~%d~\n", PRINTER("|%.981322222f|", 424124.412421142)); fflush(stdout);
