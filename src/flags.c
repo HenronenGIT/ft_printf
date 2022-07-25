@@ -36,7 +36,6 @@ void	check_length_modifiers(t_flags *flag, const char *str, char specif)
 
 void	parse_precision(const char **str, t_flags *flag, char specifier)
 {
-	// while (**str != specifier)
 	while (ft_isdigit(**str))
 	{
 		flag->prec_len = ((10 * flag->prec_len) + **str - 48);

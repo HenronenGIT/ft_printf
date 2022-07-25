@@ -500,7 +500,7 @@ int	main(void)
 	printf("~%d~\n", PRINTER("|%.1f|", 0.150000)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.16f|", 1.025978548534310421634)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.3f|", 1.2395)); fflush(stdout);
-	// printf("~%d~\n", PRINTER("%.98132912421424323423424112482113981423342f", 42.42421412124)); fflush(stdout);
+	printf("~%d~\n", PRINTER("%.98132912421424323423424112482113981423342f", 42.42421412124)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.10f|", 0.87650894255)); fflush(stdout);
 
 	printf(">>>>>>>>>> Zero flag <<<<<<<<<<\n"); fflush(stdout);
@@ -510,9 +510,13 @@ int	main(void)
 
 	printf(">>>>>>>>>> Length modifier <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%lf|", 42.42)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%lf|", 42.42)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%Lf|", -1444565444646.6465424242242454654L)); fflush(stdout);
+
 	printf(">>>>>>>>>> Length modifier && Precision <<<<<<<<<<\n"); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.10lf|", 42.42)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%.10lf|", 42.44214214122412)); fflush(stdout);
+	printf("~%d~\n", PRINTER("|%.10Lf|", 42.1412441241421244211242412L)); fflush(stdout);
 	printf("~%d~\n", PRINTER("|%.10Lf|", -1444565444646.6465424242242454654L)); fflush(stdout);
 
 	printf(">>>>>>>>>> Width & Precision <<<<<<<<<<<\n"); fflush(stdout);
