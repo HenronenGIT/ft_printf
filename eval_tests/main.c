@@ -547,6 +547,15 @@ int	main(void)
 	printf("~%d~\n", ft_printf("|%.b|", 42)); fflush(stdout);
 	printf("~%d~\n", ft_printf("|%.b|", LONG_MAX)); fflush(stdout);
 	printf("~%d~\n", ft_printf("|%b|", NULL)); fflush(stdout);
+
+	printf(">>>>>>>>>> # <<<<<<<<<<\n"); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%#b|", 42)); fflush(stdout);
+
+	printf(">>>>>>>>>> 'Width' <<<<<<<<<<\n"); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%10b|", 42)); fflush(stdout);
+
+	printf(">>>>>>>>>> '0' <<<<<<<<<<\n"); fflush(stdout);
+	printf("~%d~\n", ft_printf("|%010b|", 42)); fflush(stdout);
 	
 	// /* Wierd cases */
 	// printf("~%d~\n", PRINTER("|%.98132912421424423f|", 424124.412421142)); fflush(stdout);
