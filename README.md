@@ -2,7 +2,7 @@
 
 # ft_printf - "Because i’m tired of using putnbr and putstr"
 
-<p align="left"><img src="./README/score.png" height="100" /></p>
+<p align="left"><img src="./README/score.png" height="150" /></p>
 
 > <em> The key to a successful ft_printf is a well-structured and good extensible code.</em>
 
