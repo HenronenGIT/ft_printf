@@ -70,9 +70,9 @@ fclean: clean
 re: fclean all
 
 test: $(SRC)
-	@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(HEADERS) -D "ORIGINAL"
+	@$(CC) $(FLAGS) $(NAME) -x c ./eval_tests/main.c.test $(HEADERS) -D "ORIGINAL"
 	@./a.out
-	@$(CC) $(FLAGS) $(NAME) ./eval_tests/main.c $(HEADERS)
+	@$(CC) $(FLAGS) $(NAME) -x c ./eval_tests/main.c.test $(HEADERS)
 	@./a.out
 
 sanitize: fclean
