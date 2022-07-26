@@ -1,4 +1,3 @@
-test
 <p align="left"><img src="./README/letters.jpg" ></p>
 
 # ft_printf - "Because i’m tired of using putnbr and putstr"
