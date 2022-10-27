@@ -1,14 +1,14 @@
 <h1 align="center">ft_printf </h1>
 
-<em><p align="center" style="italic">"Because i’m tired of using putnbr and putstr"</p></em>
+<h2><em><p align="center" style="italic">"Because i’m tired of using putnbr and putstr"</p></em></h2>
 
 ![Score](./README/letters.jpg)
 
-> The key to a successful ft_printf is a well-structured and good extensible code.
+> <h3 align="center">"The key to a successful ft_printf is a well-structured and good extensible code."</h3>
 
 <h2 align="center">
-	<a href="#-description">Description</a>
-	<a href="##-Usage">Usage</a>
+	<a href="#description">Description</a>
+	<a href="#usage">Usage</a>
 	<a>Testing</a>
 </h2>
 
@@ -34,13 +34,24 @@ In this project basic idea is first study and then remake **printf** function fo
 
 ## Usage
 
-In the repository you have the `Makefile`, that will handle the compiling of the library for you.
+In the root of the repository you have the `Makefile`, that will handle the compiling of the library.
 
-1. When you are at the root of your repository simply run `make`. This will 
-compile the library named `libprintf.a`
+1. At the root of the repository simply run `make`. This will
+compile the library and the name will be `libprintf.a`
 
-2. 
+2. To use the `ft_printf` simply compile your `.c` file/files and the `libprintf.a`.
+```c
+/* main.c */
+#include "./includes/ft_printf.h"
 
+int	main(void)
+{
+	ft_printf("Hello World!\n");
+}
+```
+`gcc main.c libprintf.a`\
+`./a.out`\
+`Hello World!`
 
 ## PDF
 
