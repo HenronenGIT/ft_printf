@@ -7,11 +7,11 @@
 > <h3 align="center">"The key to a successful ft_printf is a well-structured and good extensible code."</h3>
 
 <h2 align="center">
-	<a href="#💡-description-💡">Description</a>
-	<span>·</span>
-	<a href="#🛠-usage-🛠">Usage</a>
-	<span>·</span>
-	<a href="#👷🏽-testing-👷🏽">Testing</a>
+    <a href="#💡-description-💡">Description</a>
+    <span>·</span>
+    <a href="#🛠-usage-🛠">Usage</a>
+    <span>·</span>
+    <a href="#👷🏽-testing-👷🏽">Testing</a>
 </h2>
 
 # 💡 Description 💡
@@ -26,12 +26,12 @@ Flags included:
 | Flags | `hh` | `h` | `l` | `ll` | `L` | `#` | `0` | `-` | `+` | `' '`  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-Here is basic format of how you can use ft_printf specifiers:\
+Here is the basic format of how you can use ft_printf specifiers:\
 `%[$][flags][width][.precision][length modifier]conversion`
 
 # 🛠 Usage 🛠
 
-In the root of the repository you have the `Makefile`, that will handle the compiling of the library.
+In the root of the repository, you have the `Makefile`, which will handle the compiling of the library.
 
 1. At the root of the repository simply run `make`. This will
 compile the library and the name will be `libprintf.a`
@@ -44,7 +44,7 @@ compile the library and the name will be `libprintf.a`
 
 int main(void)
 {
-	ft_printf("Hello World!\n");
+    ft_printf("Hello World!\n");
 }
 ```
 
@@ -56,9 +56,9 @@ Hello World!
 
 # 👷🏽 Testing 👷🏽
 
-`Makefile` can be used to test `ft_printf` simpy run:\
+`Makefile` can be used to test `ft_printf` simply run:\
 `make test`\
-This will create two file to the root of repository
+This will create two files at the root of the repository
 1.`printf.txt`
 2.`ft_prinft.txt`
 
@@ -67,7 +67,7 @@ You can either use BASH command `diff` to compare two files\
 But better way is the use VScode feature <em>compare selected</em>:
 <video alt="Testing video" src="https://user-images.githubusercontent.com/69038136/198340871-d60b4d31-1477-4f74-827a-3b81a24e0690.mov" width="80%" controls></video>
 
-More tests can be added to `main.c` file. This can be found from `eval_tests/` folder.
+More tests can be added to `main.c` file. This can be found in `eval_tests/` folder.
 
 ## PDF
 
