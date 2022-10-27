@@ -8,31 +8,36 @@
 
 <h2 align="center">
 	<a href="#description">Description</a>
+	<span>·</span>
 	<a href="#usage">Usage</a>
+	<span>·</span>
 	<a>Testing</a>
 </h2>
 
 ## Description
 
-Building legendary `printf` function from the scratch.\
+Coding legendary `printf` function from the scratch.\
 Specifiers included:
-| Specifier | Flag |
-| --- | ---|
-| `c` | |
-| `s` | |
-| `p` | |
-| `d` | |
-| `i` | |
-| `o` | |
-| `u` | |
-| `x` | |
-| `X` | |
-| `f` | |
+| Specifier |
+| --- |
+| `c` |
+| `s` |
+| `p` |
+| `d` |
+| `i` |
+| `o` |
+| `u` |
+| `x` |
+| `X` |
+| `f` |
 
+| Specifier | %c | %s | %p | %d | %i | %o | %u | %x | %X | %f  |  %% | %c |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 In this project basic idea is first study and then remake **printf** function found from ANCI C standard library.
 
-## Usage
+## 🛠 Usage 🛠
+
 
 In the root of the repository you have the `Makefile`, that will handle the compiling of the library.
 
@@ -49,9 +54,19 @@ int	main(void)
 	ft_printf("Hello World!\n");
 }
 ```
-`gcc main.c libprintf.a`\
-`./a.out`\
-`Hello World!`
+
+```
+gcc main.c libprintf.a
+./a.out
+Hello World!
+```
+Here is basic format of how you can use ft_printf specifiers:\
+`%[$][flags][width][.precision][length modifier]conversion`
+
+## Testing 👷🏽
+
+`Makefile` can be used to test different
+`make test`
 
 ## PDF
 
