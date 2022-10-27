@@ -7,14 +7,14 @@
 > <h3 align="center">"The key to a successful ft_printf is a well-structured and good extensible code."</h3>
 
 <h2 align="center">
-	<a href="#description">Description</a>
+	<a href="#💡-description-💡">Description</a>
 	<span>·</span>
-	<a href="#usage">Usage</a>
+	<a href="#🛠-usage-🛠">Usage</a>
 	<span>·</span>
-	<a href="#testing">Testing</a>
+	<a href="#👷🏽-testing-👷🏽">Testing</a>
 </h2>
 
-# Description
+# 💡 Description 💡
 
 Coding legendary `printf` function from standard ANCI C library.
 
@@ -42,25 +42,25 @@ compile the library and the name will be `libprintf.a`
 /* main.c */
 #include "./includes/ft_printf.h"
 
-int	main(void)
+int main(void)
 {
 	ft_printf("Hello World!\n");
 }
 ```
 
-```
+```text
 gcc main.c libprintf.a
 ./a.out
 Hello World!
 ```
 
-# Testing 👷🏽
+# 👷🏽 Testing 👷🏽
 
 `Makefile` can be used to test `ft_printf` simpy run:\
 `make test`\
 This will create two file to the root of repository
-1. `printf.txt`
-2. `ft_prinft.txt`
+1.`printf.txt`
+2.`ft_prinft.txt`
 
 You can either use BASH command `diff` to compare two files\
 `diff printf.txt ft_prinft.txt`\
@@ -71,7 +71,7 @@ More tests can be added to `main.c` file. This can be found from `eval_tests/` f
 
 ## PDF
 
-[PDF of ft_printf](https://cdn.intra.42.fr/pdf/pdf/6609/ft_printf.en.pdf)
+[PDF of the subject](https://cdn.intra.42.fr/pdf/pdf/6609/ft_printf.en.pdf)
 
 ### Keywords
 
