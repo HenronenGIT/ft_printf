@@ -16,12 +16,13 @@
 
 # Description
 
-Coding legendary `printf` function from standard ANCI C library.\
-Conversions included:
+Coding legendary `printf` function from standard ANCI C library.
 
+Conversions included:
 | Specifier | `%c` | `%s` | `%p` | `%d` | `%i` | `%o` | `%u` | `%x` | `%X` | `%f`  | `%%` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
+Flags included:
 | Flags | `hh` | `h` | `l` | `ll` | `L` | `#` | `0` | `-` | `+` | `' '`  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
@@ -30,13 +31,13 @@ Here is basic format of how you can use ft_printf specifiers:\
 
 # 🛠 Usage 🛠
 
-
 In the root of the repository you have the `Makefile`, that will handle the compiling of the library.
 
 1. At the root of the repository simply run `make`. This will
 compile the library and the name will be `libprintf.a`
 
 2. To use the `ft_printf` simply compile your `.c` file/files and the `libprintf.a`.
+
 ```c
 /* main.c */
 #include "./includes/ft_printf.h"
@@ -64,7 +65,7 @@ This will create two file to the root of repository
 You can either use BASH command `diff` to compare two files\
 `diff printf.txt ft_prinft.txt`\
 But better way is the use VScode feature <em>compare selected</em>:
-<video alt="Testing video" src="README/testing.mov" width="80%" controls></video>
+<video alt="Testing video" src="https://user-images.githubusercontent.com/69038136/198340871-d60b4d31-1477-4f74-827a-3b81a24e0690.mov" width="80%" controls></video>
 
 More tests can be added to `main.c` file. This can be found from `eval_tests/` folder.
 
