@@ -65,7 +65,7 @@ This will create two files at the root of the repository
 You can either use BASH command `diff` to compare two files\
 `diff printf.txt ft_prinft.txt`\
 But better way is the use VScode feature <em>compare selected</em>:
-<video alt="Testing video" src="https://user-images.githubusercontent.com/69038136/198340871-d60b4d31-1477-4f74-827a-3b81a24e0690.mov" width="80%" controls></video>
+<video alt="Testing video" src="https://user-images.githubusercontent.com/69038136/198340871-d60b4d31-1477-4f74-827a-3b81a24e0690.mov" height="100" controls></video>
 
 More tests can be added to `main.c` file. This can be found in `eval_tests/` folder.
 
