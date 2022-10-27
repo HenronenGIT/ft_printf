@@ -11,21 +11,22 @@
 	<span>·</span>
 	<a href="#usage">Usage</a>
 	<span>·</span>
-	<a>Testing</a>
+	<a href="#testing">Testing</a>
 </h2>
 
 # Description
 
-Coding legendary `printf` function from the scratch.\
-Specifiers included:
+Coding legendary `printf` function from standard ANCI C library.\
+Conversions included:
 
 | Specifier | `%c` | `%s` | `%p` | `%d` | `%i` | `%o` | `%u` | `%x` | `%X` | `%f`  | `%%` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
+| Flags | `hh` | `h` | `l` | `ll` | `L` | `#` | `0` | `-` | `+` | `' '`  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-
-
-In this project basic idea is first study and then remake **printf** function found from ANCI C standard library.
+Here is basic format of how you can use ft_printf specifiers:\
+`%[$][flags][width][.precision][length modifier]conversion`
 
 # 🛠 Usage 🛠
 
@@ -51,8 +52,6 @@ gcc main.c libprintf.a
 ./a.out
 Hello World!
 ```
-Here is basic format of how you can use ft_printf specifiers:\
-`%[$][flags][width][.precision][length modifier]conversion`
 
 # Testing 👷🏽
 
@@ -65,7 +64,7 @@ This will create two file to the root of repository
 You can either use BASH command `diff` to compare two files\
 `diff printf.txt ft_prinft.txt`\
 But better way is the use VScode feature <em>compare selected</em>:
-<video alt="Testing video" src="README/testing.mov" width="80%" controls></video>
+<video alt="Testing video" src="README/testing.mp4" width="80%" controls></video>
 
 More tests can be added to `main.c` file. This can be found from `eval_tests/` folder.
 
