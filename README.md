@@ -14,29 +14,20 @@
 	<a>Testing</a>
 </h2>
 
-## Description
+# Description
 
 Coding legendary `printf` function from the scratch.\
 Specifiers included:
-| Specifier |
-| --- |
-| `c` |
-| `s` |
-| `p` |
-| `d` |
-| `i` |
-| `o` |
-| `u` |
-| `x` |
-| `X` |
-| `f` |
 
-| Specifier | %c | %s | %p | %d | %i | %o | %u | %x | %X | %f  |  %% | %c |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Specifier | `%c` | `%s` | `%p` | `%d` | `%i` | `%o` | `%u` | `%x` | `%X` | `%f`  | `%%` |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+
+
 
 In this project basic idea is first study and then remake **printf** function found from ANCI C standard library.
 
-## 🛠 Usage 🛠
+# 🛠 Usage 🛠
 
 
 In the root of the repository you have the `Makefile`, that will handle the compiling of the library.
@@ -63,10 +54,20 @@ Hello World!
 Here is basic format of how you can use ft_printf specifiers:\
 `%[$][flags][width][.precision][length modifier]conversion`
 
-## Testing 👷🏽
+# Testing 👷🏽
 
-`Makefile` can be used to test different
-`make test`
+`Makefile` can be used to test `ft_printf` simpy run:\
+`make test`\
+This will create two file to the root of repository
+1. `printf.txt`
+2. `ft_prinft.txt`
+
+You can either use BASH command `diff` to compare two files\
+`diff printf.txt ft_prinft.txt`\
+But better way is the use VScode feature <em>compare selected</em>:
+<video alt="Testing video" src="README/testing.mov" width="80%" controls></video>
+
+More tests can be added to `main.c` file. This can be found from `eval_tests/` folder.
 
 ## PDF
 
