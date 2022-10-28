@@ -7,11 +7,11 @@
 > <h3 align="center">"The key to a successful ft_printf is a well-structured and good extensible code."</h3>
 
 <h2 align="center">
-    <a href="#💡-description-💡">Description</a>
+    <a href="#-description-">Description</a>
     <span>·</span>
-    <a href="#🛠-usage-🛠">Usage</a>
+    <a href="#-usage-">Usage</a>
     <span>·</span>
-    <a href="#👷🏽-testing-👷🏽">Testing</a>
+    <a href="#-testing-">Testing</a>
 </h2>
 
 # 💡 Description 💡
